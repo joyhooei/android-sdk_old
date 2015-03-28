@@ -1,0 +1,9 @@
+*~
+tags
+/sdks/*/assets/
+/sdks/*/bin/
+/sdks/*/obj/
+/sdks/*/gen/
+/sdks/*/local.properties
+/sdks/*/proguard-project.txt
+/sdks/*/project.properties
