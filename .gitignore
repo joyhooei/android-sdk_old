@@ -1,5 +1,6 @@
 *~
 tags
+
 /sdks/*/assets/
 /sdks/*/bin/
 /sdks/*/obj/
@@ -7,3 +8,11 @@ tags
 /sdks/*/local.properties
 /sdks/*/proguard-project.txt
 /sdks/*/project.properties
+
+/libs/*/bin/
+/libs/*/obj/
+/libs/*/gen/
+/libs/*/local.properties
+/libs/*/proguard-project.txt
+/libs/*/project.properties
+
