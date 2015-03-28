@@ -7,13 +7,13 @@
     <property file="local.properties" />
 
     <target name="copyassets">
-        <echo message="copyassets from ${assets.dir}..." />
+        <echo message="copyassets from ${env.CLIENT_DIRECTORY}..." />
         <exec executable="rm">
             <arg value="-r"/>
             <arg value="assets"/>
         </exec>
         <exec executable="${env.FRAMEWORK}/package/pylib/copyassets.py" failonerror="true">
-            <arg value="${assets.dir}"/>
+            <arg value="${env.CLIENT_DIRECTORY}"/>
             <arg value="./assets"/>
         </exec>
     </target>
