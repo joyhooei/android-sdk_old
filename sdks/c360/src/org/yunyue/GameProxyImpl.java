@@ -304,8 +304,7 @@ public class GameProxyImpl extends GameProxy {
 
         @Override
         public void onFinished(String data) {
-            Log.v("sdk", "payCallBack: " + payCallBack);
-//            Log.d(TAG, "mPayCallback, data is " + data);
+            Log.d("sdk", "mPayCallback, data is " + data);
             if(TextUtils.isEmpty(data)) {
                 payCallBack.onFail("支付失败，数据为空");
                 return;
@@ -321,6 +320,7 @@ public class GameProxyImpl extends GameProxy {
                     case 0:
                         Toast.makeText(currentActivity, "支付成功", Toast.LENGTH_SHORT).show();
                         payCallBack.onSuccess("支付成功");
+                        Log.v("sdk", "payCallBack.onSuccess");
                         break;
                     case 1:
                     case -1:
@@ -341,6 +341,7 @@ public class GameProxyImpl extends GameProxy {
                         payCallBack.onFail("qt失效");
                         break;
                     default:
+                        payCallBack.onFail("支付失败");
                         break;
                 }
             } catch (JSONException e) {

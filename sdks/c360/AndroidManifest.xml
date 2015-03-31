@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.baidu.bdgamesdk.demo"
+    package="com.yunyue.nzgl.c360"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -83,7 +83,7 @@
 
         <meta-data
             android:name="QHOPENSDK_APPKEY"
-            android:value="08158bf9f09b919790a63f10c381be52" >
+            android:value="fb8636aaae2a1a31cf737ae895722440" >
         </meta-data>
         <meta-data
             android:name="QHOPENSDK_PRIVATEKEY"
@@ -91,7 +91,7 @@
         </meta-data>
         <meta-data
             android:name="QHOPENSDK_APPID"
-            android:value="201696301" >
+            android:value="202192771" >
         </meta-data>
 
         <!-- 如下是360游戏实时推送SDK必要声明，不可修改 -->
