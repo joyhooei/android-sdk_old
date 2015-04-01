@@ -70,7 +70,7 @@ public class GameProxyImpl extends GameProxy {
     }
 
     @Override
-    public void pay(Activity activity, String ID, String name, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         Log.v("sdk", "pay:" + ID + "," + name + "," + price + "," + callBackInfo + "," + roleInfo.toString());
         currentActivity = activity;
         this.payCallBack = payCallBack;
@@ -99,7 +99,7 @@ public class GameProxyImpl extends GameProxy {
         // 可选参数
         qihooPay.setAppExt1(callBackInfo);
         //qihooPay.setAppExt2(getString(R.string.demo_pay_app_ext2));
-        qihooPay.setAppOrderId( UUID.randomUUID().toString() );
+        qihooPay.setAppOrderId(orderID);
 
         Intent intent = getPayIntent(true, qihooPay);
 

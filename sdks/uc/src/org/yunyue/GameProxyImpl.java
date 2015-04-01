@@ -65,7 +65,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     @Override
-    public void pay(Activity activity, String ID, String name, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         Log.v("sdk", "pay");
         currentActivity = activity;
         this.payCallBack = payCallBack;

@@ -17,8 +17,8 @@ public class MiAppApplication extends app
 
 		/** SDK初始化 */
 		appInfo = new MiAppInfo();
-		appInfo.setAppId( "2882303761517239138" );
-		appInfo.setAppKey( "5691723970138" );
+		appInfo.setAppId( "2882303761517320056" );
+		appInfo.setAppKey( "5871732088056" );
 		appInfo.setOrientation( ScreenOrientation.vertical ); // 横竖屏
 		MiCommplatform.Init( this, appInfo );
 }

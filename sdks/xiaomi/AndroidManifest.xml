@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.sdk.migame.payment"
+      package="com.yunyue.nzgl.xiaomi"
       android:installLocation="auto"
       android:versionCode="100000"
       android:versionName="1.00000">
@@ -24,7 +24,7 @@
 
         <activity android:name="org.yunyue.poem"
                   android:label="@string/app_name"
-                  android:screenOrientation="landscape"
+                  android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                   android:configChanges="keyboardHidden|orientation">
             <intent-filter>
@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="sdktype" android:value="\ 1"/>
+        <meta-data android:name="sdktype" android:value="\ 18"/>
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"
