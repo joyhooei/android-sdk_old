@@ -15,5 +15,5 @@ public class UCSdkConfig {
 	public static int serverId = 0; // 此参数已废弃,默认传入0即可
 
 	// 值为true时，为调试环境模式，当值为false时，是生产环境模式，验收及对外发布时，要求必须使用生产环境模式
-	public static boolean debugMode = true;
+	public static boolean debugMode = false;
 }

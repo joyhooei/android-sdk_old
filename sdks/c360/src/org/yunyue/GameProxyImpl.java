@@ -53,7 +53,7 @@ public class GameProxyImpl extends GameProxy {
         currentActivity = activity;
         loginCustomParams = customParams;
 
-        Matrix.execute(activity, getLoginIntent(true), mLoginCallback);
+        Matrix.execute(activity, getLoginIntent(false), mLoginCallback);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class GameProxyImpl extends GameProxy {
     @Override
     public void switchAccount(Activity activity, Object customParams) {
         switchCustomParams = customParams;
-        Matrix.invokeActivity(activity, getSwitchAccountIntent(true), mAccountSwitchCallback);
+        Matrix.invokeActivity(activity, getSwitchAccountIntent(false), mAccountSwitchCallback);
     }
 
     @Override

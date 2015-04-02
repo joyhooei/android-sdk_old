@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yunyue.nzgl.uc"
+    android:installLocation="auto"
     android:versionCode="10000"
     android:versionName="1.0000" >
 
-    <supports-screens
-        android:anyDensity="true"
-        android:largeScreens="true"
-        android:normalScreens="true"
-        android:resizeable="true"
-        android:smallScreens="true" />
-
-    <uses-sdk
-        android:minSdkVersion="7"
-        android:targetSdkVersion="14" />
+    <uses-sdk android:minSdkVersion="5" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -31,17 +23,19 @@
 	<uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
-        android:icon="@drawable/icon"
+        android:debuggable="true"
+        android:icon="@drawable/ic_launcher"
         android:name="org.yunyue.app"
         android:label="@string/app_name" >
         <meta-data android:name="sdktype" android:value="\ 7" />
         <activity
             android:name="org.yunyue.poem"
-            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:configChanges="orientation|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -52,10 +46,10 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" >
             <intent-filter>
                 <action android:name="cn.uc.gamesdk.sdkweb" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -78,5 +72,10 @@
         </activity>
         
     </application>
+
+    <supports-screens android:largeScreens="true"
+        android:smallScreens="true"
+        android:anyDensity="true"
+        android:normalScreens="true"/>
 
 </manifest>
