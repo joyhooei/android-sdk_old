@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.baidu.bdgamesdk.demo"
+    package="com.yunyue.nzgl.baidu"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -46,10 +46,12 @@
         android:icon="@drawable/ic_launcher"
         android:name="org.yunyue.sdk_app" >
 
+        <meta-data android:name="sdktype" android:value="\ 17"/>
+
         <activity
             android:name="org.yunyue.poem"
             android:label="@string/app_name"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -283,7 +285,7 @@
 
         <!-- ↓↓↓ 银联SDK ↓↓↓ -->
         <activity android:name="com.unionpay.uppay.PayActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="portrait" />
         <!-- ↑↑↑ 银联SDK ↑↑↑ -->
         
         <!-- ↓↓↓ 支付宝插件 ↓↓↓ -->

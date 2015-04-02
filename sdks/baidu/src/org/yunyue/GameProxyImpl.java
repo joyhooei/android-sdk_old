@@ -32,10 +32,10 @@ public class GameProxyImpl extends GameProxy {
         currentActivity = activity;
 
         BDGameSDKSetting mBDGameSDKSetting = new BDGameSDKSetting();
-        mBDGameSDKSetting.setAppID(3067515);//APPID设置
-        mBDGameSDKSetting.setAppKey("f3Os4GAOqxgm79GqbnkT9L8T");//APPKEY设置
+        mBDGameSDKSetting.setAppID(5584487);//APPID设置
+        mBDGameSDKSetting.setAppKey("fuZz2kKfl7hdzilGuaxcK4BY");//APPKEY设置
         mBDGameSDKSetting.setDomain(Domain.RELEASE);//设置为正式模式
-        mBDGameSDKSetting.setOrientation(Orientation.LANDSCAPE);//设置为横屏
+        mBDGameSDKSetting.setOrientation(Orientation.PORTRAIT);//设置为横屏
 		BDGameSDK.init(activity, mBDGameSDKSetting, new IResponse<Void>(){
 			@Override
 			public void onResponse(int resultCode, String resultDesc,
@@ -98,12 +98,11 @@ public class GameProxyImpl extends GameProxy {
     }
 
     @Override
-    public void pay(final Activity activity, String ID, String name, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
+    public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         Log.v("sdk", "pay:" + ID + "," + name + "," + price + "," + callBackInfo + "," + roleInfo.toString());
 
-		String cpOrderId = UUID.randomUUID().toString();//CP订单号
 		PayOrderInfo payOrderInfo = new PayOrderInfo();
-		payOrderInfo.setCooperatorOrderSerial(cpOrderId);
+		payOrderInfo.setCooperatorOrderSerial(orderID);
 		payOrderInfo.setProductName(name); 
 		payOrderInfo.setTotalPriceCent((int)(price*100));//以分为单位
 		payOrderInfo.setRatio(1);
