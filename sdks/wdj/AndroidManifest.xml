@@ -36,7 +36,7 @@
         <activity
             android:name="org.yunyue.poem"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -49,7 +49,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:launchMode="singleTop"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
              />
 
         <activity
@@ -57,7 +57,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:launchMode="singleTop"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             />
 
         <activity
@@ -65,7 +65,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:launchMode="singleTop"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
              />
 
         <activity
@@ -73,7 +73,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:launchMode="singleTop"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
              />
 
         <activity
@@ -81,7 +81,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:launchMode="singleTop"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
              />
 
         <activity
@@ -96,7 +96,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:launchMode="singleTop"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
              />
 
         <activity
@@ -104,7 +104,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:launchMode="singleTop"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
              />
 
         <receiver android:name="com.wandoujia.mariosdk.plugin.api.WandouPluginReceiver">
