@@ -453,4 +453,9 @@ public class GameProxyImpl extends GameProxy{
 			e.printStackTrace();
 		}
 	}
+
+    @Override
+    public boolean supportCommunity() {
+        return false;
+    }
 }

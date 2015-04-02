@@ -91,10 +91,10 @@ public class GameProxyImpl extends GameProxy {
     }
 
     @Override
-    public void pay(Activity activity, String ID, String name, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
+    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         Log.v("sdk", "pay:" + ID + "," + name + "," + price + "," + callBackInfo + "," + roleInfo.toString());
         wandouGamesApi.pay(activity, name, (long)(price*100),
-                UUID.randomUUID().toString(), new OnPayFinishedListener() {
+                orderID, new OnPayFinishedListener() {
                     @Override
                     public void onPaySuccess(PayResult payResult) {
                         if (payResult.getSuccess()) {
@@ -140,4 +140,8 @@ public class GameProxyImpl extends GameProxy {
         wandouGamesApi.onPause(activity);
     }
 
+    @Override
+    public boolean supportCommunity() {
+        return false;
+    }
 }

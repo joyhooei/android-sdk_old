@@ -154,6 +154,11 @@ public class GameProxyImpl extends GameProxy {
         Log.v("sdk", "setExtData:" + ext);
     }
 
+    @Override
+    public boolean supportCommunity() {
+        return false;
+    }
+
     private void setSuspendWindowChangeAccountListener(){//设置切换账号事件监听（个人中心界面切换账号）
 		BDGameSDK.setSuspendWindowChangeAccountListener(new IResponse<Void>(){
 			@Override

@@ -1,4 +1,4 @@
-package com.qihoo.gamecenter.sdk.demosp.wxapi;
+package com.yunyue.nzgl.c360.wxapi;
 
 import com.qihoo.gamecenter.sdk.matrix.Matrix;
 import com.qihoo.gamecenter.sdk.protocols.ProtocolConfigs;
