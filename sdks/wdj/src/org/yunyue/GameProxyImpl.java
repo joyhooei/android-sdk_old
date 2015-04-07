@@ -94,7 +94,7 @@ public class GameProxyImpl extends GameProxy {
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         Log.v("sdk", "pay:" + ID + "," + name + "," + price + "," + callBackInfo + "," + roleInfo.toString());
         wandouGamesApi.pay(activity, name, (long)(price*100),
-                orderID, new OnPayFinishedListener() {
+                orderID + "_" + callBackInfo, new OnPayFinishedListener() {
                     @Override
                     public void onPaySuccess(PayResult payResult) {
                         if (payResult.getSuccess()) {
