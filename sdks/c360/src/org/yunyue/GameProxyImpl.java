@@ -101,7 +101,7 @@ public class GameProxyImpl extends GameProxy {
         //qihooPay.setAppExt2(getString(R.string.demo_pay_app_ext2));
         qihooPay.setAppOrderId(orderID);
 
-        Intent intent = getPayIntent(true, qihooPay);
+        Intent intent = getPayIntent(false, qihooPay);
 
         //Bundle bundle = new Bundle();
         // 可选参数，默认支付类型
