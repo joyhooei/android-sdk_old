@@ -119,13 +119,13 @@ public class GameProxyImpl extends GameProxy implements OnLoginProcessListener, 
     }
 
     @Override
-    public void pay(Activity activity, String ID, String name, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         Log.v("sdk", "pay:" + ID + "," + name + "," + price + "," + callBackInfo + "," + roleInfo.toString());
         currentActivity = activity;
         payCallBack = payCallBack;
 
         MiBuyInfo miBuyInfo = new MiBuyInfo();
-        miBuyInfo.setCpOrderId( UUID.randomUUID().toString() );
+        miBuyInfo.setCpOrderId(orderID);
         miBuyInfo.setCpUserInfo(callBackInfo);
         miBuyInfo.setProductCode(ID);
         miBuyInfo.setCount(1);
