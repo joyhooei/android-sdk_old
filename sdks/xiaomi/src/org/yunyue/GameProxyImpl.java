@@ -122,13 +122,12 @@ public class GameProxyImpl extends GameProxy implements OnLoginProcessListener, 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         Log.v("sdk", "pay:" + ID + "," + name + "," + price + "," + callBackInfo + "," + roleInfo.toString());
         currentActivity = activity;
-        payCallBack = payCallBack;
+        this.payCallBack = payCallBack;
 
         MiBuyInfo miBuyInfo = new MiBuyInfo();
         miBuyInfo.setCpOrderId(orderID);
         miBuyInfo.setCpUserInfo(callBackInfo);
-        miBuyInfo.setProductCode(ID);
-        miBuyInfo.setCount(1);
+        miBuyInfo.setAmount((int)price);
 
         //用户信息，网游必须设置、单机游戏或应用可选
         try {
