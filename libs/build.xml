@@ -6,7 +6,14 @@
          Version Control Systems. -->
     <property file="local.properties" />
 
-    <target name="copyassets">
+    <target name="copyicons">
+        <echo message="copyicons from ${env.CLIENT_DIRECTORY}/../win32_client/icon/android ..."/>
+        <exec executable="${env.FRAMEWORK}/package/pylib/copyicons.py" failonerror="true">
+            <arg value="${env.CLIENT_DIRECTORY}/../win32_client/icon/android"/>
+        </exec>
+    </target>
+
+    <target name="copyassets" depends="copyicons">
         <echo message="copyassets from ${env.CLIENT_DIRECTORY}..." />
         <exec executable="rm">
             <arg value="-r"/>
@@ -18,7 +25,7 @@
         </exec>
     </target>
 
-    <target name="linkassets">
+    <target name="linkassets" depends="copyicons">
         <echo message="linkassets from ../../assets" />
         <exec executable="../../libs/linkassets.sh" failonerror="true">
         </exec>
