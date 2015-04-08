@@ -78,6 +78,7 @@ public class GameProxyImpl extends GameProxy{
 		// 非必选参数，可不设置，此参数已废弃,默认传入0即可。
 		// 如无法支付，请在开放平台检查是否已经配置了对应环境的支付回调地址，如无请配置，如有但仍无法支付请联系UC技术接口人。
 		pInfo.setServerId(0);
+        pInfo.setTransactionNumCP(orderID);
 
         try {
             pInfo.setRoleId(roleInfo.getString("id")); // 设置用户的游戏角色的ID，此为必选参数，请根据实际业务数据传入真实数据
