@@ -18,6 +18,12 @@
         </exec>
     </target>
 
+    <target name="linkassets">
+        <echo message="linkassets from ../../assets" />
+        <exec executable="../../libs/linkassets.sh" failonerror="true">
+        </exec>
+    </target>
+
     <!-- The ant.properties file can be created by you. It is only edited by the
          'android' tool to add properties to it.
          This is the place to change some Ant specific build properties.

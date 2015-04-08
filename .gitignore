@@ -1,5 +1,8 @@
 *~
 tags
+ic_launcher.png
+
+/assets
 
 /sdks/*/assets/
 /sdks/*/bin/
@@ -16,4 +19,3 @@ tags
 /libs/*/proguard-project.txt
 /libs/*/project.properties
 
-ic_launcher.png
