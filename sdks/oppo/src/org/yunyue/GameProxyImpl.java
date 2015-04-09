@@ -130,7 +130,7 @@ public class GameProxyImpl extends GameProxy {
 				callBackInfo, (int)price * 100);
 		payInfo.setProductDesc("元宝");
 		payInfo.setProductName(name);
-		payInfo.setCallbackUrl("http://gamecenter.wanyol.com:8080/gamecenter/callback_test_url");
+		payInfo.setCallbackUrl("http://sdk.nataku.yunyuegame.com/sdk/android/sdk/oppo/pay_callback");
 		payInfo.setGoodsCount(1);
 		GameCenterSDK.getInstance().doFixedKebiPayment(kebiPayment, payInfo, activity);
     }
