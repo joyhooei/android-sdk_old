@@ -56,7 +56,7 @@ public class GameProxyImpl extends GameProxy {
 		};
 		// TODO for test old
 //		AccountAgent.useNewApi = true;
-		GameCenterSettings.isDebugModel = true;// 测试log开关
+		GameCenterSettings.isDebugModel = false;// 测试log开关
 		GameCenterSettings.isOritationPort = true;// 控制SDK activity的横竖屏 true为竖屏
 		GameCenterSettings.proInnerSwitcher = false;//是否支持游戏内切换账号
 		GameCenterSDK.init(gameCenterSettings, activity);
@@ -65,7 +65,24 @@ public class GameProxyImpl extends GameProxy {
 	@Override
 	public void onResume(Activity activity) {
 		super.onResume(activity);
-		GameCenterSDK.setmCurrentContext(activity);
+        GameCenterSDK.setmCurrentContext(activity);
+
+        GameCenterSDK.getInstance().doShowSprite(new ApiCallback() {
+            @Override
+            public void onSuccess(String content, int code) {
+                //makeToast("切换账号成功:" + content + "#" + code);
+            }
+            @Override
+            public void onFailure(String content, int code) {
+                //makeToast("切换账号失败:" + content + "#" + code);
+            }
+        }, activity);//显示浮标
+    }
+
+	@Override
+	public void onPause(Activity activity) {
+		super.onPause(activity);
+        GameCenterSDK.getInstance().doDismissSprite(activity);
     }
 
     @Override
@@ -125,9 +142,7 @@ public class GameProxyImpl extends GameProxy {
         currentActivity = activity;
         this.payCallBack = payCallBack;
 
-		final FixedPayInfo payInfo = new FixedPayInfo(
-				System.currentTimeMillis() + new Random().nextInt(1000) + "",
-				callBackInfo, (int)price * 100);
+		final FixedPayInfo payInfo = new FixedPayInfo(orderID, callBackInfo, (int)price * 100);
 		payInfo.setProductDesc("元宝");
 		payInfo.setProductName(name);
 		payInfo.setCallbackUrl("http://sdk.nataku.yunyuegame.com/sdk/android/sdk/oppo/pay_callback");
@@ -181,4 +196,8 @@ public class GameProxyImpl extends GameProxy {
         }
     }
 
+    @Override
+    public void openCommunity(Activity activity) {
+        GameCenterSDK.getInstance().doShowForum(activity);
+    }
 }
