@@ -5,6 +5,8 @@ PlatformBase = class('platform_base')
 -- 初始化，注册回调
 function PlatformBase:ctor()
     register_platform_callback(CB_LOGIN_SUCCESS, function(json)
+        local u = cjson.decode(json)
+        CCLuaLog(string.format('token:%s, userID:%s', u.token, u.userID))
         CCLuaLog("lua onLoginSuccess:" .. json);
     end)
     register_platform_callback(CB_LOGIN_FAIL, function(json)
@@ -40,6 +42,11 @@ function PlatformBase:logout()
     luaj.callStaticMethod("org/yunyue/poem", "accountLogout", {}, '()V')
 end
 
+-- 切换帐号
+function PlatformBase:switch()
+    luaj.callStaticMethod("org/yunyue/poem", "accountSwitch", {}, '()V')
+end
+
 -- roleInfo：构成
 --      id          角色ID
 --      name        角色名
@@ -50,8 +57,8 @@ end
 -- }
 --
 function PlatformBase:pay(goodID, goodName, goodPrice, roleInfo)
-    local sig = '(Ljava/lang/String;Ljava/lang/String;FLjava/lang/String;Ljava/lang/String;)V'
+    local sig = '(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;FLjava/lang/String;Ljava/lang/String;)V'
     local callBackInfo = string.format('%d_%d', roleInfo.serverID, roleInfo.id)
-    local args = {goodID, goodName, goodPrice, callBackInfo, cjson.encode(roleInfo)}
+    local args = {goodID, goodName, "test-order-id2", goodPrice, callBackInfo, cjson.encode(roleInfo)}
     luaj.callStaticMethod("org/yunyue/poem", "pay", args, sig)
 end

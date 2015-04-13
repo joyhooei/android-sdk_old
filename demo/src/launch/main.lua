@@ -40,30 +40,34 @@ function init()
 
     local spriteLogin = MCLoader:sharedMCLoader():loadSprite('10000_11_1.png')
     spriteLogin:setPosition(100, winSize.height/2)
+    spriteLogin:setAnchorPoint(ccp(0,0))
     local win = TLWindow:createWindow( spriteLogin, win_flags or TL_WINDOW_UNIVARSAL )
     init_simple_button(win, function()
         g_platform:login()
     end)
     layer_ui:AddModuleWindow(win)
 
-    local spritePay = MCLoader:sharedMCLoader():loadSprite('10000_10_4.png')
+    local spritePay = MCLoader:sharedMCLoader():loadSprite('10000_4_14.png')
     spritePay:setPosition(300, winSize.height/2)
+    spritePay:setAnchorPoint(ccp(0,0))
     win = TLWindow:createWindow( spritePay, win_flags or TL_WINDOW_UNIVARSAL )
     init_simple_button(win, function()
-        g_platform:pay("test good id", "test good name", 10.0, {
+        g_platform:pay("test good id", "test good name", 1, {
             id = 0,
             name = 'test',
             faction = '',
             vip = 1,
             level = 2,
             serverID = 100,
+            raw_username = '282894945',
         })
     end)
     layer_ui:AddModuleWindow(win)
 
-    local spritePay = MCLoader:sharedMCLoader():loadSprite('10000_11_3.png')
-    spritePay:setPosition(600, winSize.height/2)
-    win = TLWindow:createWindow( spritePay, win_flags or TL_WINDOW_UNIVARSAL )
+    local spriteLogout = MCLoader:sharedMCLoader():loadSprite('10000_11_3.png')
+    spriteLogout:setPosition(500, winSize.height/2)
+    spriteLogout:setAnchorPoint(ccp(0,0))
+    win = TLWindow:createWindow( spriteLogout, win_flags or TL_WINDOW_UNIVARSAL )
     init_simple_button(win, function()
         g_platform:logout()
     end)
