@@ -32,7 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="sdktype" android:value="\ 18"/>
+        <meta-data android:name="sdktype" android:value="18"/>
+        <meta-data android:name="YYPackageName" android:value="com.yunyue.nzgl.wanka"/>
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"
