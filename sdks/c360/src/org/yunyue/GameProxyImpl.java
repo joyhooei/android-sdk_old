@@ -121,7 +121,7 @@ public class GameProxyImpl extends GameProxy {
     }
 
     @Override
-    public void applicationDestroy(Context context) {
+    public void applicationDestroy(Activity activity) {
         Log.v("sdk", "applicationDestroy");
     }
 
