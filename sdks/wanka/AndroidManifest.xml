@@ -32,8 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data android:name="sdktype" android:value="18"/>
+        <meta-data android:name="sdktype" android:value="23"/>
         <meta-data android:name="YYPackageName" android:value="com.yunyue.nzgl.wanka"/>
+        <meta-data android:name="create_order_url" android:value="http://sdk.nataku.yunyuegame.com/sdk/android/sdk/wanka/create_order"/>
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"
