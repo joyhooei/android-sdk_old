@@ -67,7 +67,7 @@ public class GameProxyImpl extends GameProxy {
                 }
                 else {
                     User u = new User();
-                    //u.userID = unverifiedPlayer.getUID();
+                    u.userID = unverifiedPlayer.getId();
                     u.token = unverifiedPlayer.getToken();
                     userListerner.onLoginSuccess(u, customParams);
                 }
