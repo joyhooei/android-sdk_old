@@ -144,4 +144,9 @@ public class GameProxyImpl extends GameProxy {
     public boolean supportCommunity() {
         return false;
     }
+
+    public boolean supportLogout() {
+        return true;
+    }
+
 }
