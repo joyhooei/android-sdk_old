@@ -154,7 +154,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginProcessListener, 
     }
 
     @Override
-    public void applicationDestroy(Context context) {
+    public void applicationDestroy(Activity activity) {
         Log.v("sdk", "applicationDestroy");
     }
 
@@ -248,6 +248,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginProcessListener, 
 			} );
 	}
 
+    @Override
     public boolean supportCommunity() {
         return false;
     }
