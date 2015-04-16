@@ -40,7 +40,7 @@ public class GameProxyImpl extends GameProxy {
     private static final String CHANNEL = "channel";// 厂商名称
     private static final String AUTH_INFO = "auth_info";// 创建订单是需要传给Server的字段名
     private JSONObject mJsonObject;// 登陆返回的信息
-    private JSONObject mLoginJsonObject;// 验证token返回的信息
+    private String mLoginJson;// 验证token返回的信息
 
     Handler mHandler = new Handler()
     {
@@ -146,7 +146,7 @@ public class GameProxyImpl extends GameProxy {
         String roleName = "";
         try {
             roleName = roleInfo.getString("name");
-            mLoginJsonObject = new JSONObject(roleInfo.getString("extra"));
+            mLoginJson = roleInfo.getString("extra");
         } catch (JSONException e) {
             ;
         }
@@ -208,7 +208,7 @@ public class GameProxyImpl extends GameProxy {
     private void getOrderInfo( ProductInfo productInfo )
     {
         String sUrl = ((poem)currentActivity).getMetaData("create_order_url");
-        if (mLoginJsonObject != null && mLoginJsonObject.length() != 0)
+        if (mLoginJson != null)
         {
             try
             {
@@ -224,7 +224,7 @@ public class GameProxyImpl extends GameProxy {
                 params.append("channel=");
                 params.append(enCode(mJsonObject.getString(CHANNEL)));
                 params.append("&returnJson=");
-                params.append(enCode(mLoginJsonObject.getString(AUTH_INFO)));
+                params.append(enCode(mLoginJson));
                 params.append("&productName=");
                 params.append(enCode(productInfo.getProductName()));
                 params.append("&description=");
