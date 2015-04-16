@@ -248,4 +248,8 @@ public class GameProxyImpl extends GameProxy implements OnLoginProcessListener, 
 			} );
 	}
 
+    public boolean supportCommunity() {
+        return false;
+    }
+
 }
