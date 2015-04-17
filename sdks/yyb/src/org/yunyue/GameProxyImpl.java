@@ -12,6 +12,11 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
+import android.support.v4.content.LocalBroadcastManager;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+import android.content.DialogInterface;
+import android.app.AlertDialog;
 
 import com.tencent.msdk.WeGame;
 import com.tencent.msdk.api.LoginRet;
@@ -28,11 +33,17 @@ import com.tencent.msdk.api.TokenRet;
 import com.tencent.msdk.api.WGPlatformObserver;
 import com.tencent.msdk.api.WakeupRet;
 
-public class GameProxyImpl extends GameProxy implements WGPlatformObserver{
-    private Object loginCustomParams;
-    private Activity currentActivity;
+public class GameProxyImpl extends GameProxy {
+    public Object loginCustomParams;
+    public Activity currentActivity;
+    public static final String LOCAL_ACTION = "com.yunyue.nzgl";
 
-	@Override
+	public LocalBroadcastManager lbm;
+	public BroadcastReceiver mReceiver;
+
+    private long pauseTime = 0;
+
+    @Override
     public void onCreate(Activity activity) {
         currentActivity = activity;
         super.onCreate(activity);
@@ -47,8 +58,8 @@ public class GameProxyImpl extends GameProxy implements WGPlatformObserver{
 
         /***********************************************************
          *  TODO GAME 接入必须要看， baseInfo值因游戏而异，填写请注意以下说明:
-         *  	baseInfo值游戏填写错误将导致 QQ、微信的分享，登录失败 ，切记 ！！！
-         * 		只接单一平台的游戏请勿随意填写其余平台的信息，否则会导致公告获取失败
+         *      baseInfo值游戏填写错误将导致 QQ、微信的分享，登录失败 ，切记 ！！！
+         *         只接单一平台的游戏请勿随意填写其余平台的信息，否则会导致公告获取失败
          *      offerId 为必填，一般为手QAppId
          ***********************************************************/
         MsdkBaseInfo baseInfo = new MsdkBaseInfo();
@@ -62,26 +73,41 @@ public class GameProxyImpl extends GameProxy implements WGPlatformObserver{
         // 注意：传入Initialized的activity即this，在游戏运行期间不能被销毁，否则会产生Crash
         WGPlatform.Initialized(activity, baseInfo);
         // 设置拉起QQ时候需要用户授权的项
-		WGPlatform.WGSetPermission(WGQZonePermissions.eOPEN_ALL);
+        WGPlatform.WGSetPermission(WGQZonePermissions.eOPEN_ALL);
 
         // 全局回调类，游戏自行实现
-        WGPlatform.WGSetObserver(this);
+        WGPlatform.WGSetObserver(new MsdkCallback(this));
 
-        WGPlatform.WGLoginWithLocalInfo();
+        //WGPlatform.WGLoginWithLocalInfo();
 
         // launchActivity的onCreat()和onNewIntent()中必须调用
         // WGPlatform.handleCallback()。否则会造成微信登录无回调
         if (WGPlatform.wakeUpFromHall(activity.getIntent())) {
-        	// 拉起平台为大厅
-        	Logger.d("LoginPlatform is Hall");
+            // 拉起平台为大厅
+            Logger.d("LoginPlatform is Hall");
             Logger.d(activity.getIntent());
             WGPlatform.handleCallback(activity.getIntent());
         } else {
-        	// 拉起平台不是大厅
+            // 拉起平台不是大厅
             Logger.d("LoginPlatform is not Hall");
             Logger.d(activity.getIntent());
             WGPlatform.handleCallback(activity.getIntent());
         }
+
+
+        // 设置局部广播，处理回调信息
+        lbm = LocalBroadcastManager.getInstance(activity.getApplicationContext());
+        mReceiver = new BroadcastReceiver() {
+
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String result = intent.getExtras().getString("Result");
+                Logger.d(result);
+                //displayResult(result);
+            }
+
+        };
+        lbm.registerReceiver(mReceiver,  new IntentFilter(MsdkCallback.LOCAL_ACTION));
 
     }
 
@@ -95,12 +121,22 @@ public class GameProxyImpl extends GameProxy implements WGPlatformObserver{
     public void onResume(Activity activity) {
         super.onResume(activity);
         WGPlatform.onResume();
+        if (pauseTime != 0 && System.currentTimeMillis() / 1000 - pauseTime > 1800) {
+            Logger.d("MsdkStart", "start auto login");
+            // 模拟游戏自动登录，这里需要游戏添加加载动画
+            // WGLoginWithLocalInfo是一个异步接口, 会到后台验证上次登录的票据是否有效
+            WGPlatform.WGLoginWithLocalInfo();
+            // 模拟游戏自动登录 END
+        } else {
+            Logger.d("MsdkStart", "do not start auto login");
+        }
     }
 
     @Override
     public void onPause(Activity activity) {
         super.onPause(activity);
         WGPlatform.onPause();
+        this.pauseTime = System.currentTimeMillis() / 1000;
     }
 
     // TODO GAME 游戏需要集成此方法并调用WGPlatform.onStop()
@@ -114,13 +150,16 @@ public class GameProxyImpl extends GameProxy implements WGPlatformObserver{
     public void onDestroy(Activity activity) {
         super.onDestroy(activity);
         WGPlatform.onDestory(activity);
+        if(lbm != null) {
+        	lbm.unregisterReceiver(mReceiver);
+        }
     }
 
     @Override
-	public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(activity, requestCode, resultCode, data);
-		WGPlatform.onActivityResult(requestCode, resultCode, data);
-	}
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(activity, requestCode, resultCode, data);
+        WGPlatform.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     public void onNewIntent(Activity activity, Intent intent) {
@@ -141,14 +180,51 @@ public class GameProxyImpl extends GameProxy implements WGPlatformObserver{
     }
 
     public void login(Activity activity, Object customParams) {
+        String param = (String)customParams;
         loginCustomParams = customParams;
-        if ((String)customParams == "qq") {
+        Log.v("sdk", param);
+        if (param.compareToIgnoreCase("qq") == 0) {
+            Log.v("sdk", "login qq");
             WGPlatform.WGLogin(EPlatform.ePlatform_QQ);
         }
         else { // weixin
             WGPlatform.WGLogin(EPlatform.ePlatform_Weixin);
         }
     }
+
+    // 在异账号时，模拟游戏弹框提示用户选择登陆账号
+    public void showDiffLogin() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(currentActivity);
+        builder.setTitle("异账号提示");
+        builder.setMessage("你当前拉起的账号与你本地的账号不一致，请选择使用哪个账号登陆：");
+        builder.setPositiveButton("本地账号",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                            int whichButton) {
+                        Toast.makeText(currentActivity, "选择使用本地账号", Toast.LENGTH_LONG).show();
+                        if(!WGPlatform.WGSwitchUser(false)){
+                            letUserLogout();
+                        }
+                    }
+                });
+        builder.setNeutralButton("拉起账号",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                            int whichButton) {
+                        Toast.makeText(currentActivity, "选择使用拉起账号", Toast.LENGTH_LONG).show();
+                        if(!WGPlatform.WGSwitchUser(true)){
+                            letUserLogout();
+                        }
+                    }
+                });
+        builder.show();
+    }
+
+	// 登出后, 更新view. 由游戏自己实现登出的逻辑
+	public void letUserLogout() {
+		WGPlatform.WGLogout();
+        userListerner.onLogout(null);
+	}
 
     // 平台授权成功,让用户进入游戏. 由游戏自己实现登录的逻辑
 	public void letUserLogin() {
@@ -164,119 +240,14 @@ public class GameProxyImpl extends GameProxy implements WGPlatformObserver{
             return;
     	}
         User u = new User();
+        u.userID = ret.open_id;
+        if (ret.platform == WeGame.QQPLATID) {
+            u.token = "{\"type\": \"qq\", \"token\": \"" + ret.pf_key + "\"}";
+        }
+        else if (ret.platform == WeGame.WXPLATID) {
+            u.token = "{\"type\": \"weixin\", \"token\": \"" + ret.pf_key + "\"}";
+        }
         userListerner.onLoginSuccess(u, loginCustomParams);
 	}
 
-	// 登出后, 更新view. 由游戏自己实现登出的逻辑
-	public void letUserLogout() {
-		WGPlatform.WGLogout();
-        userListerner.onLogout(null);
-	}
-
-    // 回调
-
-    // 发送结果到结果展示界面
-    public static void sendResult(String result) {
-        /*
-        Intent sendResult = new Intent(LOCAL_ACTION);
-        sendResult.putExtra("Result", result);
-        Logger.d("send: "+ result);
-        */
-    }
-
-    public void OnLoginNotify(LoginRet ret) {
-        Logger.d("called");
-        Logger.d("ret.flag" + ret.flag);
-        switch (ret.flag) {
-            case CallbackFlag.eFlag_Succ:
-                // 登陆成功, 读取各种票据
-                String openId = ret.open_id;
-                String pf = ret.pf;
-                String pfKey = ret.pf_key;
-                String wxAccessToken = "";
-                long wxAccessTokenExpire = 0;
-                String wxRefreshToken = "";
-                long wxRefreshTokenExpire = 0;
-                for (TokenRet tr : ret.token) {
-                    switch (tr.type) {
-                        case TokenType.eToken_WX_Access:
-                            wxAccessToken = tr.value;
-                            wxAccessTokenExpire = tr.expiration;
-                            break;
-                        case TokenType.eToken_WX_Refresh:
-                            wxRefreshToken = tr.value;
-                            wxRefreshTokenExpire = tr.expiration;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                letUserLogin();
-                break;
-            // 游戏逻辑，对登陆失败情况分别进行处理
-            case CallbackFlag.eFlag_WX_UserCancel:
-            case CallbackFlag.eFlag_WX_NotInstall:
-            case CallbackFlag.eFlag_WX_NotSupportApi:
-            case CallbackFlag.eFlag_WX_LoginFail:
-            case CallbackFlag.eFlag_Local_Invalid:
-            	Logger.d(ret.desc);
-            default:
-                // 显示登陆界面
-                letUserLogout();
-                break;
-        }
-    }
-
-    public void OnShareNotify(ShareRet ret) {
-        Logger.d("called");
-        String result = "";
-        switch (ret.flag) {
-            case CallbackFlag.eFlag_Succ:
-                // 分享成功
-            	result = "Share success\n" + ret.toString();
-                break;
-            case CallbackFlag.eFlag_QQ_UserCancel:
-            case CallbackFlag.eFlag_QQ_NetworkErr:
-            case CallbackFlag.eFlag_WX_UserCancel:
-            case CallbackFlag.eFlag_WX_NotInstall:
-            case CallbackFlag.eFlag_WX_NotSupportApi:
-                userListerner.onLoginFailed("登录失败", loginCustomParams);
-                break;
-
-            default:
-            	// 分享失败处理
-                Logger.d(ret.desc);
-                result = "Share faild: \n" + ret.toString();
-                break;
-        }
-        // 发送结果到结果展示界面
-        sendResult(result);
-    }
-
-    public void OnWakeupNotify(WakeupRet ret) {
-        Logger.d("called");
-        Logger.d(ret.toString() + ":flag:" + ret.flag);
-        Logger.d(ret.toString() + "desc:" + ret.desc);
-        Logger.d(ret.toString() + "platform:" + ret.platform);
-        // TODO GAME 游戏需要在这里增加处理异账号的逻辑
-        if (CallbackFlag.eFlag_Succ == ret.flag
-                || CallbackFlag.eFlag_AccountRefresh == ret.flag) {
-            //eFlag_AccountRefresh代表 刷新微信票据成功
-            Logger.d("login success flag:" + ret.flag);
-            letUserLogin();
-        } else if (CallbackFlag.eFlag_UrlLogin == ret.flag) {
-            // 用拉起的账号登录，登录结果在OnLoginNotify()中回调
-        } else if (ret.flag == CallbackFlag.eFlag_NeedSelectAccount) {
-            // 异账号时，游戏需要弹出提示框让用户选择需要登陆的账号
-            Logger.d("diff account");
-            //showDiffLogin();
-        } else if (ret.flag == CallbackFlag.eFlag_NeedLogin) {
-            // 没有有效的票据，登出游戏让用户重新登录
-            Logger.d("need login");
-            letUserLogout();
-        } else {
-            Logger.d("logout");
-            letUserLogout();
-        }
-    }
 }
