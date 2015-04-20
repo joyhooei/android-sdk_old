@@ -17,6 +17,7 @@ import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
+import android.os.RemoteException;
 
 import com.tencent.msdk.WeGame;
 import com.tencent.msdk.api.LoginRet;
@@ -33,15 +34,29 @@ import com.tencent.msdk.api.TokenRet;
 import com.tencent.msdk.api.WGPlatformObserver;
 import com.tencent.msdk.api.WakeupRet;
 
+import com.tencent.unipay.plugsdk.IUnipayServiceCallBack;
+import com.tencent.unipay.plugsdk.IUnipayServiceCallBackPro;
+import com.tencent.unipay.plugsdk.UnipayPlugAPI;
+import com.tencent.unipay.plugsdk.UnipayPlugTools;
+import com.tencent.unipay.plugsdk.UnipayResponse;
+import com.tencent.unipay.request.UnipayGameRequest;
+import com.tencent.unipay.request.UnipayGoodsRequest;
+import com.tencent.unipay.request.UnipayMonthRequest;
+import com.tencent.unipay.request.UnipaySubscribeRequest;
+
 public class GameProxyImpl extends GameProxy {
     public Object loginCustomParams;
     public Activity currentActivity;
     public static final String LOCAL_ACTION = "com.yunyue.nzgl";
 
-	public LocalBroadcastManager lbm;
+	//public LocalBroadcastManager lbm;
 	public BroadcastReceiver mReceiver;
 
     private long pauseTime = 0;
+    private int retCode = 0;
+    private String retMessage = "";
+
+    private UnipayPlugAPI unipayAPI = null;
 
     @Override
     public void onCreate(Activity activity) {
@@ -78,7 +93,7 @@ public class GameProxyImpl extends GameProxy {
         // 全局回调类，游戏自行实现
         WGPlatform.WGSetObserver(new MsdkCallback(this));
 
-        //WGPlatform.WGLoginWithLocalInfo();
+        WGPlatform.WGLoginWithLocalInfo();
 
         // launchActivity的onCreat()和onNewIntent()中必须调用
         // WGPlatform.handleCallback()。否则会造成微信登录无回调
@@ -86,7 +101,7 @@ public class GameProxyImpl extends GameProxy {
             // 拉起平台为大厅
             Logger.d("LoginPlatform is Hall");
             Logger.d(activity.getIntent());
-            WGPlatform.handleCallback(activity.getIntent());
+            //WGPlatform.handleCallback(activity.getIntent());
         } else {
             // 拉起平台不是大厅
             Logger.d("LoginPlatform is not Hall");
@@ -96,19 +111,20 @@ public class GameProxyImpl extends GameProxy {
 
 
         // 设置局部广播，处理回调信息
+        /*
         lbm = LocalBroadcastManager.getInstance(activity.getApplicationContext());
         mReceiver = new BroadcastReceiver() {
 
             @Override
             public void onReceive(Context context, Intent intent) {
                 String result = intent.getExtras().getString("Result");
-                Logger.d(result);
+                Logger.d("result:" + result);
                 //displayResult(result);
             }
 
         };
         lbm.registerReceiver(mReceiver,  new IntentFilter(MsdkCallback.LOCAL_ACTION));
-
+        */
     }
 
     @Override
@@ -139,20 +155,33 @@ public class GameProxyImpl extends GameProxy {
         this.pauseTime = System.currentTimeMillis() / 1000;
     }
 
+    @Override
+    public void onStart(Activity activity) {
+        super.onStart(activity);
+
+        unipayAPI = new UnipayPlugAPI(currentActivity);
+    	unipayAPI.setCallBack(unipayStubCallBack);
+    	unipayAPI.bindUnipayService();
+        unipayAPI.setEnv("test");
+        //unipayAPI.setLogEnable(false);
+    }
+
     // TODO GAME 游戏需要集成此方法并调用WGPlatform.onStop()
     @Override
     public void onStop(Activity activity) {
         super.onStop(activity);
         WGPlatform.onStop();
+
+        unipayAPI.unbindUnipayService();
     }
 
     @Override
     public void onDestroy(Activity activity) {
         super.onDestroy(activity);
         WGPlatform.onDestory(activity);
-        if(lbm != null) {
-        	lbm.unregisterReceiver(mReceiver);
-        }
+        //if(lbm != null) {
+        //	lbm.unregisterReceiver(mReceiver);
+        //}
     }
 
     @Override
@@ -163,6 +192,7 @@ public class GameProxyImpl extends GameProxy {
 
     @Override
     public void onNewIntent(Activity activity, Intent intent) {
+        Log.v("sdk", "onNewIntent");
         super.onNewIntent(activity, intent);
 
         // TODO GAME 处理游戏被拉起的情况
@@ -171,7 +201,7 @@ public class GameProxyImpl extends GameProxy {
         if (WGPlatform.wakeUpFromHall(intent)) {
             Logger.d("LoginPlatform is Hall");
             Logger.d(intent);
-            WGPlatform.handleCallback(intent);
+            //WGPlatform.handleCallback(intent);
         } else {
             Logger.d("LoginPlatform is not Hall");
             Logger.d(intent);
@@ -179,6 +209,13 @@ public class GameProxyImpl extends GameProxy {
         }
     }
 
+    @Override
+    public void logout(Activity activity,Object customParams) {
+        WGPlatform.WGLogout();
+        userListerner.onLogout(customParams);
+    }
+
+    @Override
     public void login(Activity activity, Object customParams) {
         String param = (String)customParams;
         loginCustomParams = customParams;
@@ -223,13 +260,15 @@ public class GameProxyImpl extends GameProxy {
 	// 登出后, 更新view. 由游戏自己实现登出的逻辑
 	public void letUserLogout() {
 		WGPlatform.WGLogout();
-        userListerner.onLogout(null);
+        if (userListerner != null)
+            userListerner.onLogout(null);
 	}
 
     // 平台授权成功,让用户进入游戏. 由游戏自己实现登录的逻辑
 	public void letUserLogin() {
 		LoginRet ret = new LoginRet();
         WGPlatform.WGGetLoginRecord(ret);
+
         Logger.d("flag: " + ret.flag);
         Logger.d("platform: " + ret.platform);
         if(ret.flag != CallbackFlag.eFlag_Succ){
@@ -237,17 +276,124 @@ public class GameProxyImpl extends GameProxy {
                     Toast.LENGTH_LONG).show();
     		Logger.d("UserLogin error!!!");
             letUserLogout();
-            return;
     	}
-        User u = new User();
-        u.userID = ret.open_id;
-        if (ret.platform == WeGame.QQPLATID) {
-            u.token = "{\"type\": \"qq\", \"token\": \"" + ret.pf_key + "\"}";
+        //else if(ret.flag == CallbackFlag.eFlag_Checking_Token || ret.flag == CallbackFlag.eFlag_WX_AccessTokenExpired) {
+        //    // eFlag_Checking_Token（5001）正在检查票据，eFlag_WX_AccessTokenExpired（2007）微信票据过期，再检查并刷新一次
+        //    letUserLogout();
+        //    //WGPlatform.WGLogin(EPlatform.ePlatform_None);
+        //}
+        else {
+            User u = new User();
+            u.userID = ret.open_id;
+
+            for (TokenRet tr : ret.token) {
+                switch (tr.type) {
+                    case TokenType.eToken_WX_Access:
+                        u.token = "{\"type\": \"weixin\", \"token\": \"" + tr.value + "\"}";
+                        break;
+
+                    //case TokenType.eToken_WX_Refresh:
+                    //    break;
+
+                    case TokenType.eToken_QQ_Access:
+                        u.token = "{\"type\": \"qq\", \"token\": \"" + tr.value + "\"}";
+                        break;
+
+                    //case TokenType.eToken_QQ_Pay:
+                    //    u.token = "{\"type\": \"qq\", \"token\": \"" + tr.value + "\"}";
+                    //    break;
+
+                    default:
+                        break;
+                }
+            }
+            Log.v("sdk", u.token);
+            userListerner.onLoginSuccess(u, loginCustomParams);
         }
-        else if (ret.platform == WeGame.WXPLATID) {
-            u.token = "{\"type\": \"weixin\", \"token\": \"" + ret.pf_key + "\"}";
-        }
-        userListerner.onLoginSuccess(u, loginCustomParams);
 	}
+
+    @Override
+    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    }
+
+    //回调接口
+	IUnipayServiceCallBackPro.Stub unipayStubCallBackPro = new IUnipayServiceCallBackPro.Stub() {
+		
+		@Override
+		public void UnipayNeedLogin() throws RemoteException
+		{
+			Log.i("UnipayPlugAPI", "UnipayNeedLogin");
+			
+		}
+
+		@Override
+		public void UnipayCallBack(UnipayResponse response) throws RemoteException
+		{
+			Log.i("UnipayPlugAPI", "UnipayCallBack \n" + 
+					"\nresultCode = " + response.resultCode + 
+					"\npayChannel = "+ response.payChannel + 
+					"\npayState = "+ response.payState + 
+					"\nproviderState = " + response.provideState+
+					"\nsavetype = "+ response.extendInfo);
+			
+			retCode = response.resultCode;
+			retMessage = response.resultMsg;
+
+			handler.sendEmptyMessage(0);
+			
+		}
+	
+	};
+	
+	IUnipayServiceCallBack.Stub unipayStubCallBack = new IUnipayServiceCallBack.Stub() {
+		
+		@Override
+		public void UnipayNeedLogin() throws RemoteException
+		{
+			Log.i("UnipayPlugAPI", "UnipayNeedLogin");
+			
+		}
+
+		@Override
+		public void UnipayCallBack(int resultCode, int payChannel,
+				int payState, int providerState, int saveNum, String resultMsg,
+				String extendInfo) throws RemoteException
+		{
+			Log.i("UnipayPlugAPI", "UnipayCallBack \n" + 
+					"\nresultCode = " + resultCode + 
+					"\npayChannel = "+ payChannel + 
+					"\npayState = "+ payState + 
+					"\nproviderState = " + providerState+
+					"\nsavetype = "+ extendInfo);
+			
+			retCode = resultCode;
+			retMessage = resultMsg;
+
+			handler.sendEmptyMessage(0);
+			
+		}
+	};
+	
+	Handler handler = new Handler()
+	{
+		public void handleMessage(Message msg)
+		{
+			Toast.makeText(currentActivity, "call back retCode=" + String.valueOf(retCode) + " retMessage=" + retMessage, Toast.LENGTH_SHORT).show();
+		
+			
+			if(retCode == -2)
+			{//service绑定不成功
+				unipayAPI.bindUnipayService();
+			}
+		}
+	};
+
+    public boolean supportLogout() {
+        return true;
+    }
+
+    public boolean supportCommunity() {
+        return false;
+    }
 
 }
