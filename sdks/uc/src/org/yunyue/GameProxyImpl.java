@@ -110,11 +110,6 @@ public class GameProxyImpl extends GameProxy{
         ucSdkExit(activity, callback);
     }
 
-    @Override
-    public void applicationDestroy(Context context) {
-        Log.v("sdk", "applicationDestroy");
-    }
-
 	/**
 	 * 进行网络检查
 	 */
