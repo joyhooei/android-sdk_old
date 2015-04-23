@@ -156,11 +156,6 @@ public class GameProxyImpl extends GameProxy {
         callback.onNo3rdExiterProvide();
     }
 
-    @Override
-    public void applicationDestroy(Context context) {
-        Log.v("sdk", "applicationDestroy");
-    }
-
     private ApiCallback mExtInfoCallBack = new ApiCallback() {
             @Override
             public void onSuccess(String content, int code) {
