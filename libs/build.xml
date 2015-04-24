@@ -8,7 +8,7 @@
 
     <target name="copyicons">
         <echo message="copyicons from ${env.CLIENT_DIRECTORY}/../win32_client/icon/android ..."/>
-        <exec executable="${env.FRAMEWORK}/package/pylib/copyicons.py" failonerror="true">
+        <exec executable="copyicons.py" failonerror="true">
             <arg value="${env.CLIENT_DIRECTORY}/../win32_client/icon/android"/>
         </exec>
     </target>
@@ -19,7 +19,7 @@
             <arg value="-r"/>
             <arg value="assets"/>
         </exec>
-        <exec executable="${env.FRAMEWORK}/package/pylib/copyassets.py" failonerror="true">
+        <exec executable="copyassets.py" failonerror="true">
             <arg value="${env.CLIENT_DIRECTORY}"/>
             <arg value="./assets"/>
         </exec>
@@ -27,7 +27,7 @@
 
     <target name="linkassets" depends="copyicons">
         <echo message="linkassets from ../../assets" />
-        <exec executable="../../libs/linkassets.sh" failonerror="true">
+        <exec executable="linkassets.py" failonerror="true">
         </exec>
     </target>
 

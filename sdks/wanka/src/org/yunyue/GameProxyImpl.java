@@ -151,7 +151,7 @@ public class GameProxyImpl extends GameProxy {
             ;
         }
         productInfo = new ProductInfo(name, "元宝", Float.toString(price), 1,
-                roleName, ID, callBackInfo + "_" + orderID, callBackInfo);
+                roleName, ID, orderID, callBackInfo);
 
         new Thread(new Runnable()
             {
