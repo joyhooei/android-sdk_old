@@ -28,6 +28,8 @@ import com.qihoo.gamecenter.sdk.demosp.utils.QihooUserInfoListener;
 import com.qihoo.gamecenter.sdk.demosp.utils.QihooUserInfoTask;
 import com.qihoo.gamecenter.sdk.demosp.utils.Utils;
 
+import com.yunyue.nzgl.c360.R;
+
 public class GameProxyImpl extends GameProxy {
     private Activity currentActivity;
     protected String mAccessToken = null;
@@ -39,11 +41,6 @@ public class GameProxyImpl extends GameProxy {
     public void applicationInit(Activity activity) {
         Log.v("sdk", "applicationInit");
         Matrix.init(activity);
-    }
-
-    @Override
-    public void onCreate(Activity activity) {
-        Log.v("sdk", "onCreate");
     }
 
     @Override
@@ -82,7 +79,7 @@ public class GameProxyImpl extends GameProxy {
         try {
             qihooPay.setAppUserName(roleInfo.getString("name"));
             qihooPay.setAppUserId(roleInfo.getString("id"));
-            qihooPay.setQihooUserId(roleInfo.getString("raw_username"));
+            qihooPay.setQihooUserId(roleInfo.getString("raw_username").substring(8));
         } catch (Exception e) {
             Log.e("sdk", "get role info error.");
         }
@@ -168,7 +165,7 @@ public class GameProxyImpl extends GameProxy {
         // 可选参数，静默自动登录失败后是否显示登录窗口，默认不显示
         intent.putExtra(ProtocolKeys.IS_SHOW_LOGINDLG_ONFAILED_AUTOLOGIN, false);
         // 测试参数，发布时要去掉
-        intent.putExtra(ProtocolKeys.IS_SOCIAL_SHARE_DEBUG, true);
+        //intent.putExtra(ProtocolKeys.IS_SOCIAL_SHARE_DEBUG, true);
 
         return intent;
     }
