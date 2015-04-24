@@ -89,7 +89,7 @@
         </meta-data>
         <meta-data
             android:name="QHOPENSDK_PRIVATEKEY"
-            android:value="dd09f2d209a268973d55a29d7f7961a4" >
+            android:value="9bdee4f0491629d21ed6c4cff455b761" >
         </meta-data>
         <meta-data
             android:name="QHOPENSDK_APPID"

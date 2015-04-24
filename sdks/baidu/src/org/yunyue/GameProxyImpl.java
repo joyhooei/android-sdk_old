@@ -138,12 +138,6 @@ public class GameProxyImpl extends GameProxy {
     }
 
     @Override
-    public void exit(Activity activity, ExitCallback callback) {
-        Log.v("sdk", "exit");
-        callback.onNo3rdExiterProvide();
-    }
-
-    @Override
     public void applicationDestroy(Activity activity) {
         Log.v("sdk", "applicationDestroy");
 		BDGameSDK.destroy();
@@ -171,6 +165,7 @@ public class GameProxyImpl extends GameProxy {
                      User u = new User();
                      u.userID = BDGameSDK.getLoginUid();
                      u.token = BDGameSDK.getLoginAccessToken();
+                     userListerner.onLogout(null);
                      userListerner.onLoginSuccess(u, null);
 					 break;
 				 case ResultCode.LOGIN_FAIL:
