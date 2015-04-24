@@ -83,7 +83,6 @@ public class GameProxyImpl extends GameProxy {
         } catch (Exception e) {
             Log.e("sdk", "get role info error.");
         }
-        Log.v("sdk", qihooPay.getQihooUserId());
 
         qihooPay.setMoneyAmount(Integer.toString((int)(price * 100)));
         qihooPay.setExchangeRate("10");
