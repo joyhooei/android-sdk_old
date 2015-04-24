@@ -90,7 +90,7 @@ public class GameProxyImpl extends GameProxy {
         qihooPay.setProductName(name);
         qihooPay.setProductId(ID);
 
-        qihooPay.setNotifyUri(Constants.DEMO_APP_SERVER_NOTIFY_URI);
+        qihooPay.setNotifyUri("http://sdk.nataku.yunyuegame.com/sdk/android/sdk/c360/pay_callback");
         qihooPay.setAppName(activity.getString(R.string.app_name));
 
         // 可选参数
