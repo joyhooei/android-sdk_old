@@ -85,15 +85,15 @@
 
         <meta-data
             android:name="QHOPENSDK_APPKEY"
-            android:value="fb8636aaae2a1a31cf737ae895722440" >
+            android:value="af4b8465b38059cb1f416c6cbcd21003" >
         </meta-data>
         <meta-data
             android:name="QHOPENSDK_PRIVATEKEY"
-            android:value="9bdee4f0491629d21ed6c4cff455b761" >
+            android:value="218db57f401f45ff10f94a2add643e73" >
         </meta-data>
         <meta-data
             android:name="QHOPENSDK_APPID"
-            android:value="202192771" >
+            android:value="202359551" >
         </meta-data>
 
         <!-- 如下是360游戏实时推送SDK必要声明，不可修改 -->

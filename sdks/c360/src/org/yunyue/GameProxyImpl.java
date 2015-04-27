@@ -20,7 +20,6 @@ import com.qihoo.gamecenter.sdk.protocols.ProtocolKeys;
 import com.qihoo.gamecenter.sdk.activity.ContainerActivity;
 import com.qihoo.gamecenter.sdk.common.IDispatcherCallback;
 
-import com.qihoo.gamecenter.sdk.demosp.payment.Constants;
 import com.qihoo.gamecenter.sdk.demosp.payment.QihooPayInfo;
 import com.qihoo.gamecenter.sdk.demosp.utils.ProgressUtil;
 import com.qihoo.gamecenter.sdk.demosp.utils.QihooUserInfo;
@@ -253,7 +252,7 @@ public class GameProxyImpl extends GameProxy {
                 return;
             }
             // 显示一下登录结果
-            Toast.makeText(currentActivity, data, Toast.LENGTH_LONG).show();
+            //Toast.makeText(currentActivity, data, Toast.LENGTH_LONG).show();
             // 解析access_token
             mAccessToken = parseAccessTokenFromLoginResult(data);
 
@@ -280,7 +279,7 @@ public class GameProxyImpl extends GameProxy {
             }
 
             // 显示一下登录结果
-            Toast.makeText(currentActivity, data, Toast.LENGTH_LONG).show();
+            //Toast.makeText(currentActivity, data, Toast.LENGTH_LONG).show();
 
             // 解析access_token
             mAccessToken = parseAccessTokenFromLoginResult(data);
