@@ -74,6 +74,7 @@ public class GameProxyImpl extends GameProxy {
     private String retMessage = "";
 
     private UnipayPlugAPI unipayAPI = null;
+    private String callBackInfo = null;
 
     @Override
     public void onCreate(Activity activity) {
@@ -341,6 +342,7 @@ public class GameProxyImpl extends GameProxy {
     @Override
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         this.payCallBack = payCallBack;
+        this.callBackInfo = callBackInfo + "_" + orderID;
         LoginRet ret = new LoginRet();
         WGPlatform.WGGetLoginRecord(ret);
 
@@ -360,10 +362,19 @@ public class GameProxyImpl extends GameProxy {
         UnipayGameRequest request = new UnipayGameRequest();
         request.offerId = "1104480701";
         request.openId = ret.open_id;
-        request.openKey = get_token(ret, TokenType.eToken_QQ_Pay);
-        Log.v("sdk", "openKey:"+request.openKey);
-        request.sessionId = "openid";
-        request.sessionType = "kp_actoken";
+
+        String wx_token = get_token(ret, TokenType.eToken_WX_Access);
+        if (wx_token == null) {
+            request.openKey = get_token(ret, TokenType.eToken_QQ_Pay);
+            request.sessionId = "openid";
+            request.sessionType = "kp_actoken";
+        }
+        else {
+            request.openKey = get_token(ret, TokenType.eToken_WX_Access);
+            request.sessionId = "hy_gameid";
+            request.sessionType = "wc_actoken";
+        }
+
         request.zoneId = "1";
         request.pf = ret.pf;
         request.pfKey = ret.pf_key;
@@ -477,70 +488,6 @@ public class GameProxyImpl extends GameProxy {
         return false;
     }
 
-    /** 支付前去服务端创建订单 */
-    private void getOrderInfo( String payitem, String goodsMeta )
-    {
-        LoginRet ret = new LoginRet();
-        WGPlatform.WGGetLoginRecord(ret);
-
-        String sUrl = ((poem)currentActivity).getMetaData("create_order_url");
-        try
-        {
-            URL url = new URL(sUrl);
-            HttpURLConnection connection = (HttpURLConnection) url
-                .openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-type",
-                    "application/x-www-form-urlencoded");
-            connection.setDoOutput(true);// 是否输入参数
-            StringBuffer params = new StringBuffer();
-            params.append("openid=");
-            params.append(enCode(ret.open_id));
-            params.append("&openkey=");
-            params.append(enCode(get_token(ret, TokenType.eToken_QQ_Access)));
-            params.append("&pay_token=");
-            params.append(enCode(get_token(ret, TokenType.eToken_QQ_Pay)));
-            params.append("&payitem=");
-            params.append(enCode(""));
-            params.append("&goodsmeta=");
-            params.append(enCode(""));
-            params.append("&goodsurl=");
-            params.append(enCode("http://www.qq.com/"));
-            params.append("&pf=");
-            params.append(enCode(ret.pf));
-            params.append("&pfkey=");
-            params.append(enCode(ret.pf_key));
-            params.append("&zoneid=1");
-            params.append("&appmode=1");
-            byte[] bytes = params.toString().getBytes();
-            connection.connect();
-            connection.getOutputStream().write(bytes);
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(connection.getInputStream()));
-            StringBuffer readbuff = new StringBuffer();
-            String lstr = null;
-            while ((lstr = reader.readLine()) != null)
-            {
-                readbuff.append(lstr);
-            }
-            Log.i("sdk", "getOrderInfo: " + readbuff.toString());
-            connection.disconnect();
-            reader.close();
-            mOrderInfo = new JSONObject(readbuff.toString());
-            //mHandler.sendEmptyMessage(STARY_PAY);
-
-        } catch (MalformedURLException e)
-        {
-            e.printStackTrace();
-        } catch (JSONException e)
-        {
-            e.printStackTrace();
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
     /** 支付成功后前去服务端查询余额，并发货 */
     private void queryBalance()
     {
@@ -561,16 +508,32 @@ public class GameProxyImpl extends GameProxy {
             StringBuffer params = new StringBuffer();
             params.append("openid=");
             params.append(enCode(ret.open_id));
-            params.append("&openkey=");
-            params.append(enCode(get_token(ret, TokenType.eToken_QQ_Access)));
-            params.append("&pay_token=");
-            params.append(enCode(get_token(ret, TokenType.eToken_QQ_Pay)));
+
+            String wx_token = get_token(ret, TokenType.eToken_WX_Access);
+            if (wx_token == null) {
+                params.append("&openkey=");
+                params.append(enCode(get_token(ret, TokenType.eToken_QQ_Access)));
+                params.append("&pay_token=");
+                params.append(enCode(get_token(ret, TokenType.eToken_QQ_Pay)));
+                params.append("&session_id=openid");
+                params.append("&session_type=kp_actoken");
+            }
+            else {
+                params.append("&openkey=");
+                params.append(enCode(wx_token));
+                params.append("&pay_token=");
+                params.append("&session_id=hy_gameid");
+                params.append("&session_type=wc_actoken");
+            }
+
             params.append("&pf=");
             params.append(enCode(ret.pf));
             params.append("&pfkey=");
             params.append(enCode(ret.pf_key));
             params.append("&zoneid=1");
             params.append("&appmode=1");
+            params.append("&callBackInfo=");
+            params.append(enCode(callBackInfo));
             byte[] bytes = params.toString().getBytes();
             connection.connect();
             connection.getOutputStream().write(bytes);
@@ -614,6 +577,13 @@ public class GameProxyImpl extends GameProxy {
 
     public void setExtData(Context context, String ext) {
         Log.v("sdk", "set ext:" + ext);
+        try {
+            JSONObject src = new JSONObject(ext);
+            callBackInfo = src.getString("serverID") + "_" + src.getString("id") + "_";
+        } catch (JSONException e) {
+            Log.v("sdk", "invalid json");
+            return;
+        }
         new Thread(new Runnable()
                 {
                     @ Override
