@@ -4,6 +4,18 @@ import java.util.UUID;
 import org.json.JSONObject;
 import org.json.JSONException;
 
+import java.io.ByteArrayOutputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.Context;
@@ -44,14 +56,19 @@ import com.tencent.unipay.request.UnipayGoodsRequest;
 import com.tencent.unipay.request.UnipayMonthRequest;
 import com.tencent.unipay.request.UnipaySubscribeRequest;
 
+import com.tencent.tmgp.NZGLDH.R;
+
 public class GameProxyImpl extends GameProxy {
     public Object loginCustomParams;
     public Activity currentActivity;
     public static final String LOCAL_ACTION = "com.yunyue.nzgl";
+    private static final int STARY_PAY = 1;
+    private JSONObject mOrderInfo;
 
 	//public LocalBroadcastManager lbm;
 	public BroadcastReceiver mReceiver;
 
+    private PayCallBack payCallBack;
     private long pauseTime = 0;
     private int retCode = 0;
     private String retMessage = "";
@@ -78,6 +95,7 @@ public class GameProxyImpl extends GameProxy {
          *      offerId 为必填，一般为手QAppId
          ***********************************************************/
         MsdkBaseInfo baseInfo = new MsdkBaseInfo();
+
         baseInfo.qqAppId = "1104480701";
         baseInfo.qqAppKey = "R8U6PCBOw3sX64H0";
         baseInfo.wxAppId = "wx2ab37fb74e206f3d";
@@ -160,9 +178,8 @@ public class GameProxyImpl extends GameProxy {
         super.onStart(activity);
 
         unipayAPI = new UnipayPlugAPI(currentActivity);
-    	unipayAPI.setCallBack(unipayStubCallBack);
+    	//unipayAPI.setCallBack(unipayStubCallBack);
     	unipayAPI.bindUnipayService();
-        unipayAPI.setEnv("test");
         //unipayAPI.setLogEnable(false);
     }
 
@@ -264,6 +281,15 @@ public class GameProxyImpl extends GameProxy {
             userListerner.onLogout(null);
 	}
 
+    private String get_token(LoginRet ret, int t) {
+        for (TokenRet tr : ret.token) {
+            if (tr.type == t) {
+                return tr.value;
+            }
+        }
+        return null;
+    }
+
     // 平台授权成功,让用户进入游戏. 由游戏自己实现登录的逻辑
 	public void letUserLogin() {
 		LoginRet ret = new LoginRet();
@@ -314,6 +340,45 @@ public class GameProxyImpl extends GameProxy {
 
     @Override
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+        this.payCallBack = payCallBack;
+        LoginRet ret = new LoginRet();
+        WGPlatform.WGGetLoginRecord(ret);
+
+        String discounttype = "InGame";
+        String discountUrl = "http://imgcache.qq.com/bossweb/midas/unipay/test/act/actTip.html?_t=1&mpwidth=420&mpheight=250";
+
+        //充值游戏币接口，充值默认值由支付SDK设置;
+        unipayAPI.setEnv("test");
+        unipayAPI.setLogEnable(true);
+        UnipayPlugTools unipayPlugTools = new UnipayPlugTools(activity.getBaseContext());
+        unipayPlugTools.setUrlForTest();
+
+        Bitmap bmp = BitmapFactory.decodeResource(activity.getResources(), R.drawable.sample_yuanbao);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] appResData = baos.toByteArray();
+        UnipayGameRequest request = new UnipayGameRequest();
+        request.offerId = "1104480701";
+        request.openId = ret.open_id;
+        request.openKey = get_token(ret, TokenType.eToken_QQ_Pay);
+        Log.v("sdk", "openKey:"+request.openKey);
+        request.sessionId = "openid";
+        request.sessionType = "kp_actoken";
+        request.zoneId = "1";
+        request.pf = ret.pf;
+        request.pfKey = ret.pf_key;
+        request.acctType = UnipayPlugAPI.ACCOUNT_TYPE_COMMON;
+        request.resData = appResData;
+        request.isCanChange= false;
+        request.saveValue = Integer.toString((int)price);
+        //request.mpInfo.discountType = discounttype;
+        //request.mpInfo.discountUrl  = discountUrl;
+        request.extendInfo.unit="码";
+        //Log.i("TencentPay", "userId, userKey, sessionId, sessionType, zoneId, pf, pfKey, acctType" + "====" + userId + "," + userKey + "," + sessionId + "," + sessionType + "," + zoneId + "," + pf + "," + pfKey + "," + acctType);
+        // void com.tencent.unipay.plugsdk.UnipayPlugAPI.SaveGameCoinsWithoutNum(String userId, String userKey, String sessionId, String sessionType, String zoneId, String pf, String pfKey, String acctType, byte[] gameCoinResData, String drmInfo, String discountId) throws RemoteException
+        //充值游戏币
+        //    				unipayAPI.SaveGameCoinsWithoutNum(userId, userKey, sessionId, sessionType, zoneId, pf, pfKey, acctType, appResData);//, drmInfo, discountId);
+        unipayAPI.LaunchPay(request, unipayStubCallBackPro);
     }
 
     //回调接口
@@ -322,35 +387,48 @@ public class GameProxyImpl extends GameProxy {
 		@Override
 		public void UnipayNeedLogin() throws RemoteException
 		{
-			Log.i("UnipayPlugAPI", "UnipayNeedLogin");
-			
+			Log.i("sdk", "UnipayNeedLogin");
 		}
 
 		@Override
 		public void UnipayCallBack(UnipayResponse response) throws RemoteException
 		{
-			Log.i("UnipayPlugAPI", "UnipayCallBack \n" + 
+			Log.i("sdk", "UnipayCallBack \n" + 
 					"\nresultCode = " + response.resultCode + 
 					"\npayChannel = "+ response.payChannel + 
 					"\npayState = "+ response.payState + 
 					"\nproviderState = " + response.provideState+
 					"\nsavetype = "+ response.extendInfo);
-			
-			retCode = response.resultCode;
-			retMessage = response.resultMsg;
 
-			handler.sendEmptyMessage(0);
-			
+            switch (response.resultCode) {
+                case UnipayResponse.PAYRESULT_SUCC:
+                    new Thread(new Runnable()
+                            {
+                                @ Override
+                        public void run( )
+                        {
+                            queryBalance();
+                        }
+                    }).start();
+                    break;
+                default:
+                    payCallBack.onFail("支付失败");
+                    break;
+            }
+			//retCode = response.resultCode;
+			//retMessage = response.resultMsg;
+
+			//handler.sendEmptyMessage(0);
 		}
-	
 	};
-	
+
+    /*
 	IUnipayServiceCallBack.Stub unipayStubCallBack = new IUnipayServiceCallBack.Stub() {
-		
+
 		@Override
 		public void UnipayNeedLogin() throws RemoteException
 		{
-			Log.i("UnipayPlugAPI", "UnipayNeedLogin");
+			Log.i("sdk", "UnipayNeedLogin");
 			
 		}
 
@@ -359,7 +437,7 @@ public class GameProxyImpl extends GameProxy {
 				int payState, int providerState, int saveNum, String resultMsg,
 				String extendInfo) throws RemoteException
 		{
-			Log.i("UnipayPlugAPI", "UnipayCallBack \n" + 
+			Log.i("sdk", "UnipayCallBack \n" + 
 					"\nresultCode = " + resultCode + 
 					"\npayChannel = "+ payChannel + 
 					"\npayState = "+ payState + 
@@ -373,7 +451,9 @@ public class GameProxyImpl extends GameProxy {
 			
 		}
 	};
+    */
 	
+    /*
 	Handler handler = new Handler()
 	{
 		public void handleMessage(Message msg)
@@ -387,6 +467,7 @@ public class GameProxyImpl extends GameProxy {
 			}
 		}
 	};
+    */
 
     public boolean supportLogout() {
         return true;
@@ -396,4 +477,150 @@ public class GameProxyImpl extends GameProxy {
         return false;
     }
 
+    /** 支付前去服务端创建订单 */
+    private void getOrderInfo( String payitem, String goodsMeta )
+    {
+        LoginRet ret = new LoginRet();
+        WGPlatform.WGGetLoginRecord(ret);
+
+        String sUrl = ((poem)currentActivity).getMetaData("create_order_url");
+        try
+        {
+            URL url = new URL(sUrl);
+            HttpURLConnection connection = (HttpURLConnection) url
+                .openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-type",
+                    "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);// 是否输入参数
+            StringBuffer params = new StringBuffer();
+            params.append("openid=");
+            params.append(enCode(ret.open_id));
+            params.append("&openkey=");
+            params.append(enCode(get_token(ret, TokenType.eToken_QQ_Access)));
+            params.append("&pay_token=");
+            params.append(enCode(get_token(ret, TokenType.eToken_QQ_Pay)));
+            params.append("&payitem=");
+            params.append(enCode(""));
+            params.append("&goodsmeta=");
+            params.append(enCode(""));
+            params.append("&goodsurl=");
+            params.append(enCode("http://www.qq.com/"));
+            params.append("&pf=");
+            params.append(enCode(ret.pf));
+            params.append("&pfkey=");
+            params.append(enCode(ret.pf_key));
+            params.append("&zoneid=1");
+            params.append("&appmode=1");
+            byte[] bytes = params.toString().getBytes();
+            connection.connect();
+            connection.getOutputStream().write(bytes);
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
+            StringBuffer readbuff = new StringBuffer();
+            String lstr = null;
+            while ((lstr = reader.readLine()) != null)
+            {
+                readbuff.append(lstr);
+            }
+            Log.i("sdk", "getOrderInfo: " + readbuff.toString());
+            connection.disconnect();
+            reader.close();
+            mOrderInfo = new JSONObject(readbuff.toString());
+            //mHandler.sendEmptyMessage(STARY_PAY);
+
+        } catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        } catch (JSONException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /** 支付成功后前去服务端查询余额，并发货 */
+    private void queryBalance()
+    {
+        LoginRet ret = new LoginRet();
+        WGPlatform.WGGetLoginRecord(ret);
+
+        String sUrl = ((poem)currentActivity).getMetaData("query_balance_url");
+        Log.v("sdk", "start query balance " + sUrl);
+        try
+        {
+            URL url = new URL(sUrl);
+            HttpURLConnection connection = (HttpURLConnection) url
+                .openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-type",
+                    "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);// 是否输入参数
+            StringBuffer params = new StringBuffer();
+            params.append("openid=");
+            params.append(enCode(ret.open_id));
+            params.append("&openkey=");
+            params.append(enCode(get_token(ret, TokenType.eToken_QQ_Access)));
+            params.append("&pay_token=");
+            params.append(enCode(get_token(ret, TokenType.eToken_QQ_Pay)));
+            params.append("&pf=");
+            params.append(enCode(ret.pf));
+            params.append("&pfkey=");
+            params.append(enCode(ret.pf_key));
+            params.append("&zoneid=1");
+            params.append("&appmode=1");
+            byte[] bytes = params.toString().getBytes();
+            connection.connect();
+            connection.getOutputStream().write(bytes);
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
+            StringBuffer readbuff = new StringBuffer();
+            String lstr = null;
+            while ((lstr = reader.readLine()) != null)
+            {
+                readbuff.append(lstr);
+            }
+            Log.i("sdk", "queryBalance: " + readbuff.toString());
+            connection.disconnect();
+            reader.close();
+            mOrderInfo = new JSONObject(readbuff.toString());
+            this.payCallBack.onSuccess("支付成功");
+        } catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        } catch (JSONException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private String enCode( String value )
+    {
+        String enCodeValue = null;
+        try
+        {
+            enCodeValue = URLEncoder.encode(value, "UTF-8");
+        } catch (UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
+        return enCodeValue;
+    }
+
+    public void setExtData(Context context, String ext) {
+        Log.v("sdk", "set ext:" + ext);
+        new Thread(new Runnable()
+                {
+                    @ Override
+            public void run( )
+        {
+            queryBalance();
+        }
+        }).start();
+    }
 }
