@@ -3,6 +3,7 @@ package org.yunyue;
 import java.util.UUID;
 import org.json.JSONObject;
 import org.json.JSONException;
+import java.text.DecimalFormat;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -150,7 +151,10 @@ public class GameProxyImpl extends GameProxy {
         } catch (JSONException e) {
             ;
         }
-        productInfo = new ProductInfo(name, "元宝", Float.toString(price), 1,
+
+        DecimalFormat df = new DecimalFormat("0.00");
+
+        productInfo = new ProductInfo(name, "元宝", df.format(price), 1,
                 roleName, ID, orderID, callBackInfo);
 
         new Thread(new Runnable()
