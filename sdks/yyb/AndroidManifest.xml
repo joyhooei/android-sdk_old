@@ -48,8 +48,8 @@
         android:debuggable="true">
 
         <meta-data android:name="YYPackageName" android:value="com.yunyue.nzgl.yyb" />
-        <meta-data android:name="create_order_url" android:value="http://sdk.nataku.yunyuegame.com/sdk/android/sdk/yyb/create_order"/>
-        <meta-data android:name="query_balance_url" android:value="http://sdk.nataku.yunyuegame.com/sdk/android/sdk/yyb/query_balance"/>
+        <meta-data android:name="create_order_url" android:value="http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/create_order"/>
+        <meta-data android:name="query_balance_url" android:value="http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/query_balance"/>
         <meta-data android:name="sdktype" android:value="\ 24" />
 
         <activity android:name="org.yunyue.poem"
