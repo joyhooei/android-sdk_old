@@ -233,7 +233,7 @@ public class GameProxyImpl extends GameProxy {
             JSONObject joData = new JSONObject(data);
             int errno = joData.optInt("errno", -1);
             if (-1 == errno) {
-                Toast.makeText(currentActivity, data, Toast.LENGTH_LONG).show();
+                //Toast.makeText(currentActivity, data, Toast.LENGTH_LONG).show();
                 return true;
             }
         } catch (Exception e) {}
@@ -262,7 +262,7 @@ public class GameProxyImpl extends GameProxy {
                 u.token = mAccessToken;
                 userListerner.onLoginSuccess(u, loginCustomParams);
             } else {
-                Toast.makeText(currentActivity, "get access_token failed!", Toast.LENGTH_LONG).show();
+                //Toast.makeText(currentActivity, "get access_token failed!", Toast.LENGTH_LONG).show();
                 userListerner.onLoginFailed("get access_token failed!", loginCustomParams);
             }
         }
@@ -290,7 +290,7 @@ public class GameProxyImpl extends GameProxy {
                 u.token = mAccessToken;
                 userListerner.onLoginSuccess(u, switchCustomParams);
             } else {
-                Toast.makeText(currentActivity, "get access_token failed!", Toast.LENGTH_LONG).show();
+                //Toast.makeText(currentActivity, "get access_token failed!", Toast.LENGTH_LONG).show();
             }
         }
     };
@@ -314,7 +314,7 @@ public class GameProxyImpl extends GameProxy {
                 int errorCode = jsonRes.optInt("error_code");
                 switch (errorCode) {
                     case 0:
-                        Toast.makeText(currentActivity, "支付成功", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(currentActivity, "支付成功", Toast.LENGTH_SHORT).show();
                         payCallBack.onSuccess("支付成功");
                         Log.v("sdk", "payCallBack.onSuccess");
                         break;
@@ -322,18 +322,18 @@ public class GameProxyImpl extends GameProxy {
                     case -1:
                     case -2:
                         String errorMsg = jsonRes.optString("error_msg");
-                        String text = "支付失败: " + errorCode + "," + errorMsg;
-                        Toast.makeText(currentActivity, text, Toast.LENGTH_SHORT).show();
-                        payCallBack.onFail(text);
+                        //String text = "支付失败: " + errorCode + "," + errorMsg;
+                        //Toast.makeText(currentActivity, errorMsg, Toast.LENGTH_SHORT).show();
+                        payCallBack.onFail(errorMsg);
                         break;
                     case 4010201:
                         //acess_token失效
-                        Toast.makeText(currentActivity, "acess_token失效", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(currentActivity, "acess_token失效", Toast.LENGTH_SHORT).show();
                         payCallBack.onFail("acess_token失效");
                         break;
                     case 4009911:
                         //QT失效
-                        Toast.makeText(currentActivity, "qt失效", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(currentActivity, "qt失效", Toast.LENGTH_SHORT).show();
                         payCallBack.onFail("qt失效");
                         break;
                     default:
@@ -342,8 +342,7 @@ public class GameProxyImpl extends GameProxy {
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                Toast.makeText(currentActivity, "支付数据异常",
-                        Toast.LENGTH_LONG).show();
+                //Toast.makeText(currentActivity, "支付数据异常", Toast.LENGTH_LONG).show();
                 payCallBack.onFail("支付数据异常");
             }
         }
@@ -422,6 +421,10 @@ public class GameProxyImpl extends GameProxy {
         intent.putExtras(bundle);
 
         return intent;
+    }
+
+    public boolean supportCommunity() {
+        return false;
     }
 
 }
