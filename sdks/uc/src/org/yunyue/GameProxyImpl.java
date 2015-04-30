@@ -437,6 +437,9 @@ public class GameProxyImpl extends GameProxy{
 		try {
             JSONObject src = new JSONObject(ext);
 			JSONObject jsonExData = new JSONObject();
+            if (src.getString("state").compareTo("loginGameRole") != 0) {
+                return;
+            }
 			jsonExData.put("roleId", src.getString("id"));// 玩家角色ID
 			jsonExData.put("roleName", src.getString("name"));// 玩家角色名
 			jsonExData.put("roleLevel", src.getString("level"));// 玩家角色等级
