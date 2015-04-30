@@ -292,4 +292,9 @@ public class GameProxyImpl extends GameProxy {
         }
         return enCodeValue;
     }
+
+    public boolean supportCommunity() {
+        return false;
+    }
+
 }
