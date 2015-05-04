@@ -148,7 +148,7 @@ public class GameProxyImpl extends GameProxy {
 
         String[] sArray = ID.split(",");
         String goodsID = sArray[0];
-        if (currentChannel == "coolpad") {
+        if (currentChannel.compareTo("coolpad") == 0) {
             goodsID = sArray[1];
         }
         Log.v("sdk", "currentChannel:" + currentChannel + ", goodsID:" + goodsID + ", ID:" + ID);
