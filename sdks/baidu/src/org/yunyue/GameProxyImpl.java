@@ -22,9 +22,16 @@ import com.baidu.gamesdk.IResponse;
 import com.baidu.gamesdk.ResultCode;
 import com.baidu.platformsdk.PayOrderInfo;
 
+import com.baidu.gamesdk.ActivityAdPage;
+import com.baidu.gamesdk.ActivityAdPage.Listener;
+import com.baidu.gamesdk.ActivityAnalytics;
+
 public class GameProxyImpl extends GameProxy {
     private Activity currentActivity;
     private PayCallBack payCallBack;
+
+	private ActivityAdPage mActivityAdPage;
+	private ActivityAnalytics mActivityAnalytics;
 
     @Override
     public void applicationInit(final Activity activity) {
@@ -51,7 +58,21 @@ public class GameProxyImpl extends GameProxy {
 				}
 			}
 		}); 
+        init(activity);
     }
+
+    private void init(Activity activity){
+		mActivityAnalytics = new ActivityAnalytics(activity);
+		
+		mActivityAdPage = new ActivityAdPage(activity, new Listener(){
+			@Override
+			public void onClose() {
+				// TODO 关闭暂停页, CP可以让玩家继续游戏
+				//Toast.makeText(getApplicationContext(), "继续游戏", Toast.LENGTH_LONG).show();
+			}
+			
+		}); 
+	}
 
     @Override
     public void onCreate(Activity activity) {
@@ -140,6 +161,7 @@ public class GameProxyImpl extends GameProxy {
     @Override
     public void applicationDestroy(Activity activity) {
         Log.v("sdk", "applicationDestroy");
+        mActivityAdPage.onDestroy();
 		BDGameSDK.destroy();
     }
 
@@ -192,4 +214,25 @@ public class GameProxyImpl extends GameProxy {
 			}
 		});
 	}
+
+    @Override
+    public void onResume(Activity activity) {
+        super.onResume(activity);
+        mActivityAdPage.onResume();
+		mActivityAnalytics.onResume();
+    }
+
+    @Override
+	public void onStop(Activity activity) {
+		super.onStop(activity);
+		mActivityAdPage.onStop();
+	}
+
+    @Override
+	public void onPause(Activity activity) {
+		super.onPause(activity);
+        mActivityAdPage.onPause();
+        mActivityAnalytics.onPause();
+	}
+
 }
