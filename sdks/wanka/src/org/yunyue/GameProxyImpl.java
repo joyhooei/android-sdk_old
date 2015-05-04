@@ -42,6 +42,7 @@ public class GameProxyImpl extends GameProxy {
     private static final String AUTH_INFO = "auth_info";// 创建订单是需要传给Server的字段名
     private JSONObject mJsonObject;// 登陆返回的信息
     private String mLoginJson;// 验证token返回的信息
+    private String currentChannel;
 
     Handler mHandler = new Handler()
     {
@@ -102,6 +103,7 @@ public class GameProxyImpl extends GameProxy {
                         try
                         {
                             mJsonObject = new JSONObject(loginResult);
+                            currentChannel = mJsonObject.getString(CHANNEL);
                         } catch (JSONException e)
                         {
                             e.printStackTrace();
@@ -144,6 +146,13 @@ public class GameProxyImpl extends GameProxy {
         Log.v("sdk", "pay:" + ID + "," + name + "," + orderID + "," + price + "," + callBackInfo + "," + roleInfo.toString());
         this.payCallBack = payCallBack;
 
+        String[] sArray = ID.split(",");
+        String goodsID = sArray[0];
+        if (currentChannel == "coolpad") {
+            goodsID = sArray[1];
+        }
+        Log.v("sdk", "currentChannel:" + currentChannel + ", goodsID:" + goodsID + ", ID:" + ID);
+
         String roleName = "";
         try {
             roleName = roleInfo.getString("name");
@@ -155,7 +164,7 @@ public class GameProxyImpl extends GameProxy {
         DecimalFormat df = new DecimalFormat("0.00");
 
         productInfo = new ProductInfo(name, "元宝", df.format(price), 1,
-                roleName, ID, orderID, callBackInfo);
+                roleName, goodsID, orderID, callBackInfo);
 
         new Thread(new Runnable()
             {
