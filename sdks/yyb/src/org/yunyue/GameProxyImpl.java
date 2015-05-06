@@ -375,7 +375,9 @@ public class GameProxyImpl extends GameProxy {
             request.sessionType = "wc_actoken";
         }
 
-        request.zoneId = callBackInfo.split("_")[0];
+        String zoneId = callBackInfo.split("_")[0];
+        request.zoneId = Integer.toString(Integer.parseInt(zoneId) - 299);
+        Log.v("sdk", "zoneId:"+request.zoneId+","+zoneId);
         request.pf = ret.pf;
         request.pfKey = ret.pf_key;
         request.acctType = UnipayPlugAPI.ACCOUNT_TYPE_COMMON;
