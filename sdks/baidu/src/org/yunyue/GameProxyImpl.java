@@ -39,8 +39,8 @@ public class GameProxyImpl extends GameProxy {
         currentActivity = activity;
 
         BDGameSDKSetting mBDGameSDKSetting = new BDGameSDKSetting();
-        mBDGameSDKSetting.setAppID(5584487);//APPID设置
-        mBDGameSDKSetting.setAppKey("fuZz2kKfl7hdzilGuaxcK4BY");//APPKEY设置
+        mBDGameSDKSetting.setAppID(5837789);//APPID设置
+        mBDGameSDKSetting.setAppKey("X7tvXqFjWFFlkNrH96g94FaC");//APPKEY设置
         mBDGameSDKSetting.setDomain(Domain.RELEASE);//设置为正式模式
         mBDGameSDKSetting.setOrientation(Orientation.PORTRAIT);//设置为横屏
 		BDGameSDK.init(activity, mBDGameSDKSetting, new IResponse<Void>(){
