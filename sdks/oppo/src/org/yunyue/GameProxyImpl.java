@@ -143,10 +143,10 @@ public class GameProxyImpl extends GameProxy {
         this.payCallBack = payCallBack;
 
 		final FixedPayInfo payInfo = new FixedPayInfo(orderID, callBackInfo, (int)price * 100);
-		payInfo.setProductDesc("元宝");
-		payInfo.setProductName(name);
+		payInfo.setProductDesc(name);
+		payInfo.setProductName("元宝");
 		payInfo.setCallbackUrl("http://sdk.nataku.yunyuegame.com/sdk/android/sdk/oppo/pay_callback");
-		payInfo.setGoodsCount(1);
+		payInfo.setGoodsCount((int)price);
 		GameCenterSDK.getInstance().doFixedKebiPayment(kebiPayment, payInfo, activity);
     }
 
