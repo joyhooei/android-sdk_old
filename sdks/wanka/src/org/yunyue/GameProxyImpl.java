@@ -306,4 +306,8 @@ public class GameProxyImpl extends GameProxy {
         return false;
     }
 
+    public boolean supportLogout() {
+        return true;
+    }
+
 }
