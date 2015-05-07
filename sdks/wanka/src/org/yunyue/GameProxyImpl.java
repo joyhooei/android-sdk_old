@@ -89,7 +89,8 @@ public class GameProxyImpl extends GameProxy {
                     @ Override
                     public void onLogout( Object paramObject )
                     {
-                        userListerner.onLogout(null);
+                        //userListerner.onLogout(null);
+                        quitApplication();
                     }
 
                     @ Override
