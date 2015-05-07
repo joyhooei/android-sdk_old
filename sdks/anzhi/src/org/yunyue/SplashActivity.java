@@ -23,20 +23,17 @@ public class SplashActivity extends Activity {
         //开启 定时器  
         timer = new Timer(true);  
         startTime = System.currentTimeMillis();  
-        timer.schedule(task, 0, 1);  
+        timer.schedule(task, 2000);  
     }
 
 
     private final TimerTask task = new TimerTask() {  
         public void run() {  
-            if (task.scheduledExecutionTime() - startTime == 2000 || touched) {  
-                Message message = new Message();  
-                message.what = 0;  
-                timerHandler.sendMessage(message);  
-                timer.cancel();  
-                this.cancel();  
-            }  
-
+            Message message = new Message();  
+            message.what = 0;  
+            timerHandler.sendMessage(message);  
+            timer.cancel();  
+            this.cancel();  
         }  
     };
 
@@ -54,15 +51,4 @@ public class SplashActivity extends Activity {
             super.handleMessage(msg);  
         }  
     };  
-
-
-    /** 
-     * 点击直接跳转 
-     */  
-    public boolean onTouchEvent(MotionEvent event) {  
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {  
-            touched = true;  
-        }  
-        return true;  
-    }  
 }  
