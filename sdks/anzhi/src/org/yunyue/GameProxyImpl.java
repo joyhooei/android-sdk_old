@@ -71,7 +71,7 @@ public class GameProxyImpl extends GameProxy implements KeybackCall, InitSDKCall
         this.payCallBack = payCallBack;
         String s = callBackInfo + "_" + orderID.replace('-', '_');
         Log.v("sdk", "pay:" + s);
-        mAnzhiCenter.pay(activity, 0, price, "游戏支付", s);
+        mAnzhiCenter.pay(activity, 0, price, name, s);
     }
 
     /*
