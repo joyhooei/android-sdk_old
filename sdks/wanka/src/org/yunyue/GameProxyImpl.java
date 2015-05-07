@@ -153,9 +153,8 @@ public class GameProxyImpl extends GameProxy {
         }
         Log.v("sdk", "currentChannel:" + currentChannel + ", goodsID:" + goodsID + ", ID:" + ID);
 
-        String roleName = "";
+        String userName = "北京筑巢科技有限公司";
         try {
-            roleName = roleInfo.getString("name");
             mLoginJson = roleInfo.getString("extra");
         } catch (JSONException e) {
             ;
@@ -164,7 +163,7 @@ public class GameProxyImpl extends GameProxy {
         DecimalFormat df = new DecimalFormat("0.00");
 
         productInfo = new ProductInfo(name, "元宝", df.format(price), 1,
-                roleName, goodsID, orderID, callBackInfo);
+                userName, goodsID, orderID, callBackInfo);
 
         new Thread(new Runnable()
             {
