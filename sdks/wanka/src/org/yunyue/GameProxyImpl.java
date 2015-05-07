@@ -309,4 +309,8 @@ public class GameProxyImpl extends GameProxy {
         return true;
     }
 
+    @Override
+    public void exit(Activity activity, ExitCallback callback) {
+        PaySdkProxy.getInstance().logout(activity, null);
+    }
 }
