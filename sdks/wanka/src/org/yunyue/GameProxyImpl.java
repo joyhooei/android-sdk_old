@@ -89,8 +89,12 @@ public class GameProxyImpl extends GameProxy {
                     @ Override
                     public void onLogout( Object paramObject )
                     {
-                        //userListerner.onLogout(null);
-                        poem.quitApplication();
+                        if (paramObject.equals("huawei")) {
+                            userListerner.onLogout(null);
+                        }
+                        else {
+                            poem.quitApplication();
+                        }
                     }
 
                     @ Override
