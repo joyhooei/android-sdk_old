@@ -15,9 +15,6 @@ import android.widget.Toast;
 
 import cn.zcpay.sdk.app.OrderInfos;
 import cn.zcpay.sdk.app.ZcPay;
-import com.alipay.sdk.app.PayTask;
-import com.tendcloud.appcpa.TalkingDataAppCpa;
-import com.tendcloud.appcpa.Order;
 
 
 public class GameProxyImpl extends GameProxy{
@@ -34,6 +31,7 @@ public class GameProxyImpl extends GameProxy{
         ac = ZcPay.getInstance();
         ac.Init(activity, MyHandler, cp_RSA);
     }
+
     public boolean supportLogin() {
         return false;
     }
@@ -42,26 +40,30 @@ public class GameProxyImpl extends GameProxy{
         return false;
     }
 
-    public boolean supportPay() {
-        return false;
-    }
-
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         this.payCallBack = payCallBack;
-        String call_backurl = "http://sdk.nataku.yunyuegame.com/sdk/android/sdk/zc/pay_callback";
-        Log.i("call_backurl", call_backurl);
-        or = new OrderInfos(); 
-        or.setApp_id(App_id); 
-        or.setChannel_id("0"); 
-        or.setProduct_name(name); 
-        or.setProduct_description("可以用于购买物品"); 
+        //String call_backurl = "http://sdk.nataku.yunyuegame.com/sdk/android/sdk/zcgame/pay_callback";
+        or = new OrderInfos();
+        or.setApp_id(App_id);
+        or.setChannel_id("0");
+        or.setProduct_name(name);
+        or.setProduct_description("可以用于购买物品");
         or.setProduct_price(String.valueOf(((int)price) * 100));
-        // or.setNotify_url("http://sdk.nataku.yunyuegame.com/sdk/zcgame/pay_callback/:worldID/:transaction_id"); 
-        or.setNotify_url(call_backurl); 
 
-        or.setUser_id(callBackInfo+"_"+orderID);
+        String serverID, entityID;
+        try {
+            serverID = roleInfo.getString("serverID");
+            entityID = roleInfo.getString("id");
+        } catch (JSONException e) {
+            return;
+        }
 
-        Log.i("sdk_ourpalm_info price: ", String.valueOf(((int)price) * 100));
+        String callbackurl = "http://sdk.nataku.yunyuegame.com/sdk/android/zcgame/pay_callback/" + serverID + "/" + orderID + "/SDK_YYZCLH";
+        or.setNotify_url(callbackurl);
+        Log.v("sdk", "backurl:" + callbackurl);
+        //or.setNotify_url(callbackurl); 
+
+        or.setUser_id(entityID);
 
         ac.Pay(or);
     }

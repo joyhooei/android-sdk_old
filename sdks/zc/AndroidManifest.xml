@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.yunyue.ttxm.zc"
+      package="com.yunyue.ttxm.zclh"
       android:installLocation="auto"
       android:versionCode="120005"
       android:versionName="1.20005">
 
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.DUMP" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application android:name="org.yunyue.app"
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
         android:debuggable="true">
 
-        <activity android:name="org.yunyue.poem"
+        <activity android:name="org.yunyue.MainActivity"
                   android:label="@string/app_name"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
@@ -30,7 +32,7 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="sdktype" android:value="\ 8"/>
+        <meta-data android:name="sdktype" android:value="\ 9"/>
 
         <activity android:name="com.gamebean.charge.ChargeActivity" android:screenOrientation="portrait">
         </activity>
@@ -69,7 +71,7 @@
 
         <meta-data android:name="reyun_appid" android:value="5fba4dc4f8ded9e80616c8aa4f6403bd"/>
         <meta-data android:name="UMENG_APPKEY" android:value="514ff55456240bdf97002595"/>
-        <meta-data android:name="UMENG_CHANNEL" android:value="android_zc"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="android_zclh"/>
 
     </application>
     <supports-screens android:largeScreens="true"
