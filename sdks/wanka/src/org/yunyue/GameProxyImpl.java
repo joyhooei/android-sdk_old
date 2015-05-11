@@ -90,7 +90,7 @@ public class GameProxyImpl extends GameProxy {
                     public void onLogout( Object paramObject )
                     {
                         if (paramObject.equals("huawei")) {
-                            userListerner.onLogout(null);
+                            logout(currentActivity, null);
                         }
                         else {
                             poem.quitApplication();
