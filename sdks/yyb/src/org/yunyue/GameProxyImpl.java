@@ -243,7 +243,12 @@ public class GameProxyImpl extends GameProxy {
             WGPlatform.WGLogin(EPlatform.ePlatform_QQ);
         }
         else { // weixin
-            WGPlatform.WGLogin(EPlatform.ePlatform_Weixin);
+            if (!WGPlatform.WGIsPlatformInstalled(EPlatform.ePlatform_Weixin)) {
+                Toast.makeText(activity, "请先安装微信客户端", Toast.LENGTH_LONG).show();
+            }
+            else {
+                WGPlatform.WGLogin(EPlatform.ePlatform_Weixin);
+            }
         }
     }
 
