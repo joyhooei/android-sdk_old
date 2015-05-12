@@ -11,7 +11,7 @@ import com.tendcloud.appcpa.TalkingDataAppCpa;
 public class MainActivity extends poem {
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-        TalkingDataAppCpa.init(this.getApplicationContext(), "f7eac3e7b3014a5487f69f85c07069e6", "");
+        TalkingDataAppCpa.init(this.getApplicationContext(), getMetaData("TD_APPID"), getMetaData("TD_CHANNEL"));
 	}
 
     @Override
