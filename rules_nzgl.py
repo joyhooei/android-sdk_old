@@ -13,7 +13,7 @@ class RuleZC(RuleBase):
     LABEL = 'zc'
     DIRECTORY = 'zc'
     CH_NAME = '筑巢小包'
-    SDKTYPE = 9
+    SDKTYPE = '9'
     PACKAGE_NAME = 'com.yunyue.ttxm.zclh'
 
     TD_APPID = 'f7eac3e7b3014a5487f69f85c07069e6'
@@ -50,7 +50,7 @@ class RuleXiaomi(RuleBase):
     LABEL = 'xiaomi'
     DIRECTORY = 'xiaomi'
     CH_NAME = '小米小包'
-    SDKTYPE = 18
+    SDKTYPE = '18'
     PACKAGE_NAME = 'com.yunyue.nzgl.xiaomi'
 
     APPID = '2882303761517320056'
@@ -68,7 +68,7 @@ class RuleUC(RuleBase):
     LABEL = 'uc'
     DIRECTORY = 'uc'
     CH_NAME = 'UC小包'
-    SDKTYPE = 5
+    SDKTYPE = '5'
     PACKAGE_NAME = 'com.yunyue.nzgl.uc'
 
     GAMEID = '551539'
@@ -85,7 +85,7 @@ class RuleBaidu(RuleBase):
     LABEL = 'baidu'
     DIRECTORY = 'baidu'
     CH_NAME = '百度小包'
-    SDKTYPE = 5
+    SDKTYPE = '5'
     PACKAGE_NAME = 'com.yunyue.nzgl.baidu'
 
     APPID = '5584487'
