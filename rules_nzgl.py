@@ -102,3 +102,16 @@ class RuleAnzhi(RuleBase):
 
     APPKEY = '14280503379sMl6lAYp04RUefHl2mq'
     APPSECRET = '4acD86kGk52n0KI3wk8dD6pY'
+
+
+@register
+class RuleC360(RuleBase):
+    LABEL = 'c360'
+    DIRECTORY = 'c360'
+    CH_NAME = '360小包'
+    SDKTYPE = '19'
+    PACKAGE_NAME = 'com.yunyue.nzgl.c360'
+
+    QHOPENSDK_APPKEY = 'af4b8465b38059cb1f416c6cbcd21003'
+    QHOPENSDK_PRIVATEKEY = '218db57f401f45ff10f94a2add643e73'
+    QHOPENSDK_APPID = '202359551'

@@ -208,7 +208,7 @@ public class GameProxyImpl extends GameProxy {
         //intent.putExtra(ProtocolKeys.UI_BACKGROUND_PICTURE_IN_ASSERTS, getUiBackgroundPathInAssets());
 
         // 测试参数，发布时要去掉
-        intent.putExtra(ProtocolKeys.IS_SOCIAL_SHARE_DEBUG, true);
+        intent.putExtra(ProtocolKeys.IS_SOCIAL_SHARE_DEBUG, false);
 
         return intent;
     }

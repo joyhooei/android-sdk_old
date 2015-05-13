@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yunyue.nzgl.c360"
-    android:versionCode="120001"
-    android:versionName="1.20001" >
+    package="${PACKAGE_NAME}"
+    android:versionCode="${VERSION_CODE}"
+    android:versionName="${VERSION_NAME}" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -43,7 +43,7 @@
         android:icon="@drawable/ic_launcher"
         android:name="org.yunyue.app" >
 
-        <meta-data android:name="sdktype" android:value="\ 19"/>
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
 
         <activity
             android:name="org.yunyue.poem"
@@ -87,15 +87,15 @@
 
         <meta-data
             android:name="QHOPENSDK_APPKEY"
-            android:value="af4b8465b38059cb1f416c6cbcd21003" >
+            android:value="${QHOPENSDK_APPKEY}" >
         </meta-data>
         <meta-data
             android:name="QHOPENSDK_PRIVATEKEY"
-            android:value="218db57f401f45ff10f94a2add643e73" >
+            android:value="${QHOPENSDK_PRIVATEKEY}" >
         </meta-data>
         <meta-data
             android:name="QHOPENSDK_APPID"
-            android:value="202359551" >
+            android:value="${QHOPENSDK_APPID}" >
         </meta-data>
 
         <!-- 如下是360游戏实时推送SDK必要声明，不可修改 -->
