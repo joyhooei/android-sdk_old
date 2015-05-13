@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.yunyue.ttxm.zclh"
+      package="${PACKAGE_NAME}"
       android:installLocation="auto"
-      android:versionCode="120005"
-      android:versionName="1.20005">
+      android:versionCode="${VERSION_CODE}"
+      android:versionName="${VERSION_NAME}">
 
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
 
@@ -33,8 +33,8 @@
         </activity>
 
         <meta-data android:name="sdktype" android:value="\ 9"/>
-        <meta-data android:name="TD_APPID" android:value="f7eac3e7b3014a5487f69f85c07069e6"/>
-        <meta-data android:name="TD_CHANNEL" android:value=""/>
+        <meta-data android:name="TD_APPID" android:value="${TD_APPID}"/>
+        <meta-data android:name="TD_CHANNEL" android:value="${TD_CHANNEL}"/>
 
         <activity android:name="com.gamebean.charge.ChargeActivity" android:screenOrientation="portrait">
         </activity>
