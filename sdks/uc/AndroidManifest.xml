@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yunyue.nzgl.uc"
+    package="${PACKAGE_NAME}"
     android:installLocation="auto"
-    android:versionCode="120005"
-    android:versionName="1.20005" >
+    android:versionCode="${VERSION_CODE}"
+    android:versionName="${VERSION_NAME}" >
 
-    <uses-sdk android:minSdkVersion="5" />
+    <uses-sdk android:minSdkVersion="${SDKTYPE}" />
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />

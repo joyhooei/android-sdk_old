@@ -11,7 +11,7 @@ public class UCSdkConfig {
 	// 游戏开发人员可从UC九游开放平台获取自己游戏的参数信息，参考http://game.open.uc.cn/doc/guide_gameid.html
 	// 验收及对外发布时，要求必须使用生产环境模式。
 	public static int cpId = 0; // 此参数已废弃,默认传入0即可
-	public static int gameId = 551539;
+	public static int gameId = ${GAMEID};
 	public static int serverId = 0; // 此参数已废弃,默认传入0即可
 
 	// 值为true时，为调试环境模式，当值为false时，是生产环境模式，验收及对外发布时，要求必须使用生产环境模式

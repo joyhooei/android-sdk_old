@@ -61,3 +61,20 @@ class RuleXiaomi(RuleBase):
         return super(RuleXiaomi, cls).rules() + [
             ('src/org/yunyue/MiAppApplication.java', 'replace', cls.common_replaces()),
         ]
+
+
+@register
+class RuleUC(RuleBase):
+    LABEL = 'uc'
+    DIRECTORY = 'uc'
+    CH_NAME = 'UC小包'
+    SDKTYPE = 5
+    PACKAGE_NAME = 'com.yunyue.nzgl.uc'
+
+    GAMEID = '551539'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleXiaomi, cls).rules() + [
+            ('src/com/ninegame/ucgamesdk/UCSdkConfig.java', 'replace', cls.common_replaces()),
+        ]
