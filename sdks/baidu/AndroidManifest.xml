@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yunyue.nzgl.baidu"
-    android:versionCode="120005"
-    android:versionName="1.20005" >
+    package="${PACKAGE_NAME}"
+    android:versionCode="${VERSION_CODE}"
+    android:versionName="${VERSION_NAME}" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -47,7 +47,7 @@
         android:icon="@drawable/ic_launcher"
         android:name="org.yunyue.sdk_app" >
 
-        <meta-data android:name="sdktype" android:value="\ 17"/>
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
 
         <activity
             android:name="org.yunyue.poem"
