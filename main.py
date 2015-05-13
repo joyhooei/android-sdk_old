@@ -5,18 +5,25 @@ from processor import process, all_rules
 from optparse import OptionParser
 
 
-def main(desc):
-    for label, rule in desc.items():
-        os.chdir('sdks/%s' % rule.DIRECTORY)
-        os.system('git clean -f -d .')
-        process(rule.rules())
-        # preview replaces
-        os.system('git diff -p --raw .')
-        #os.system('ant linkassets release')
-        os.system('git clean -f -d .')
-        os.system('git checkout -- .')
-        # TODO copy package
-        os.chdir('../..')
+def one(rule):
+    os.chdir('sdks/%s' % rule.DIRECTORY)
+    os.system('git clean -f -d .')
+    process(rule.rules())
+    # preview replaces
+    os.system('git diff -p --raw .')
+    #os.system('ant linkassets release')
+    os.system('git clean -f -d .')
+    os.system('git checkout -- .')
+    # TODO copy package
+    os.chdir('../..')
+
+
+def main(desc, label=None):
+    if label:
+        one(desc[label])
+    else:
+        for label, rule in desc.items():
+            one(rule)
 
 
 parser = OptionParser()
@@ -34,4 +41,4 @@ if __name__ == '__main__':
     m.RuleBase.VERSION_CODE = str(options.version)
     m.RuleBase.VERSION_NAME = '%.05f' % (options.version / 100000.0)
 
-    main(all_rules)
+    main(all_rules, options.label)
