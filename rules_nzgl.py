@@ -1,7 +1,6 @@
-#!/usr/bin/env python
 # coding: utf-8
 import os
-from processor import process, register, Rule, all_rules
+from processor import register, Rule
 
 
 class RuleBase(Rule):
@@ -43,21 +42,3 @@ class RuleZCSougou(RuleZC):
     LABEL = 'zc_sougou'
     CH_NAME = '筑巢搜狗小包'
     TD_APPID = '7ac71c291f484eeba7b9feb801f33457'
-
-
-def main(desc):
-    for label, rule in desc.items():
-        os.chdir('sdks/%s' % rule.DIRECTORY)
-        os.system('git clean -f -d .')
-        process(rule.rules())
-        # preview replaces
-        os.system('git diff -p --raw .')
-        #os.system('ant linkassets release')
-        os.system('git clean -f -d .')
-        os.system('git checkout -- .')
-        # TODO copy package
-        os.chdir('../..')
-
-
-if __name__ == '__main__':
-    main(all_rules)
