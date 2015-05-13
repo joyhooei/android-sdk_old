@@ -129,3 +129,21 @@ class RuleOppo(RuleBase):
     APPID = '\\ 3370'
     APPKEY = '4uy6F890d9Q8ooSKkGkg4gw8s'
     APPSECRET = '40a84eAC43C5b7347bAE858514053C28'
+
+
+@register
+class RuleYYB(RuleBase):
+    LABEL = 'yyb'
+    DIRECTORY = 'yyb'
+    CH_NAME = '应用宝小包'
+    SDKTYPE = '24'
+    PACKAGE_NAME = 'com.tencent.tmgp.NZGLDH'
+    YY_PACKAGE_NAME = 'com.yunyue.nzgl.yyb'
+
+    CREATE_ORDER_URL = 'http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/create_order'
+    QUERY_BALANCE_URL = 'http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/query_balance'
+
+    QQ_APPID = '1104480701'
+    QQ_APPKEY = 'R8U6PCBOw3sX64H0'
+    WX_APPID = 'wx2ab37fb74e206f3d'
+    WX_APPKEY = 'c032d3e153a0e477fae08328153e35cf'

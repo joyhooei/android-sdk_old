@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.tencent.tmgp.NZGLDH"
+    package="${PACKAGE_NAME}"
       android:installLocation="auto"
-      android:versionCode="120005"
-      android:versionName="1.20005">
+      android:versionCode="${VERSION_CODE}"
+      android:versionName="${VERSION_NAME}">
 
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
 
@@ -47,10 +47,10 @@
         android:icon="@drawable/ic_launcher"
         android:debuggable="true">
 
-        <meta-data android:name="YYPackageName" android:value="com.yunyue.nzgl.yyb" />
-        <meta-data android:name="create_order_url" android:value="http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/create_order"/>
-        <meta-data android:name="query_balance_url" android:value="http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/query_balance"/>
-        <meta-data android:name="sdktype" android:value="\ 24" />
+        <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
+        <meta-data android:name="create_order_url" android:value="${CREATE_ORDER_URL}"/>
+        <meta-data android:name="query_balance_url" android:value="${QUERY_BALANCE_URL}"/>
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}" />
 
         <activity android:name="org.yunyue.poem"
                   android:label="@string/app_name"

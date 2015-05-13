@@ -61,7 +61,6 @@ import com.tencent.tmgp.NZGLDH.R;
 public class GameProxyImpl extends GameProxy {
     public Object loginCustomParams;
     public Activity currentActivity;
-    public static final String LOCAL_ACTION = "com.yunyue.nzgl";
     private static final int STARY_PAY = 1;
     private JSONObject mOrderInfo;
 
@@ -97,12 +96,12 @@ public class GameProxyImpl extends GameProxy {
          ***********************************************************/
         MsdkBaseInfo baseInfo = new MsdkBaseInfo();
 
-        baseInfo.qqAppId = "1104480701";
-        baseInfo.qqAppKey = "R8U6PCBOw3sX64H0";
-        baseInfo.wxAppId = "wx2ab37fb74e206f3d";
-        baseInfo.wxAppKey = "c032d3e153a0e477fae08328153e35cf";
+        baseInfo.qqAppId = "${QQ_APPID}";
+        baseInfo.qqAppKey = "${QQ_APPKEY}";
+        baseInfo.wxAppId = "${WX_APPID}";
+        baseInfo.wxAppKey = "${WX_APPKEY}";
         //订阅型测试用offerId
-        baseInfo.offerId = "1104480701";
+        baseInfo.offerId = "${QQ_APPID}";
 
         // 注意：传入Initialized的activity即this，在游戏运行期间不能被销毁，否则会产生Crash
         WGPlatform.Initialized(activity, baseInfo);
