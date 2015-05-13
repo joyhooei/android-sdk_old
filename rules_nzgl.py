@@ -165,3 +165,14 @@ class RuleWDJ(RuleBase):
         return super(RuleWDJ, cls).rules() + [
             ('src/org/yunyue/sdk_app.java', 'replace', cls.common_replaces()),
         ]
+
+
+@register
+class RuleWanka(RuleBase):
+    LABEL = 'wanka'
+    DIRECTORY = 'wanka'
+    CH_NAME = '硬核小包'
+    SDKTYPE = '23'
+    PACKAGE_NAME = 'com.yunyue.nzgl.wanka'
+    YY_PACKAGE_NAME = 'com.yunyue.nzgl.wanka'
+    CREATE_ORDER_URL = 'http://sdk.nataku.yunyuegame.com/sdk/android/sdk/wanka/create_order'
