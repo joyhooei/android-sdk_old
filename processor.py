@@ -7,7 +7,7 @@ import glob
 def command_replace(path, trans):
     s = open(path, 'rb').read()
     for key, value in trans.items():
-        s.replace('${%s}' % key, value)
+        s = s.replace('${%s}' % key, value)
     open(path, 'wb').write(s)
 
 
