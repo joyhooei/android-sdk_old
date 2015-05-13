@@ -80,8 +80,8 @@ public class GameProxyImpl extends GameProxy implements KeybackCall, InitSDKCall
     private void initInfo(Activity activity) {
         final CPInfo info = new CPInfo();
         // info.setOpenOfficialLogin(false);// 是否开启游戏官方账号登录，默认为关闭
-        info.setAppKey("14280503379sMl6lAYp04RUefHl2mq");
-        info.setSecret("4acD86kGk52n0KI3wk8dD6pY");
+        info.setAppKey("${APPKEY}");
+        info.setSecret("${APPSECRET}");
         info.setChannel("AnZhi");
         info.setGameName(activity.getResources().getString(R.string.app_name));
         mAnzhiCenter = AnzhiUserCenter.getInstance();

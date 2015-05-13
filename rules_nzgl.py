@@ -90,3 +90,15 @@ class RuleBaidu(RuleBase):
 
     APPID = '5584487'
     APPKEY = 'fuZz2kKfl7hdzilGuaxcK4BY'
+
+
+@register
+class RuleAnzhi(RuleBase):
+    LABEL = 'anzhi'
+    DIRECTORY = 'anzhi'
+    CH_NAME = '安智小包'
+    SDKTYPE = '5'
+    PACKAGE_NAME = 'com.yunyue.nzgl.anzhi'
+
+    APPKEY = '14280503379sMl6lAYp04RUefHl2mq'
+    APPSECRET = '4acD86kGk52n0KI3wk8dD6pY'
