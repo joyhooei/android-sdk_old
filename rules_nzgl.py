@@ -44,6 +44,7 @@ class RuleZCSougou(RuleZC):
     CH_NAME = '筑巢搜狗小包'
     TD_APPID = '7ac71c291f484eeba7b9feb801f33457'
 
+
 @register
 class RuleXiaomi(RuleBase):
     LABEL = 'xiaomi'
@@ -54,3 +55,9 @@ class RuleXiaomi(RuleBase):
 
     APPID = '2882303761517320056'
     APPKEY = '5871732088056'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleXiaomi, cls).rules() + [
+            ('src/org/yunyue/MiAppApplication.java', 'replace', cls.common_replaces()),
+        ]
