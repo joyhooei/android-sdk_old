@@ -75,6 +75,6 @@ class RuleUC(RuleBase):
 
     @classmethod
     def rules(cls):
-        return super(RuleXiaomi, cls).rules() + [
+        return super(RuleUC, cls).rules() + [
             ('src/com/ninegame/ucgamesdk/UCSdkConfig.java', 'replace', cls.common_replaces()),
         ]
