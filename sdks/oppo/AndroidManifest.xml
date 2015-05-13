@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yunyue.nzgl.nearme.gamecenter"
-    android:versionCode="120005"
-    android:versionName="1.20005" >
+    package="${PACKAGE_NAME}"
+    android:versionCode="${VERSION_CODE}"
+    android:versionName="${VERSION_NAME}" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -253,9 +253,9 @@
 
         <!-- activity for sdk charge end --> 
         <!-- activity for sdk all end !!! -->
-        <meta-data android:name="sdktype" android:value="\ 20"/>
-        <meta-data android:name="YYPackageName" android:value="com.yunyue.nzgl.oppo" />
-        <meta-data android:name="appid" android:value="\ 3370"/>
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+        <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
+        <meta-data android:name="appid" android:value="${APPID}"/>
     </application>
 
     <supports-screens

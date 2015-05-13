@@ -38,7 +38,7 @@ public class GameProxyImpl extends GameProxy {
     public void applicationInit(Activity activity) {
         Log.v("sdk", "applicationInit");
 		GameCenterSettings gameCenterSettings = new GameCenterSettings(
-				"4uy6F890d9Q8ooSKkGkg4gw8s", "40a84eAC43C5b7347bAE858514053C28") {
+				"${APPKEY}", "${APPSECRET}") {
 
 			@Override
 			public void onForceReLogin() {

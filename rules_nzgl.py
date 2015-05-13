@@ -115,3 +115,17 @@ class RuleC360(RuleBase):
     QHOPENSDK_APPKEY = 'af4b8465b38059cb1f416c6cbcd21003'
     QHOPENSDK_PRIVATEKEY = '218db57f401f45ff10f94a2add643e73'
     QHOPENSDK_APPID = '202359551'
+
+
+@register
+class RuleOppo(RuleBase):
+    LABEL = 'oppo'
+    DIRECTORY = 'oppo'
+    CH_NAME = 'OPPO小包'
+    SDKTYPE = '20'
+    PACKAGE_NAME = 'com.yunyue.nzgl.nearme.gamecenter'
+    YY_PACKAGE_NAME = 'com.yunyue.nzgl.oppo'
+
+    APPID = '\\ 3370'
+    APPKEY = '4uy6F890d9Q8ooSKkGkg4gw8s'
+    APPSECRET = '40a84eAC43C5b7347bAE858514053C28'
