@@ -8,8 +8,8 @@ import com.wandoujia.mariosdk.plugin.api.api.WandouGamesApi;
  */
 public class sdk_app extends app {
 
-    private static final long APP_KEY = 100024673;
-    private static final String SECURITY_KEY = "20734a7a12cecdd660aba9665a083cb6";
+    private static final long APP_KEY = ${APPKEY};
+    private static final String SECURITY_KEY = "${SECURITY_KEY}";
 
     private static WandouGamesApi wandouGamesApi;
 
@@ -28,7 +28,7 @@ public class sdk_app extends app {
     @Override
     public void onCreate() {
         wandouGamesApi = new WandouGamesApi.Builder(this, APP_KEY, SECURITY_KEY).create();
-        wandouGamesApi.setLogEnabled(true);
+        wandouGamesApi.setLogEnabled(false);
         super.onCreate();
     }
 }

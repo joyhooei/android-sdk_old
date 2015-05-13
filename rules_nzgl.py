@@ -147,3 +147,15 @@ class RuleYYB(RuleBase):
     QQ_APPKEY = 'R8U6PCBOw3sX64H0'
     WX_APPID = 'wx2ab37fb74e206f3d'
     WX_APPKEY = 'c032d3e153a0e477fae08328153e35cf'
+
+
+@register
+class RuleWDJ(RuleBase):
+    LABEL = 'wdj'
+    DIRECTORY = 'wdj'
+    CH_NAME = '豌豆荚小包'
+    SDKTYPE = '22'
+    PACKAGE_NAME = 'com.yunyue.nzgl.wdj'
+
+    APPKEY = '100024673'
+    SECURITY_KEY = '20734a7a12cecdd660aba9665a083cb6'
