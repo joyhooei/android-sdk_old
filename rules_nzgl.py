@@ -159,3 +159,9 @@ class RuleWDJ(RuleBase):
 
     APPKEY = '100024673'
     SECURITY_KEY = '20734a7a12cecdd660aba9665a083cb6'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleWDJ, cls).rules() + [
+            ('src/org/yunyue/sdk_app.java', 'replace', cls.common_replaces()),
+        ]
