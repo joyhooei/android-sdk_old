@@ -4,10 +4,6 @@ import os
 from processor import process
 
 
-def d(f, t, *args):
-    return (f, t, args)
-
-
 def register(container):
     def decor(cls):
         container[cls.LABEL] = cls
@@ -16,7 +12,7 @@ def register(container):
 
 
 common_rules = [
-    d('AndroidManifest.xml', 'replace', {
+    ('AndroidManifest.xml', 'replace', {
         'VERSION_CODE': '120005',
         'VERSION_NAME': '1.20005',
     }),
@@ -40,8 +36,8 @@ class Rule(object):
     def rules(cls):
 
         return common_rules + [
-            d('AndroidManifest.xml', 'replace', cls.common_replaces()),
-            d('src/org/yunyue/GameProxyImpl.java', 'replace', cls.common_replaces()),
+            ('AndroidManifest.xml', 'replace', cls.common_replaces()),
+            ('src/org/yunyue/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
 
 

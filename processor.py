@@ -14,4 +14,4 @@ def command_replace(path, trans):
 def process(rules):
     for pattern, command, args in rules:
         for path in glob.glob(pattern):
-            globals()['command_'+command](path, *args)
+            globals()['command_'+command](path, args)
