@@ -176,3 +176,12 @@ class RuleWanka(RuleBase):
     PACKAGE_NAME = 'com.yunyue.nzgl.wanka'
     YY_PACKAGE_NAME = 'com.yunyue.nzgl.wanka'
     CREATE_ORDER_URL = 'http://sdk.nataku.yunyuegame.com/sdk/android/sdk/wanka/create_order'
+
+
+@register
+class RuleEmpty(RuleBase):
+    LABEL = 'empty'
+    DIRECTORY = 'empty'
+    CH_NAME = '白包小包'
+    SDKTYPE = '0'
+    PACKAGE_NAME = 'com.yunyue.nzgl.yy'

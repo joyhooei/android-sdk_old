@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.yunyue.nzgl.vivo"
+    package="${PACKAGE_NAME}"
       android:installLocation="auto"
-      android:versionCode="120005"
-      android:versionName="1.20005">
+      android:versionCode="${VERSION_CODE}"
+      android:versionName="${VERSION_NAME}">
 
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
 
@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
 
-        <!--<meta-data android:name="sdktype" android:value="\ 18"/>-->
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"
