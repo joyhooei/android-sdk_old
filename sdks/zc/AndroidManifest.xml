@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="sdktype" android:value="\ 9"/>
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
         <meta-data android:name="TD_APPID" android:value="${TD_APPID}"/>
         <meta-data android:name="TD_CHANNEL" android:value="${TD_CHANNEL}"/>
 

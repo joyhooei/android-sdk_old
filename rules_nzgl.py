@@ -13,8 +13,9 @@ class RuleZC(RuleBase):
     LABEL = 'zc'
     DIRECTORY = 'zc'
     CH_NAME = '筑巢小包'
-
+    SDKTYPE = 9
     PACKAGE_NAME = 'com.yunyue.ttxm.zclh'
+
     TD_APPID = 'f7eac3e7b3014a5487f69f85c07069e6'
     TD_CHANNEL = ''
 
@@ -42,3 +43,14 @@ class RuleZCSougou(RuleZC):
     LABEL = 'zc_sougou'
     CH_NAME = '筑巢搜狗小包'
     TD_APPID = '7ac71c291f484eeba7b9feb801f33457'
+
+@register
+class RuleXiaomi(RuleBase):
+    LABEL = 'xiaomi'
+    DIRECTORY = 'xiaomi'
+    CH_NAME = '小米小包'
+    SDKTYPE = 18
+    PACKAGE_NAME = 'com.yunyue.nzgl.xiaomi'
+
+    APPID = '2882303761517320056'
+    APPKEY = '5871732088056'
