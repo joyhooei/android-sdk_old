@@ -35,6 +35,14 @@
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
         <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}"/>
         <meta-data android:name="create_order_url" android:value="${CREATE_ORDER_URL}"/>
+
+        <receiver
+            android:name="org.yunyue.ChangeUserReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.huawei.gamebox.changeUserLogin" />
+            </intent-filter>
+        </receiver>
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"
