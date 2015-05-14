@@ -18,6 +18,11 @@ def one(rule):
     os.chdir('../..')
 
 
+def run_copyassets(d, version):
+    cmd = 'copyassets.py %s assets --version %s --ext ".lh"' % (d, version)
+    os.system(cmd)
+
+
 def main(desc, label=None):
     if label:
         one(desc[label])
@@ -33,6 +38,8 @@ parser.add_option("-l", "--label", dest="label", type="string",
                   help="platform label", metavar="LABEL")
 parser.add_option("-g", "--game", dest="game", type="string",
                   help="game label", metavar="GAME")
+parser.add_option("-c", "--copyassets", dest="copyassets_path", type="string",
+                  help="copyassets path", metavar="COPYASSETS")
 
 
 if __name__ == '__main__':
@@ -40,5 +47,8 @@ if __name__ == '__main__':
     m = __import__('rules_%s' % options.game)
     m.RuleBase.VERSION_CODE = str(options.version)
     m.RuleBase.VERSION_NAME = '%.05f' % (options.version / 100000.0)
+
+    if options.copyassets_path:
+        run_copyassets(options.copyassets_path, options.version)
 
     main(all_rules, options.label)
