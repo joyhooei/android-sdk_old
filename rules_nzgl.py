@@ -103,6 +103,12 @@ class RuleAnzhi(RuleBase):
     APPKEY = '14280503379sMl6lAYp04RUefHl2mq'
     APPSECRET = '4acD86kGk52n0KI3wk8dD6pY'
 
+    @classmethod
+    def rules(cls):
+        return super(RuleAnzhi, cls).rules() + [
+            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+        ]
+
 
 @register
 class RuleC360(RuleBase):

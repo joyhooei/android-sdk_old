@@ -56,7 +56,7 @@ import com.tencent.unipay.request.UnipayGoodsRequest;
 import com.tencent.unipay.request.UnipayMonthRequest;
 import com.tencent.unipay.request.UnipaySubscribeRequest;
 
-import com.tencent.tmgp.NZGLDH.R;
+import ${PACKAGE_NAME}.R;
 
 public class GameProxyImpl extends GameProxy {
     public Object loginCustomParams;

@@ -20,7 +20,7 @@ import com.anzhi.usercenter.sdk.item.CPInfo;
 import com.anzhi.usercenter.sdk.item.UserGameInfo;
 import com.anzhi.usercenter.sdk.inter.KeybackCall;
 
-import com.yunyue.nzgl.anzhi.R;
+import ${PACKAGE_NAME}.R;
 
 public class GameProxyImpl extends GameProxy implements KeybackCall, InitSDKCallback, AnzhiCallback{
     private AnzhiUserCenter mAnzhiCenter;

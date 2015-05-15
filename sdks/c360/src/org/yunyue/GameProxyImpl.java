@@ -27,7 +27,7 @@ import com.qihoo.gamecenter.sdk.demosp.utils.QihooUserInfoListener;
 import com.qihoo.gamecenter.sdk.demosp.utils.QihooUserInfoTask;
 import com.qihoo.gamecenter.sdk.demosp.utils.Utils;
 
-import com.yunyue.nzgl.c360.R;
+import ${PACKAGE_NAME}.R;
 
 public class GameProxyImpl extends GameProxy {
     private Activity currentActivity;

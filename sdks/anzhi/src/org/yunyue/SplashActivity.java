@@ -10,7 +10,7 @@ import android.os.Handler;
 import android.os.Message;  
 import android.view.MotionEvent;  
 
-import com.yunyue.nzgl.anzhi.R;
+import ${PACKAGE_NAME}.R;
 
 public class SplashActivity extends Activity {  
     private long startTime;  
