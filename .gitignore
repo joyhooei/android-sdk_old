@@ -2,8 +2,10 @@
 *~
 tags
 ic_launcher.png
+.DS_Store
 
 /assets
+/assets_*
 
 /sdks/*/assets/
 /sdks/*/bin/
