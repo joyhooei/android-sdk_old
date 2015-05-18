@@ -68,7 +68,7 @@ class RuleUC(RuleBase):
     LABEL = 'uc'
     DIRECTORY = 'uc'
     CH_NAME = 'UC小包'
-    SDKTYPE = '5'
+    SDKTYPE = '7'
     PACKAGE_NAME = 'com.yunyue.nzgl.uc'
 
     GAMEID = '551539'
@@ -85,7 +85,7 @@ class RuleBaidu(RuleBase):
     LABEL = 'baidu'
     DIRECTORY = 'baidu'
     CH_NAME = '百度小包'
-    SDKTYPE = '5'
+    SDKTYPE = '17'
     PACKAGE_NAME = 'com.yunyue.nzgl.baidu'
 
     APPID = '5584487'
@@ -97,7 +97,7 @@ class RuleAnzhi(RuleBase):
     LABEL = 'anzhi'
     DIRECTORY = 'anzhi'
     CH_NAME = '安智小包'
-    SDKTYPE = '5'
+    SDKTYPE = '21'
     PACKAGE_NAME = 'com.yunyue.nzgl.anzhi'
 
     APPKEY = '14280503379sMl6lAYp04RUefHl2mq'
