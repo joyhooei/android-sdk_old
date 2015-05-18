@@ -10,11 +10,14 @@ def one(rule):
     os.system('git clean -f -d .')
     process(rule.rules())
     # preview replaces
-    os.system('git diff -p --raw .')
-    #os.system('ant linkassets release')
+    #os.system('git diff -p --raw .')
+    os.system('ant linkassets release')
     os.system('git clean -f -d .')
     os.system('git checkout -- .')
     # TODO copy package
+    os.system('mkdir -p $HOME/android_package/%s'%rule.VERSION_CODE)
+    output = '$HOME/android_package/%s/%s_%s.apk'%(rule.VERSION_CODE, rule.CH_NAME, rule.VERSION_CODE)
+    os.system('cp bin/poem-release.apk %s'%output)
     os.chdir('../..')
 
 
@@ -23,9 +26,12 @@ def run_copyassets(d, version):
     os.system(cmd)
 
 
-def main(desc, label=None):
-    if label:
-        one(desc[label])
+def main(desc, labels=None):
+    if labels:
+        print labels
+        print labels.split( '|' )
+        for lable in labels.split( '|' ):
+            one(desc[lable])
     else:
         for label, rule in desc.items():
             one(rule)
@@ -34,8 +40,8 @@ def main(desc, label=None):
 parser = OptionParser()
 parser.add_option("-v", "--version", dest="version", type="int",
                   help="package version", metavar="VERSION")
-parser.add_option("-l", "--label", dest="label", type="string",
-                  help="platform label", metavar="LABEL")
+parser.add_option("-l", "--labels", dest="labels", type="string",
+                  help="platform labels", metavar="LABEL")
 parser.add_option("-g", "--game", dest="game", type="string",
                   help="game label", metavar="GAME")
 parser.add_option("-c", "--copyassets", dest="copyassets_path", type="string",
@@ -51,4 +57,4 @@ if __name__ == '__main__':
     if options.copyassets_path:
         run_copyassets(options.copyassets_path, options.version)
 
-    main(all_rules, options.label)
+    main(all_rules, options.labels)
