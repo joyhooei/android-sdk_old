@@ -35,6 +35,7 @@
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
         <meta-data android:name="TD_APPID" android:value="${TD_APPID}"/>
         <meta-data android:name="TD_CHANNEL" android:value="${TD_CHANNEL}"/>
+        <meta-data android:name="CHANNEL" android:value="${CHANNEL}"/>
 
         <activity android:name="com.gamebean.charge.ChargeActivity" android:screenOrientation="portrait">
         </activity>
