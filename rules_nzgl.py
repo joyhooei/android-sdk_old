@@ -28,7 +28,6 @@ class RuleZC(RuleBase):
 class RuleZCBaidu(RuleZC):
     LABEL = 'zc_baidu'
     CH_NAME = '筑巢百度小包'
-    CHANNEL = 'baidu'
 
     TD_APPID = '2c09c858fb8d4b468fdb26427ec6d18c'
 
@@ -37,7 +36,6 @@ class RuleZCBaidu(RuleZC):
 class RuleZCShenma(RuleZC):
     LABEL = 'zc_shenma'
     CH_NAME = '筑巢神马小包'
-    CHANNEL = 'shenma'
     TD_APPID = '8f7101f78ab24b34b75c07709bf9cff0'
 
 
@@ -45,8 +43,21 @@ class RuleZCShenma(RuleZC):
 class RuleZCSougou(RuleZC):
     LABEL = 'zc_sougou'
     CH_NAME = '筑巢搜狗小包'
-    CHANNEL = 'sougou'
     TD_APPID = '7ac71c291f484eeba7b9feb801f33457'
+
+
+ZC_CHANNELS = [
+    ('qixiazi', '七匣子'),
+    ('youyi', '优艺市场'),
+    ('anjingling', '安精灵'),
+    ('jufeng', '聚丰网络'),
+]
+for label, name in ZC_CHANNELS:
+    register(type('RuleZC%s' % label, (RuleZC,), dict(
+        LABEL='zc_%s' % label,
+        CH_NAME='筑巢%s小包' % name,
+        CHANNEL=label,
+    )))
 
 
 @register

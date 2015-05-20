@@ -2,6 +2,7 @@
 rules = [file_pattern, command, args]
 '''
 import glob
+from collections import OrderedDict
 
 
 def command_replace(path, trans):
@@ -34,7 +35,7 @@ class Rule(object):
             ('src/org/yunyue/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
 
-all_rules = {}
+all_rules = OrderedDict()
 
 
 def register(cls):
