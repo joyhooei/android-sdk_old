@@ -160,6 +160,7 @@ class RuleYYB(RuleBase):
     SDKTYPE = '24'
     PACKAGE_NAME = 'com.tencent.tmgp.NZGLDH'
     YY_PACKAGE_NAME = 'com.yunyue.nzgl.yyb'
+    APP_NAME = '哪吒归来HD'
 
     CREATE_ORDER_URL = 'http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/create_order'
     QUERY_BALANCE_URL = 'http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/query_balance'
@@ -168,6 +169,12 @@ class RuleYYB(RuleBase):
     QQ_APPKEY = 'R8U6PCBOw3sX64H0'
     WX_APPID = 'wx2ab37fb74e206f3d'
     WX_APPKEY = 'c032d3e153a0e477fae08328153e35cf'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleYYB, cls).rules() + [
+            ('res/values/strings.xml', 'replace', cls.common_replaces()),
+        ]
 
 
 @register
