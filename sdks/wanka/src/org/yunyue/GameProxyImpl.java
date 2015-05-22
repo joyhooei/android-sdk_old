@@ -311,7 +311,7 @@ public class GameProxyImpl extends GameProxy {
 
     @Override
     public void exit(Activity activity, ExitCallback callback) {
-        if (currentChannel.compareTo("lenovo")==0)
+        if (currentChannel != null && currentChannel.compareTo("lenovo")==0)
             PaySdkProxy.getInstance().logout(activity, null);
         else
             callback.onNo3rdExiterProvide();
