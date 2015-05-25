@@ -15,9 +15,6 @@
     <uses-permission android:name="android.permission.DUMP" />
 
     <!-- start for gfan sdk -->
-    <meta-data android:name="gfan_pay_appkey" android:value="XXXXXXXX" />
-    <meta-data android:name="gfan_cpid" android:value="CPID" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -173,6 +170,9 @@
         </activity>
         <!-- 框支付插件
         end-->
+
+        <meta-data android:name="gfan_pay_appkey" android:value="330543028" />
+        <meta-data android:name="gfan_cpid" android:value="test_cp" />
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
     </application>

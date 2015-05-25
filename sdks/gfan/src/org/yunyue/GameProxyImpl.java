@@ -41,14 +41,14 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void applicationInit(Activity activity) {
-        GfanPay.getInstance(getApplicationContext()).init();
+        GfanPay.getInstance(activity.getApplicationContext()).init();
     }
 
-    public void login(Activity activity,Object customParams) {
+    public void login(Activity activity,final Object customParams) {
         // 登录，customParams透传给回调
         GfanUCenter.login(activity, new GfanUCCallback() {
             @Override
-            public void onSuccess(User user, intloginType) {
+            public void onSuccess(User user, int loginType) {
                 //// 由登录页登录成功
                 //if (GfanUCenter.RETURN_TYPE_LOGIN == loginType) {
                 //    // TODO登录成功处理
@@ -57,12 +57,12 @@ public class GameProxyImpl extends GameProxy{
                 //    // TODO注册成功处理
                 //}
                 org.yunyue.User yy_user = new org.yunyue.User();
-                yy_user.userID = user.getUid();
+                yy_user.userID = user.getUid() + "";
                 yy_user.token = user.getToken();
                 userListerner.onLoginSuccess(yy_user, customParams);
             }
             @Override
-            public void onError(intloginType) {
+            public void onError(int loginType) {
                 // TODO失败处理
             }
         });
@@ -78,5 +78,22 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+        Order order = new Order(ID, name, int(price), orderID);
+        GfanPay.getInstance(activity.getApplicationContext()).pay(order, new GfanPayCallback() {
+            @Override
+            public void onSuccess(User user, Order order) {
+                payCallBack.onSuccess(null);
+                Toast.makeText(getApplicationContext(), "支付成功 user：" + user.getUserName() + "金额：" + order.getMoney(), Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onError(User user) {
+                payCallBack.onFail(null);
+                if (user != null) {
+                    Toast.makeText(getApplicationContext(), "支付失败 user：" + user.getUserName(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "用户未登录", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
