@@ -171,8 +171,8 @@
         <!-- 框支付插件
         end-->
 
-        <meta-data android:name="gfan_pay_appkey" android:value="330543028" />
-        <meta-data android:name="gfan_cpid" android:value="test_cp" />
+        <meta-data android:name="gfan_pay_appkey" android:value="653373561" />
+        <meta-data android:name="gfan_cpid" android:value="gfan" />
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
     </application>
