@@ -49,6 +49,7 @@ public class GameProxyImpl extends GameProxy{
         GfanUCenter.login(activity, new GfanUCCallback() {
             @Override
             public void onSuccess(User user, int loginType) {
+                Log.v("cocos sdk login", "login success");
                 //// 由登录页登录成功
                 //if (GfanUCenter.RETURN_TYPE_LOGIN == loginType) {
                 //    // TODO登录成功处理
@@ -63,6 +64,7 @@ public class GameProxyImpl extends GameProxy{
             }
             @Override
             public void onError(int loginType) {
+                Log.v("cocos sdk login", "login failed");
                 // TODO失败处理
             }
         });
@@ -77,8 +79,9 @@ public class GameProxyImpl extends GameProxy{
         // 切换帐号（目前没用到），customParams透传给回调
     }
 
-    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
-        Order order = new Order(ID, name, int(price*10), orderID);
+    public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
+        int money = (int)(price * 10);
+        Order order = new Order(ID, name, money, orderID);
         GfanPay.getInstance(activity.getApplicationContext()).pay(order, new GfanPayCallback() {
             @Override
             public void onSuccess(User user, Order order) {
