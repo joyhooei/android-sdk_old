@@ -213,3 +213,11 @@ class RuleEmpty(RuleBase):
     CH_NAME = '白包小包'
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.yunyue.nzgl.yy'
+
+@register
+class RuleEmpty(RuleBase):
+    LABEL = 'gfan'
+    DIRECTORY = 'gfan'
+    CH_NAME = '机锋小包'
+    SDKTYPE = '28'
+    PACKAGE_NAME = 'com.yunyue.nzgl.gfan'
