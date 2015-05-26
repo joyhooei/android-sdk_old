@@ -40,6 +40,10 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
+    public boolean supportLogout() {
+        return true;
+    }
+
     public void applicationInit(Activity activity) {
         GfanPay.getInstance(activity.getApplicationContext()).init();
     }
