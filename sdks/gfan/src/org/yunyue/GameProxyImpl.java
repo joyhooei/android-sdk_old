@@ -81,7 +81,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         int money = (int)(price * 10);
-        Order order = new Order(ID, name, money, orderID);
+        Order order = new Order(ID, name, money, callBackInfo + "_" + orderID);
         GfanPay.getInstance(activity.getApplicationContext()).pay(order, new GfanPayCallback() {
             @Override
             public void onSuccess(User user, Order order) {
