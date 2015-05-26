@@ -76,6 +76,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void logout(Activity activity,Object customParams) {
         // 登出，customParams透传给回调
+        userListerner.onLogout(customParams);
         GfanUCenter.logout(activity);
     }
 
