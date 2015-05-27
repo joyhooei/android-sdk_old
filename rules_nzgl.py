@@ -250,3 +250,14 @@ class RuleM4399(RuleBase):
     PACKAGE_NAME = 'com.yunyue.nzgl.m4399'
 
     APPKEY = '103797'
+
+
+@register
+class RuleHWD(RuleBase):
+    LABEL = 'hwd'
+    DIRECTORY = 'hwd'
+    CH_NAME = '好玩点小包'
+    SDKTYPE = '27'
+    PACKAGE_NAME = 'com.yunyue.nzgl.hwd'
+
+    APPID = '10148'

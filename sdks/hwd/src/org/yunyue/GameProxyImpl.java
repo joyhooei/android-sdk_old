@@ -34,7 +34,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void applicationInit(Activity activity) {
-        QTPlay.registerGame(activity, "10038", QTPlay.SCREEN_PORTRAIT, false);
+        QTPlay.registerGame(activity, "${APPID}", QTPlay.SCREEN_PORTRAIT, false);
 		QTPlay.qt_setGameArea("1");
     }
 
