@@ -237,3 +237,14 @@ class RuleMM(RuleBase):
 
     APPID = ''
     APPKEY = ''
+
+
+@register
+class RuleM4399(RuleBase):
+    LABEL = 'm4399'
+    DIRECTORY = 'm4399'
+    CH_NAME = '4399小包'
+    SDKTYPE = '30'
+    PACKAGE_NAME = 'com.yunyue.nzgl.m4399'
+
+    APPKEY = ''
