@@ -40,6 +40,10 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
+    public boolean supportLogout() {
+        return true;
+    }
+
     public void applicationInit(Activity activity) {
         GfanPay.getInstance(activity.getApplicationContext()).init();
     }
@@ -72,6 +76,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void logout(Activity activity,Object customParams) {
         // 登出，customParams透传给回调
+        userListerner.onLogout(customParams);
         GfanUCenter.logout(activity);
     }
 
@@ -86,13 +91,13 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onSuccess(User user, Order order) {
                 payCallBack.onSuccess(null);
-                Toast.makeText(activity.getApplicationContext(), "支付成功 user：" + user.getUserName() + "金额：" + order.getMoney(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(activity.getApplicationContext(), "支付成功 user：" + user.getUserName() + "金额：" + order.getMoney(), Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onError(User user) {
                 payCallBack.onFail(null);
                 if (user != null) {
-                    Toast.makeText(activity.getApplicationContext(), "支付失败 user：" + user.getUserName(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(activity.getApplicationContext(), "支付失败 user：" + user.getUserName(), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(activity.getApplicationContext(), "用户未登录", Toast.LENGTH_SHORT).show();
                 }

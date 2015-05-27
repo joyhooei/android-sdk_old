@@ -7,6 +7,11 @@ from optparse import OptionParser
 
 def one(rule):
     os.chdir('sdks/%s' % rule.DIRECTORY)
+    s = os.popen('git status -s .').read()
+    if s:
+        print 'directory is not clean'
+        print s
+        return
     os.system('git clean -f -d .')
     process(rule.rules())
     # preview replaces
