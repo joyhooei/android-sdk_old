@@ -247,4 +247,4 @@ class RuleM4399(RuleBase):
     SDKTYPE = '30'
     PACKAGE_NAME = 'com.yunyue.nzgl.m4399'
 
-    APPKEY = ''
+    APPKEY = '103797'
