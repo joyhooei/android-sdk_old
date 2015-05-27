@@ -217,10 +217,23 @@ class RuleEmpty(RuleBase):
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.yunyue.nzgl.yy'
 
+
 @register
-class RuleEmpty(RuleBase):
+class RuleGfan(RuleBase):
     LABEL = 'gfan'
     DIRECTORY = 'gfan'
     CH_NAME = '机锋小包'
     SDKTYPE = '28'
     PACKAGE_NAME = 'com.yunyue.nzgl.gfan'
+
+
+@register
+class RuleMM(RuleBase):
+    LABEL = 'mm'
+    DIRECTORY = 'mm'
+    CH_NAME = '移动MM小包'
+    SDKTYPE = '29'
+    PACKAGE_NAME = 'com.yunyue.nzgl.mm'
+
+    APPID = ''
+    APPKEY = ''
