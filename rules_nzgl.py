@@ -226,6 +226,8 @@ class RuleGfan(RuleBase):
     SDKTYPE = '28'
     PACKAGE_NAME = 'com.yunyue.nzgl.gfan'
 
+    APPKEY = '653373561'
+
 
 @register
 class RuleMM(RuleBase):
