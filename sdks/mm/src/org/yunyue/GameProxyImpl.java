@@ -20,6 +20,7 @@ public class GameProxyImpl extends GameProxy{
 
 	public static Purchase purchase;
     private IAPListener mListener;
+    public PayCallBack payCallBack;
 	private static final String APPID = "${APPID}";
 	private static final String APPKEY = "${APPKEY}";
 
@@ -61,6 +62,7 @@ public class GameProxyImpl extends GameProxy{
 
     @Override
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+        this.payCallBack = payCallBack;
         purchase.order(activity, ID, 1, name, false, mListener, callBackInfo);
     }
 }
