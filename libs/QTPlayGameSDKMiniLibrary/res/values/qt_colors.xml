@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="qt_black_dark">#aa333333</color>
+    <color name="qt_color_gery">#f0f0f0</color>
+    <color name="qt_color_black">#000000</color>
+    
+    <color name="qt_color_white">#ffffff</color>
+    <color name="qt_color_text">#353439</color>
+    <color name="qt_color_subtext">#909297</color>
+    <color name="qt_color_text_hint">#cfd4d8</color>
+    <color name="qt_color_text_title2">#6d6d6d</color>
+	<!-- 游戏圈用户名字的颜色 -->
+    <color name="qt_color_text_cc_name">#375d81</color>
+	
+	<color name="qt_color_btn_click_bg">#faba01</color>
+	<color name="qt_color_btn_uncheckable_bg">#d3d3d3</color>
+	<!-- 分割线的背景色 -->
+	<color name="qt_color_bg_grey">#cdcdd0</color>
+	<color name="qt_color_bg_grey2">#f1f1f2</color>
+	<color name="qt_color_bg_hlaf_transparent">#8000</color>
+	<color name="qt_color_bg_hlaf_transparent_white">#bfff</color>
+	<color name="qt_color_bg_hlaf_transparent_white2">#efff</color>
+	<color name="qt_color_bg_hlaf_transparent_white3">#e5ffffff</color>
+	<color name="qt_color_bg_tab">#2b2b2b</color>
+	<color name="qt_color_bg_tab_click">#353439</color>
+	<color name="qt_color_icon_notice">#f0564c</color>
+	<color name="qt_color_main">#ffc63d</color>
+	<color name="qt_color_main_trans">#88ffc63d</color>
+	<color name="qt_color_transparent">#0000</color>
+	<color name="qt_color_toast_title">#f26d7e</color>
+	<color name="qt_color_toast_txt">#FF4B351F</color>
+	<color name="qt_color_toast_ad_title">#2771d4</color>
+	<color name="qt_color_toast_ad_txt">#666963</color>
+	<color name="qt_color_toast_ad_bg">#d8000000</color>
+	
+  <color name="qt_result_view">#b0000000</color>
+  <color name="qt_possible_result_points">#c0ffff00</color>
+  <color name="qt_viewfinder_frame">#ff000000</color>
+  <color name="qt_viewfinder_laser">#ffff0000</color>
+  <color name="qt_viewfinder_mask">#60000000</color>
+  
+  <color name="qt_color_red_normal">#ff3b2f</color>
+  <color name="qt_color_red_click">#fa1305</color>
+  <color name="qt_color_toast_bg">#f0ffffff</color>
+  <color name="qt_color_btn_bg_black">#3b3a3f</color>
+  <color name="qt_color_btn_bg_grey">#c3c4c6</color>
+  
+	<color name="qt_color_sex_man">#76c5e7</color>
+	<color name="qt_color_sex_woman">#f26d7e</color>
+	
+	<color name="qt_color_tag1">#f75a53</color>
+	<color name="qt_color_tag2">#f76d02</color>
+	<color name="qt_color_tag3">#81a0d7</color>
+	<color name="qt_color_tag4">#95ba12</color>
+	<color name="qt_color_tag5">#4dcd70</color>
+	<color name="qt_color_tag6">#ed9d60</color>
+	
+	<color name="qt_color_red">#f26d7e</color>
+	
+	<color name="qt_color_text2">#3c3c3c</color>
+</resources>

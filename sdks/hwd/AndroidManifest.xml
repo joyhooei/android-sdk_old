@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="${PACKAGE_NAME}"
+      android:installLocation="auto"
+      android:versionCode="${VERSION_CODE}"
+      android:versionName="${VERSION_NAME}">
+
+    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.DUMP" />
+
+    <!-- sdk permission settinQTPlay start -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- sdk permission settingQTPlay end -->
+
+    <application android:name="org.yunyue.app"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:debuggable="true">
+
+        <activity android:name="org.yunyue.poem"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+
+        <!-- push start -->
+        <service
+            android:name="com.qtplay.gamesdk.push.QTPushService"
+            android:process="com.qtplay.gamesdk.push" >
+            <intent-filter>
+                <action android:name="com.qtplay.gamesdk.push.bind.bindService" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="com.qtplay.gamesdk.push.QTNetChangeReceiver"
+            android:process="com.qtplay.gamesdk.push" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.qtplay.gamesdk.push.QTPushReceiver"
+            android:process="com.qtplay.gamesdk.push" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_PREPARE" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_START" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_QUICK_RESTART" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_ALARM" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_ACTION_UPDATE_TOPIC" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_CLEAR"/>
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_DO_COMMAND"/>
+                <action android:name="com.qtplay.gamesdk.push.intent.action.CHECK_BEAT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.qtplay.gamesdk.push.QTPushGameReceiver" >
+            <intent-filter>
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_RECEIVE_MSG" />
+            </intent-filter>
+        </receiver>
+        <!-- push end --> 
+
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <!-- alipay sdk end -->
+
+        <!-- 设置渠道号，当前游戏包的渠道 -->
+        <meta-data android:name="QTPLAY_CHANNEL" android:value="B1094"/>
+
+        <!-- sdk application settinQTPlay end -->
+    </application>
+    <supports-screens android:largeScreens="true"
+                      android:smallScreens="true"
+                      android:anyDensity="true"
+                      android:normalScreens="true"/>
+</manifest> 

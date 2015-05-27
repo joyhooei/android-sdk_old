@@ -1,0 +1,286 @@
+<resources>
+
+    <string name="qt_string_app_name">qtplay</string>
+ 	<string name="qt_string_wait">加载数据中请等待</string>
+	<string name="qt_string_wait_error">加载失败，点击重新加载</string>
+	<string name="qt_string_networkerrorinfo">无法连接服务器，请检查网络设置。</string>
+	<string name="qt_string_errorandrelogin">程序出错，请重新登录。</string>
+	<string name="qt_string_servererror">网络异常，请您重新登录！</string>
+	<string name="qt_string_login_error">未登录，点击登录</string>
+	<string name="qt_string_data_empty">暂无数据，点击刷新</string>
+	<string name="qt_string_timeout">网络超时，请稍候再试。</string>
+	<string name="qt_string_request_error">请求数据错误</string>
+	<string name="qt_string_often_error">请不要频繁请求</string>
+	
+	<string name="qt_string_tab_1">首页</string>
+	<string name="qt_string_tab_2">问答</string>
+	<string name="qt_string_tab_3">排行</string>
+	<string name="qt_string_tab_4">消息</string>
+	<string name="qt_string_tab_5">发现</string>
+	
+	
+	<string name="qt_string_name">昵称</string>
+	<string name="qt_string_QTID">QTID</string>
+	
+	
+	
+    <string name="qt_string_phone">手机号码</string>
+    <string name="qt_string_code">验证码</string>
+    <string name="qt_string_pw">输入密码</string>
+    <string name="qt_string_lost_pw">找回密码</string>
+    <string name="qt_string_new_pw">密码6-20字母数字</string>
+    <string name="qt_string_pls_input_land">请输入暗号</string>
+    
+    
+    <string name="qt_string_get_code">获取验证码</string>
+    <string name="qt_string_login">登录</string>
+    <string name="qt_string_register">注册</string>
+    <string name="qt_string_validate">验证手机号</string>
+    
+    <string name="qt_string_nicename">昵称</string>
+    <string name="qt_string_sex">性别</string>
+    <string name="qt_string_birth">生日</string>
+    <string name="qt_string_signal">朋友暗号</string>
+    <string name="qt_string_signal_tip">邀请您的朋友暗号</string>
+    <string name="qt_string_signal_mine">我的暗号</string>
+    <string name="qt_string_signal_tip_mine">我的暗号</string>
+    
+    <string name="qt_string_complete_setting">提交</string>
+    <string name="qt_string_complete_setting_2">不输入暗号提交</string>
+    
+    <string name="qt_string_action_invite">邀请好友</string>
+    <string name="qt_string_action_send">发送消息</string>
+    <string name="qt_string_action_invited">已邀请</string>
+    <string name="qt_string_action_invite_game">邀请来玩游戏</string>
+    <string name="qt_string_action_try">挑战</string>
+    
+	<string name="qt_string_share_wx_notinstall">您还未安装微信客户端，不能进行分享</string>
+    <string name="qt_string_share_wx_notapisupport">您的微信客户端不支持分享，请更新</string>
+    <string name="qt_string_share_wx_nottimelinesupport">您的微信客户端不支持分享到朋友圈，请更新</string>
+    
+    <string name="qt_string_user_pw">登录密码</string>
+    <string name="qt_string_send">发送</string>
+    
+    <string name="qt_string_login_success">登录成功</string>
+    <string name="qt_string_logout_success">登出成功</string>
+    <string name="qt_string_login_failure">登录失败</string>
+    
+    
+    <string name="qt_string_request_success">成功</string>
+    <string name="qt_string_request_failure">失败</string>
+    
+    <string name="qt_string_upload_success">上传成功</string>
+    <string name="qt_string_upload_failure">上传失败</string>
+    
+    <string name="qt_string_invite_success">邀请成功</string>
+    <string name="qt_string_invite_failure">邀请失败</string>
+    
+    <string name="qt_string_no_user">非平台用户</string>
+    <string name="qt_string_ps_input">请输入内容</string>
+    <string name="qt_string_ps_input_right_phone">请输入正确手机号码</string>
+    <string name="qt_string_code_sended">短信验证码已发送，请注意查收</string>
+    <string name="qt_string_delete">删除</string>
+    <string name="qt_string_action">操作</string>
+    <string name="qt_string_cant_delete_sys">系统通知不能删除</string>
+    <string name="qt_string_cant_found_img">图片没有找到</string>
+   	<string name="qt_string_account_setting">账号设置</string>
+   	<string name="qt_string_cfriend">通讯录好友</string>
+   	<string name="qt_string_send_msg">发消息</string>
+   	<string name="qt_string_find_friend">有缘的玩家</string>
+   	<string name="qt_string_near_friend">附近的玩家</string>
+   
+   	<string name="qt_string_new_friend">好友申请</string>
+   	<string name="qt_string_new_friend_dec">您有%1s条新的好友申请</string>
+   	<string name="qt_string_new_pk">PK记录</string>
+   	<string name="qt_string_new_pk_dec">您有%1s条新的pk消息</string>
+   	<string name="qt_string_notice">公告</string>
+   	<string name="qt_string_new_notice">官方活动</string>
+   	
+   	<string name="qt_string_unknow">未知</string>
+    <string name="qt_string_invite">邀请</string>
+    <string name="qt_string_nickname_tip">昵称：</string>
+    <string name="qt_string_score_tip">得分：</string>
+    <string name="qt_string_accept">接受</string>
+    <string name="qt_string_accepted">已接受</string>
+    <string name="qt_string_isfriended">已是好友</string>
+    <string name="qt_string_isstranger">陌生人</string>
+    <string name="qt_string_site">位</string>
+    <string name="qt_string_myscore_tip">我的分数：</string>
+    <string name="qt_string_show_all">查看全文</string>
+    <string name="qt_string_action_cancel">取消</string>
+    <string name="qt_string_action_save">保存</string>
+    <string name="qt_string_action_submit">确认</string>
+    
+    <string name="qt_string_invite_way">选择邀请方式</string>
+    <string name="qt_string_invite_by_sms">通过短信邀请</string>
+    <string name="qt_string_invite_by_wechat">通过微信邀请</string>
+    <string name="qt_string_action_back">返回</string>
+    
+    <string name="qt_string_pick_way">选择照片</string>
+    <string name="qt_string_pick_by_album">从相册选择</string>
+    <string name="qt_string_pick_by_photo">照相</string>
+    
+    <string name="qt_string_share_wx_friends">分享到微信好友</string>
+    <string name="qt_string_share_wx_team">分享到朋友圈</string>
+    
+    <string name="qt_string_head">头像</string>
+    
+    <string name="qt_string_menu_logout">退出</string>
+    <string name="qt_string_menu_about">关于</string>
+    <string name="qt_string_menu_remove">解除关系</string>
+    <string name="qt_string_delete_friend_tip">    是否解除与\"%1s\" 之间的好友关系?</string>
+    
+    <string name="qt_string_info">提示</string>
+    <string name="qt_string_info_delete">确认删除？</string>
+    
+    <string name="qt_string_info_content">找一找游戏伙伴？(不保存通讯录的任何资料，仅使用特征码进行匹配识别)</string>
+    
+    <string name="qt_string_version">当前版本为</string>
+    <string name="qt_string_come_on">一起来玩吧</string>
+    <string name="qt_string_pls_confirm">请确认</string>
+    
+    <string name="qt_string_error">登录过期</string>
+    
+    <string name="qt_string_enter">5秒极速登录</string>
+    <string name="qt_string_game_community">游戏社区</string>
+    <string name="qt_string_game_tip1">专业的手游圈－正在为您打理99.99％游戏中的事儿...</string>
+    <string name="qt_string_game_tip2">请选择两个您的好友进行验证</string>
+    <string name="qt_string_enterbycode">验证并进入社区</string>
+     <string name="qt_string_enterbysms">短信验证</string>
+    <string name="qt_string_ps_input_code">请查看短信，并输入校验码！</string>
+    <string name="qt_string_change_user">切换账号</string>
+    <string name="qt_string_ps_select_two">请选择两个您的好友！</string>
+    <string name="qt_string_tip_score">积分：</string>
+    <string name="qt_string_tip_rank">排名：</string>
+    <string name="qt_string_tip_asknum">提问数：%1$s      回答数：%2$s</string>
+    <string name="qt_string_tip_ask_categories">问题分类</string>
+    <string name="qt_string_tip_ask_question">问题推荐</string>
+    <string name="qt_string_hint_ask_txt">有什么问题我们可以帮到您的</string>
+    <string name="qt_string_hint_ask2_txt">从这里开始补充回答问题</string>
+    <string name="qt_string_hint_ans_txt">从这里开始回答问题，还可以插入图片哟~</string>
+    <string name="qt_string_ask_send">立即发送</string>
+    <string name="qt_string_tip_ask_select_c">选择合适的分类能让您得到更精准的回答</string>
+    <string name="qt_string_ask_content_empty">请输入内容</string>
+    <string name="qt_string_ask">提问</string>
+    <string name="qt_string_cc_ask">发帖</string>
+    <string name="qt_string_no_update">未有更多信息</string>
+    <string name="qt_string_no_more">未有更多信息</string>
+    <string name="qt_capital_on">未解答</string>
+    <string name="qt_capital_off">已解答</string>
+    <string name="qt_string_invite_question">邀请回答</string>
+    <string name="qt_string_add_question">添加回答</string>
+    <string name="qt_string_add_ask_question">补充提问</string>
+    <string name="qt_string_ask_ansnum">此问答有%1$s个回复</string>
+    <string name="qt_string_ask_empty">此问答有还未有回复</string>
+    
+    <string name="qt_string_solve_question">采纳问题</string>
+    <string name="qt_string_solve_question_cancel">取消采纳</string>
+    <string name="qt_string_solve_question_ok">已采纳</string>
+    <string name="qt_string_send_ans">提交回答</string>
+    <string name="qt_string_ask_send2">提交补充</string>
+    <string name="qt_string_reply">发送</string>
+    <string name="qt_string_hint_c_reply">点击回复可以直接回复TA~</string>
+    <string name="qt_string_content_empty">请输入内容</string>
+    <string name="qt_string_click_more">点击展开查看更多</string>
+    <string name="qt_string_click_less">点击收起</string>
+    <string name="qt_string_action_see">去看看</string>
+    <string name="qt_string_action_see_all">看总榜</string>
+    <string name="qt_string_action_see_anim">看动画</string>
+    <string name="qt_string_action_see_user">看前后</string>
+    <string name="qt_string_action_pk">  PK  </string>
+    <string name="qt_string_rank_my">我的排名</string>
+    <string name="qt_string_max_50">&lt;50</string>
+    <string name="qt_string_rank_down_txt">您排行下降至 &lt;font color=\'#eeaf00\'>%1$s&lt;/font> 名</string>
+    <string name="qt_string_rank_down_subtxt">给您一颗糖，点击返回</string>
+    <string name="qt_string_rank_up_txt">您排行上升至 &lt;font color=\'#eeaf00\'>%1$s&lt;/font> 名</string>
+    <string name="qt_string_rank_up_subtxt">继续加油，点击返回</string>
+    <string name="qt_string_rank_first_txt">您已封王</string>
+    <string name="qt_string_rank_first_subtxt">点击返回查看总榜</string>
+    <string name="qt_string_invite_in_game">内部</string>
+    <string name="qt_string_invite_out_game">外援</string>
+    <string name="qt_string_invite_title">找个达人帮您解决吧</string>
+    <string name="qt_string_user_info_title"> 个人主页</string>
+    <string name="qt_string_user_info_name">用户名称</string>
+    <string name="qt_string_user_info_rank">游戏排名</string>
+    <string name="qt_string_user_info_dcode">我的二维码</string>
+    <string name="qt_string_user_info_rank_content">排名:第%1$s名         积分:%2$s</string>    
+    <string name="qt_string_user_info_rank1">第%1$s名 </string> 
+    <string name="qt_string_user_info_rank1_null">暂无排名</string> 
+    <string name="qt_string_user_info_rank1_n">%1$s位</string> 
+    <string name="qt_string_user_info_rank1_up">上升%1$s位</string> 
+    <string name="qt_string_user_info_rank1_down">下降%1$s位</string> 
+    <string name="qt_string_my_qt">我的问题</string>
+    <string name="qt_string_my_fav">我的收藏</string>    
+    <string name="qt_string_setting_face_null">请先上传头像</string>
+    <string name="qt_string_setting_nickname_null">请设置昵称</string>    
+    <string name="qt_string_setting_sign_null">请设置个性签名</string>  
+    <string name="qt_string_setting_birth_null">请选择生日</string>
+    <string name="qt_string_setting_land_null">请输入暗号</string>
+    <string name="qt_string_no_pic">找不到图片</string>
+    <string name="qt_string_ecode_tip">扫一扫二维码，和我一起玩</string>
+    <string name="qt_string_ecode_title">扫一扫</string>
+    <string name="qt_string_inivte_ask_qus">请根据问题来邀请</string>
+    <string name="qt_string_hint_pl_input">请输入内容</string>
+    <string name="qt_string_my_friend">我的好友</string>
+    
+    <string name="qt_string_listview_empty">暂无数据，点击返回</string>
+    <string name="qt_string_listview_empty_friends">暂无好友，点击邀请好友</string>
+    <string name="qt_string_listview_empty2">暂无数据</string>
+    <string name="qt_string_comment">评论</string>
+     <string name="qt_string_tip_num">&lt;font color=\'#fcd026\'>%1$s&lt;/font> / %2$s</string>
+    <string name="qt_string_hint_send_msg">请输入私信内容</string>
+    <string name="qt_string_ps_input_msg_max">最多输入%1$s个字</string>
+    <string name="qt_string_title_send_msg">发送私信</string>
+    
+    
+    <string name="qt_string_replay_format1">&lt;font color=\'#375d81\'>%1$s&lt;/font>:</string>
+    <string name="qt_string_replay_format2">&lt;font color=\'#375d81\'>%1$s&lt;/font> 回复 &lt;font color=\'#375d81\'>%2$s&lt;/font>:</string>
+    <string name="qt_string_report">举报</string>
+     <string name="qt_string_floor">楼</string>
+     <string name="qt_string_skip">跳过</string>
+     <string name="qt_string_report_type_empty">请选择举报的类型</string>
+     <string name="qt_string_pic_had">您已上传过图片</string>
+     <string name="qt_string_share_card2wx">分享名片</string>
+     <string name="qt_string_point">悬赏积分</string>
+     <string name="qt_string_point_tip">悬赏</string>
+    
+      <string name="qt_string_ask_tip">\n请确认\n您现有积分: %1$s\n发帖将消耗 %2$s积分\n悬赏 %3$s积分\n</string>    
+    <string name="qt_string_ask2_tip">\n请确认\n您现有积分: %1$s\n悬赏 %2$s积分\n</string>    
+    
+    <string name="qt_string_point_empty">您现有积分不足，不能悬赏</string>    
+   	<string name="qt_string_play">玩家</string>
+   	<string name="qt_string_popularize">推广</string>
+   	<string name="qt_string_img_tip">[图片]</string>
+   	<string name="qt_string_qus_ask_empty">该问题暂时还没有回答</string>
+   	<string name="qt_string_com_empty">暂时还没有评论</string>
+   	<string name="qt_string_hi_often">请不要频繁hi</string>
+   	<string name="qt_string_ispraised">已经赞过</string>
+   	<string name="qt_string_new">  &lt;font color=\'#f26d7e\'> &lt;b>  NEW  &lt;/b>&lt;/font>  </string>
+   	<string name="qt_string_user_setting">修改名片</string>
+   	<string name="qt_string_create_userinfo">努力创建用户中 ...</string>
+   	<string name="qt_string_login_top_fun">&lt;font color=\'#f26d7e\'>最好玩&lt;/font>的云社区</string>
+   	<string name="qt_string_start_pk">我知道了，开始战斗</string>
+    <string name="qt_string_pk_dscore">对手 </string>
+     <string name="qt_string_pktime">剩余时间：&lt;font color=\'#f26d7e\'> &lt;b> %1$s &lt;/b>&lt;/font></string>
+
+    <string name="qt_string_pk_vs">VS</string>
+    <string name="qt_string_pk_win">胜</string>
+    <string name="qt_string_pk_lost">败</string>
+    <string name="qt_string_pk_use_time">耗时：</string>
+    <string name="qt_string_restart_pk">再次挑战</string>
+    <string name="qt_string_shareed">已经分享过，请不要频繁操作</string>
+    <string name="qt_string_tip_ask_ask">快速提问</string>
+    <string name="qt_string_add_friend">邀请好友</string>
+    
+    <string name="qt_string_cant_join_c2c">暂时不能成为“发发客”获得收益</string>
+    <string name="qt_string_c2c_name">加入推广员计划</string>
+    <string name="qt_string_c2c_unjoin">未加入</string>
+    <string name="qt_string_c2c_joined">已加入</string>
+    <string name="qt_string_c2c_title">推广员计划</string>
+    <string name="qt_string_c2c_content">加入“发发”推广员计划，所有您扩散出去的游戏将会为您带来最高50%的消费收益。\n详情登录： http://fafa.qtplay.com</string>
+    <string name="qt_string_c2c_share_title1">您已加入“发发”推广员计划，扩散得到高额收益</string>
+    <string name="qt_string_c2c_share_title2">您还未加入“发发”推广员计划，点击加入得到高额收益</string>
+    
+    <string name="qt_string_null">暂无</string>
+     <string name="qt_string_upgrade_tap">为更好的体验，请稍加等待...</string>
+    </resources>

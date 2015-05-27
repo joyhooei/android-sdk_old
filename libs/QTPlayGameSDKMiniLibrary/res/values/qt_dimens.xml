@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="qt_corner_radius1">10dp</dimen>
+	<dimen name="qt_corner_radius2">5dp</dimen>
+	
+	<dimen name="qt_edit_height">48dp</dimen>
+	<dimen name="qt_edit_icon_margin">8dp</dimen>
+	
+	
+	<!-- "找回密码"按钮和获取验证码"按钮的右间隔大小 -->
+	<dimen name="qt_edit_icon_size">30dp</dimen>
+	<!-- "找回密码"按钮和获取验证码"按钮的右间隔大小 -->
+	<dimen name="qt_code_margin">8dp</dimen>
+	
+	<!-- 所有的顶部title的字体大小 -->
+	<dimen name="qt_edit_text_title_size">16sp</dimen>
+	<!-- 所有的editview中的字体大小 -->
+	<dimen name="qt_edit_text_size">16sp</dimen>
+	<!-- 所有的子editview中的字体大小 -->
+	<dimen name="qt_subedit_text_size">12sp</dimen>
+	<!-- 小一点的editview中的字体大小，用于title2，有subtitle情况 -->
+	<dimen name="qt_edit_text_size2">14sp</dimen>
+	
+	<!-- 一般按钮的字体大小 -->
+	<dimen name="qt_btn_text_size">14sp</dimen>
+	
+	<!-- "获取验证码"按钮的字体大小 -->
+	<dimen name="qt_btn_text_size_small">10sp</dimen>
+	
+	<!-- "找回密码"按钮的字体大小 -->
+	<dimen name="qt_lost_btn_text_size">12sp</dimen>
+	
+	<dimen name="qt_img_user_size">40dp</dimen>
+	<dimen name="qt_img_user_size_normal">34dp</dimen>
+	<dimen name="qt_img_user_size_small">20dp</dimen>
+	<dimen name="qt_img_user_bg_size">50dp</dimen>
+	<dimen name="qt_img_user_bg_size_big">60dp</dimen>
+	<!-- 选择好友头像的大小 -->
+	<dimen name="qt_img_user_size2">50dp</dimen>
+	<dimen name="qt_img_select_size">16dp</dimen>
+	<dimen name="qt_vertical_spacing">14dp</dimen>
+	<dimen name="qt_horizontal_spacing">4dp</dimen>
+	
+	
+	<dimen name="qt_sidrbar_width">20dp</dimen>
+	<dimen name="qt_sidrbar_text_size">10sp</dimen>
+	<dimen name="qt_pic_height">100dp</dimen>
+	<!--  根据 游戏圈中的顶部icon的top，为了头像在图片下面一半-->
+	<dimen name="qt_btn_height">30dp</dimen>
+	<dimen name="qt_btn_height_small">25dp</dimen>
+	<dimen name="qt_img_ranknum_size">30dp</dimen>
+	<dimen name="qt_img_icon_size">15dp</dimen>
+	<dimen name="qt_img_icon_small">12dp</dimen>
+	
+	
+	<dimen name="qt_tab_height">60dp</dimen>
+	<dimen name="qt_tab_img_size">30dp</dimen>
+	<dimen name="qt_flag_size">8dp</dimen>
+	<dimen name="qt_flag_margin">12dp</dimen>
+	<dimen name="qt_tab_text_size">12sp</dimen>
+	<!-- normal -->
+	<dimen name="qt_margin_top">30dp</dimen>
+	<dimen name="qt_margin_gap">10dp</dimen>
+	<dimen name="qt_margin_bottom">40dp</dimen>
+	<dimen name="qt_margin_gap_small">5dp</dimen>
+	<dimen name="qt_padding">5dp</dimen>
+	
+	<!-- user card -->
+	<dimen name="qt_card_img_user_size">120dp</dimen>
+	<dimen name="qt_card_icon_close_size">20dp</dimen>
+	<dimen name="qt_card_icon_size">40dp</dimen>
+	<dimen name="qt_card_txt_tag_top1">15dp</dimen>
+	<dimen name="qt_card_txt_tag_top2">50dp</dimen>
+	<dimen name="qt_card_txt_tag_top3">85dp</dimen>
+	<dimen name="qt_card_txt_tag_margin1">2dp</dimen>
+	<dimen name="qt_card_txt_tag_margin2">10dp</dimen>
+	<dimen name="qt_card_txt_tag_margin3">2dp</dimen>
+	<!-- 用于在我的二维码中的二维码大小 -->
+	<dimen name="qt_card_img_size">200dp</dimen>
+	
+    <!-- root -->
+	<dimen name="qt_progress_size">60dp</dimen>
+	<dimen name="qt_root_margin_size">20dp</dimen>
+	<dimen name="qt_icon_close_size">30dp</dimen>
+	<dimen name="qt_icon_close_margin_size">-15dp</dimen>
+	<!-- 带close的登录界面的margin -->
+	<dimen name="qt_login_margin_size">15dp</dimen>
+	<!-- 底部的padding 防止圆角被覆盖，只在横版的情况下使用-->
+	<dimen name="qt_plate_paddingBottom_land">7dp</dimen>
+	
+	<!-- topbar -->
+	<dimen name="qt_topbar_height">50dp</dimen>
+	<dimen name="qt_topbar_left_size">34dp</dimen>
+	<dimen name="qt_topbar_right_minwidth">60dp</dimen>
+	<dimen name="qt_topbar_margin_right">100dp</dimen>
+	<!-- toast -->
+    <dimen name="qt_toast_bg_padding_top">10dp</dimen>
+    <dimen name="qt_toast_bg_padding_bottom">10dp</dimen>
+    <dimen name="qt_toast_bg_padding_left">14dp</dimen>
+    <dimen name="qt_toast_bg_padding_right">14dp</dimen>
+    <dimen name="qt_toast_bg_padding">10dp</dimen>
+    <dimen name="qt_toast_icon_size">40dp</dimen>
+    <dimen name="qt_toast_bottom">146.6dp</dimen>
+    
+    <!-- 显示item -->
+	<dimen name="qt_item_margin_top">5dp</dimen>
+	<dimen name="qt_item_padding">2dp</dimen>
+	<!-- 显示item 行高，通过 qt_img_user_size + 10 得到-->
+	<dimen name="qt_item_height">60dp</dimen>
+	
+	 <!-- viewpager -->
+	<dimen name="qt_item_viewpager_size">100dp</dimen>
+	<dimen name="qt_item_viewpager_ind_size">4dp</dimen>
+	<dimen name="qt_top_viewpager_size">130dp</dimen>
+	
+	 <!--  rank -->
+	<dimen name="qt_rank_tab_height">40dp</dimen>
+	
+	<!--  rank -->
+	
+	<!-- qus -->
+	<dimen name="qt_img_ask_width">25dp</dimen>
+	<dimen name="qt_img_ask_height">46dp</dimen>
+	<!-- friends -->
+	<dimen name="qt_item_sort_margin_top">20dp</dimen>
+	
+	<dimen name="qt_img_empty_size">150dp</dimen>
+	<!-- 小喇叭 -->
+    <dimen name="qt_trumpet_top">146.6dp</dimen>
+    <dimen name="qt_trumpet_dstep">1dp</dimen>
+	<!-- numberpicker -->
+    <dimen name="qt_numberpicker_minWidth">60dp</dimen>
+    <dimen name="qt_numberpicker_maxHeight">200dip</dimen>
+    <dimen name="qt_numberpicker_fadingEdge">50dip</dimen>
+    
+    <!-- 商城top 高-->
+    <dimen name="qt_pay_height">100dp</dimen>
+    
+	<dimen name="qt_edit_text_title_size_big">30sp</dimen>
+	<dimen name="qt_edit_text_pk_size">60sp</dimen>
+    <!-- pk dialog size-->
+    <dimen name="qt_pk_tag_height">50dp</dimen>
+    <dimen name="qt_pk_tag_width">30dp</dimen>
+    <dimen name="qt_pk_tag_height_small">35dp</dimen>
+    <dimen name="qt_pk_tag_width_small">20dp</dimen>
+    
+    
+    <dimen name="qt_icon_shine_size">160dp</dimen>
+    <dimen name="qt_share_icon_size">10dp</dimen>
+    
+</resources>

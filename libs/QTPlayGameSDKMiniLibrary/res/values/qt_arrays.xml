@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="qt_arrays_sex"> 
+        <item>男</item> 
+        <item>女</item> 
+    </string-array> 
+    <string-array name="qt_arrays_month"> 
+        <item>1月</item> 
+        <item>2月</item> 
+        <item>3月</item> 
+        <item>4月</item> 
+        <item>5月</item> 
+        <item>6月</item> 
+        <item>7月</item> 
+        <item>8月</item> 
+        <item>9月</item> 
+        <item>10月</item> 
+        <item>11月</item> 
+        <item>12月</item> 
+    </string-array> 
+    
+    <string-array name="qt_arrays_constellation"> 
+        <item>水瓶座</item> 
+        <item>双鱼座</item> 
+        <item>牡羊座</item> 
+        <item>金牛座</item> 
+        <item>双子座</item> 
+        <item>巨蟹座</item> 
+        <item>狮子座</item> 
+        <item>处女座</item> 
+        <item>天秤座</item> 
+        <item>天蝎座</item> 
+        <item>射手座</item> 
+        <item>魔羯座</item> 
+    </string-array> 
+    
+    
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="qt_margin_bottom">20dp</dimen>
+	<dimen name="qt_edit_text_pk_size">50sp</dimen>
+</resources>
