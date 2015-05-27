@@ -38,8 +38,8 @@ public class GameProxyImpl extends GameProxy{
 		QTPlay.qt_setGameArea("1");
     }
 
-    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
-        QTPlay.qt_payProductByQTPlayFaFa(activity, orderID, name, Float.toString( price ), "", new QTPayCallback() {
+    public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
+        QTPlay.qt_payProductByQTPlayFaFa(activity, callBackInfo + "_" + orderID, name, Float.toString( price ), "", new QTPayCallback() {
             @Override
             public void onQTPayStart(Activity act, String pJsonStr) {
             }
