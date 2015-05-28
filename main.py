@@ -16,7 +16,7 @@ def one(rule):
     process(rule.rules())
     # preview replaces
     #os.system('git diff -p --raw .')
-    os.system('ant linkassets release')
+    os.system('ant clean linkassets release')
     os.system('git clean -f -d .')
     os.system('git checkout -- .')
     # TODO copy package
