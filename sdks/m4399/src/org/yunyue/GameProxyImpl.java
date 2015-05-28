@@ -102,7 +102,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
-        mOpeCenter.recharge(activity, (int)price, orderID, name, new OnRechargeFinishedListener() {
+        mOpeCenter.recharge(activity, (int)price, callBackInfo + "_" + orderID, name, new OnRechargeFinishedListener() {
             @Override
             public void onRechargeFinished(boolean success, int resultCode, String msg) {
                 if (success) {
