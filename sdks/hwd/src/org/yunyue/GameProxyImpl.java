@@ -21,7 +21,7 @@ import com.qtplay.gamesdk.util.ToastUtil;
 
 public class GameProxyImpl extends GameProxy{
     public boolean supportLogin() {
-        return true;
+        return false;
     }
 
     public boolean supportCommunity() {
