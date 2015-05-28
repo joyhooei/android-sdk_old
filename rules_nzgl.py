@@ -251,6 +251,12 @@ class RuleM4399(RuleBase):
 
     APPKEY = '103797'
 
+    @classmethod
+    def rules(cls):
+        return super(RuleM4399, cls).rules() + [
+            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+        ]
+
 
 @register
 class RuleHWD(RuleBase):
