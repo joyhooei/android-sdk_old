@@ -38,23 +38,24 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
-        QTPlay.qt_payProductByQTPlayFaFa(activity, callBackInfo + "_" + orderID, name, Float.toString( price ), "", new QTPayCallback() {
+        QTPlay.qt_payProductByQTPlayFaFa(activity, orderID, name, Float.toString( price ), callBackInfo, new QTPayCallback() {
             @Override
             public void onQTPayStart(Activity act, String pJsonStr) {
             }
 
             @Override
             public void onQTPaySuccess(Context context, String code, String msg, String data) {
-                payCallBack.onSuccess(null);
-                Toast.makeText(activity.getApplicationContext(), "支付成功", Toast.LENGTH_SHORT).show();
+                payCallBack.onSuccess("支付成功");
+                //Toast.makeText(activity.getApplicationContext(), "支付成功", Toast.LENGTH_SHORT).show();
                 //LogDebugger.info("onPaySuccess", "code " + code + " msg " + msg + " data " + data);
                 //ToastUtil.showToast(QTDemoActivity0.this, msg);
             }
 
             @Override
             public void onQTPayFailed(Context context, String code, String msg, String data) {
-                payCallBack.onFail(null);
-                Toast.makeText(activity.getApplicationContext(), "支付失败：" + msg, Toast.LENGTH_SHORT).show();
+                payCallBack.onFail(msg);
+                Log.v("sdk", "支付失败：" + msg);
+                //Toast.makeText(activity.getApplicationContext(), "支付失败：" + msg, Toast.LENGTH_SHORT).show();
                 //LogDebugger.info("onPayFailed", "code " + code + " msg " + msg + " data " + data);
                 //ToastUtil.showToast(QTDemoActivity0.this, msg);
             }
