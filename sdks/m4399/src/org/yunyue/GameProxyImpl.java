@@ -47,7 +47,7 @@ public class GameProxyImpl extends GameProxy{
 
         // 配置sdk属性,比如可扩展横竖屏配置
         OperateCenterConfig opeConfig = new OperateCenterConfig.Builder(activity)
-            .setDebugEnabled(true)
+            .setDebugEnabled(false)
             .setOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
             .setPopLogoStyle(PopLogoStyle.POPLOGOSTYLE_ONE)
             .setPopWinPosition(PopWinPosition.POS_LEFT)
