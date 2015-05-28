@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_AutoPlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/tv_auto_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:focusable="false"
+        android:singleLine="true"
+        android:textColor="@android:color/white" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <ToggleButton
+        android:id="@+id/pj_toggle_login"
+        android:layout_width="0dp"
+        android:background="@drawable/btn_toggle_bg"
+        android:clickable="true"
+        android:layout_height="wrap_content"
+        android:textOn="@null"
+        android:textOff="@null"
+        android:layout_weight="2"
+        android:disabledAlpha="?android:attr/disabledAlpha"
+        android:checked="false" />
+</LinearLayout>

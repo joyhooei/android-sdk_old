@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="310dp"
+    android:layout_height="320dp"
+    android:background="@drawable/pj_corner_background_white"
+    android:orientation="vertical"
+    tools:context=".ActLogin" >
+
+    <RelativeLayout
+        android:layout_width="310dp"
+        android:layout_height="45dp"
+        android:background="@drawable/pj_corner_background_above" >
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/pj_image_title_logo" />
+
+        <Button
+            android:id="@+id/pj_register_back"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/pj_button_login_transfer"
+            android:textColor="#ffffffff" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentBottom="true"
+            android:background="#ffbe0115" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="310dp"
+        android:layout_height="wrap_content" >
+
+        <!-- Login progress -->
+
+        <LinearLayout
+            android:id="@+id/pj_register_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:visibility="gone" >
+
+            <ProgressBar
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:indeterminateDrawable="@drawable/pj_spinner" />
+
+            <TextView
+                android:id="@+id/pj_register_status_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+
+        <!-- Login form -->
+
+        <ScrollView
+            android:id="@+id/pj_register_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/pj_register_username_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/pj_background_input"
+                    android:digits="._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ"
+                    android:drawableLeft="@drawable/pj_image_icon_username"
+                    android:drawablePadding="10dp"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textSize="14sp" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/pj_register_password_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/pj_background_input"
+                    android:drawableLeft="@drawable/pj_image_icon_password"
+                    android:drawablePadding="10dp"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textSize="14sp" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/pj_register_password2_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/pj_background_input"
+                    android:drawableLeft="@drawable/pj_image_icon_password"
+                    android:drawablePadding="10dp"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textSize="14sp" >
+                </EditText>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/pj_register_email_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/pj_background_input"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:visibility="gone" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/pj_register_nickname_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/pj_background_input"
+                    android:imeOptions="flagNoExtractUi"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:visibility="gone" >
+                </EditText>
+
+                <Button
+                    android:id="@+id/pj_register_do_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/pj_button_bg_red"
+                    android:textColor="#ffffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</LinearLayout>
