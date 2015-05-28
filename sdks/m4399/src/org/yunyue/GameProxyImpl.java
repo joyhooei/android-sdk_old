@@ -109,6 +109,7 @@ public class GameProxyImpl extends GameProxy{
                     payCallBack.onSuccess("充值成功");
                 }
                 else {
+                    Log.v("sdk", "pay fail:" + resultCode + "," + OperateCenter.getResultMsg(resultCode));
                     payCallBack.onFail(OperateCenter.getResultMsg(resultCode));
                 }
             }
