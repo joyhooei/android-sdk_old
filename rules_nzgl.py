@@ -280,3 +280,15 @@ class RulePaojiao(RuleBase):
     APPID = '1223'
     APPKEY = 'LJICymT8uw5gvZBOTw2IPN6V4Ii8QXUe'
     JPUSH_APPKEY = '00b109b1c087e8fd15d06af9'
+
+
+@register
+class RulePipaw(RuleBase):
+    LABEL = 'pipaw'
+    DIRECTORY = 'pipaw'
+    CH_NAME = '琵琶网小包'
+    SDKTYPE = '32'
+    PACKAGE_NAME = 'com.yunyue.nzgl.ppw'
+    YY_PACKAGE_NAME = 'com.yunyue.nzgl.pipaw'
+
+    APPID = ''
