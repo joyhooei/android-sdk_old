@@ -42,6 +42,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="org.yunyue.poem"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
 
         <!-- For 4399 recharging SDK. 请不要在此处修改RechargeActivity的方向设置，因为某些2.3的机型启动Activity总是先启动竖屏，然后强制转换成横屏，这会导致潜在问题.-->
