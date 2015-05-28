@@ -73,7 +73,7 @@ public class GameProxyImpl extends GameProxy{
         });
     }
 
-    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         pjApi.openPayActivity(name, price, "可用于购买道具", callBackInfo + "_" + orderID,
                 new CallbackListener(activity) {
                     public void onError(Throwable error) {
@@ -83,7 +83,7 @@ public class GameProxyImpl extends GameProxy{
                     public void onPaymentCancel(Bundle info) {
                         Prints.d("TEST-LOG", "支付取消 info=" + info);
                         super.onPaymentCancel(info);
-                        Toast.makeText(MainActivity.this, "支付取消",
+                        Toast.makeText(activity, "支付取消",
                             Toast.LENGTH_SHORT).show();
                     }
                 });
