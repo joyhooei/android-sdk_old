@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="@dimen/qt_margin_gap"
+        android:paddingBottom="@dimen/qt_margin_gap"
+        android:background="@drawable/qt_list_item_bg"
+        android:descendantFocusability="blocksDescendants" >
+      <TextView
+            android:id="@+id/qt_txt_item_1"
+            style="@style/qt_style_text_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/qt_color_subtext"
+            android:layout_weight="2"/>
+      <TextView
+            android:id="@+id/qt_txt_item_2"
+            style="@style/qt_style_text_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>   
+    </LinearLayout>

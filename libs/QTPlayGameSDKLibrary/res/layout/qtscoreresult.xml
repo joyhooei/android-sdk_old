@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#cc000000" >
+
+    <LinearLayout
+        android:id="@+id/qt_plate_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical" >
+
+        <include
+            layout="@layout/qt_main_top"
+            android:visibility="gone" />
+
+        <include
+            layout="@layout/qt_divider"
+            android:visibility="gone" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/qt_score_close"
+        android:layout_width="@dimen/qt_icon_close_size"
+        android:layout_height="@dimen/qt_icon_close_size"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/qt_margin_gap"
+        android:src="@drawable/qt_icon_close" />
+
+</RelativeLayout>

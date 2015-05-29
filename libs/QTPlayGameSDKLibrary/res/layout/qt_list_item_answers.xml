@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/qt_list_item_bg"
+    android:orientation="horizontal"
+    android:padding="@dimen/qt_margin_gap" >
+
+    <LinearLayout
+       android:id="@+id/qt_plate_q_answer_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="@dimen/qt_img_user_size"
+            android:layout_height="@dimen/qt_img_user_size"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:id="@+id/qt_img_q_answer_face"
+                android:layout_width="@dimen/qt_img_user_size"
+                android:layout_height="@dimen/qt_img_user_size"
+                android:src="@drawable/qt_default_avatar" />
+
+            <ImageView
+                android:id="@+id/qt_img_q_best"
+                android:layout_width="@dimen/qt_img_select_size"
+                android:layout_height="@dimen/qt_img_select_size"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/qt_icon_best"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/qt_plate_q_numpraise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/qt_item_bg_trans"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/qt_padding" >
+
+            <ImageView
+                android:layout_width="@dimen/qt_img_icon_small"
+                android:layout_height="@dimen/qt_img_icon_small"
+                android:src="@drawable/qt_icon_numpraise" />
+
+            <TextView
+                android:id="@+id/qt_txt_q_numpraise"
+                style="@style/qt_style_subtext_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/qt_padding" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+      	android:id="@+id/qt_plate_q_answer_content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/qt_padding"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/qt_txt_q_answer_name"
+            style="@style/qt_style_text_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/qt_color_text_cc_name" />
+
+        <TextView
+            android:id="@+id/qt_txt_q_answer_content"
+            style="@style/qt_style_subtext_normal2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qt_padding"
+            android:maxLines="4"
+            android:singleLine="false"
+            android:textSize="@dimen/qt_edit_text_size2" />
+        
+        <TextView
+            android:id="@+id/qt_txt_q_answer_img_tip"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/qt_string_img_tip"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/qt_img_q_answer_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/qt_pic_height"
+            android:layout_marginTop="@dimen/qt_margin_gap"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+    </LinearLayout>
+ 	<TextView
+            android:id="@+id/qt_txt_q_answer_empty"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/qt_margin_gap"
+            android:gravity="center"
+            android:text="@string/qt_string_qus_ask_empty"
+            android:visibility="gone"/>
+</LinearLayout>

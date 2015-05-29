@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/qt_main_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/qt_black_dark" >
+
+    <RelativeLayout
+        android:id="@+id/qt_main_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qt_main_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/qt_main_tabbar"
+            android:layout_width="@dimen/qt_tab_height"
+            android:layout_height="fill_parent"
+            android:background="@drawable/qt_tabbar_bg_landscape"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/qt_main_plate_top"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/qt_main_tabbar"
+            android:orientation="vertical" >
+
+            <include layout="@layout/qt_main_top" />
+
+            <include layout="@layout/qt_divider" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/qt_main_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/qt_main_plate_top"
+            android:layout_toRightOf="@id/qt_main_tabbar"
+            android:layout_weight="1" >
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/qt_main_close"
+        android:layout_width="@dimen/qt_icon_close_size"
+        android:layout_height="@dimen/qt_icon_close_size"
+        android:layout_alignLeft="@id/qt_main_content"
+        android:layout_alignTop="@id/qt_main_content"
+        android:layout_marginLeft="@dimen/qt_icon_close_margin_size"
+        android:layout_marginTop="@dimen/qt_icon_close_margin_size"
+        android:src="@drawable/qt_icon_close" />
+
+</RelativeLayout>

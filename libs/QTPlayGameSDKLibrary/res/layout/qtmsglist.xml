@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/qt_black_dark" >
+
+    <LinearLayout
+        android:id="@+id/qt_plate_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qt_main_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/qt_plate_paddingBottom_land" >
+
+        <include layout="@layout/qt_main_top" />
+
+        <include layout="@layout/qt_divider" />
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            layout="@layout/qt_pulllist" />
+    </LinearLayout>
+
+</RelativeLayout>

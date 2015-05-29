@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/qt_black_dark" >
+
+    <LinearLayout
+        android:id="@+id/qt_plate_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qt_main_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/qt_plate_paddingBottom_land" >
+
+        <include layout="@layout/qt_main_top" />
+
+        <include layout="@layout/qt_divider" />
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            layout="@layout/qt_pulllist_no_divider" />
+
+        <include layout="@layout/qt_divider" />
+
+        <LinearLayout
+            android:id="@+id/qt_plate_input"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/qt_margin_gap"
+            android:paddingRight="@dimen/qt_margin_gap"
+            android:paddingTop="@dimen/qt_padding" >
+
+            <EditText
+                android:id="@+id/qt_edit_input_content"
+                style="@style/qt_style_edit_text_normal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/qt_edit_bg"
+                android:hint="@string/qt_string_hint_c_reply"
+                android:padding="@dimen/qt_padding"
+                android:singleLine="false" />
+
+            <Button
+                android:id="@+id/qt_btn_input_send"
+                style="@style/qt_style_btn_small"
+                android:layout_marginLeft="@dimen/qt_padding"
+                android:text="@string/qt_string_reply" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

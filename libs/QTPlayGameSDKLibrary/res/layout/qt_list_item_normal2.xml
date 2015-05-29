@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/qt_list_item_bg"
+    android:descendantFocusability="blocksDescendants"
+	android:paddingLeft="@dimen/qt_margin_gap" 
+	android:paddingRight="@dimen/qt_margin_gap" 
+    android:orientation="vertical"  >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+	    android:paddingTop="@dimen/qt_padding" 
+	    android:paddingBottom="@dimen/qt_padding" >
+
+        <RelativeLayout
+            android:layout_width="@dimen/qt_img_user_size"
+            android:layout_height="@dimen/qt_img_user_size" >
+
+            <ImageView
+                android:id="@+id/qt_item_img_icon"
+                android:layout_width="@dimen/qt_img_user_size"
+                android:layout_height="@dimen/qt_img_user_size"
+                android:minHeight="@dimen/qt_img_user_size"
+                android:minWidth="@dimen/qt_img_user_size"
+                android:src="@drawable/qt_default_avatar" />
+
+            <ImageView
+                android:id="@+id/qt_item_img_flag"
+                android:layout_width="@dimen/qt_flag_size"
+                android:layout_height="@dimen/qt_flag_size"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/qt_icon_notice_shape"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/qt_item_txt_name"
+            style="@style/qt_style_text_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:id="@+id/qt_item_plate_func"
+            android:layout_width="@dimen/qt_img_user_size"
+            android:layout_height="@dimen/qt_img_user_size"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/qt_item_img_func"
+                android:layout_width="@dimen/qt_img_user_size"
+                android:layout_height="@dimen/qt_img_user_size"
+                android:src="@drawable/qt_default_avatar" />
+            
+             <ImageView
+                android:id="@+id/qt_item_img_func_flag"
+                android:layout_width="@dimen/qt_flag_size"
+                android:layout_height="@dimen/qt_flag_size"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/qt_icon_notice_shape"
+                android:visibility="invisible" />
+        </RelativeLayout>
+        
+	<TextView
+            android:id="@+id/qt_item_txt_dec"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/qt_padding"
+            android:layout_marginRight="@dimen/qt_padding"
+		 	android:visibility="gone" />
+	
+        <Button
+            android:id="@+id/qt_item_btn_func"
+            style="@style/qt_style_btn_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/qt_btn_height"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/qt_string_invite"
+            android:visibility="gone" />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/qt_color_bg_grey" />
+
+</LinearLayout>

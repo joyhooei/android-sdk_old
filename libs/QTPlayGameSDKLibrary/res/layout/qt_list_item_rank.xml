@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/qt_list_item_bg"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/qt_margin_gap"
+    android:paddingRight="@dimen/qt_margin_gap" >
+
+    <RelativeLayout
+        android:id="@+id/qt_rank_plate_user_face"
+        android:layout_width="@dimen/qt_img_user_size"
+        android:layout_height="@dimen/qt_img_user_bg_size"
+        android:layout_centerVertical="true" >
+
+        <ImageView
+            android:id="@+id/qt_rank_img_user_face"
+            android:layout_width="@dimen/qt_img_user_size"
+            android:layout_height="@dimen/qt_img_user_size"
+            android:layout_centerInParent="true"
+            android:src="@drawable/qt_default_avatar" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/qt_rank_plate_user_head"
+        android:layout_width="@dimen/qt_img_user_size"
+        android:layout_height="@dimen/qt_img_user_bg_size_big"
+        android:layout_centerVertical="true"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/qt_rank_img_user_head"
+            android:layout_width="@dimen/qt_img_user_size_small"
+            android:layout_height="@dimen/qt_img_user_size_small"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/qt_icon_user_head" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/qt_rank_plate_user_ranknums"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/qt_img_ranknum_size"
+        android:minWidth="@dimen/qt_img_ranknum_size"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/qt_margin_gap_small"
+        android:layout_toRightOf="@id/qt_rank_plate_user_face" >
+
+        <TextView
+            android:id="@+id/qt_rank_txt_user_ranknum"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/qt_img_ranknum_size"
+            android:minWidth="@dimen/qt_img_ranknum_size"
+            android:gravity="center"
+            android:textColor="@color/qt_color_black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/qt_rank_img_user_ranknum"
+            android:layout_width="@dimen/qt_img_ranknum_size"
+            android:layout_height="@dimen/qt_img_ranknum_size"
+            android:src="@drawable/qt_icon_ranknum1"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/qt_btn_rank_action"
+        style="@style/qt_style_btn_small"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/qt_btn_height_small"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/qt_string_action_see" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+   		android:layout_marginLeft="@dimen/qt_margin_gap_small"
+        android:layout_toLeftOf="@id/qt_btn_rank_action"
+        android:layout_toRightOf="@id/qt_rank_plate_user_ranknums"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/qt_txt_rank_name"
+                style="@style/qt_style_text_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/qt_txt_rank_userid"
+                style="@style/qt_style_text_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/qt_color_subtext" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/qt_txt_rank_score"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/qt_rank_item_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignLeft="@id/qt_rank_plate_user_ranknums"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/qt_item_padding"
+        android:background="@color/qt_color_bg_grey" />
+
+</RelativeLayout>

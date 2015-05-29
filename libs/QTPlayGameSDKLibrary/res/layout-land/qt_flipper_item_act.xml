@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/qt_margin_gap"
+    android:paddingRight="@dimen/qt_margin_gap"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/qt_list_item_bg"
+    android:orientation="vertical" >
+    
+    <include layout="@layout/qt_divider" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/qt_edit_height"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/qt_txt_q_act_title"
+            style="@style/qt_style_text_normal"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="@dimen/qt_edit_height" />
+
+        <TextView
+            android:id="@+id/qt_txt_q_act_time"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/qt_edit_height" />
+    </LinearLayout>
+
+    <include layout="@layout/qt_divider" />
+</LinearLayout>

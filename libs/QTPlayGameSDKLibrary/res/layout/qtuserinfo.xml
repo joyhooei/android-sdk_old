@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/qt_black_dark" >
+
+    <LinearLayout
+        android:id="@+id/qt_plate_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qt_main_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/qt_plate_paddingBottom_land" >
+
+        <include layout="@layout/qt_main_top" />
+
+        <include layout="@layout/qt_divider" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:fadeScrollbars="false"
+            android:overScrollMode="never"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/qt_plate_bg"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/qt_color_main"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/qt_margin_gap"
+                    android:paddingTop="@dimen/qt_margin_gap" >
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/qt_card_img_user_size"
+                        android:layout_marginBottom="@dimen/qt_margin_gap"
+                        android:layout_marginTop="@dimen/qt_margin_gap" >
+
+                        <ImageView
+                            android:id="@+id/qt_user_img_face"
+                            android:layout_width="@dimen/qt_card_img_user_size"
+                            android:layout_height="@dimen/qt_card_img_user_size"
+                            android:layout_centerInParent="true"
+                            android:minHeight="@dimen/qt_card_img_user_size"
+                            android:minWidth="@dimen/qt_card_img_user_size"
+                            android:src="@drawable/qt_default_avatar" />
+
+                        <TextView
+                            android:id="@+id/qt_card_txt_tag2"
+                            style="@style/qt_style_text_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/qt_card_txt_tag_margin1"
+                            android:layout_marginTop="@dimen/qt_card_txt_tag_top1"
+                            android:layout_toLeftOf="@id/qt_user_img_face"
+                            android:background="@drawable/qt_icon_tagbg1"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/qt_card_txt_tag3"
+                            style="@style/qt_style_text_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/qt_card_txt_tag_margin2"
+                            android:layout_marginTop="@dimen/qt_card_txt_tag_top2"
+                            android:layout_toLeftOf="@id/qt_user_img_face"
+                            android:background="@drawable/qt_icon_tagbg2"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/qt_card_txt_tag5"
+                            style="@style/qt_style_text_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/qt_card_txt_tag_margin3"
+                            android:layout_marginTop="@dimen/qt_card_txt_tag_top3"
+                            android:layout_toLeftOf="@id/qt_user_img_face"
+                            android:background="@drawable/qt_icon_tagbg3"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/qt_card_txt_tag1"
+                            style="@style/qt_style_text_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/qt_card_txt_tag_margin1"
+                            android:layout_marginTop="@dimen/qt_card_txt_tag_top1"
+                            android:layout_toRightOf="@id/qt_user_img_face"
+                            android:background="@drawable/qt_icon_tagbg4"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/qt_card_txt_tag4"
+                            style="@style/qt_style_text_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/qt_card_txt_tag_margin2"
+                            android:layout_marginTop="@dimen/qt_card_txt_tag_top2"
+                            android:layout_toRightOf="@id/qt_user_img_face"
+                            android:background="@drawable/qt_icon_tagbg5"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/qt_card_txt_tag6"
+                            style="@style/qt_style_text_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/qt_card_txt_tag_margin3"
+                            android:layout_marginTop="@dimen/qt_card_txt_tag_top3"
+                            android:layout_toRightOf="@id/qt_user_img_face"
+                            android:background="@drawable/qt_icon_tagbg6"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/qt_user_plate_tools"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/qt_margin_gap"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="gone" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" >
+
+                            <ImageView
+                                android:id="@+id/qt_user_img_action1"
+                                android:layout_width="@dimen/qt_card_icon_size"
+                                android:layout_height="@dimen/qt_card_icon_size"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/qt_icon_card_action1" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" >
+
+                            <ImageView
+                                android:id="@+id/qt_user_img_action2"
+                                android:layout_width="@dimen/qt_card_icon_size"
+                                android:layout_height="@dimen/qt_card_icon_size"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/qt_icon_card_action2" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" >
+
+                            <ImageView
+                                android:id="@+id/qt_user_img_action3"
+                                android:layout_width="@dimen/qt_card_icon_size"
+                                android:layout_height="@dimen/qt_card_icon_size"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/qt_icon_card_action3" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/qt_padding"
+                    android:paddingLeft="@dimen/qt_margin_gap"
+                    android:paddingRight="@dimen/qt_margin_gap"
+                    android:paddingTop="@dimen/qt_padding" >
+
+                    <LinearLayout
+                        android:id="@+id/qt_user_plate_sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/qt_icon_sex_bg_man"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                            android:id="@+id/qt_user_img_sex"
+                            android:layout_width="@dimen/qt_img_user_size_small"
+                            android:layout_height="@dimen/qt_img_user_size_small"
+                            android:layout_margin="@dimen/qt_padding"
+                            android:src="@drawable/qt_icon_sex_man" />
+
+                        <TextView
+                            android:id="@+id/qt_user_txt_age"
+                            style="@style/qt_style_text_normal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/qt_padding"
+                            android:layout_marginRight="@dimen/qt_margin_gap"
+                            android:text="18"
+                            android:textColor="@color/qt_color_white" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/qt_user_txt_constellation"
+                        style="@style/qt_style_subtext_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/qt_padding"
+                        android:layout_marginRight="@dimen/qt_padding" />
+
+                    <FrameLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/qt_user_txt_relation"
+                        style="@style/qt_style_subtext_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/qt_item_bg_trans"
+                        android:textSize="@dimen/qt_edit_text_size2"
+                        android:gravity="right"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <include layout="@layout/qt_divider" />
+
+                <LinearLayout
+                    android:id="@+id/qt_user_plate_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/qt_margin_gap"
+                    android:paddingRight="@dimen/qt_margin_gap" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/qt_user_plate_mine"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <LinearLayout
+                        android:id="@+id/qt_user_plate_mine_dcode"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/qt_list_item_bg"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/qt_margin_gap" >
+
+                        <TextView
+                            style="@style/qt_style_text_normal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/qt_string_user_info_dcode" />
+
+                        <ImageView
+                            android:layout_width="@dimen/qt_img_user_size_small"
+                            android:layout_height="@dimen/qt_img_user_size_small"
+                            android:src="@drawable/qt_icon_dcode" />
+
+                        <ImageView
+                            android:layout_width="@dimen/qt_img_user_size_small"
+                            android:layout_height="@dimen/qt_img_user_size_small"
+                            android:layout_marginLeft="@dimen/qt_margin_gap"
+                            android:src="@drawable/qt_icon_more" />
+                    </LinearLayout>
+
+                    <include layout="@layout/qt_divider" />
+
+                    <Button
+                        android:id="@+id/qt_btn_logout"
+                        style="@style/qt_style_btn_big"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/qt_margin_gap"
+                        android:text="@string/qt_string_menu_logout" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/qt_black_dark" >
+
+    <LinearLayout
+        android:id="@+id/qt_plate_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qt_main_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/qt_plate_paddingBottom_land" >
+
+        <include layout="@layout/qt_main_top" />
+
+        <include layout="@layout/qt_divider" />
+
+        <LinearLayout
+            android:id="@+id/qt_plate_notice_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/qt_margin_gap"
+            android:background="@drawable/qt_list_item_shape_bg"
+            android:orientation="horizontal"
+            android:padding="@dimen/qt_margin_gap" >
+
+            <ImageView
+                android:id="@+id/qt_img_item_icon"
+                android:layout_width="@dimen/qt_img_user_size"
+                android:layout_height="@dimen/qt_img_user_size"
+                android:minHeight="@dimen/qt_img_user_size"
+                android:minWidth="@dimen/qt_img_user_size"
+                android:src="@drawable/qt_default_avatar" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/qt_padding"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/qt_img_item_icon"
+                    android:layout_marginLeft="@dimen/qt_padding"
+                    android:layout_toLeftOf="@id/qt_img_item_func"
+                    android:layout_toRightOf="@id/qt_img_item_icon"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/qt_txt_item_title"
+                        style="@style/qt_style_text_normal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/qt_txt_item_time"
+                        style="@style/qt_style_subtext_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/qt_txt_item_subtitle"
+                    style="@style/qt_style_subtext_normal2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/qt_img_item_icon"
+                    android:layout_toRightOf="@id/qt_img_item_icon"
+                    android:singleLine="false" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/qt_plate_c_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/qt_margin_gap"
+            android:paddingRight="@dimen/qt_margin_gap"
+            android:paddingTop="@dimen/qt_padding" >
+
+            <EditText
+                android:id="@+id/qt_edit_content"
+                style="@style/qt_style_edit_text_normal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/qt_edit_bg"
+                android:hint="@string/qt_string_hint_c_reply"
+                android:padding="@dimen/qt_padding"
+                android:singleLine="false" />
+
+            <Button
+                android:id="@+id/qt_btn_send"
+                style="@style/qt_style_btn_small"
+                android:layout_marginLeft="@dimen/qt_padding"
+                android:text="@string/qt_string_reply" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

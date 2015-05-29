@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/qt_list_item_bg"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/qt_margin_gap_small"
+        android:paddingLeft="@dimen/qt_margin_gap"
+        android:paddingTop="@dimen/qt_margin_gap_small" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/qt_img_q_user_face"
+                android:layout_width="@dimen/qt_img_user_size"
+                android:layout_height="@dimen/qt_img_user_size"
+                android:src="@drawable/qt_default_avatar" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+		        android:gravity="center_vertical"
+		        android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/qt_img_icon_small"
+                    android:layout_height="@dimen/qt_img_icon_small"
+                    android:src="@drawable/qt_icon_numclick" />
+
+                <TextView
+                    android:id="@+id/qt_txt_q_numclick"
+                    style="@style/qt_style_subtext_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/qt_item_padding" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/qt_margin_gap_small"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/qt_txt_q_name"
+                style="@style/qt_style_subtext_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/qt_txt_q_title"
+                style="@style/qt_style_text_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:singleLine="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

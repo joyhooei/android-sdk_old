@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/qt_tab_height"
+    android:layout_weight="1"
+    android:background="@drawable/qt_tab_bg" >
+
+    <LinearLayout
+        android:id="@+id/qt_tab_item_plate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/qt_tab_item_img"
+            android:layout_width="@dimen/qt_tab_img_size"
+            android:layout_height="@dimen/qt_tab_img_size"
+            android:src="@drawable/qt_icon_tab_1_n" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp" >
+
+            <TextView
+                android:id="@+id/qt_tab_item_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:textColor="@color/qt_color_bg_grey"
+                android:textSize="@dimen/qt_tab_text_size" />
+
+            <ImageView
+                android:id="@+id/qt_tab_item_img_flag"
+                android:layout_width="@dimen/qt_flag_size"
+                android:layout_height="@dimen/qt_flag_size"
+                android:layout_marginLeft="@dimen/qt_flag_margin"
+                android:layout_toRightOf="@id/qt_tab_item_txt"
+				android:layout_centerVertical="true"
+                android:src="@drawable/qt_icon_notice_shape"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

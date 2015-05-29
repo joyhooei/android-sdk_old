@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="afterDescendants"
+    android:background="@color/qt_color_white"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/qt_plate_sort_catalog"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/qt_margin_gap"
+        android:paddingRight="@dimen/qt_margin_gap" >
+
+        <TextView
+            android:id="@+id/qt_txt_sort_catalog"
+            style="@style/qt_style_text_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/qt_padding"
+            android:paddingTop="@dimen/qt_item_sort_margin_top"
+            android:text="A" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/qt_color_bg_grey" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qt_item_height">
+
+        <RelativeLayout
+            android:id="@+id/qt_swipelist_backview"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/qt_item_height"
+            android:background="@color/qt_color_red_normal"
+            android:tag="back" >
+
+            <TextView
+                android:id="@+id/qt_txt_delete"
+                style="@style/qt_style_text_normal"
+                android:layout_width="80dp"
+                android:layout_height="@dimen/qt_item_height"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/qt_btn_red"
+                android:gravity="center"
+                android:text="@string/qt_string_delete"
+                android:textColor="@color/qt_color_white" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/qt_swipelist_frontview"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/qt_item_height"
+            android:background="@drawable/qt_list_item_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/qt_margin_gap"
+            android:tag="front" >
+
+            <ImageView
+                android:id="@+id/qt_img_user_face"
+                android:layout_width="@dimen/qt_img_user_size"
+                android:layout_height="@dimen/qt_img_user_size"
+                android:src="@drawable/qt_default_avatar" />
+
+            <TextView
+                android:id="@+id/qt_txt_sort_title"
+                style="@style/qt_style_text_normal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+        		android:layout_marginLeft="@dimen/qt_padding"
+                android:text="hhhh" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/qt_margin_gap"
+        android:layout_marginRight="@dimen/qt_margin_gap"
+        android:background="@color/qt_color_bg_grey" />
+
+</LinearLayout>

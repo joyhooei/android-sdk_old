@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/qt_color_white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="6px"
+        android:background="@color/qt_color_main" >
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/qt_btn_pic1"
+        style="@style/qt_style_btn_big"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/qt_btn_bg_black"
+        android:text="@string/qt_string_pick_by_album" />
+
+    <Button
+        android:id="@+id/qt_btn_pic2"
+        style="@style/qt_style_btn_big"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:background="@drawable/qt_btn_bg_black"
+        android:text="@string/qt_string_pick_by_photo" />
+
+    <Button
+        android:id="@+id/qt_btn_pic_cancel"
+        style="@style/qt_style_btn_big"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:background="@drawable/qt_btn_bg_grey"
+        android:text="@string/qt_string_action_back" />
+
+</LinearLayout>

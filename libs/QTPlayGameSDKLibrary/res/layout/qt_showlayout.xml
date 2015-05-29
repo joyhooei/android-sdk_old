@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/show_plant"
+    android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"
+	android:padding="10dp">
+    <ProgressBar 
+	    android:id="@+id/qt_show_bar"
+        android:layout_width="@dimen/qt_progress_size"
+        android:layout_height="@dimen/qt_progress_size"
+        android:indeterminateDrawable="@drawable/qt_progressbar_bg"
+        android:layout_centerInParent="true"/>
+	<ImageView 
+	    android:id="@+id/qt_show_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:src="@drawable/qt_show_info"/>
+
+    <TextView
+	    android:id="@+id/qt_show_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/qt_style_text_normal"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:text="@string/qt_string_wait"/>
+</RelativeLayout>

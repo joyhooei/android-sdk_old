@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <include layout="@layout/qt_divider" />
+
+    <TextView
+        style="@style/qt_style_subtext_normal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/qt_color_bg_grey2"
+        android:paddingBottom="@dimen/qt_item_margin_top"
+        android:paddingLeft="@dimen/qt_margin_gap"
+        android:paddingTop="@dimen/qt_item_margin_top"
+        android:text="@string/qt_string_rank_my" />
+
+    <include layout="@layout/qt_divider" />
+    <include layout="@layout/qt_list_item_rank" />
+</LinearLayout>

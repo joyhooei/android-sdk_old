@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/qt_color_white" >
+
+    <ImageView
+        android:id="@+id/qt_cc_img_toppic"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/qt_pic_height"
+        android:scaleType="centerCrop"
+        android:src="@drawable/qt_default_avatar" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:background="@color/qt_color_bg_hlaf_transparent_white"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/qt_margin_gap" 
+        android:paddingRight="@dimen/qt_margin_gap" 
+        android:paddingTop="@dimen/qt_padding" 
+        android:paddingBottom="@dimen/qt_padding" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/qt_cc_txt_name"
+                style="@style/qt_style_text_normal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" 
+                android:gravity="right"/>
+            <FrameLayout 
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" 
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/qt_cc_txt_qid"
+                style="@style/qt_style_subtext_normal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" 
+                android:gravity="right"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/qt_cc_img_icon"
+            android:layout_width="@dimen/qt_img_user_bg_size"
+            android:layout_height="@dimen/qt_img_user_bg_size"
+            android:minHeight="@dimen/qt_img_user_bg_size"
+            android:minWidth="@dimen/qt_img_user_bg_size"
+            android:layout_marginLeft="@dimen/qt_padding"
+            android:src="@drawable/qt_default_avatar" />
+    </LinearLayout>
+
+</RelativeLayout>
