@@ -18,6 +18,7 @@ import com.pipaw.pipawpay.PipawLoginListener;
 import com.pipaw.pipawpay.PipawSDK;
 import com.pipaw.pipawpay.PipawPayListener;
 import com.pipaw.pipawpay.PipawPayRequest;
+import com.pipaw.pipawpay.PipawExitListener;
 
 public class GameProxyImpl extends GameProxy{
     private String merchantId = "${MERCHANT_ID}";
@@ -112,7 +113,7 @@ public class GameProxyImpl extends GameProxy{
          * merchantSign 交易签名
          */
         pipawPayRequest.setMerchantSign(merchantSign);
-        PipawSDK.getInstance().pay(this, pipawPayRequest,
+        PipawSDK.getInstance().pay(activity, pipawPayRequest,
                 new PipawPayListener() {
 
                     /**
