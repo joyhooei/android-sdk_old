@@ -16,6 +16,8 @@ import java.text.DecimalFormat;
 
 import com.pipaw.pipawpay.PipawLoginListener;
 import com.pipaw.pipawpay.PipawSDK;
+import com.pipaw.pipawpay.PipawPayListener;
+import com.pipaw.pipawpay.PipawPayRequest;
 
 public class GameProxyImpl extends GameProxy{
     private String merchantId = "${MERCHANT_ID}";
