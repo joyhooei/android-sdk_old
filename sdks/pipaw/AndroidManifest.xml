@@ -60,12 +60,12 @@
 
         <activity android:name="com.pipaw.pipawpay.PipawPayActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name="com.pipaw.pipawpay.PipawUserActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name="com.unionpay.uppay.PayActivity"
             android:configChanges="orientation|keyboardHidden"
