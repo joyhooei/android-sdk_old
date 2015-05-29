@@ -67,7 +67,7 @@ public class GameProxyImpl extends GameProxy{
     public void login(Activity activity, final Object customParams) {
         QTPlay.qt_loginView(activity, new LoginCallback(){//登录回调
             @Override
-            public void callback(int code, String message, Map<String, String> data) {
+            public void callback(int code, String message, Map data) {
                 if(code == 0 ){//code==0为登录成功，其他为失败
                     String userid =(String)data.get("userid");//用户社区id
                     //String username =(String)data.get("username");//用户社区名字
