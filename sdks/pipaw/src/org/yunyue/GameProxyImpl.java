@@ -53,7 +53,7 @@ public class GameProxyImpl extends GameProxy{
         PipawSDK.getInstance().onDestroy(activity);
     }
 
-    public void exit(Activity activity, ExitCallback callback) {
+    public void exit(final Activity activity, ExitCallback callback) {
         PipawSDK.getInstance().exitSDK(activity, new Handler(),
                 new PipawExitListener() {
                     @Override
