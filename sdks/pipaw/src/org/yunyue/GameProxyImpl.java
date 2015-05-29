@@ -64,7 +64,7 @@ public class GameProxyImpl extends GameProxy{
                              */
                             //Toast.makeText(MainActivity.this, "退出游戏",
                             //    Toast.LENGTH_SHORT).show();
-                            quitApplication();
+                            ((poem)activity).quitApplication();
                         } else if (resultCode == PipawSDK.EXIT_CANCEL) {
                             /**
                              * 用户继续游戏
