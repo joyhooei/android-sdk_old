@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.qtplay.gamesdk.QTPlay;
 import com.qtplay.gamesdk.callback.QTPayCallback;
+import com.qtplay.gamesdk.callback.LoginCallback;
 import com.qtplay.gamesdk.util.LogDebugger;
 import com.qtplay.gamesdk.util.ResourceUtil;
 import com.qtplay.gamesdk.util.ToastUtil;
