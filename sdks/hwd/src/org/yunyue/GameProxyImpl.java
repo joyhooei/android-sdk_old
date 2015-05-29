@@ -95,7 +95,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void logout(Activity activity,Object customParams) {
-        QTPlay.qt_logout(this,new QT_RequestCallback() {
+        QTPlay.qt_logout(activity, new QT_RequestCallback() {
             @Override
             public void callback(Map arg0) {
                 userListerner.onLogout(null);
