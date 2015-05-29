@@ -175,24 +175,20 @@ public class GameProxyImpl extends GameProxy{
                             //     */
                             //    Toast.makeText(UserActivity.this, data,
                             //            Toast.LENGTH_SHORT).show();
-                            JSONObject data = new JSONObject(data);
                             User u = new User();
-                            try {
-                                u.token = data.getString("sid");
-                            } catch (JSONException e) {
-                                return;
-                            }
+                            u.token = data;
                             userListerner.onLoginSuccess(u, customParams);
                         } else if (resultCode == PipawSDK.LOGIN_FAIL) {
                             /**
                              * 登录失败
                              */
-                            Toast.makeText(UserActivity.this, "登录失败",
-                                    Toast.LENGTH_SHORT).show();
-                            if (data != null) {
-                                Toast.makeText(UserActivity.this, data,
-                                        Toast.LENGTH_SHORT).show();
-                            }
+                            //Toast.makeText(UserActivity.this, "登录失败",
+                            //        Toast.LENGTH_SHORT).show();
+                            //if (data != null) {
+                            //    Toast.makeText(UserActivity.this, data,
+                            //            Toast.LENGTH_SHORT).show();
+                            //}
+                            userListerner.onLoginFailed(data, customParams);
                         }
                     }
                 });
