@@ -291,4 +291,7 @@ class RulePipaw(RuleBase):
     PACKAGE_NAME = 'com.yunyue.nzgl.ppw'
     YY_PACKAGE_NAME = 'com.yunyue.nzgl.pipaw'
 
-    APPID = ''
+    APPID = '12381432793094'
+    MERCHANT_ID = "1238"
+    MERCHANT_APPID = "1287"
+    PRIVATE_KEY = "d9dfe49650a6d27b2deb7461d486b38b"

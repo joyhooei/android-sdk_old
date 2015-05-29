@@ -18,6 +18,10 @@ import com.pipaw.pipawpay.PipawLoginListener;
 import com.pipaw.pipawpay.PipawSDK;
 
 public class GameProxyImpl extends GameProxy{
+    private String merchantId = "${MERCHANT_ID}";
+    private String merchantAppId = "${MERCHANT_APPID}";
+    private String appId = "${APPID}";
+    private String privateKey = "${PRIVATE_KEY}";
 
     public boolean supportLogin() {
         return true;
