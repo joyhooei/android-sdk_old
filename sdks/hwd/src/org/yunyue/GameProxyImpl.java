@@ -21,11 +21,11 @@ import com.qtplay.gamesdk.util.ToastUtil;
 
 public class GameProxyImpl extends GameProxy{
     public boolean supportLogin() {
-        return false;
+        return true;
     }
 
     public boolean supportCommunity() {
-        return false;
+        return true;
     }
 
     public boolean supportPay() {
@@ -60,5 +60,30 @@ public class GameProxyImpl extends GameProxy{
                 //ToastUtil.showToast(QTDemoActivity0.this, msg);
             }
         });
+    }
+
+    public void login(Activity activity, Object customParams) {
+        QTPlay.qt_loginView(activity, new LoginCallback(){//登录回调
+            @Override
+            public void callback(int code, String message,Map<String, String> data) {
+                if(code == 0 ){//code==0为登录成功，其他为失败
+                    String userid =(String)data.get("userid");//用户社区id
+                    //String username =(String)data.get("username");//用户社区名字
+                    //String userface =(String)data.get("userface");//用户社区头像
+                    User u = new User();
+                    u.userID = userid;
+                    u.token = "";
+                    userListerner.onLoginSuccess(u, customParams);
+                }
+                else {
+                    Log.v("sdk", "login fail:" + code + "," + message);
+                    userListerner.onLoginFailed(message, customParams);
+                }
+            }
+        });
+    }
+
+    public void openCommunity(Activity activity) {
+        QTPlay.qt_openSNS(activity);
     }
 }
