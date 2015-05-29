@@ -103,9 +103,9 @@ public class GameProxyImpl extends GameProxy{
         content.append(merchantId).append(merchantAppId).append(appId)
             .append(payerId).append(orderID).append(name)
             .append(sprice).append(callBackInfo).append(privateKey);
-        Log.d(TAG, "content " + content);
+        //Log.d(TAG, "content " + content);
         String merchantSign = Md5Util.getMd5(content.toString());
-        Log.d(TAG, "merchantSign " + merchantSign);
+        //Log.d("sdk", "merchantSign " + merchantSign);
         /**
          * merchantSign 交易签名
          */
