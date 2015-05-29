@@ -34,6 +34,10 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
+    public boolean supportLogout() {
+        return true;
+    }
+
     public void applicationInit(Activity activity) {
         QTPlay.registerGame(activity, "${APPID}", QTPlay.SCREEN_PORTRAIT, false);
 		QTPlay.qt_setGameArea("1");
@@ -87,5 +91,14 @@ public class GameProxyImpl extends GameProxy{
 
     public void openCommunity(Activity activity) {
         QTPlay.qt_openSNS(activity);
+    }
+
+    public void logout(Activity activity,Object customParams) {
+        QTPlay.qt_logout(this,new QT_RequestCallback() {
+            @Override
+            public void callback(Map arg0) {
+                userListerner.onLogout(null);
+            }
+        });
     }
 }
