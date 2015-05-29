@@ -226,40 +226,6 @@
         </activity>
         <!--qtplay支付 end -->
 
-    <!--  短代支付需要用到 pay by sms start -->
-        <activity
-            android:name="com.sfyj.sdkUI.MOPayActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation"
-            android:theme="@style/CFullscreen">
-        </activity>
-         <activity
-            android:name="com.sfyj.sdkUI.RDOPayActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation"
-            android:theme="@style/CFullscreen" >
-        </activity>
-         <activity
-            android:name="com.sfyj.sdkUI.LoadDataActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation"
-            android:theme="@style/CFullscreen" >
-        </activity>
-         <activity
-            android:name="com.sfyj.sdkUI.ResultActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation"
-            android:theme="@style/CFullscreen" >
-        </activity>
-        <activity
-            android:name="com.sfyj.sdkUI.MOPaySecondActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation"
-            android:theme="@style/CFullscreen" >
-        </activity>
-        <service android:name="com.sfyj.sdkv3.SmsService" />
-        <!-- pay by sms end -->
-
         <!-- sdk application settinQTPlay end -->
     </application>
     <supports-screens android:largeScreens="true"
