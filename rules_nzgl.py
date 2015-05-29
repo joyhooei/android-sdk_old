@@ -295,3 +295,9 @@ class RulePipaw(RuleBase):
     MERCHANT_ID = "1238"
     MERCHANT_APPID = "1287"
     PRIVATE_KEY = "d9dfe49650a6d27b2deb7461d486b38b"
+
+    @classmethod
+    def rules(cls):
+        return super(RulePipaw, cls).rules() + [
+            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+        ]

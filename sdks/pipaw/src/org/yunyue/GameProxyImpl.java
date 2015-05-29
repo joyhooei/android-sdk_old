@@ -70,7 +70,7 @@ public class GameProxyImpl extends GameProxy{
                             //    Toast.LENGTH_SHORT).show();
                         }
                     }
-        }
+        });
     }
 
     public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
