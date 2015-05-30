@@ -39,7 +39,7 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
-    public void applicationInit(Activity activity) {
+    public void applicationInit(final Activity activity) {
         new YKInit(activity).init(new YKCallBack() {
             @Override
             public void onSuccess(Bean bean) {
@@ -78,11 +78,11 @@ public class GameProxyImpl extends GameProxy{
         //YKPlatform.startYKFloat(MainActivity.this);//启动无切换账号回调功能的悬浮窗
     }
 
-    public void login(Activity activity, final Object customParams) {
+    public void login(final Activity activity, final Object customParams) {
         YKPlatform.autoLogin(new YKCallBack() {
             @Override
             public void onSuccess(Bean bean) {
-                ykGameUser = (YKGameUser) bean;
+                YKGameUser ykGameUser = (YKGameUser) bean;
                 User u = new User();
                 u.token = ykGameUser.getSession();
                 //u.userID = '';
@@ -91,7 +91,7 @@ public class GameProxyImpl extends GameProxy{
             }
         @Override
         public void onFailed(String failReason) {
-            Toast.makeText(MainActivity.this, "登录失败" + failReason,
+            Toast.makeText(activity, "登录失败" + failReason,
                 Toast.LENGTH_LONG).show();
         }
         }, activity);
@@ -99,7 +99,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         YKPayBean ykPayBean = new YKPayBean();
-        ykPayBean.setAmount((int)(price*100).toString());//金额（以分为单位，只能传整数值，不能有小数）
+        ykPayBean.setAmount(String.fromInteger((int)(price*100)));//金额（以分为单位，只能传整数值，不能有小数）
 		ykPayBean.setAppOrderId(orderID);////cp自己生成的订单号，不能为空，不能重复（若是单机游戏没有订单号，则传"defaultapporderid"）
 		ykPayBean.setNotifyUri("http://sdk.nataku.yunyuegame.com/sdk/android/sdk/youku/pay_callback");//cp的支付回调通知地址，不能为空，（目前优酷后台不提供设置通知地址的功能）
 		ykPayBean.setProductId(ID);//cp的物品ID（没有可以传"0"）
