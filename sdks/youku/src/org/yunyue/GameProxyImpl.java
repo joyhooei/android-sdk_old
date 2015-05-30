@@ -99,7 +99,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         YKPayBean ykPayBean = new YKPayBean();
-        ykPayBean.setAmount(String.fromInteger((int)(price*100)));//金额（以分为单位，只能传整数值，不能有小数）
+        ykPayBean.setAmount(((int)(price*100)).toString());//金额（以分为单位，只能传整数值，不能有小数）
 		ykPayBean.setAppOrderId(orderID);////cp自己生成的订单号，不能为空，不能重复（若是单机游戏没有订单号，则传"defaultapporderid"）
 		ykPayBean.setNotifyUri("http://sdk.nataku.yunyuegame.com/sdk/android/sdk/youku/pay_callback");//cp的支付回调通知地址，不能为空，（目前优酷后台不提供设置通知地址的功能）
 		ykPayBean.setProductId(ID);//cp的物品ID（没有可以传"0"）
@@ -116,7 +116,7 @@ public class GameProxyImpl extends GameProxy{
             public void onFailed(String failReason) {
                 //进行支付失败操作，failReason为失败原因
                 //Toast.makeText(PayActivity.this, failReason, 2000).show();
-                payCallBack.onFailed("支付失败");
+                payCallBack.onFail("支付失败");
             }
 
         });
