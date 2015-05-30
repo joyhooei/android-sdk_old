@@ -131,6 +131,6 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onFailed(String failReason) {
             }
-        })
+        });
     }
 }

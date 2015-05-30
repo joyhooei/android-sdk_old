@@ -318,3 +318,10 @@ class RuleYouku(RuleBase):
     APPID = ''
     APPKEY = ''
     APPSECRET = ''
+
+    @classmethod
+    def common_replaces(cls):
+        d = super(RuleYouku, cls).common_replaces()
+        v = d['VERSION_CODE']
+        d['YOUKU_VERSION_CODE'] = v[:2] + v[-2:]
+        return d
