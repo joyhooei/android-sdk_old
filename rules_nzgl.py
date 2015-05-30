@@ -6,6 +6,7 @@ from processor import register, Rule
 class RuleBase(Rule):
     VERSION_CODE = '120005'
     VERSION_NAME = '1.20005'
+    APPNAME = '哪吒归来'
 
 
 @register
@@ -304,3 +305,16 @@ class RulePipaw(RuleBase):
         return super(RulePipaw, cls).rules() + [
             ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
         ]
+
+
+@register
+class RuleYouku(RuleBase):
+    LABEL = 'youku'
+    DIRECTORY = 'youku'
+    CH_NAME = '优酷网小包'
+    SDKTYPE = '33'
+    PACKAGE_NAME = 'com.yunyue.nzgl.youku'
+
+    APPID = ''
+    APPKEY = ''
+    APPSECRET = ''

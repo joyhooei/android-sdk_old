@@ -33,6 +33,7 @@ class Rule(object):
         return [
             ('AndroidManifest.xml', 'replace', cls.common_replaces()),
             ('src/org/yunyue/GameProxyImpl.java', 'replace', cls.common_replaces()),
+            ('res/values/strings.xml', 'replace', cls.common_replaces()),
         ]
 
 all_rules = OrderedDict()
