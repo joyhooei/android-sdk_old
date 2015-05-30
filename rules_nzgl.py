@@ -237,8 +237,11 @@ class RuleMM(RuleBase):
     SDKTYPE = '29'
     PACKAGE_NAME = 'com.yunyue.nzgl.mm'
 
-    APPID = ''
-    APPKEY = ''
+    APPID = '300009025525'
+    APPKEY = '44023CCE65DBC4F88D7A9888F65F8ADD'
+    PARTNER = '2088711460351330'
+    SELLER = '2064427543@qq.com'
+    RSA_PRIVATE = ''
 
 
 @register
