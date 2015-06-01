@@ -271,6 +271,7 @@ class RuleHWD(RuleBase):
     PACKAGE_NAME = 'com.yunyue.nzgl.hwd'
 
     APPID = '10148'
+    QT_CHANNEL = 'A1239'
 
 
 @register

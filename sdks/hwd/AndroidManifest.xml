@@ -209,7 +209,7 @@
         <!-- askin rank plate end 1.6.2-->      
 
     <!-- 设置渠道号，当前游戏包的渠道 -->
-    <meta-data android:name="QTPLAY_CHANNEL" android:value="A1000"/>
+    <meta-data android:name="QTPLAY_CHANNEL" android:value="${QT_CHANNEL}"/>
 
     <!--支付需要用到，不需要qtplay支付则不需要 -->
         <activity
