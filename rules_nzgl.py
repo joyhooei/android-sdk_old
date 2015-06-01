@@ -55,6 +55,8 @@ ZC_CHANNELS = [
     ('kaopu', '靠谱助手'),
     ('shouyou', '手游之家'),
     ('anfeng', '安锋网'),
+    ('hulizhushou', '狐狸助手'),
+    ('fengyou', '疯游网'),
 ]
 for label, name in ZC_CHANNELS:
     register(type('RuleZC%s' % label, (RuleZC,), dict(
