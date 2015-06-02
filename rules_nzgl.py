@@ -354,4 +354,4 @@ class RuleZY(RuleBase):
 
     APPID = '901'
     APPKEY = '6d92f234296a73f28ca825434d0aea04'
-    ZY_CHANNEL = '901_01'
+    ZY_CHANNEL = '01'
