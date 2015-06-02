@@ -328,3 +328,17 @@ class RuleYouku(RuleBase):
         v = d['VERSION_CODE']
         d['YOUKU_VERSION_CODE'] = v[:2] + v[-2:]
         return d
+
+
+@register
+class RuleYYH(RuleBase):
+    LABEL = 'yyh'
+    DIRECTORY = 'yyh'
+    CH_NAME = '应用汇小包'
+    SDKTYPE = '34'
+    PACKAGE_NAME = 'com.yunyue.nzgl.yyh'
+
+    APPID = ''
+    APPKEY = ''
+    PAYID = ''
+    PAYKEY = ''

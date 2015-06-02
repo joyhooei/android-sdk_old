@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--  YYHAccountSDK-->
+    <string name="yyh_app_name">yyhSDK</string>
+    <string name="yyh_install_appchina_tip">安装提示</string>
+    <string name="yyh_install_appchina_btn">立即安装</string>
+    <string name="yyh_install_appchina_msg">请务必安装此服务框架，否则游戏将无法正常运行（无需下载，直接安装即可）</string>
+</resources>
