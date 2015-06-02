@@ -55,7 +55,7 @@
         android:value="${APPKEY}" />
         <meta-data
         android:name="zy_channel"
-        android:value="0" />
+        android:value="${ZY_CHANNEL}" />
 
     </application>
     <supports-screens android:largeScreens="true"

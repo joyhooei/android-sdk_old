@@ -352,5 +352,6 @@ class RuleZY(RuleBase):
     SDKTYPE = '35'
     PACKAGE_NAME = 'com.yunyue.nzgl.zy'
 
-    APPID = '10845'
-    APPKEY = 'Q7Y6NcWnX1VsIj2o'
+    APPID = '901'
+    APPKEY = '6d92f234296a73f28ca825434d0aea04'
+    ZY_CHANNEL = '901_01'
