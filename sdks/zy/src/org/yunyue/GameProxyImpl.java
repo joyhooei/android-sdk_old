@@ -53,7 +53,7 @@ public class GameProxyImpl extends GameProxy{
         });
     }
 
-    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         PayParams params=new PayParams();
         params.setAmount((int)price * 10);
         params.setPropsName("元宝");
