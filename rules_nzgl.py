@@ -318,9 +318,9 @@ class RuleYouku(RuleBase):
     SDKTYPE = '33'
     PACKAGE_NAME = 'com.yunyue.nzgl.youku'
 
-    APPID = ''
-    APPKEY = ''
-    APPSECRET = ''
+    APPID = '1599'
+    APPKEY = '004f0cc91d53602f'
+    APPSECRET = '2bd018855bb3d5811a501582b242f278'
 
     @classmethod
     def common_replaces(cls):
