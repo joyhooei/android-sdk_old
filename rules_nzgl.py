@@ -342,3 +342,15 @@ class RuleYYH(RuleBase):
     APPKEY = 'Q7Y6NcWnX1VsIj2o'
     PAYID = '5000302248'
     PAYKEY = 'M0ZGNjM5RjZDOEEyM0E0NjNERkMzOUZDMEQ5QzA0NTZDMTA5MThENk9UYzRPRGswTWpFMU5UYzVPRFUxTVRBM09Tc3lNalE1TURJNU5Ua3dNekExTnpNME16WXdNakV6T0RBME9EQXlNRGszTWpNM01qRXlNams9'
+
+
+@register
+class RuleZY(RuleBase):
+    LABEL = 'zy'
+    DIRECTORY = 'zy'
+    CH_NAME = '卓易小包'
+    SDKTYPE = '35'
+    PACKAGE_NAME = 'com.yunyue.nzgl.zy'
+
+    APPID = '10845'
+    APPKEY = 'Q7Y6NcWnX1VsIj2o'
