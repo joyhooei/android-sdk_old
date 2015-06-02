@@ -123,14 +123,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void logout(Activity activity,Object customParams) {
-        YKPlatform.quit(activity, new YKCallBack(){
-            @Override
-            public void onSuccess(Bean bean) {
-                userListerner.onLogout(null);
-            }
-            @Override
-            public void onFailed(String failReason) {
-            }
-        });
+        YKPlatform.logout(activity);
+        userListerner.onLogout(customParams);
     }
 }
