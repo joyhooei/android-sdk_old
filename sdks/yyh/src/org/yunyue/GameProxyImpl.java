@@ -80,7 +80,7 @@ public class GameProxyImpl extends GameProxy{
         });
     }
 
-    public void login(Activity activity,Object customParams) {
+    public void login(Activity activity, final Object customParams) {
         YYHSDKAPI.login(activity, new LoginCallback() {
             @Override
             public void onLoginSuccess(YYHAccount account) {				 
@@ -91,7 +91,7 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onLoginError() {				 
                 //登录失败
-                userListerner.onLoginFailed(customParams);
+                userListerner.onLoginFailed("", customParams);
             }
             @Override
             public void onSwitchAccount(YYHAccount pre, YYHAccount crt) {
@@ -110,14 +110,15 @@ public class GameProxyImpl extends GameProxy{
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         PayParam payParam = new Payparam();
-        payParam.setParams((int)(price * 100), ID, orderID);
+        payParam.setParams((int)(price * 100), Integer.fromString(ID), orderID);
         payParam.cpprivateinfo = callBackInfo;
-        YYHSDKAPI.pay(activity, new PayCallBack(){         
+        PayCallBack payCallback = new PayCallBack(){         
             @Override
             public void onPayResult(int resultCode, String signValue,
                 String resultInfo) {
                 // TODO Auto-generated method stub  若resultCode为2001则支付成功，其他则为失败
             }
-        }, payParam);
+        };
+        YYHSDKAPI.pay(activity, payCallback, payParam);
     }
 }
