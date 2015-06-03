@@ -13,6 +13,17 @@ import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
 
+import com.appchina.usersdk.GlobalUtil;
+import com.appchina.usersdk.Res;
+import com.yyh.sdk.ApkInstall;
+import com.yyh.sdk.CPInfo;
+import com.yyh.sdk.LoginCallback;
+import com.yyh.sdk.PayCallback;
+import com.yyh.sdk.PayParam;
+import com.yyh.sdk.SplashCallback;
+import com.yyh.sdk.YYHAccount;
+import com.yyh.sdk.YYHSDKAPI;
+
 public class GameProxyImpl extends GameProxy{
 
     public boolean supportLogin() {
@@ -101,7 +112,7 @@ public class GameProxyImpl extends GameProxy{
         PayParam payParam = new Payparam();
         payParam.setParams((int)(price * 100), ID, orderID);
         payParam.cpprivateinfo = callBackInfo;
-        YYHSDKAPI.pay(mActivity, new PayCallBack(){         
+        YYHSDKAPI.pay(activity, new PayCallBack(){         
             @Override
             public void onPayResult(int resultCode, String signValue,
                 String resultInfo) {
