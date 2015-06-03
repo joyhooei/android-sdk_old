@@ -58,7 +58,11 @@
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
-        <service android:name="com.yyh.sdk.ReceiveService" />
+        <service android:name="com.yyh.sdk.ReceiveService">
+            <intent-filter>
+                <action android:name="com.appchina.sdk.account.server" />
+            </intent-filter>
+        </service>
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"
