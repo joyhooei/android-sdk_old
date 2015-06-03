@@ -112,13 +112,12 @@ public class GameProxyImpl extends GameProxy{
         PayParam payParam = new Payparam();
         payParam.setParams((int)(price * 100), Integer.fromString(ID), orderID);
         payParam.cpprivateinfo = callBackInfo;
-        PayCallBack payCallback = new PayCallBack(){         
+        YYHSDKAPI.pay(activity, new PayCallback(){         
             @Override
             public void onPayResult(int resultCode, String signValue,
                 String resultInfo) {
                 // TODO Auto-generated method stub  若resultCode为2001则支付成功，其他则为失败
             }
-        };
-        YYHSDKAPI.pay(activity, payCallback, payParam);
+        }, payParam);
     }
 }
