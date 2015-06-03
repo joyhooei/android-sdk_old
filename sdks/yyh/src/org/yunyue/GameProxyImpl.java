@@ -13,6 +13,17 @@ import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
 
+import com.appchina.usersdk.GlobalUtil;
+import com.appchina.usersdk.Res;
+import com.yyh.sdk.ApkInstall;
+import com.yyh.sdk.CPInfo;
+import com.yyh.sdk.LoginCallback;
+import com.yyh.sdk.PayCallback;
+import com.yyh.sdk.PayParam;
+import com.yyh.sdk.SplashCallback;
+import com.yyh.sdk.YYHAccount;
+import com.yyh.sdk.YYHSDKAPI;
+
 public class GameProxyImpl extends GameProxy{
 
     public boolean supportLogin() {
@@ -53,7 +64,7 @@ public class GameProxyImpl extends GameProxy{
         cpinfo.paykey = "${PAYKEY}";
         cpinfo.isLand = false;// 横屏显示 false 为竖屏 true 为横屏
         cpinfo.yyhdou = "test_yyh_dou";// 在应用汇中充值应用豆时的外部订单号，按照示例中的形式自定义即可。
-        //cpinfo.notifyUrl = "http://sdk.nataku.yunyuegame.com/sdk/android/sdk/yyh/pay_callback";
+        cpinfo.notifyUrl = "http://sdk.nataku.yunyuegame.com/sdk/android/sdk/yyh/pay_callback";
         YYHSDKAPI.initSDKAPI(activity, cpinfo, new ApkInstall() {
             @Override
             public void InstallApkSuccess() {
@@ -69,7 +80,7 @@ public class GameProxyImpl extends GameProxy{
         });
     }
 
-    public void login(Activity activity,Object customParams) {
+    public void login(Activity activity, final Object customParams) {
         YYHSDKAPI.login(activity, new LoginCallback() {
             @Override
             public void onLoginSuccess(YYHAccount account) {				 
@@ -80,7 +91,7 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onLoginError() {				 
                 //登录失败
-                userListerner.onLoginFailed(customParams);
+                userListerner.onLoginFailed("", customParams);
             }
             @Override
             public void onSwitchAccount(YYHAccount pre, YYHAccount crt) {
@@ -98,10 +109,10 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
-        PayParam payParam = new Payparam();
-        payParam.setParams((int)(price * 100), ID, orderID);
+        PayParam payParam = new PayParam();
+        payParam.setParams((int)(price * 100), Integer.parseInt(ID), orderID);
         payParam.cpprivateinfo = callBackInfo;
-        YYHSDKAPI.pay(mActivity, new PayCllBack(){         
+        YYHSDKAPI.pay(activity, new PayCallback(){
             @Override
             public void onPayResult(int resultCode, String signValue,
                 String resultInfo) {
