@@ -7,9 +7,9 @@
     <property file="local.properties" />
 
     <target name="copyicons">
-        <echo message="copyicons from ${env.CLIENT_DIRECTORY}/../win32_client/icon/android ..."/>
+        <echo message="copyicons from ${env.CLIENT_DIRECTORY}/../ttxm_icon/android ..."/>
         <exec executable="copyicons.py" failonerror="true">
-            <arg value="${env.CLIENT_DIRECTORY}/../win32_client/icon/android"/>
+            <arg value="${env.CLIENT_DIRECTORY}/../ttxm_icon/android"/>
         </exec>
     </target>
 
