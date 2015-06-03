@@ -110,9 +110,9 @@ public class GameProxyImpl extends GameProxy{
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         PayParam payParam = new Payparam();
-        payParam.setParams((int)(price * 100), Integer.fromString(ID), orderID);
+        payParam.setParams((int)(price * 100), Integer.parseInt(ID), orderID);
         payParam.cpprivateinfo = callBackInfo;
-        YYHSDKAPI.pay(activity, new PayCallback(){         
+        YYHSDKAPI.pay(activity, new PayCallback(){
             @Override
             public void onPayResult(int resultCode, String signValue,
                 String resultInfo) {
