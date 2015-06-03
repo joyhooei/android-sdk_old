@@ -96,7 +96,7 @@ public class GameProxyImpl extends GameProxy{
                 userListerner.onLoginFailed("", customParams);
             }
             @Override
-            public void onSwitchAccount(YYHAccount pre, YYHAccount crt) {
+            public void onSwitchAccount(YYHAccount pre, YYHAccount account) {
                 //切换账号回调
                 userListerner.onLogout(null);
                 User u = new User();
