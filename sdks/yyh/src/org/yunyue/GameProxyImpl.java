@@ -116,7 +116,7 @@ public class GameProxyImpl extends GameProxy{
         });
     }
 
-    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         PayParam payParam = new PayParam();
         payParam.setParams((int)(price * 100), Integer.parseInt(ID), orderID);
         payParam.cpprivateinfo = callBackInfo;
@@ -124,7 +124,12 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onPayResult(int resultCode, String signValue,
                 String resultInfo) {
-                // TODO Auto-generated method stub  若resultCode为2001则支付成功，其他则为失败
+                if (resultCode == 2001) {
+                    payCallBack.onSuccess("");
+                }
+                else {
+                    payCallBack.onFail("");
+                }
             }
         }, payParam);
     }
