@@ -101,7 +101,7 @@ public class GameProxyImpl extends GameProxy{
         PayParam payParam = new Payparam();
         payParam.setParams((int)(price * 100), ID, orderID);
         payParam.cpprivateinfo = callBackInfo;
-        YYHSDKAPI.pay(mActivity, new PayCllBack(){         
+        YYHSDKAPI.pay(mActivity, new PayCallBack(){         
             @Override
             public void onPayResult(int resultCode, String signValue,
                 String resultInfo) {
