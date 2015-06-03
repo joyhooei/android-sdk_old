@@ -86,6 +86,8 @@ public class GameProxyImpl extends GameProxy{
             public void onLoginSuccess(YYHAccount account) {				 
                 //登录成功
                 User u = new User();
+                u.token = account.ticket;
+                u.userID = account.userName;
                 userListerner.onLoginSuccess(u, customParams);
             }
             @Override
@@ -98,6 +100,8 @@ public class GameProxyImpl extends GameProxy{
                 //切换账号回调
                 userListerner.onLogout(null);
                 User u = new User();
+                u.token = account.ticket;
+                u.userID = account.userName;
                 userListerner.onLoginSuccess(u, customParams);
             }
             @Override
