@@ -105,6 +105,10 @@ public class GameProxyImpl extends GameProxy{
                 //退出账号回调
                 userListerner.onLogout(null);
             }
+            @Override
+            public void onLoginCancel() {
+                userListerner.onLoginFailed("", null);
+            }
         });
     }
 
