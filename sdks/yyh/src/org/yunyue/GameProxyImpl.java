@@ -64,7 +64,7 @@ public class GameProxyImpl extends GameProxy{
         cpinfo.paykey = "${PAYKEY}";
         cpinfo.isLand = false;// 横屏显示 false 为竖屏 true 为横屏
         cpinfo.yyhdou = "test_yyh_dou";// 在应用汇中充值应用豆时的外部订单号，按照示例中的形式自定义即可。
-        cpinfo.notifyUrl = "http://sdk.nataku.yunyuegame.com/sdk/android/sdk/yyh/pay_callback";
+        //cpinfo.notifyUrl = "http://sdk.nataku.yunyuegame.com/sdk/android/sdk/yyh/pay_callback";
         YYHSDKAPI.initSDKAPI(activity, cpinfo, new ApkInstall() {
             @Override
             public void InstallApkSuccess() {
