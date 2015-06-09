@@ -166,7 +166,7 @@ class RuleYYB(RuleBase):
     DIRECTORY = 'yyb'
     CH_NAME = '应用宝小包'
     SDKTYPE = '24'
-    PACKAGE_NAME = 'com.tencent.tmgp.NZGLDH'
+    PACKAGE_NAME = 'com.tencent.tmgp.NZGLHD'
     YY_PACKAGE_NAME = 'com.yunyue.nzgl.yyb'
     APP_NAME = '哪吒归来HD'
 
