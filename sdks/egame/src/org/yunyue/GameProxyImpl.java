@@ -121,7 +121,7 @@ public class GameProxyImpl extends GameProxy{
                 HashMap values= new HashMap();
                 values.put("errorInt",""+errorInt);
                 EgameAgent.onEvent(activity, "errorInt",values);
-                payCallBack.onFailed("支付失败");
+                payCallBack.onFail("支付失败");
             }
             
             @Override
@@ -129,7 +129,7 @@ public class GameProxyImpl extends GameProxy{
                 //dialog.setMessage("道具"+params.get(EgamePay.PAY_PARAMS_KEY_TOOLS_PRICE)+"支付已取消");
                 //dialog.show();
                 EgameAgent.onEvent(activity, "payment cancelled");
-                payCallBack.onFailed("支付取消");
+                payCallBack.onFail("支付取消");
             }
         });
     }
