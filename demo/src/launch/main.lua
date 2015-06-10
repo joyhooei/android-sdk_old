@@ -69,10 +69,44 @@ function init()
     spriteLogout:setAnchorPoint(ccp(0,0))
     win = TLWindow:createWindow( spriteLogout, win_flags or TL_WINDOW_UNIVARSAL )
     init_simple_button(win, function()
-        g_platform:logout()
+        --show_webview("http://www.baidu.com")
+        show_videoplayer("http://benchmark.cocos2d-x.org/cocosvideo.mp4")
     end)
     layer_ui:AddModuleWindow(win)
 
+end
+
+function show_videoplayer(url)
+    local wv = VideoPlayer:create()
+    local winSize = CCDirector:sharedDirector():getWinSize()
+    wv:setContentSize(CCSizeMake(winSize.width,  winSize.height - 40 ))
+    wv:setURL(url)
+    wv:play()
+    wv:addEventListenerLua(function(sener, eventType)
+        CCLuaLog('video event:' .. tostring(eventType))
+    end)
+    root_scene_node:addChild(wv)
+end
+
+function show_webview(url)
+    local wv = WebView:create()
+    local winSize = CCDirector:sharedDirector():getWinSize()
+
+    --wv:setPosition(winSize.width/2, winSize.height/2 - 40)
+    wv:setContentSize(CCSizeMake(winSize.width,  winSize.height - 40 ))
+    wv:loadURL(url)
+    wv:setScalesPageToFit(true)
+    wv:setOnShouldStartLoadingLua(function(sender, url)
+        CCLuaLog("onWebViewShouldStartLoading, url is ", url)
+        return true
+    end)
+    wv:setOnDidFinishLoadingLua(function(sender, url)
+        CCLuaLog("onWebViewDidFinishLoading, url is ", url)
+    end)
+    wv:setOnDidFailLoadingLua(function(sender, url)
+        CCLuaLog("onWebViewDidFinishLoading, url is ", url)
+    end)
+    root_scene_node:addChild(wv)
 end
 
 function __G__TRACKBACK__( msg )
