@@ -120,7 +120,7 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
         this.payCallBack = payCallBack;
         currentOrderID = orderID;
         currentExtension = callBackInfo;
-        KGPlatform.enterRechargeCenter(activity, Integer.parseInt(price));
+        KGPlatform.enterRechargeCenter(activity, (int)price);
     }
 
     public void login(Activity activity,Object customParams) {
