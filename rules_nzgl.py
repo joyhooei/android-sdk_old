@@ -370,3 +370,5 @@ class RuleEGame(RuleBase):
     APPKEY = 'fd23b160d8b2dd0a82e6492817c3b5fb'
     CLIENTID = '7581912'
     CLIENTSECRET = '0f4c59c6b56646a2a5dd93e015eb0b6b'
+
+    EGAME_CHANNEL = '10000000'
