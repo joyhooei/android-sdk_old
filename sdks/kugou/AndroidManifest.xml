@@ -15,7 +15,25 @@
     <uses-permission android:name="android.permission.DUMP" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-    <application android:name="org.yunyue.app"
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application android:name="org.yunyue.sdk_app"
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
         android:debuggable="true">
@@ -32,6 +50,222 @@
         </activity>
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+
+        <!-- 充值模块 -->
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.RechargeActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.KubiRechargeActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.QueryKubiRechargeResultActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.NoKubiRechargeActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity> 
+        
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.NotEnoughKubiRechargeActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity> 
+        <!-- 充值模块 -->
+
+
+        <!-- 用户中心模块 -->
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.LoginActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.RegisterActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.GetPasswordActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.BindPhoneActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.ModifyPasswordActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.ResetPasswordActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.UserCenterActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.PersonalCenterActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.ChargeHistoryActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.MessageListActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.MessageDetailActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.RegisterByPhoneActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.RegisterSuccessActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.GiftBagActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode" />
+        <!-- 用户中心模块 -->
+        <!-- 强制更新 -->
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.ForceUpdateActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:theme="@style/kg_Theme.CustomDialog"
+             />
+        <!-- 强制更新 -->
+
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+     
+        <!-- alipay sdk end -->
+
+
+        <!-- 银联支付过渡页面 -->
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.UPPayBridgeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Dialog"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        <!-- 银联支付过渡页面 -->
+
+
+        <!-- 银联支付 -->
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UPPay" />
+        <activity
+            android:name="com.unionpay.uppay.PayActivityEx"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UPPay"
+            android:windowSoftInputMode="adjustResize" />
+        <!-- 银联支付 -->
+        <!-- 游戏论坛 -->
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.GameForumActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 游戏论坛 -->
+
+
+        <!-- 应用中心 start -->
+
+        <activity
+            android:name="com.kugou.game.sdk.ui.activity.GameCenterActivity"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            android:theme="@style/kg_MyActivity" />
+
+        <receiver android:name="com.kugou.game.sdk.receiver.AppReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.kugou.game.sdk.download.DownloadService"
+            android:enabled="true" />
+        <!-- 应用中心 end -->
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process="com.kugou.sdk.bdlocation" />
+
+        <receiver android:name="com.kugou.game.sdk.receiver.PowerReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.kugou.game.sdk.service.destroy" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" >
+                </action>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" >
+                </action>
+
+                <data android:scheme="package" >
+                </data>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.kugou.game.sdk.receiver.PushMessageReceiver" >
+            <intent-filter>
+                <action android:name="com.kugou.game.sdk.receive.pushmessage" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.kugou.game.sdk.service.MessageService"
+            android:enabled="true"
+            android:exported="true"
+            android:process="com.kugou.game.sdk.pushservice" >
+            <intent-filter>
+                <action android:name="com.kugou.game.sdk.service.action_startMessageService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"

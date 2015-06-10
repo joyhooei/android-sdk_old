@@ -367,10 +367,11 @@ class RuleKugou(RuleBase):
     SDKTYPE = '36'
     PACKAGE_NAME = 'com.yunyue.nzgl.kugou'
 
-    APPID = '901'
-    APPKEY = '6d92f234296a73f28ca825434d0aea04'
-    ZY_CHANNEL = '01'
-
+    MERCHANTID = '244'
+    APPID = '1444'
+    APPKEY = 'DzHGRthxIBn6zQIP8FBhRCKoinkHoxAA'
+    GAMEID = '10676'
+    CODE = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGf5QaYh/jxpN+Sye2FQGbdMfgwYRF9n7ulkrM2afz+4Cqz/dMmwYyq1dSMZbv2gzI6JDxNQmFsc5tUdqpKTSzUrmRnWBtHLXzKhXTMxqutm1FedHoE51e5v2hYZ46ab4lBIg1yQVkHKmZC2pIWk4qBuvNUTbz1YKedr3mi99AbQIDAQAB'
 
 @register
 class RuleEGame(RuleBase):
