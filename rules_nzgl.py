@@ -173,10 +173,10 @@ class RuleYYB(RuleBase):
     CREATE_ORDER_URL = 'http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/create_order'
     QUERY_BALANCE_URL = 'http://yyb.nataku.yunyuegame.com/sdk/android/sdk/yyb/query_balance'
 
-    QQ_APPID = '1104480701'
-    QQ_APPKEY = 'R8U6PCBOw3sX64H0'
-    WX_APPID = 'wx2ab37fb74e206f3d'
-    WX_APPKEY = 'c032d3e153a0e477fae08328153e35cf'
+    QQ_APPID = '1104618329'
+    QQ_APPKEY = 'DXJkUjT2XV5CBCiR'
+    WX_APPID = 'wxc307ae35469f7c29'
+    WX_APPKEY = 'c1ccf8682a1e4628a1aea47062b7c1d3'
 
     @classmethod
     def rules(cls):
