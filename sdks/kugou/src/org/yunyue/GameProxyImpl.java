@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import android.app.Activity;
-import android.app.View;
+import android.content.View;
 import android.content.Intent;
 import android.content.Context;
 import android.util.Log;
@@ -24,9 +24,13 @@ import com.kugou.game.sdk.api.online.KGPlatform;
 import com.kugou.game.sdk.ui.widget.ToolBar;
 import com.kugou.game.sdk.api.common.DynamicParamsProvider;
 
-public class GameProxyImpl extends GameProxy implements OnPlatformEventListener{
+public class GameProxyImpl extends GameProxy implements OnPlatformEventListener, DynamicParamsProvider {
     private Activity currentActivity;
     private ToolBar toolBar;
+    private int currentServerId;
+    private String currentRoleName = "";
+    private String currentOrderID;
+    private String currentExtension;
 
     public boolean supportLogin() {
         return true;
@@ -43,10 +47,8 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener{
     public void applicationInit(Activity activity) {
         currentActivity = activity;
         /** --------初始化SDK------------- */
-        // SDK事件回调接口
-        DynamicParamsProvider dynamicParamsProvider = new GameParamsProvider();
         // 初始化SDK(--必须先初始化SDK后，才能使用SDK的功能---)
-        KGPlatform.init(this, sdkConfig, this, dynamicParamsProvider);
+        KGPlatform.init(this, sdkConfig, this, this);
     }
 
     @Override
@@ -93,6 +95,8 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener{
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+        currentOrderID = orderID;
+        currentExtension = callBackInfo;
         KGPlatform.enterRechargeCenter(activity, price);
     }
 
@@ -149,9 +153,49 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener{
     public void setExtData(Context context, String ext) {
         try {
             JSONObject o = new JSONObject(ext);
-            KGPlatform.sendEnterGameStatics(o.getString("name"), o.getInteger("level"));
+            currentRoleName = o.getString("name");
+            currentServerId = Integer.parseInt(o.getString("serverID"));
+            KGPlatform.sendEnterGameStatics(o.getString("name"), Integer.parseInt(o.getString("level")));
         }catch(JSONException e) {
             Log.v("sdk", "set ext data failed");
         }
+    }
+
+    /**
+     * 区服ID。初始化时没有区服id，或者选服失败，都返回默认值1.
+     */
+    public int getServerId() {
+        return currentServerId;
+    }
+
+    /**
+     * 角色名称。没有则返回默认值空字符串"".
+     */
+    public String getRoleName() {
+        return currentRoleName;
+    }
+
+    /**
+     * 获取游戏的充值订单号。注意：1、SDK进行充值时会通过该方法获取游戏生成的订单号 2、订单号必须保证非空，且唯一
+     */
+    public String createNewOrderId() {
+        // 这里为了测试，随机生成字符串
+        return currentOrderID;
+    }
+
+    /**
+     * 扩展参数1：1.用于游戏客户端与服务端通信 2.游戏客户端从这个接口传入的参数，SDK服务端会原样返回给游戏服务端
+     * 3.如果不需要使用，直接返回null
+     */
+    public String getExtension1() {
+        return currentExtension;
+    }
+
+    /**
+     * 扩展参数2：1.用于游戏客户端与服务端通信 2.游戏客户端从这个接口传入的参数，SDK服务端会原样返回给游戏服务端
+     * 3.如果不需要使用，直接返回null
+     */
+    public String getExtension2() {
+        return null;
     }
 }
