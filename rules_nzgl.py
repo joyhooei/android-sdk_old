@@ -357,3 +357,16 @@ class RuleZY(RuleBase):
     APPID = '901'
     APPKEY = '6d92f234296a73f28ca825434d0aea04'
     ZY_CHANNEL = '01'
+
+@register
+class RuleEGame(RuleBase):
+    LABEL = 'egame'
+    DIRECTORY = 'egame'
+    CH_NAME = '电信爱游戏小包'
+    SDKTYPE = '37'
+    PACKAGE_NAME = 'com.yunyue.nzgl.egame'
+
+    APPID = '5043229'
+    APPKEY = 'fd23b160d8b2dd0a82e6492817c3b5fb'
+    CLIENTID = '7581912'
+    CLIENTSECRET = '0f4c59c6b56646a2a5dd93e015eb0b6b'
