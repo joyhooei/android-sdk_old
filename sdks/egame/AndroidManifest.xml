@@ -129,8 +129,9 @@
             android:launchMode="singleTop"
             android:screenOrientation="behind"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!-- 银联标准版 --><activity
-            android:name="com.unionpay.uppay.PayActivity"android:configChanges="orientation|keyboardHidden"
+        <!-- 银联标准版 -->
+        <activity
+            android:name="com.unionpay.uppay.PayActivity" android:configChanges="orientation|keyboardHidden"
 
             android:excludeFromRecents="true"
 
