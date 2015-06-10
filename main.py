@@ -25,8 +25,10 @@ def one(rule):
     os.chdir('../..')
 
 
-def run_copyassets(d, version):
+def run_copyassets(d, version, mc_postfix):
     cmd = 'copyassets.py %s assets --version %s --ext ".lh"' % (d, version)
+    if mc_postfix:
+        cmd += ' --mc-postfix %s' % mc_postfix
     os.system(cmd)
 
 
@@ -52,6 +54,8 @@ parser.add_option("-c", "--copyassets", dest="copyassets_path", type="string",
                   help="copyassets path", metavar="COPYASSETS")
 parser.add_option("--list", dest="list", action="store_true",
                   help="list available packages.", default=False)
+parser.add_option("--mc-postfix", dest="mc_postfix", action="store", type="string",
+                  help="alternative mc directory", metavar="MC-POSTFIX")
 
 
 if __name__ == '__main__':
@@ -70,6 +74,6 @@ if __name__ == '__main__':
         m.RuleBase.VERSION_CODE = str(options.version)
         m.RuleBase.VERSION_NAME = '%.05f' % (options.version / 100000.0)
         if options.copyassets_path:
-            run_copyassets(options.copyassets_path, options.version)
+            run_copyassets(options.copyassets_path, options.version, options.mc_postfix)
 
         main(all_rules, options.labels)
