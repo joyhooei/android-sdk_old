@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
 
+import com.kugou.game.sdk.api.online.OnlineConfig;
+import com.kugou.game.sdk.api.common.ActivityOrientation;
 import com.kugou.game.sdk.api.common.IEventCode;
 import com.kugou.game.sdk.api.common.IEventDataField;
 import com.kugou.game.sdk.api.common.OnPlatformEventListener;
@@ -32,6 +34,7 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
     private int currentRoleLevel = 0;
     private String currentOrderID;
     private String currentExtension;
+    private PayCallBack payCallBack;
 
     public boolean supportLogin() {
         return true;
@@ -47,6 +50,24 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
 
     public void applicationInit(Activity activity) {
         currentActivity = activity;
+
+        OnlineConfig sdkConfig = new OnlineConfig();
+        /** --------填写SDK的必选配置项，参数来自酷狗提供的配置文档------------- */
+        // 对应配置文档参数--MerchantId
+        sdkConfig.setMerchantId(${MERCHANTID});
+        // 对应配置文档参数--AppId
+        sdkConfig.setAppId(${APPID});
+        // 对应配置文档参数--AppKey
+        sdkConfig.setAppKey("${APPKEY}");
+        // 对应配置文档参数--GameId
+        sdkConfig.setGameId(${GAMEID});
+        // 对应配置文档参数--code ( 注意！！code内容里不要有换行)
+        sdkConfig.setCode("${CODE}");
+
+        /** --------设置SDK的可选配置项，具体可选项定义参看使用文档------------- */
+        // 设置SDK界面的横竖屏
+        sdkConfig.setActivityOrientation(ActivityOrientation.PORTRAIT);
+
         /** --------初始化SDK------------- */
         // 初始化SDK(--必须先初始化SDK后，才能使用SDK的功能---)
         KGPlatform.init(this, sdkConfig, this, this);
@@ -96,6 +117,7 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+        this.payCallBack = payCallBack;
         currentOrderID = orderID;
         currentExtension = callBackInfo;
         KGPlatform.enterRechargeCenter(activity, price);
