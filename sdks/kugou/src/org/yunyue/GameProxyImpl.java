@@ -70,7 +70,7 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
 
         /** --------初始化SDK------------- */
         // 初始化SDK(--必须先初始化SDK后，才能使用SDK的功能---)
-        KGPlatform.init(this, sdkConfig, this, this);
+        KGPlatform.init(activity, sdkConfig, this, this);
     }
 
     @Override
