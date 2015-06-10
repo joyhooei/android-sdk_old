@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_weight="1"
+        layout="@layout/kg_common_title_bar" />
+   
+    <LinearLayout
+        android:id="@+id/kg_waitting_result_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal" 
+        android:orientation="vertical">
+        
+        <ImageView 
+            android:id="@+id/kg_iv_check_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/kg_img_checking"/>
+
+        <Button
+            android:id="@+id/kg_btn_check_result"
+            android:layout_width="@dimen/kg_btn_width"
+            android:layout_height="@dimen/kg_btn_height"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/kg_green_button_bg_selector"
+            android:shadowColor="#ff000fff"
+            android:text="@string/kg_kubi_recharge_11"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/kg_btn_quit_kugou"
+            android:layout_width="@dimen/kg_btn_width"
+            android:layout_height="@dimen/kg_btn_height"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/kg_selector_btn_cancel"
+            android:shadowColor="#ffffffff"
+            android:text="@string/kg_kubi_recharge_10"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+    </LinearLayout>  
+
+</LinearLayout>

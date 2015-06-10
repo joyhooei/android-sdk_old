@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/kg_common_background"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_weight="1"
+        layout="@layout/kg_common_title_bar" />
+
+    <com.kugou.game.sdk.ui.widget.LoadingView
+        android:id="@+id/kg_loadingView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/kg_common_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/kg_layout_recharge_success"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/kg_common_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/kg_img_result_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dip"
+            android:src="@drawable/kg_register_success_icon" />
+
+        <TextView
+            android:id="@+id/kg_tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/kg_kubi_recharge_9"
+            android:textColor="#ff000022"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp" >
+
+            <TextView
+                android:id="@+id/kg_tv_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="5dp"
+                android:text="@string/kg_kubi_recharge_9"
+                android:textColor="@color/kg_common_gray_lighter"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/kg_tv_remain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/kg_tv_account"
+                android:layout_below="@+id/kg_tv_account"
+                android:padding="5dp"
+                android:text="@string/kg_kubi_recharge_9"
+                android:textColor="@color/kg_common_gray_lighter"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/kg_btn_back_to_game"
+            android:layout_width="250dip"
+            android:layout_height="40dp"
+            android:background="@drawable/kg_green_button_bg_selector"
+            android:shadowColor="#ff000fff"
+            android:text="@string/kg_kubi_recharge_9"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 标题 -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" >
+
+                <TextView
+                    android:id="@+id/kg_account_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="40dp"
+                    android:text="@string/kg_recharge_current_account"
+                    android:textColor="@color/kg_common_gray_lighter"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/kg_kubi_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/kg_account_info"
+                    android:gravity="center_vertical"
+                    android:text="@string/kg_kubi_recharge_4"
+                    android:textColor="@color/kg_common_gray_lighter"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!-- 选择充值方式、充值数 -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/kg_sp_bg"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:id="@+id/kg_kubi_recharge_type_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="40dp"
+                    android:text="@string/kg_kubi_recharge_1"
+                    android:textColor="@color/kg_common_gray_lighter"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/kg_kubi_recharge_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/kg_kubi_recharge_type_title"
+                    android:gravity="center_vertical"
+                    android:minHeight="40dp"
+                    android:text="@string/kg_recharge_tab_alipay"
+                    android:textColor="@color/kg_common_blue_lighter"
+                    android:textSize="16sp" />
+
+                <!-- 话费卡充值  兑换比例 -->
+
+                <RelativeLayout
+                    android:id="@+id/kg_layout_recharge_ratio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone" >
+
+                    <Button
+                        android:id="@+id/kg_btn_recharge_ratio"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/kg_selector_edge_btn"
+                        android:gravity="left"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="3dp"
+                        android:text="@string/kg_recharge_ratio"
+                        android:textColor="@color/kg_common_gray_lighter" />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/kg_helper_icon" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/kg_layout_recharge_not_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/kg_kubi_recharge_type_title"
+                    android:visibility="visible" >
+
+                    <TextView
+                        android:id="@+id/kg_kubi_recharge_value_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp"
+                        android:text="@string/kg_recharge_money_1"
+                        android:textColor="@color/kg_common_gray_lighter"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/kg_et_custom_num"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@id/kg_kubi_recharge_value_title"
+                        android:background="@drawable/kg_sp_orange_bg"
+                        android:maxLength="7"
+                        android:numeric="integer"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dip"
+                        android:singleLine="true"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/kg_common_hint_color"
+                        android:textSize="16sp" >
+                    </EditText>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@id/kg_et_custom_num"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp"
+                        android:text="@string/kg_recharege_rmb"
+                        android:textColor="@color/kg_common_gray_lighter"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/kg_layout_recharge_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/kg_kubi_recharge_type_title"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone" >
+
+                    <TextView
+                        android:id="@+id/kg_tv_kubi_recharge_tip1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="40dp"
+                        android:text="@string/kg_kubi_recharge_6"
+                        android:textColor="@color/kg_common_gray_lighter"
+                        android:textSize="16sp" />
+
+                    <RelativeLayout
+                        android:layout_width="120dp"
+                        android:layout_height="@dimen/kg_mobile_card_btn_height"
+                        android:layout_toRightOf="@id/kg_tv_kubi_recharge_tip1"
+                        android:layout_marginLeft="7dp" >
+
+                        <Button
+                            android:id="@+id/kg_btn_recharge_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/kg_selector_edge_btn"
+                            android:gravity="left|center_vertical"
+                            android:paddingLeft="12dp"
+                            android:text="@string/kg_recharge_10_yun" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/kg_common_button_photo_pressed" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/kg_tv_kubi_recharge_tip2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/kg_tv_kubi_recharge_tip1"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="@string/kg_kubi_recharge_7"
+                        android:textColor="@color/kg_common_red"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/kg_et_recharge_mobile_sn_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/kg_btn_height"
+                        android:layout_below="@id/kg_tv_kubi_recharge_tip2"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/kg_sp_bg"
+                        android:digits="@string/kg_nums"
+                        android:gravity="center_vertical"
+                        android:hint="@string/kg_recharge_mobile_sn_rule"
+                        android:inputType="phone"
+                        android:paddingLeft="12dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/kg_common_hint_color"
+                        android:textSize="16sp" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/kg_et_recharge_mobile_passwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/kg_btn_height"
+                        android:layout_below="@id/kg_et_recharge_mobile_sn_code"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/kg_sp_bg"
+                        android:digits="@string/kg_nums"
+                        android:gravity="center_vertical"
+                        android:hint="@string/kg_recharge_mobile_passwd_rule"
+                        android:inputType="phone"
+                        android:paddingLeft="12dp"
+                        android:singleLine="true"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/kg_common_hint_color"
+                        android:textSize="16sp" >
+                    </EditText>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/kg_tv_recharge_can_get_gold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:text="@string/kg_kubi_recharge_5"
+                android:textColor="@color/kg_common_gray_lighter"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/kg_btn_summit"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/kg_btn_height"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/kg_green_button_bg_selector"
+                android:shadowColor="#ff000fff"
+                android:text="@string/kg_confirm_recharge"
+                android:textColor="#ffffffff"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp" >
+
+                <RelativeLayout
+                    android:id="@+id/kg_rl_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/kg_btn_recharge_kubi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/kg_kubi_recharge_2"
+                        android:textColor="@color/kg_common_gray_lighter"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/kg_iv_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/kg_blue_arrow_up" />
+
+                    <TextView
+                        android:id="@+id/kg_tv_kubi_recharge_ratio_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/kg_iv_arrow"
+                        android:gravity="center_vertical"
+                        android:text="@string/kg_kubi_recharge_3"
+                        android:textColor="@color/kg_common_blue_lighter"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/kg_tv_kubi_recharge_ratio_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/kg_rl_title"
+                    android:gravity="left"
+                    android:text="@string/kg_kubi_recharge_8"
+                    android:textColor="@color/kg_common_gray_lighter"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

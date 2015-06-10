@@ -358,6 +358,20 @@ class RuleZY(RuleBase):
     APPKEY = '6d92f234296a73f28ca825434d0aea04'
     ZY_CHANNEL = '01'
 
+
+@register
+class RuleKugou(RuleBase):
+    LABEL = 'kugou'
+    DIRECTORY = 'kugou'
+    CH_NAME = '酷狗小包'
+    SDKTYPE = '36'
+    PACKAGE_NAME = 'com.yunyue.nzgl.kugou'
+
+    APPID = '901'
+    APPKEY = '6d92f234296a73f28ca825434d0aea04'
+    ZY_CHANNEL = '01'
+
+
 @register
 class RuleEGame(RuleBase):
     LABEL = 'egame'

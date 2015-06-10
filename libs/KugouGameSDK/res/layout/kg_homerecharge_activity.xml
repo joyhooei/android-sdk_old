@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_weight="1"
+        layout="@layout/kg_common_title_bar" />
+
+    <com.kugou.game.sdk.ui.widget.LoadingView
+        android:id="@+id/kg_loadingView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/kg_common_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/kg_layout_recharge_success"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/kg_common_background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/kg_img_result_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dip"
+            android:src="@drawable/kg_register_success_icon" />
+
+        <TextView
+            android:id="@+id/kg_tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="#ff000022"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/kg_ll_modify_psw"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="30dp"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:id="@+id/kg_tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/kg_common_gray_lighter"
+                    android:textSize="@dimen/kg_common_large" />
+
+                <TextView
+                    android:id="@+id/kg_tv_userpsw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/kg_common_gray_lighter"
+                    android:textSize="@dimen/kg_common_large" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/kg_register_kugou_change_passwd_tips"
+                android:textColor="@color/kg_common_gray_lighter"
+                android:textSize="@dimen/kg_common_large" />
+
+            <RelativeLayout
+                android:layout_width="250dip"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dp" >
+
+                <EditText android:textColorHint="@color/kg_common_hint_color"
+                    android:id="@+id/kg_et_modify_psw"
+                    android:layout_width="180dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/kg_modify_psw_bg"
+                    android:hint="@string/kg_register_kugou_change_passwd_hint"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:singleLine="true" />
+
+                <Button
+                    android:id="@+id/kg_btn_modify_psw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_toRightOf="@id/kg_et_modify_psw"
+                    android:background="@drawable/kg_selector_modify_btn_bg"
+                    android:text="@string/kg_register_kugou_change"
+                    android:textColor="@color/kg_common_white" />
+
+                <TextView
+                    android:id="@+id/kg_tv_modify_psw_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/kg_et_modify_psw"
+                    android:paddingBottom="3dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/kg_recharge_modify_psw_wrong_tips"
+                    android:textColor="@color/kg_common_red"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/kg_ll_bindphone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:paddingTop="40dip"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:text="@string/kg_suggest_bindphone"
+                android:textColor="@color/kg_common_orange" />
+
+            <Button
+                android:id="@+id/kg_btn_continue_to_recharge"
+                android:layout_width="250dip"
+                android:layout_height="40dp"
+                android:background="@drawable/kg_green_button_bg_selector"
+                android:shadowColor="#ff000fff"
+                android:text="@string/kg_bindphone_now"
+                android:textColor="#ffffffff"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/kg_btn_back_to_game"
+            android:layout_width="250dip"
+            android:layout_height="40dp"
+            android:background="@drawable/kg_blue_button_bg_selector"
+            android:shadowColor="#ff000fff"
+            android:text="@string/kg_recharge_entergame_now"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/kg_rechargetab_rg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="75dip"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/kg_rechargetab_rb_alipay"
+            style="@style/kg_KYTheme.RadioButton.Tab"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/kg_rechargetab_leftselector"
+            android:checked="true"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/kg_rechargetab_alipay"
+            android:gravity="center_horizontal|bottom"
+            android:paddingBottom="13dip"
+            android:paddingTop="13dip"
+            android:text="@string/kg_recharge_tab_alipay" />
+
+        <RadioButton
+            android:id="@+id/kg_rechargetab_rb_bankcard"
+            style="@style/kg_KYTheme.RadioButton.Tab"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/kg_rechargetab_middleselector"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/kg_rechargetab_bankcard"
+            android:gravity="center_horizontal|bottom"
+            android:paddingBottom="13dip"
+            android:paddingTop="13dip"
+            android:text="@string/kg_recharge_tab_union" />
+
+        <RadioButton
+            android:id="@+id/kg_rechargetab_rb_mobilecard"
+            style="@style/kg_KYTheme.RadioButton.Tab"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/kg_rechargetab_middleselector"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/kg_rechargetab_mobilecard"
+            android:gravity="center_horizontal|bottom"
+            android:paddingBottom="13dip"
+            android:paddingTop="13dip"
+            android:text="@string/kg_recharge_tab_mobliecard" />
+
+        <RadioButton
+            android:id="@+id/kg_rechargetab_rb_kubi"
+            style="@style/kg_KYTheme.RadioButton.Tab"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/kg_rechargetab_rightselector"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/kg_rechargetab_kubi"
+            android:gravity="center_horizontal|bottom"
+            android:paddingBottom="13dip"
+            android:paddingTop="13dip"
+            android:text="@string/kg_recharge_tab_kubi" />
+    </RadioGroup>
+
+    <com.kugou.game.sdk.ui.widget.ParentViewPager
+        android:id="@+id/kg_recharge_pager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    
+    <LinearLayout
+        android:id="@+id/kg_waitting_result_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal" 
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/kg_btn_check_result"
+            android:layout_width="@dimen/kg_btn_width"
+            android:layout_height="@dimen/kg_btn_height"
+            android:layout_marginTop="100dip"
+            android:background="@drawable/kg_green_button_bg_selector"
+            android:shadowColor="#ff000fff"
+            android:text="@string/kg_check_recharge_result"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/kg_btn_quit_kugou"
+            android:layout_width="@dimen/kg_btn_width"
+            android:layout_height="@dimen/kg_btn_height"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/kg_selector_btn_cancel"
+            android:shadowColor="#ffffffff"
+            android:text="@string/kg_exit_recharge_center"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+    </LinearLayout>  
+
+</LinearLayout>

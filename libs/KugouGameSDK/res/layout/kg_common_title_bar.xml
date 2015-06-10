@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="55dip"
+    android:background="@color/kg_common_orange"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/kg_layer_back_image"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@drawable/kg_titlebar_btn_selector"
+        android:gravity="right|center_vertical"
+        android:padding="10dip"
+        android:scaleType="centerInside"
+        android:src="@drawable/kg_titlebar_back"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/kg_layer_title_text"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/kg_layer_right_image"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@drawable/kg_titlebar_btn_selector"
+        android:gravity="center"
+        android:padding="5dp"
+        android:scaleType="centerInside" />
+
+    <ImageView
+        android:id="@+id/kg_layer_help_image"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@drawable/kg_titlebar_btn_selector"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:paddingBottom="5dip"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dip"
+        android:paddingTop="5dip"
+        android:scaleType="centerInside"
+        android:src="@drawable/kg_titlebar_helpicon" />
+
+</LinearLayout>
