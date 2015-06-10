@@ -5,7 +5,6 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import android.app.Activity;
-import android.content.View;
 import android.content.Intent;
 import android.content.Context;
 import android.util.Log;
@@ -13,6 +12,7 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
+import android.view.View;
 
 import com.kugou.game.sdk.api.online.OnlineConfig;
 import com.kugou.game.sdk.api.common.ActivityOrientation;
@@ -120,7 +120,7 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
         this.payCallBack = payCallBack;
         currentOrderID = orderID;
         currentExtension = callBackInfo;
-        KGPlatform.enterRechargeCenter(activity, price);
+        KGPlatform.enterRechargeCenter(activity, Integer.parseInt(price));
     }
 
     public void login(Activity activity,Object customParams) {
