@@ -20,6 +20,8 @@ import cn.egame.terminal.paysdk.EgamePayListener;
 import cn.egame.terminal.sdk.log.EgameAgent;
 import cn.play.dserv.CheckTool;
 import cn.play.dserv.ExitCallBack;
+import egame.terminal.usersdk.CallBackListener;
+import egame.terminal.usersdk.EgameUser;
 
 public class GameProxyImpl extends GameProxy{
     private static final int CLIENT_ID = ${CLIENTID};
