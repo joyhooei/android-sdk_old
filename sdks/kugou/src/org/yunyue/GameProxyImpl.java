@@ -29,6 +29,7 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
     private ToolBar toolBar;
     private int currentServerId;
     private String currentRoleName = "";
+    private String currentRoleLevel = 0;
     private String currentOrderID;
     private String currentExtension;
 
@@ -105,7 +106,7 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
     }
 
     public void exit(Activity activity, ExitCallback callback) {
-        KGPlatform.exitGame(activity, roleName, roleLevel, new OnExitListener() {
+        KGPlatform.exitGame(activity, currentRoleName, currentRoleLevel, new OnExitListener() {
             @Override
             public void exitGame() {
                 // 记得调用SDK的退出函数，释放资源
@@ -154,8 +155,9 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
         try {
             JSONObject o = new JSONObject(ext);
             currentRoleName = o.getString("name");
+            currentRoleLevel = Integer.parseInt(o.getString("level"));
             currentServerId = Integer.parseInt(o.getString("serverID"));
-            KGPlatform.sendEnterGameStatics(o.getString("name"), Integer.parseInt(o.getString("level")));
+            KGPlatform.sendEnterGameStatics(currentRoleName, currentRoleLevel);
         }catch(JSONException e) {
             Log.v("sdk", "set ext data failed");
         }
