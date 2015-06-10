@@ -29,7 +29,7 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
     private ToolBar toolBar;
     private int currentServerId;
     private String currentRoleName = "";
-    private String currentRoleLevel = 0;
+    private int currentRoleLevel = 0;
     private String currentOrderID;
     private String currentExtension;
 
@@ -144,10 +144,6 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
         if (toolBar != null) {
             toolBar.recycle();
             toolBar = null;
-        }
-
-        if (mReceiver != null) {
-            unregisterReceiver(mReceiver);
         }
     }
 
