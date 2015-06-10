@@ -101,7 +101,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         HashMap<String, String> payParams=new HashMap<String, String>();
-        payParams.put(EgamePay.PAY_PARAMS_KEY_TOOLS_PRICE, price);
+        payParams.put(EgamePay.PAY_PARAMS_KEY_TOOLS_PRICE, ((int)price).toString());
         payParams.put(EgamePay.PAY_PARAMS_KEY_CP_PARAMS, callBackInfo + "_" + orderID);
         payParams.put(EgamePay.PAY_PARAMS_KEY_TOOLS_DESC, name);
         //payParams.put(EgamePay.PAY_PARAMS_KEY_PRIORITY, "other");//优先第三方支付
