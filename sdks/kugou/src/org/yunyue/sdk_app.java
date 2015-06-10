@@ -2,7 +2,6 @@ package org.yunyue;
 
 import android.content.Context;
 import com.kugou.game.sdk.api.common.ActivityOrientation;
-import com.kugou.game.sdk.api.common.DynamicParamsProvider;
 import com.kugou.game.sdk.api.common.OnPlatformEventListener;
 import com.kugou.game.sdk.api.online.KGPlatform;
 import com.kugou.game.sdk.api.online.OnlineConfig;

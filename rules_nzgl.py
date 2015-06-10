@@ -373,6 +373,13 @@ class RuleKugou(RuleBase):
     GAMEID = '10676'
     CODE = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGf5QaYh/jxpN+Sye2FQGbdMfgwYRF9n7ulkrM2afz+4Cqz/dMmwYyq1dSMZbv2gzI6JDxNQmFsc5tUdqpKTSzUrmRnWBtHLXzKhXTMxqutm1FedHoE51e5v2hYZ46ab4lBIg1yQVkHKmZC2pIWk4qBuvNUTbz1YKedr3mi99AbQIDAQAB'
 
+    @classmethod
+    def rules(cls):
+        return super(RuleKugou, cls).rules() + [
+            ('src/org/yunyue/sdk_app.java', 'replace', cls.common_replaces()),
+        ]
+
+
 @register
 class RuleEGame(RuleBase):
     LABEL = 'egame'

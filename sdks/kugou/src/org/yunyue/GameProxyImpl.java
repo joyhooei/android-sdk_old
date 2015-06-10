@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import android.app.Activity;
+import android.app.View;
 import android.content.Intent;
 import android.content.Context;
 import android.util.Log;
@@ -21,9 +22,11 @@ import com.kugou.game.sdk.api.online.KGPlatform;
 import com.kugou.game.sdk.api.common.OnExitListener;
 import com.kugou.game.sdk.api.online.KGPlatform;
 import com.kugou.game.sdk.ui.widget.ToolBar;
+import com.kugou.game.sdk.api.common.DynamicParamsProvider;
 
 public class GameProxyImpl extends GameProxy implements OnPlatformEventListener{
     private Activity currentActivity;
+    private ToolBar toolBar;
 
     public boolean supportLogin() {
         return true;
@@ -41,10 +44,9 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener{
         currentActivity = activity;
         /** --------初始化SDK------------- */
         // SDK事件回调接口
-        OnPlatformEventListener sdkEventListener = new SDKEventListener(this);
         DynamicParamsProvider dynamicParamsProvider = new GameParamsProvider();
         // 初始化SDK(--必须先初始化SDK后，才能使用SDK的功能---)
-        KGPlatform.init(this, sdkConfig, sdkEventListener, dynamicParamsProvider);
+        KGPlatform.init(this, sdkConfig, this, dynamicParamsProvider);
     }
 
     @Override
