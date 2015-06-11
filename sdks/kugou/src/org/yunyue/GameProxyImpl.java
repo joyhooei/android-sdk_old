@@ -152,11 +152,13 @@ public class GameProxyImpl extends GameProxy implements OnPlatformEventListener,
     }
 
     private void initToolBar() {
-        // 注意：1、悬浮窗必须在**登录成功后**进行创建；2、ToolBar不是单例模式，不要重复创建，不然会生成多个悬浮窗。
-        toolBar = new ToolBar(currentActivity, ToolBar.LEFT_MID);
-        toolBar.show();
-        // 设置悬浮窗收拢
-        toolBar.setCustomViewVisibility(View.GONE);
+        if (toolBar == null) {
+            // 注意：1、悬浮窗必须在**登录成功后**进行创建；2、ToolBar不是单例模式，不要重复创建，不然会生成多个悬浮窗。
+            toolBar = new ToolBar(currentActivity, ToolBar.LEFT_MID);
+            toolBar.show();
+            // 设置悬浮窗收拢
+            toolBar.setCustomViewVisibility(View.GONE);
+        }
     }
 
     @Override
