@@ -347,8 +347,19 @@ public class GameProxyImpl extends GameProxy {
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         this.payCallBack = payCallBack;
         this.callBackInfo = callBackInfo + "_" + orderID;
+
         LoginRet ret = new LoginRet();
         WGPlatform.WGGetLoginRecord(ret);
+        if(ret.flag == CallbackFlag.eFlag_Checking_Token) {
+			Toast.makeText(activity, "登录已过期，正在重新登录，请稍候再试。", Toast.LENGTH_SHORT).show();
+            WGPlatform.WGLogin(EPlatform.ePlatform_None);
+            return ;
+        }
+        else if(ret.flag != CallbackFlag.eFlag_Succ) {
+            // 登录态失效，重新登录
+            userListerner.onLogout(null);
+            return ;
+        }
 
         //String discounttype = "InGame";
         //String discountUrl = "http://imgcache.qq.com/bossweb/midas/unipay/test/act/actTip.html?_t=1&mpwidth=420&mpheight=250";
@@ -364,7 +375,7 @@ public class GameProxyImpl extends GameProxy {
         bmp.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] appResData = baos.toByteArray();
         UnipayGameRequest request = new UnipayGameRequest();
-        request.offerId = "1104480701";
+        request.offerId = "${QQ_APPID}";
         request.openId = ret.open_id;
 
         String wx_token = get_token(ret, TokenType.eToken_WX_Access);
