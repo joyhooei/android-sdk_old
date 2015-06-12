@@ -118,6 +118,7 @@ public class GameProxyImpl extends GameProxy{
             public void payFailed(Map params, int errorInt) {
                 //dialog.setMessage("道具"+params.get(EgamePay.PAY_PARAMS_KEY_TOOLS_PRICE)+"支付失败：错误代码："+errorInt);
                 //dialog.show();
+                Log.v("sdk", "pay fail:" + errorInt);
                 HashMap values= new HashMap();
                 values.put("errorInt",""+errorInt);
                 EgameAgent.onEvent(activity, "errorInt",values);
@@ -128,6 +129,7 @@ public class GameProxyImpl extends GameProxy{
             public void payCancel(Map params) {
                 //dialog.setMessage("道具"+params.get(EgamePay.PAY_PARAMS_KEY_TOOLS_PRICE)+"支付已取消");
                 //dialog.show();
+                Log.v("sdk", "pay canceled");
                 EgameAgent.onEvent(activity, "payment cancelled");
                 payCallBack.onFail("支付取消");
             }
