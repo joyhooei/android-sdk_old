@@ -71,11 +71,16 @@ if __name__ == '__main__':
 
     if options.copyassets_path:
         os.environ['CLIENT_DIRECTORY'] = options.copyassets_path
+        if not os.path.isabs(os.environ['CLIENT_DIRECTORY']):
+            os.environ['CLIENT_DIRECTORY'] = os.path.abspath(os.environ['CLIENT_DIRECTORY'])
 
     if options.copyicons_path:
         os.environ['ICON_DIRECTORY'] = options.copyicons_path
     elif os.environ['CLIENT_DIRECTORY']:
         os.environ['ICON_DIRECTORY'] = os.path.join(os.environ['CLIENT_DIRECTORY'], '../ttxm_icon/android')
+
+    if not os.path.isabs(os.environ['ICON_DIRECTORY']):
+        os.environ['ICON_DIRECTORY'] = os.path.abspath(os.environ['ICON_DIRECTORY'])
 
     if options.list:
         for rule in all_rules.values():
