@@ -351,12 +351,14 @@ public class GameProxyImpl extends GameProxy {
         LoginRet ret = new LoginRet();
         WGPlatform.WGGetLoginRecord(ret);
         if(ret.flag == CallbackFlag.eFlag_WX_AccessTokenExpired) {
+            Log.v("sdk", "wx login expired, refresh");
 			Toast.makeText(activity, "登录已过期，正在重新登录，请稍候再试。", Toast.LENGTH_SHORT).show();
             WGPlatform.WGRefreshWXToken();
             return ;
         }
         else if(ret.flag != CallbackFlag.eFlag_Succ) {
             // 登录态失效，重新登录
+            Log.v("sdk", "login flag invalid :" + ret.flag);
             userListerner.onLogout(null);
             return ;
         }
