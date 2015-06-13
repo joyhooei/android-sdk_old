@@ -25,8 +25,8 @@ def one(rule):
     os.chdir('../..')
 
 
-def run_copyassets(d, version, mc_postfix):
-    cmd = 'copyassets.py %s assets --version %s --ext ".lh"' % (d, version)
+def run_copyassets(version, mc_postfix):
+    cmd = 'copyassets.py $CLIENT_DIRECTORY assets --version %s --ext ".lh"' % version
     if mc_postfix:
         cmd += ' --mc-postfix %s' % mc_postfix
     os.system(cmd)
@@ -52,6 +52,8 @@ parser.add_option("-g", "--game", dest="game", type="string",
                   help="game label", metavar="GAME")
 parser.add_option("-c", "--copyassets", dest="copyassets_path", type="string",
                   help="copyassets path", metavar="COPYASSETS")
+parser.add_option("-i", "--iconspath", dest="copyicons_path", type="string",
+                  help="copyicons path", metavar="COPYICONS")
 parser.add_option("--list", dest="list", action="store_true",
                   help="list available packages.", default=False)
 parser.add_option("--mc-postfix", dest="mc_postfix", action="store", type="string",
@@ -67,6 +69,14 @@ if __name__ == '__main__':
         parser.print_help(sys.stderr)
         sys.exit(1)
 
+    if options.copyassets_path:
+        os.environ['CLIENT_DIRECTORY'] = options.copyassets_path
+
+    if options.copyicons_path:
+        os.environ['ICON_DIRECTORY'] = options.copyicons_path
+    elif os.environ['CLIENT_DIRECTORY']:
+        os.environ['ICON_DIRECTORY'] = os.path.join(os.environ['CLIENT_DIRECTORY'], '../ttxm_icon/android')
+
     if options.list:
         for rule in all_rules.values():
             print rule.LABEL, rule.CH_NAME
@@ -74,6 +84,6 @@ if __name__ == '__main__':
         m.RuleBase.VERSION_CODE = str(options.version)
         m.RuleBase.VERSION_NAME = '%.05f' % (options.version / 100000.0)
         if options.copyassets_path:
-            run_copyassets(options.copyassets_path, options.version, options.mc_postfix)
+            run_copyassets(options.version, options.mc_postfix)
 
         main(all_rules, options.labels)
