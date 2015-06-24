@@ -7,6 +7,7 @@ class RuleBase(Rule):
     VERSION_CODE = '100000'
     VERSION_NAME = '1.00000'
     APPNAME = '封神小鲜肉'
+    APPLABEL = 'fs'
 
 
 @register

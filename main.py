@@ -19,8 +19,9 @@ def one(rule):
     os.system('git clean -f -d .')
     os.system('git checkout -- .')
     # TODO copy package
-    os.system('mkdir -p $HOME/android_package/%s'%rule.VERSION_CODE)
-    output = '$HOME/android_package/%s/%s_%s.apk'%(rule.VERSION_CODE, rule.CH_NAME, rule.VERSION_CODE)
+    d = '$HOME/android_package/%s/%s' % (rule.APPLABEL, rule.VERSION_CODE)
+    os.system('mkdir -p %s'%d)
+    output = '%s/%s_%s.apk'%(d, rule.CH_NAME, rule.VERSION_CODE)
     os.system('cp bin/poem-release.apk %s'%output)
     os.chdir('../..')
 
