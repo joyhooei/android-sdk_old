@@ -57,34 +57,6 @@
             </intent-filter>
         </activity>
 
-
-        <!-- 添加360SDK必需的activity：com.qihoopay.insdk.activity.ContainerActivity -->
-        <activity
-            android:name="com.qihoo.gamecenter.sdk.activity.ContainerActivity"
-            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:exported="true">
-        </activity>
-
-        <!-- payment activities begin -->
-        <!-- 添加360SDK必需的activity：com.qihoopp.qcoinpay.QcoinActivity -->
-        <activity
-            android:name="com.qihoopp.qcoinpay.QcoinActivity"
-            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
-        </activity>
-
-        <!-- alipay sdk begin -->
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <!-- alipay sdk end -->
-
-
-        <!-- payment activities end -->
-
         <meta-data
             android:name="QHOPENSDK_APPKEY"
             android:value="${QHOPENSDK_APPKEY}" >
@@ -98,7 +70,52 @@
             android:value="${QHOPENSDK_APPID}" >
         </meta-data>
 
-        <!-- 如下是360游戏实时推送SDK必要声明，不可修改 -->
+        <!-- 添加360SDK必需的activity：com.qihoopay.insdk.activity.ContainerActivity -->
+        <activity
+            android:name="com.qihoo.gamecenter.sdk.activity.ContainerActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true" >
+        </activity>
+
+        <!-- 360SDK浮窗  -->
+        <!-- 个人中心activity -->
+        <activity
+            android:name="com.qihoo.gamecenter.sdk.suspend.personal.PersonalActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:screenOrientation="portrait"  >
+              <intent-filter>
+                <action android:name="" />
+              </intent-filter>
+        </activity>
+        <receiver
+            android:name="com.qihoo.gamecenter.sdk.suspend.local.QBootReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.qihoo.gamecenter.sdk.suspend.remote.QRemoteService"
+            android:exported="true"
+            android:process=":QSuspendRemote" >
+            <intent-filter>
+                <action android:name="com.qihoo.gamecenter.sdk.suspend.service.action.remote" />
+            </intent-filter>
+        </service>
+
+
+        <service
+            android:name="com.qihoo.gamecenter.sdk.suspend.local.QLocalService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.qihoo.gamecenter.sdk.suspend.local.QLocalService" />
+            </intent-filter>
+        </service>
+        <!-- 360SDK浮窗 End -->
+
+         <!-- 如下是360游戏实时推送SDK必要声明，不可修改 -->
         <receiver
             android:name="com.qihoo.psdk.local.QBootReceiver"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
@@ -132,24 +149,22 @@
                 <action android:name="com.qihoo.psdk.service.action.local" />
             </intent-filter>
         </service>
-        <!-- 推送SDK end -->
-
 
         <!-- 微信SDK -->
         <!-- 微信相关的activity，如果游戏接入微信分享需要在游戏工程内实现这个activity，请直接使用demo中的代码实现，并放在游戏的工程的对应路径下。 -->
         <!--
         <activity
             android:name=".wxapi.WXEntryActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:label="@string/demo_app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true" />
 -->
 
         <!-- 从微信开放平台申请的appid，游戏需要去申请自己的appid -->
         <!--
         <meta-data
             android:name="QHOPENSDK_WEIXIN_APPID"
-            android:value="wx3f8878396f5fd798" >
+            android:value="wx4e203f3fdd2d4a15" >
         </meta-data>
 -->
         <!-- 微信SDK end -->
