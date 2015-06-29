@@ -39,7 +39,7 @@ class RuleUC(RuleBase):
 @register
 class RuleC360(RuleBase):
     LABEL = 'c360'
-    DIRECTORY = 'c360'
+    DIRECTORY = 'c360_test'
     CH_NAME = '360小包'
     SDKTYPE = '19'
     PACKAGE_NAME = 'com.yunyue.fs.c360'
