@@ -96,3 +96,48 @@ class RuleWDJ(RuleBase):
             ('src/org/yunyue/sdk_app.java', 'replace', cls.common_replaces()),
         ]
 
+
+@register
+class RuleAnzhi(RuleBase):
+    LABEL = 'anzhi'
+    DIRECTORY = 'anzhi'
+    CH_NAME = '安智小包'
+    SDKTYPE = '21'
+    PACKAGE_NAME = 'com.yunyue.fs.anzhi'
+
+    APPKEY = '14356441495136mQAPB5s3XSafyoK9'
+    APPSECRET = '3G91iXHaLTF852fxdJ3X8AlL'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleAnzhi, cls).rules() + [
+            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+        ]
+
+
+@register
+class RuleOppo(RuleBase):
+    LABEL = 'oppo'
+    DIRECTORY = 'oppo'
+    CH_NAME = 'OPPO小包'
+    SDKTYPE = '20'
+    PACKAGE_NAME = 'com.yunyue.fs.nearme.gamecenter'
+    YY_PACKAGE_NAME = 'com.yunyue.fs.oppo'
+
+    APPID = '\\ 2122800'
+    APPKEY = '9nLgzekr22O0cK88Ow4k0CswK'
+    APPSECRET = '9d3604C7aE3967Fd016aD8c3A66cd54F'
+
+
+@register
+class RuleYYH(RuleBase):
+    LABEL = 'yyh'
+    DIRECTORY = 'yyh'
+    CH_NAME = '应用汇小包'
+    SDKTYPE = '34'
+    PACKAGE_NAME = 'com.yunyue.nzgl.yyh'
+
+    APPID = '10845'
+    APPKEY = 'Q7Y6NcWnX1VsIj2o'
+    PAYID = '5000302248'
+    PAYKEY = 'M0ZGNjM5RjZDOEEyM0E0NjNERkMzOUZDMEQ5QzA0NTZDMTA5MThENk9UYzRPRGswTWpFMU5UYzVPRFUxTVRBM09Tc3lNalE1TURJNU5Ua3dNekExTnpNME16WXdNakV6T0RBME9EQXlNRGszTWpNM01qRXlNams9'
