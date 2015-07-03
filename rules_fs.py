@@ -152,3 +152,14 @@ class RuleGfan(RuleBase):
     PACKAGE_NAME = 'com.yunyue.fs.gfan'
 
     APPKEY = '164591850'
+
+
+@register
+class RuleWanka(RuleBase):
+    LABEL = 'wanka'
+    DIRECTORY = 'wanka'
+    CH_NAME = '硬核小包'
+    SDKTYPE = '23'
+    PACKAGE_NAME = 'com.yunyue.fs.wanka'
+    YY_PACKAGE_NAME = 'com.yunyue.fs.wanka'
+    CREATE_ORDER_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/wanka/create_order'
