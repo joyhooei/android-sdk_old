@@ -59,3 +59,22 @@ class RuleBaidu(RuleBase):
 
     APPID = '6315322'
     APPKEY = 'wLezE8VtTkO6rVkapuWCyxyP'
+
+
+@register
+class RuleXiaomi(RuleBase):
+    LABEL = 'xiaomi'
+    DIRECTORY = 'xiaomi'
+    CH_NAME = '小米小包'
+    SDKTYPE = '18'
+    PACKAGE_NAME = 'com.yunyue.fs.xiaomi'
+
+    APPID = '2882303761517353553'
+    APPKEY = '5501735324553'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleXiaomi, cls).rules() + [
+            ('src/org/yunyue/MiAppApplication.java', 'replace', cls.common_replaces()),
+        ]
+
