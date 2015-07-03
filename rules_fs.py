@@ -48,6 +48,8 @@ class RuleC360(RuleBase):
     QHOPENSDK_PRIVATEKEY = 'd184708aafa976a80b3411678c9a071b'
     QHOPENSDK_APPID = '202593516'
 
+    PAY_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/c360/pay_callback'
+
 
 @register
 class RuleBaidu(RuleBase):
@@ -127,6 +129,8 @@ class RuleOppo(RuleBase):
     APPID = '\\ 2122800'
     APPKEY = '9nLgzekr22O0cK88Ow4k0CswK'
     APPSECRET = '9d3604C7aE3967Fd016aD8c3A66cd54F'
+
+    PAY_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/oppo/pay_callback'
 
 
 @register

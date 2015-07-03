@@ -58,7 +58,7 @@ public class GameProxyImpl extends GameProxy{
             return;
         }
 
-        String callbackurl = "http://sdk.nataku.yunyuegame.com/sdk/android/zcgame/pay_callback/" + serverID + "/" + orderID + "/SDK_YYZCLH";
+        String callbackurl = "${PAY_URL}/" + serverID + "/" + orderID + "/SDK_YYZCLH";
         or.setNotify_url(callbackurl);
         Log.v("sdk", "backurl:" + callbackurl);
         //or.setNotify_url(callbackurl); 

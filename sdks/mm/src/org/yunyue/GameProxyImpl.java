@@ -155,7 +155,7 @@ public class GameProxyImpl extends GameProxy{
 		orderInfo += "&total_fee=" + "\"" + price + "\"";
 
 		// 服务器异步通知页面路径
-		orderInfo += "&notify_url=" + "\"" + "http://sdk.nataku.yunyuegame.com/sdk/android/sdk/mm/pay_callback"
+		orderInfo += "&notify_url=" + "\"" + "${PAY_URL}"
 				+ "\"";
 
 		// 服务接口名称， 固定值
