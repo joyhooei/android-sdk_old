@@ -78,3 +78,21 @@ class RuleXiaomi(RuleBase):
             ('src/org/yunyue/MiAppApplication.java', 'replace', cls.common_replaces()),
         ]
 
+
+@register
+class RuleWDJ(RuleBase):
+    LABEL = 'wdj'
+    DIRECTORY = 'wdj'
+    CH_NAME = '豌豆荚小包'
+    SDKTYPE = '22'
+    PACKAGE_NAME = 'com.yunyue.fs.wdj'
+
+    APPKEY = '100028689'
+    SECURITY_KEY = 'c5e52cb17c35df8d4b9fb83e9d909c0e'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleWDJ, cls).rules() + [
+            ('src/org/yunyue/sdk_app.java', 'replace', cls.common_replaces()),
+        ]
+
