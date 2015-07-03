@@ -39,14 +39,14 @@ class RuleUC(RuleBase):
 @register
 class RuleC360(RuleBase):
     LABEL = 'c360'
-    DIRECTORY = 'c360_test'
+    DIRECTORY = 'c360'
     CH_NAME = '360小包'
     SDKTYPE = '19'
     PACKAGE_NAME = 'com.yunyue.fs.c360'
 
-    QHOPENSDK_APPKEY = '7b6124fab627d2124667c807a757ece2'
+    QHOPENSDK_APPKEY = '354483f127d6e773c14c21f6b3ef557a'
     QHOPENSDK_PRIVATEKEY = ''
-    QHOPENSDK_APPID = '202593846'
+    QHOPENSDK_APPID = '202593516'
 
 
 @register
