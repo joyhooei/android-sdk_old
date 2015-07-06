@@ -135,7 +135,7 @@
 
                 <category android:name="android.intent.category.DEFAULT"/>
                 <!-- Make sure to replace XXX by your AppKeyid -->
-                <data android:scheme="Wandoujia-PaySdk-100024673"/>
+                <data android:scheme="Wandoujia-PaySdk-${APPKEY}"/>
             </intent-filter>
         </activity>
 
