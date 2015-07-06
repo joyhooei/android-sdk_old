@@ -126,9 +126,9 @@ class RuleOppo(RuleBase):
     PACKAGE_NAME = 'com.yunyue.fs.nearme.gamecenter'
     YY_PACKAGE_NAME = 'com.yunyue.fs.oppo'
 
-    APPID = '\\ 2122800'
-    APPKEY = '9nLgzekr22O0cK88Ow4k0CswK'
-    APPSECRET = '9d3604C7aE3967Fd016aD8c3A66cd54F'
+    APPID = '\\ 3867'
+    APPKEY = 'bgWqwsx1v00sGK4w84OwoosGc'
+    APPSECRET = 'D566f23f01AA489fF84409d6a5280769'
 
     PAY_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/oppo/pay_callback'
 
