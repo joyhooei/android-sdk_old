@@ -181,6 +181,12 @@ class RuleDownjoy(RuleBase):
     APPID = '3749'
     APPKEY = 'dNQsiZIW'
 
+    @classmethod
+    def rules(cls):
+        return super(RuleDownjoy, cls).rules() + [
+            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+        ]
+
 
 @register
 class RuleMZW(RuleBase):
@@ -191,6 +197,12 @@ class RuleMZW(RuleBase):
     PACKAGE_NAME = 'com.yunyue.fs.mzw'
 
     APPKEY = ''
+
+    @classmethod
+    def rules(cls):
+        return super(RuleMZW, cls).rules() + [
+            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+        ]
 
 
 @register
