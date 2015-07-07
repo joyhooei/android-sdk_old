@@ -69,9 +69,9 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
-        String roleID;
+        int roleID;
         try {
-            roleID = roleInfo.getString("id");
+            roleID = Integer.parseInt(roleInfo.getString("id"));
         } catch (JSONException e) {
         }
         ppsPlatform.ppsPayment(activity, roleID, orderID, callBackInfo, new PPSPlatformListener() {
