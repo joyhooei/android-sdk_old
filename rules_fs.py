@@ -191,3 +191,15 @@ class RuleMZW(RuleBase):
     PACKAGE_NAME = 'com.yunyue.fs.mzw'
 
     APPKEY = ''
+
+
+@register
+class RulePPS(RuleBase):
+    LABEL = 'pps'
+    DIRECTORY = 'pps'
+    CH_NAME = 'PPS小包'
+    SDKTYPE = '39'
+    PACKAGE_NAME = 'com.yunyue.fs.pps'
+
+    APPKEY = ''
+    GAMEID = ''
