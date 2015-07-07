@@ -196,7 +196,7 @@ class RuleMZW(RuleBase):
     SDKTYPE = '41'
     PACKAGE_NAME = 'com.yunyue.fs.mzw'
 
-    APPKEY = ''
+    APPKEY = 'f3244edd2c89a457b9708eb4e503b37d'
 
     @classmethod
     def rules(cls):
