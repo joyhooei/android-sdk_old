@@ -55,7 +55,7 @@
 
         <!-- 这下面所有的元数据配置将在PptvVasSdk.init函数内执行一次相应属性的set -->
         <meta-data android:value="${UMENG_APPKEY}" android:name="UMENG_APPKEY"></meta-data>
-        <meta-data android:value="PPTVVasSdk-Dev" android:name="UMENG_CHANNEL"/>
+        <meta-data android:value="${UMENG_CHANNEL}" android:name="UMENG_CHANNEL"/>
         <meta-data android:value="${PPTV_CID}" android:name="PptvVasSdk_CID"/>
         <meta-data android:value="${PPTV_CCID}" android:name="PptvVasSdk_CCID"/>
         <meta-data android:value="false" android:name="PptvVasSdk_DebugMode"/>

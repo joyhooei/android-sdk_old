@@ -45,6 +45,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void applicationInit(Activity activity) {
+        PptvVasAgent.init(activity, "${APPID}", true, "", "", false);
         PptvVasAgent.showFloatingView(activity);
     }
 
