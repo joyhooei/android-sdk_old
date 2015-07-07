@@ -37,7 +37,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public boolean supportCommunity() {
-        return false;
+        return true;
     }
 
     public boolean supportPay() {
