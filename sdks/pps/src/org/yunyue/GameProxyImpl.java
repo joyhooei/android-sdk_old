@@ -58,7 +58,7 @@ public class GameProxyImpl extends GameProxy{
 				@Override
 				public void loginResult(int result, PPSUser user) {
 					super.loginResult(result, user);
-					ppsPlatform.initSliderBar(MainActivity.this);
+					ppsPlatform.initSliderBar(activity);
 					Log.d("PPSSDKPlatfrom", "ppsLogin loginResult");
                     User u = new User();
                     // TODO
