@@ -67,9 +67,10 @@ public class GameProxyImpl extends GameProxy{
             });
     }
 
-    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
+        DecimalFormat df = new DecimalFormat("0.00");
         PptvVasAgent.startPayActivity(activity, Debug.SID, Debug.RID, Debug.EXTRA,
-                Debug.PayNotifyUrlVer, price.toString(), name, new PayListener() {
+                Debug.PayNotifyUrlVer, df.format(price), name, new PayListener() {
                     @Override
                     public void onPayFinish()
                     {
