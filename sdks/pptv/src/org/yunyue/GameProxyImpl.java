@@ -79,7 +79,7 @@ public class GameProxyImpl extends GameProxy{
             return;
         }
         PptvVasAgent.startPayActivity(activity, serverID, roleID, callBackInfo + "_" + orderID,
-                "1", df.format(price), name, new PayListener() {
+                1, df.format(price), name, new PayListener() {
                     @Override
                     public void onPayFinish()
                     {
