@@ -144,7 +144,7 @@ public class GameProxyImpl extends GameProxy{
 
         Order order = new Order();
 		order.setExtern(callBackInfo + "_" + orderID);
-		order.setMoney(price);
+		order.setMoney((int)price);
 		order.setProductdesc("");
 		order.setProductid(ID);
 		order.setProductname(name);
