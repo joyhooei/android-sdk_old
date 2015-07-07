@@ -94,7 +94,7 @@
             android:value="${APPKEY}" />
         <meta-data
             android:name="DEBUG"
-            android:value="true" />
+            android:value="false" />
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"

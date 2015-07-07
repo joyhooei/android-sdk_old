@@ -67,6 +67,7 @@ public class GameProxyImpl extends GameProxy{
 						});
 					}
 				});
+        MzwApiFactory.getInstance().setError(activity);
     }
 
     /**
@@ -83,6 +84,7 @@ public class GameProxyImpl extends GameProxy{
 				public void run() {
 					if (code == CallbackCode.SUCCESS) {
                         User u = new User();
+                        u.token = data;
 						userListerner.onLoginSuccess(u, null);
 					} else if (code == CallbackCode.ERROR) {
                         userListerner.onLoginFailed("", null);
