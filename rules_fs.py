@@ -177,9 +177,9 @@ class RuleDownjoy(RuleBase):
     SDKTYPE = '38'
     PACKAGE_NAME = 'com.yunyue.fs.downjoy'
 
-    MERCHANT_ID = '101'
-    APPID = '195'
-    APPKEY = 'j5VEvxhc'
+    MERCHANT_ID = '1368'
+    APPID = '3749'
+    APPKEY = 'dNQsiZIW'
 
 
 @register
