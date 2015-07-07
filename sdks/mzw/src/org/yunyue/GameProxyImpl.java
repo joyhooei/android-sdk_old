@@ -20,7 +20,7 @@ import com.muzhiwan.sdk.utils.CallbackCode;
 
 public class GameProxyImpl extends GameProxy{
     private Activity currentActivity;
-    private PayCallback payCallBack;
+    private static PayCallback payCallBack;
 
     public boolean supportLogin() {
         return true;
@@ -114,21 +114,21 @@ public class GameProxyImpl extends GameProxy{
 				public void run() {
 
 					if (code == CallbackCode.SUCCESS) {
-						payCallBack.onSuccess("");
+						GameProxyImpl.payCallBack.onSuccess("");
 					} else if (code == CallbackCode.PROCESSING) {
 						//Toast.makeText(getApplicationContext(), "processing",
 						//		Toast.LENGTH_LONG).show();
 					}else if (code == CallbackCode.CANCEL) {
-						payCallBack.onFail("");
+						GameProxyImpl.payCallBack.onFail("");
 						//Toast.makeText(getApplicationContext(), "pay cancel",
 						//		Toast.LENGTH_LONG).show();
 					}
                     else if (code==CallbackCode.FINISH) {
-						payCallBack.onFail("");
+						GameProxyImpl.payCallBack.onFail("");
                         //Toast.makeText(getApplicationContext(), "pay finish",
                         //    Toast.LENGTH_LONG).show();
 					}else {
-						payCallBack.onFail("");
+						GameProxyImpl.payCallBack.onFail("");
 						//Toast.makeText(getApplicationContext(), "pay error",
 						//		Toast.LENGTH_LONG).show();
 					}
