@@ -43,6 +43,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="org.yunyue.poem"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
 
         <activity
