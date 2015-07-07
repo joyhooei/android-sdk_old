@@ -37,7 +37,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void applicationInit(Activity activity) {
         ppsPlatform = PPSPlatform.getInstance();
-        ppsPlatform.initPlatform(this, gameId,new PPSGamePlatformInitListener() {
+        ppsPlatform.initPlatform(activity, gameId,new PPSGamePlatformInitListener() {
 				@Override
 				public void onSuccess() {
 				}
