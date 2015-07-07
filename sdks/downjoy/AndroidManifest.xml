@@ -46,11 +46,13 @@
         android:icon="@drawable/ic_launcher"
         android:debuggable="true">
 
-        <activity android:name="org.yunyue.poem"
-                  android:label="@string/app_name"
-                  android:screenOrientation="portrait"
-                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-                  android:configChanges="keyboardHidden|orientation">
+        <activity
+            android:name="org.yunyue.SplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
