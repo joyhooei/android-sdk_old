@@ -250,3 +250,19 @@ class RulePipaw(RuleBase):
         return super(RulePipaw, cls).rules() + [
             ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
         ]
+
+
+@register
+class RuleEGame(RuleBase):
+    LABEL = 'egame'
+    DIRECTORY = 'egame'
+    CH_NAME = '电信爱游戏小包'
+    SDKTYPE = '37'
+    PACKAGE_NAME = 'com.yunyue.fs.egame'
+
+    APPID = '5053651'
+    APPKEY = 'ac1dd0b898e076b2ed49624c16253924'
+    CLIENTID = '16578107'
+    CLIENTSECRET = '562b4a48f9584bc69c4a3291dfda1d93'
+
+    EGAME_CHANNEL = '10000000'
