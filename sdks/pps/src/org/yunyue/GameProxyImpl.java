@@ -61,7 +61,8 @@ public class GameProxyImpl extends GameProxy{
 					ppsPlatform.initSliderBar(activity);
 					Log.d("PPSSDKPlatfrom", "ppsLogin loginResult");
                     User u = new User();
-                    // TODO
+                    u.userID = user.uid;
+                    u.token = "{\"token\": \""+user.sign+"\", \"time\": \""+user.timestamp+"\"}";
                     userListerner.onLoginSuccess(u, customParams);
 				}
 
@@ -114,7 +115,8 @@ public class GameProxyImpl extends GameProxy{
 					// TODO Auto-generated method stub
 					super.loginResult(result, user);
                     User u = new User();
-                    // TODO
+                    u.userID = user.uid;
+                    u.token = "{\"token\": \""+user.sign+"\", \"time\": \""+user.timestamp+"\"}";
                     userListerner.onLoginSuccess(u, null);
 					Log.d("PPSSDKPlatfrom", "ppsAccountCenter loginResult");
 				}
