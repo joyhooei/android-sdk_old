@@ -167,3 +167,16 @@ class RuleWanka(RuleBase):
     PACKAGE_NAME = 'com.yunyue.fs.wanka'
     YY_PACKAGE_NAME = 'com.yunyue.fs.wanka'
     CREATE_ORDER_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/wanka/create_order'
+
+
+@register
+class RuleWanka(RuleBase):
+    LABEL = 'downjoy'
+    DIRECTORY = 'downjoy'
+    CH_NAME = '当乐小包'
+    SDKTYPE = '38'
+    PACKAGE_NAME = 'com.yunyue.fs.downjoy'
+
+    MERCHANT_ID = '101'
+    APPID = '195'
+    APPKEY = 'j5VEvxhc'
