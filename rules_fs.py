@@ -189,3 +189,5 @@ class RuleMZW(RuleBase):
     CH_NAME = '拇指玩小包'
     SDKTYPE = '41'
     PACKAGE_NAME = 'com.yunyue.fs.mzw'
+
+    APPKEY = ''
