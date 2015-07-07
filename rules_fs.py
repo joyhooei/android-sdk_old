@@ -170,7 +170,7 @@ class RuleWanka(RuleBase):
 
 
 @register
-class RuleWanka(RuleBase):
+class RuleDownjoy(RuleBase):
     LABEL = 'downjoy'
     DIRECTORY = 'downjoy'
     CH_NAME = '当乐小包'
@@ -180,3 +180,12 @@ class RuleWanka(RuleBase):
     MERCHANT_ID = '101'
     APPID = '195'
     APPKEY = 'j5VEvxhc'
+
+
+@register
+class RuleMZW(RuleBase):
+    LABEL = 'mzw'
+    DIRECTORY = 'mzw'
+    CH_NAME = '拇指玩小包'
+    SDKTYPE = '41'
+    PACKAGE_NAME = 'com.yunyue.fs.mzw'
