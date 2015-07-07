@@ -19,6 +19,7 @@ import com.muzhiwan.sdk.pay.domain.Order;
 import com.muzhiwan.sdk.utils.CallbackCode;
 
 public class GameProxyImpl extends GameProxy{
+    private Activity currentActivity;
     private PayCallback payCallBack;
 
     public boolean supportLogin() {
@@ -37,19 +38,20 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
-    public void applicationInit(Activity activity) {
+    public void applicationInit(final Activity activity) {
+        currentActivity = activity;
         MzwApiFactory.getInstance().init(activity,
 				MzwApiFactory.ORIENTATION_VERTICAL, new MzwApiCallback() {
 
 					@Override
 					public void onResult(final int code, Object arg1) {
 
-						runOnUiThread(new Runnable() {
+						activity.runOnUiThread(new Runnable() {
 
 							@Override
 							public void run() {
 
-								if (!isFinishing() && pd.isShowing()) {
+								if (!activity.isFinishing() && pd.isShowing()) {
 									pd.dismiss();
 								}
 								if (code == 1) {
@@ -111,7 +113,7 @@ public class GameProxyImpl extends GameProxy{
 		@Override
 		public void onResult(final int code, final Object data) {
 			
-			runOnUiThread(new Runnable() {
+			currentActivity.runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
 
