@@ -69,7 +69,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         PptvVasAgent.startPayActivity(activity, Debug.SID, Debug.RID, Debug.EXTRA,
-                Debug.PayNotifyUrlVer, price, name, new PayListener() {
+                Debug.PayNotifyUrlVer, price.toString(), name, new PayListener() {
                     @Override
                     public void onPayFinish()
                     {
