@@ -116,7 +116,7 @@ public class GameProxyImpl extends GameProxy{
                 //resulttv.setText("登陆返回数据:\n" + loginResult.toJsonString());
                 User u = new User();
                 // TODO
-                userListerner.onLoginSuccess(u null);
+                userListerner.onLoginSuccess(u, null);
             }
 
         });
