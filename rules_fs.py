@@ -201,8 +201,7 @@ class RulePPS(RuleBase):
     SDKTYPE = '39'
     PACKAGE_NAME = 'com.yunyue.fs.pps'
 
-    APPKEY = ''
-    GAMEID = ''
+    GAMEID = '3639'
 
 
 @register
