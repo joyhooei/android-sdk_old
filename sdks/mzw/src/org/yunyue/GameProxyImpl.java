@@ -81,7 +81,7 @@ public class GameProxyImpl extends GameProxy{
 		@Override
 		public void onResult(final int code, final Object data) {
 			Log.i("mzw_net_modify", "data:" + data);
-			runOnUiThread(new Runnable() {
+			currentActivity.runOnUiThread(new Runnable() {
 
 				@Override
 				public void run() {
