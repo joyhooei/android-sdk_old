@@ -229,3 +229,24 @@ class RulePPTV(RuleBase):
     PPTV_CCID = ''
     UMENG_APPKEY = '5596584e67e58edf5f001607'
     UMENG_CHANNEL = '269'
+
+
+@register
+class RulePipaw(RuleBase):
+    LABEL = 'pipaw'
+    DIRECTORY = 'pipaw'
+    CH_NAME = '琵琶网小包'
+    SDKTYPE = '32'
+    PACKAGE_NAME = 'com.yunyue.fs.ppw'
+    YY_PACKAGE_NAME = 'com.yunyue.fs.pipaw'
+
+    APPID = '12381435890541'
+    MERCHANT_ID = "1238"
+    MERCHANT_APPID = "1301"
+    PRIVATE_KEY = "f57d74d191b5fe31143ff28254d47941"
+
+    @classmethod
+    def rules(cls):
+        return super(RulePipaw, cls).rules() + [
+            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+        ]
