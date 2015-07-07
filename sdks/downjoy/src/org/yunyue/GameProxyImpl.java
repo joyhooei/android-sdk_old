@@ -86,7 +86,8 @@ public class GameProxyImpl extends GameProxy{
                     public void callback(int status, LoginInfo data) {
                         if (status == CallbackStatus.SUCCESS && data != null) {
                             User u = new User();
-                            // TODO
+                            u.userID = data.getUmid();
+                            u.token = data.getToken();
                             userListerner.onLoginSuccess(u, customParams);
                         } else if (status == CallbackStatus.FAIL && data != null) {
                             userListerner.onLoginFailed("", customParams);
