@@ -50,10 +50,6 @@ public class GameProxyImpl extends GameProxy{
 
 							@Override
 							public void run() {
-
-								if (!activity.isFinishing() && pd.isShowing()) {
-									pd.dismiss();
-								}
 								if (code == 1) {
 									//Toast.makeText(getApplicationContext(),
 									//		"init success", Toast.LENGTH_LONG)
