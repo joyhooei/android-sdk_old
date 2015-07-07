@@ -47,7 +47,7 @@ public class GameProxyImpl extends GameProxy{
 			});
     }
 
-    public void login(Activity activity, final Object customParams) {
+    public void login(final Activity activity, final Object customParams) {
         ppsPlatform.ppsLogin(activity, new PPSPlatformListener() {
 				@Override
 				public void leavePlatform() {  
@@ -114,7 +114,7 @@ public class GameProxyImpl extends GameProxy{
 					super.loginResult(result, user);
                     User u = new User();
                     // TODO
-                    userListerner.onLoginSuccess(u, customParams);
+                    userListerner.onLoginSuccess(u, null);
 					Log.d("PPSSDKPlatfrom", "ppsAccountCenter loginResult");
 				}
 
