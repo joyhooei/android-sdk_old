@@ -203,3 +203,12 @@ class RulePPS(RuleBase):
 
     APPKEY = ''
     GAMEID = ''
+
+
+@register
+class RulePPTV(RuleBase):
+    LABEL = 'pptv'
+    DIRECTORY = 'pptv'
+    CH_NAME = 'PPTV小包'
+    SDKTYPE = '40'
+    PACKAGE_NAME = 'com.yunyue.fs.pptv'
