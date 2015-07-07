@@ -21,7 +21,6 @@ import com.pptv.vassdk.agent.listener.PayListener;
 import com.pptv.vassdk.agent.model.LoginResult;
 import com.pptv.vassdk.agent.model.PayResult;
 import com.pptv.vassdk.agent.utils.CfgUtil;
-import com.pptv.vassdk.cfg.Debug;
 import com.pptv.vassdk.utils.PayUtil;
 
 public class GameProxyImpl extends GameProxy{
@@ -70,8 +69,16 @@ public class GameProxyImpl extends GameProxy{
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         DecimalFormat df = new DecimalFormat("0.00");
-        PptvVasAgent.startPayActivity(activity, Debug.SID, Debug.RID, Debug.EXTRA,
-                Debug.PayNotifyUrlVer, df.format(price), name, new PayListener() {
+        String serverID;
+        String roleID;
+        try {
+            serverID = roleInfo.getString("serverID");
+            roleID = roleInfo.getString("id");
+        } catch (JSONException e) {
+            return;
+        }
+        PptvVasAgent.startPayActivity(activity, serverID, roleID, callBackInfo + "_" + orderID,
+                "1", df.format(price), name, new PayListener() {
                     @Override
                     public void onPayFinish()
                     {

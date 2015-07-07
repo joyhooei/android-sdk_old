@@ -134,8 +134,8 @@ public class GameProxyImpl extends GameProxy{
             return;
         }
         // 打开支付界面,获得订单号
-        downjoy.openPaymentDialog(activity, price, name, "",
-                orderID, serverName, playerName, new CallbackListener<String>() {
+        downjoy.openPaymentDialog(activity, price, name, "元宝",
+                callBackInfo + "_" + orderID, serverName, playerName, new CallbackListener<String>() {
                     @Override
                     public void callback(int status, String data) {
                         if (status == CallbackStatus.SUCCESS) {

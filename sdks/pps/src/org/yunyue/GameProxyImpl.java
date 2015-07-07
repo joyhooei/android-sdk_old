@@ -75,7 +75,7 @@ public class GameProxyImpl extends GameProxy{
         } catch (JSONException e) {
             return;
         }
-        ppsPlatform.ppsPayment(activity, roleID, orderID, callBackInfo, new PPSPlatformListener() {
+        ppsPlatform.ppsPayment(activity, roleID, orderID, callBackInfo + "_" + orderID, new PPSPlatformListener() {
 				@Override
 				public void leavePlatform() {
 					// TODO Auto-generated method stub
