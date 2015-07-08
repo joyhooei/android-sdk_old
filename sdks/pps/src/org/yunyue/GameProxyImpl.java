@@ -35,10 +35,6 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
-    public boolean supportLogout() {
-        return true;
-    }
-
     public void applicationInit(Activity activity) {
         ppsPlatform = PPSPlatform.getInstance();
         ppsPlatform.initPlatform(activity, gameId,new PPSGamePlatformInitListener() {
@@ -152,7 +148,7 @@ public class GameProxyImpl extends GameProxy{
         }
     }
 
-    public void logout(Activity activity,Object customParams) {
+    public void exit(Activity activity, ExitCallback callback) {
         ppsPlatform.ppsLogout(activity, new PPSPlatformListener() {
             @Override
             public void leavePlatform() {
@@ -164,7 +160,7 @@ public class GameProxyImpl extends GameProxy{
             public void logout() {
                 // TODO Auto-generated method stub
                 super.logout();
-                userListerner.onLogout(null);
+                poem.quitApplication();
                 //System.out.println("账号退出");
                 //finish();
             }
