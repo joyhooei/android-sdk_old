@@ -141,7 +141,7 @@ public class GameProxyImpl extends GameProxy{
     public void setExtData(Context context, String ext) {
 		try {
             JSONObject src = new JSONObject(ext);
-            serverID = "ppsmobile_s" + src.getString("serverID");
+            String serverID = "ppsmobile_s" + src.getString("serverID");
             if (src.getString("state").compareTo("loginGameRole") == 0) {
                 ppsPlatform.enterGame(context, serverID);
             }
