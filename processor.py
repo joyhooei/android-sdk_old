@@ -1,6 +1,7 @@
 '''
 rules = [file_pattern, command, args]
 '''
+import os
 import glob
 from collections import OrderedDict
 
@@ -10,6 +11,10 @@ def command_replace(path, trans):
     for key, value in trans.items():
         s = s.replace('${%s}' % key, value)
     open(path, 'wb').write(s)
+
+
+def command_copy(path_to, path_from):
+    os.system('cp %s %s' % (path_from, path_to))
 
 
 def process(rules):

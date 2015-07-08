@@ -266,3 +266,9 @@ class RuleEGame(RuleBase):
     CLIENTSECRET = '562b4a48f9584bc69c4a3291dfda1d93'
 
     EGAME_CHANNEL = '10000000'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleEGame, cls).rules() + [
+            ('extra_assets/feeInfo.dat', 'copy', 'feeInfo_fs.dat'),
+        ]
