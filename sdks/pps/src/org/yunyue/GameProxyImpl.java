@@ -35,6 +35,10 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
+    public boolean supportLogout() {
+        return true;
+    }
+
     public void applicationInit(Activity activity) {
         ppsPlatform = PPSPlatform.getInstance();
         ppsPlatform.initPlatform(activity, gameId,new PPSGamePlatformInitListener() {
@@ -132,5 +136,38 @@ public class GameProxyImpl extends GameProxy{
 				}
 
 			});
+    }
+
+    public void setExtData(Context context, String ext) {
+		try {
+            JSONObject src = new JSONObject(ext);
+            serverID = "ppsmobile_s" + src.getString("serverID");
+            if (src.getString("state").compareTo("loginGameRole") == 0) {
+                ppsPlatform.enterGame(context, serverID);
+            }
+            else if (src.getString("state").compareTo("createRole") == 0) {
+                ppsPlatform.createRole(context, serverID);
+            }
+        } catch (JSONException e) {
+        }
+    }
+
+    public void logout(Activity activity,Object customParams) {
+        ppsPlatform.ppsLogout(activity, new PPSPlatformListener() {
+            @Override
+            public void leavePlatform() {
+                // TODO Auto-generated method stub
+                super.leavePlatform();
+                //System.out.println("用户取消退出  SDK界面关闭");
+            }
+            @Override
+            public void logout() {
+                // TODO Auto-generated method stub
+                super.logout();
+                userListerner.onLogout(null);
+                //System.out.println("账号退出");
+                //finish();
+            }
+        });
     }
 }
