@@ -272,3 +272,12 @@ class RuleEGame(RuleBase):
         return super(RuleEGame, cls).rules() + [
             ('extra_assets/feeInfo.dat', 'copy', 'feeInfo_fs.dat'),
         ]
+
+
+@register
+class RuleVivo(RuleBase):
+    LABEL = 'vivo'
+    DIRECTORY = 'vivo'
+    CH_NAME = 'VIVO小包'
+    SDKTYPE = '42'
+    PACKAGE_NAME = 'com.yunyue.fs.vivo'
