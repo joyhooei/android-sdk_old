@@ -71,12 +71,14 @@ public class GameProxyImpl extends GameProxy{
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         String roleID;
+        String serverID;
         try {
             roleID = roleInfo.getString("id");
+            serverID = "ppsmobile_s" + roleInfo.getString("serverID");
         } catch (JSONException e) {
             return;
         }
-        ppsPlatform.ppsPayment(activity, roleID, orderID, callBackInfo + "_" + orderID, new PPSPlatformListener() {
+        ppsPlatform.ppsPayment(activity, (int)price, roleID, serverID, callBackInfo + "_" + orderID, new PPSPlatformListener() {
 				@Override
 				public void leavePlatform() {
 					// TODO Auto-generated method stub
