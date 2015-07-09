@@ -209,9 +209,10 @@ public class GameProxyImpl extends GameProxy {
 					String name = loginResultObj.getString(KEY_NAME);
 					String openid = loginResultObj.getString(KEY_OPENID);
 					String authtoken = loginResultObj.getString(KEY_AUTHTOKEN);
-					nameVal.setText(name);
-					openidVal.setText(openid);
-					authtokenVal.setText(authtoken);
+                    User u = new User();
+                    u.userID = openid;
+                    u.token = authtoken;
+                    userListerner.onLoginSuccess(u, null);
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
