@@ -74,7 +74,7 @@ public class GameProxyImpl extends GameProxy {
                 localBundle.putString("accessKey", jOrder.getString("access_token"));// 由订单推送接口返回
                 localBundle.putString("productName", productInfo.productName);//商品名称
                 localBundle.putString("productDes", productInfo.productDesc);//商品描述
-                localBundle.putLong("price", productInfo.price);//价格,单位为分（1000即10.00元）
+                localBundle.putLong("price", (int)(Float.parseFloat(productInfo.price) * 100));//价格,单位为分（1000即10.00元）
                 localBundle.putString("appId", appid);// appid为vivo开发者平台中生成的App ID
 
                 // 以下为可选参数，能收集到务必填写，如未填写，掉单、用户密码找回等问题可能无法解决。
