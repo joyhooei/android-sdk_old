@@ -293,4 +293,4 @@ class RulePaojiao(RuleBase):
 
     APPID = '1274'
     APPKEY = 'LJICymT8uw5gvZBOTw2IPN6V4Ii8QXUe'
-    JPUSH_APPKEY = '00b109b1c087e8fd15d06af9'
+    JPUSH_APPKEY = '8172ea4cb6d808cb9fd7ea59'
