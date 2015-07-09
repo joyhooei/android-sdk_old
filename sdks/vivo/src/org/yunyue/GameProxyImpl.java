@@ -66,7 +66,6 @@ public class GameProxyImpl extends GameProxy {
     {
         public void handleMessage( android.os.Message msg )
         {
-            Log.v("sdk", "handle msg");
             if (msg.what == START_PAY)
             {
                 try {
@@ -92,7 +91,6 @@ public class GameProxyImpl extends GameProxy {
                     Intent target = new Intent(currentActivity, PaymentActivity.class);
                     target.putExtra("payment_params", localBundle);
                     currentActivity.startActivityForResult(target, REQUEST_CODE_PAY);
-                    Log.v("sdk", "pay");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
