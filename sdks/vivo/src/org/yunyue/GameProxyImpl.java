@@ -91,6 +91,7 @@ public class GameProxyImpl extends GameProxy {
                     Intent target = new Intent(currentActivity, PaymentActivity.class);
                     target.putExtra("payment_params", localBundle);
                     currentActivity.startActivityForResult(target, REQUEST_CODE_PAY);
+                    Log.v("sdk", "pay");
                 } catch (JSONException e) {
                 }
             }
@@ -172,7 +173,6 @@ public class GameProxyImpl extends GameProxy {
             {
                 readbuff.append(lstr);
             }
-            Log.i("MyView", "getOrderInfo: " + readbuff.toString());
             connection.disconnect();
             reader.close();
             mOrderInfo = readbuff.toString();
