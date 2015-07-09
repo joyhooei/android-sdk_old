@@ -281,3 +281,16 @@ class RuleVivo(RuleBase):
     CH_NAME = 'VIVO小包'
     SDKTYPE = '42'
     PACKAGE_NAME = 'com.yunyue.fs.vivo'
+
+
+@register
+class RulePaojiao(RuleBase):
+    LABEL = 'paojiao'
+    DIRECTORY = 'paojiao'
+    CH_NAME = '泡椒小包'
+    SDKTYPE = '31'
+    PACKAGE_NAME = 'com.yunyue.fs.paojiao'
+
+    APPID = '1274'
+    APPKEY = 'LJICymT8uw5gvZBOTw2IPN6V4Ii8QXUe'
+    JPUSH_APPKEY = '00b109b1c087e8fd15d06af9'
