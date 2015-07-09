@@ -182,9 +182,9 @@ public class GameProxyImpl extends GameProxy {
         } catch (MalformedURLException e)
         {
             e.printStackTrace();
-        } catch (JSONException e)
-        {
-            e.printStackTrace();
+        //} catch (JSONException e)
+        //{
+        //    e.printStackTrace();
         } catch (IOException e)
         {
             e.printStackTrace();
