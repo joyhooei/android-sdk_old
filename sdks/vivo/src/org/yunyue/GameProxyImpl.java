@@ -122,67 +122,64 @@ public class GameProxyImpl extends GameProxy {
     private void getOrderInfo( ProductInfo productInfo )
     {
         String sUrl = ((poem)currentActivity).getMetaData("create_order_url");
-        if (mLoginJson != null)
+        try
         {
-            try
+            URL url = new URL(sUrl);
+            HttpURLConnection connection = (HttpURLConnection) url
+                .openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-type",
+                    "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);// 是否输入参数
+            StringBuffer params = new StringBuffer();
+            params.append("channel=");
+            params.append(enCode("vivo"));
+            params.append("&returnJson=");
+            params.append(enCode("{\"channel\": \"vivo\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
+            params.append("&productName=");
+            params.append(enCode(productInfo.productName));
+            params.append("&description=");
+            params.append(enCode(productInfo.productDesc));
+            params.append("&amount=");
+            params.append(enCode(productInfo.price));
+            params.append("&number=");
+            params.append("1");
+            params.append("&manufacturerName=");
+            params.append(enCode(productInfo.userName));
+            params.append("&id=");
+            params.append(enCode(productInfo.goodsID));
+            params.append("&orderid=");
+            params.append(enCode(productInfo.orderID));
+            params.append("&cpPrivateInfo=");
+            params.append(enCode(productInfo.callBackInfo));
+            Log.d("MyView", "getOrderInfo: " + params.toString());
+            byte[] bytes = params.toString().getBytes();
+            connection.connect();
+            connection.getOutputStream().write(bytes);
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
+            StringBuffer readbuff = new StringBuffer();
+            String lstr = null;
+            while ((lstr = reader.readLine()) != null)
             {
-                URL url = new URL(sUrl);
-                HttpURLConnection connection = (HttpURLConnection) url
-                        .openConnection();
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Content-type",
-                        "application/x-www-form-urlencoded");
-                connection.setDoOutput(true);// 是否输入参数
-                StringBuffer params = new StringBuffer();
-                params.append("channel=");
-                params.append(enCode("vivo"));
-                params.append("&returnJson=");
-                params.append(enCode("{\"channel\": \"vivo\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
-                params.append("&productName=");
-                params.append(enCode(productInfo.productName));
-                params.append("&description=");
-                params.append(enCode(productInfo.productDesc));
-                params.append("&amount=");
-                params.append(enCode(productInfo.price));
-                params.append("&number=");
-                params.append("1");
-                params.append("&manufacturerName=");
-                params.append(enCode(productInfo.userName));
-                params.append("&id=");
-                params.append(enCode(productInfo.goodsID));
-                params.append("&orderid=");
-                params.append(enCode(productInfo.orderID));
-                params.append("&cpPrivateInfo=");
-                params.append(enCode(productInfo.callBackInfo));
-                Log.d("MyView", "getOrderInfo: " + params.toString());
-                byte[] bytes = params.toString().getBytes();
-                connection.connect();
-                connection.getOutputStream().write(bytes);
-                BufferedReader reader = new BufferedReader(
-                        new InputStreamReader(connection.getInputStream()));
-                StringBuffer readbuff = new StringBuffer();
-                String lstr = null;
-                while ((lstr = reader.readLine()) != null)
-                {
-                    readbuff.append(lstr);
-                }
-                Log.i("MyView", "getOrderInfo: " + readbuff.toString());
-                connection.disconnect();
-                reader.close();
-                mOrderInfo = readbuff.toString();
-                Log.i("MyView", "getOrderInfo: " + mOrderInfo);
-                mHandler.sendEmptyMessage(START_PAY);
-
-            } catch (MalformedURLException e)
-            {
-                e.printStackTrace();
-            } catch (JSONException e)
-            {
-                e.printStackTrace();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
+                readbuff.append(lstr);
             }
+            Log.i("MyView", "getOrderInfo: " + readbuff.toString());
+            connection.disconnect();
+            reader.close();
+            mOrderInfo = readbuff.toString();
+            Log.i("MyView", "getOrderInfo: " + mOrderInfo);
+            mHandler.sendEmptyMessage(START_PAY);
+
+        } catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        } catch (JSONException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
         }
     }
 
