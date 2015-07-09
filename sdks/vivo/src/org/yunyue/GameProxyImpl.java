@@ -132,7 +132,6 @@ public class GameProxyImpl extends GameProxy {
                 connection.setRequestMethod("POST");
                 connection.setRequestProperty("Content-type",
                         "application/x-www-form-urlencoded");
-                Log.d("MyView", mJsonObject.toString());
                 connection.setDoOutput(true);// 是否输入参数
                 StringBuffer params = new StringBuffer();
                 params.append("channel=");
