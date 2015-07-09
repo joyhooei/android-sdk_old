@@ -140,7 +140,7 @@ public class GameProxyImpl extends GameProxy {
                 params.append("&returnJson=");
                 params.append(enCode("{\"channel\": \"vivo\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
                 params.append("&productName=");
-                params.append(enCode(productInfo.productName()));
+                params.append(enCode(productInfo.productName));
                 params.append("&description=");
                 params.append(enCode(productInfo.productDesc));
                 params.append("&amount=");
