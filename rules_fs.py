@@ -283,6 +283,7 @@ class RuleVivo(RuleBase):
     PACKAGE_NAME = 'com.yunyue.fs.vivo'
 
     APPID = "a639b48b57908dfc423d89b2271217b4"
+    CREATE_ORDER_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/wanka/create_order'
 
 
 @register

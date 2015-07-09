@@ -36,13 +36,13 @@ class ProductInfo {
     public String callBackInfo;
 
     public ProductInfo(String productName, String productDesc, String price, String userName, String goodsID, String orderID, String callBackInfo) {
-        productName = productName;
-        productDesc = productDesc;
-        price = price;
-        userName = userName;
-        goodsID = goodsID;
-        orderID = orderID;
-        callBackInfo = callBackInfo;
+        this.productName = productName;
+        this.productDesc = productDesc;
+        this.price = price;
+        this.userName = userName;
+        this.goodsID = goodsID;
+        this.orderID = orderID;
+        this.callBackInfo = callBackInfo;
     }
 }
 
@@ -106,7 +106,7 @@ public class GameProxyImpl extends GameProxy {
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
 
         productInfo = new ProductInfo(name, "元宝", df.format(price),
-                userName, goodsID, orderID, callBackInfo);
+                "", ID, orderID, callBackInfo);
 
         new Thread(new Runnable()
             {
@@ -132,8 +132,6 @@ public class GameProxyImpl extends GameProxy {
                     "application/x-www-form-urlencoded");
             connection.setDoOutput(true);// 是否输入参数
             StringBuffer params = new StringBuffer();
-            params.append("channel=");
-            params.append(enCode("vivo"));
             params.append("&returnJson=");
             params.append(enCode("{\"channel\": \"vivo\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
             params.append("&productName=");
@@ -142,12 +140,6 @@ public class GameProxyImpl extends GameProxy {
             params.append(enCode(productInfo.productDesc));
             params.append("&amount=");
             params.append(enCode(productInfo.price));
-            params.append("&number=");
-            params.append("1");
-            params.append("&manufacturerName=");
-            params.append(enCode(productInfo.userName));
-            params.append("&id=");
-            params.append(enCode(productInfo.goodsID));
             params.append("&orderid=");
             params.append(enCode(productInfo.orderID));
             params.append("&cpPrivateInfo=");

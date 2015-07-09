@@ -44,6 +44,7 @@
         </activity>
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+        <meta-data android:name="create_order_url" android:value="${CREATE_ORDER_URL}"/>
 		
 		<activity
             android:name="com.bbk.payment.PaymentActivity"
