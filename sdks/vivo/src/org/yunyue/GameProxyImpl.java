@@ -186,4 +186,18 @@ public class GameProxyImpl extends GameProxy {
             }
         }
     }
+
+    private String enCode( String value )
+    {
+        String enCodeValue = null;
+        try
+        {
+            enCodeValue = URLEncoder.encode(value, "UTF-8");
+        } catch (UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
+        return enCodeValue;
+    }
+
 }
