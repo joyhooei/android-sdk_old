@@ -199,7 +199,7 @@ public class GameProxyImpl extends GameProxy {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		Log.d(TAG, "MainActivity, onActivityResult,requestCode="+requestCode+", resultCode="+resultCode);
+		Log.d("sdk", "MainActivity, onActivityResult,requestCode="+requestCode+", resultCode="+resultCode);
 		if(requestCode == REQUEST_CODE_LOGIN){
 			if(resultCode == Activity.RESULT_OK){
 				String loginResult = data.getStringExtra(KEY_LOGIN_RESULT);
@@ -217,7 +217,7 @@ public class GameProxyImpl extends GameProxy {
 					e.printStackTrace();
 				} 
 //				Toast.makeText(mContext, loginResult, Toast.LENGTH_SHORT).show();
-				Log.d(TAG, "loginResult="+loginResult);
+				Log.d("sdk", "loginResult="+loginResult);
 			}
 		}
         else if (requestCode == REQUEST_CODE_PAY) {
