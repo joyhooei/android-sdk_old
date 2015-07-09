@@ -72,7 +72,7 @@ public class GameProxyImpl extends GameProxy {
                 try {
                     JSONObject jOrder = new JSONObject(mOrderInfo);
                     Bundle localBundle = new Bundle();
-                    localBundle.putString("transNo", jOrder.getString("orderNumber"));// 交易流水号，由订单推送接口返回
+                    localBundle.putString("transNo", jOrder.getString("channel_order_no"));// 交易流水号，由订单推送接口返回
                     localBundle.putString("accessKey", jOrder.getString("access_token"));// 由订单推送接口返回
                     localBundle.putString("productName", productInfo.productName);//商品名称
                     localBundle.putString("productDes", productInfo.productDesc);//商品描述
@@ -94,6 +94,7 @@ public class GameProxyImpl extends GameProxy {
                     currentActivity.startActivityForResult(target, REQUEST_CODE_PAY);
                     Log.v("sdk", "pay");
                 } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         };
