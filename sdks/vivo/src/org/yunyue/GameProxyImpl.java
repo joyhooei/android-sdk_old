@@ -66,6 +66,7 @@ public class GameProxyImpl extends GameProxy {
     {
         public void handleMessage( android.os.Message msg )
         {
+            Log.v("sdk", "handle msg");
             if (msg.what == START_PAY)
             {
                 try {
