@@ -49,6 +49,7 @@ class ProductInfo {
 
 public class GameProxyImpl extends GameProxy {
 
+    public final static String KEY_NAME = "name";
     public final static String KEY_LOGIN_RESULT = "LoginResult";
 	public final static String KEY_OPENID = "openid";
 	public final static String KEY_AUTHTOKEN = "authtoken";
