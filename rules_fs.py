@@ -305,10 +305,10 @@ class RuleZC(RuleBase):
     DIRECTORY = 'zc'
     CH_NAME = '筑巢小包'
     SDKTYPE = '9'
-    PACKAGE_NAME = 'com.yunyue.fs.zclh'
+    PACKAGE_NAME = 'com.yunyue.fs.zc'
     CHANNEL = ''
 
-    TD_APPID = 'f7eac3e7b3014a5487f69f85c07069e6'
+    TD_APPID = '33e15d27544f42d9b5f4f953a44e92e2'
     TD_CHANNEL = ''
 
     ZC_APPID = '618710827112865792'
