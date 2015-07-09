@@ -3,6 +3,7 @@ package org.yunyue;
 import java.util.UUID;
 import org.json.JSONObject;
 import org.json.JSONException;
+import java.text.DecimalFormat;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -115,6 +116,7 @@ public class GameProxyImpl extends GameProxy {
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
 
+        DecimalFormat df = new DecimalFormat("0.00");
         productInfo = new ProductInfo(name, "元宝", df.format(price),
                 "", ID, orderID, callBackInfo);
 
