@@ -48,6 +48,12 @@ class ProductInfo {
 
 public class GameProxyImpl extends GameProxy {
 
+    public final static String KEY_LOGIN_RESULT = "LoginResult";
+	public final static String KEY_OPENID = "openid";
+	public final static String KEY_AUTHTOKEN = "authtoken";
+	public final static String KEY_SHOW_TEMPLOGIN = "showTempLogin";
+    private static final int REQUEST_CODE_LOGIN = 1;
+    private static final int REQUEST_CODE_PAY = 1;
     private static final String appid = "${APPID}";
     private static final int START_PAY = 1;
     private String mOrderInfo;
@@ -81,10 +87,14 @@ public class GameProxyImpl extends GameProxy {
                 localBundle.putBoolean("logOnOff", false);// CP在接入过程请传true值,接入完成后在改为false, 传true会在支付SDK打印大量日志信息	 
                 Intent target = new Intent(currentActivity, PaymentActivity.class);
                 target.putExtra("payment_params", localBundle);
-                startActivityForResult(target, 1);
+                currentActivity.startActivityForResult(target, REQUEST_CODE_PAY);
             }
         };
     };
+
+    public void applicationInit(Activity activity) {
+        currentActivity = activity;
+    }
 
     public boolean supportLogin() {
         return true;
@@ -188,4 +198,30 @@ public class GameProxyImpl extends GameProxy {
         return enCodeValue;
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		Log.d(TAG, "MainActivity, onActivityResult,requestCode="+requestCode+", resultCode="+resultCode);
+		if(requestCode == REQUEST_CODE_LOGIN){
+			if(resultCode == Activity.RESULT_OK){
+				String loginResult = data.getStringExtra(KEY_LOGIN_RESULT);
+				JSONObject loginResultObj;
+				try {
+					loginResultObj = new JSONObject(loginResult);
+					String name = loginResultObj.getString(KEY_NAME);
+					String openid = loginResultObj.getString(KEY_OPENID);
+					String authtoken = loginResultObj.getString(KEY_AUTHTOKEN);
+					nameVal.setText(name);
+					openidVal.setText(openid);
+					authtokenVal.setText(authtoken);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+//				Toast.makeText(mContext, loginResult, Toast.LENGTH_SHORT).show();
+				Log.d(TAG, "loginResult="+loginResult);
+			}
+		}
+        else if (requestCode == REQUEST_CODE_PAY) {
+            //
+        }
+	}
 }
