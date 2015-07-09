@@ -38,7 +38,7 @@ class ProductInfo {
 
 public class GameProxyImpl extends GameProxy {
 
-    private static final appid = "${APPID}";
+    private static final String appid = "${APPID}";
     private static final int START_PAY = 1;
     private String mOrderInfo;
     private Activity currentActivity;
