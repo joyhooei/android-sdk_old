@@ -294,3 +294,42 @@ class RulePaojiao(RuleBase):
     APPID = '1274'
     APPKEY = 'LJICymT8uw5gvZBOTw2IPN6V4Ii8QXUe'
     JPUSH_APPKEY = '8172ea4cb6d808cb9fd7ea59'
+
+
+@register
+class RuleZC(RuleBase):
+    LABEL = 'zc'
+    DIRECTORY = 'zc'
+    CH_NAME = '筑巢小包'
+    SDKTYPE = '9'
+    PACKAGE_NAME = 'com.yunyue.fs.zclh'
+    CHANNEL = ''
+
+    TD_APPID = 'f7eac3e7b3014a5487f69f85c07069e6'
+    TD_CHANNEL = ''
+
+    ZC_APPID = '618710827112865792'
+    ZC_RSA = 'MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKBkKk/rc4Zqg4pw+4zn5Bm+xttC98zgye0RiCsmwnQH/1H4Hn/QLew53B/zi9K6fBplseC/HluY2jxOKihXrmsjYJGpKTO1ndRLvDfnR/qArWXSn5mFAGBmRTtT3R918+35gxOcn6FXqY1I6zAIQDKFJjS4cLFvdGsmLs2JvPCXAgMBAAECgYBOCw8vniCzagahiYJNONSb1mGKdRaAgWyfxyUb4htCPFX2+6VTieeehzTd8zK5EfarHYqlEjniVgjyyRHoWWnLgMBJd2FtsvCT4FZI+Cuk2tZoLbekMHcec5VSL+s4v2dM0WVOrZBfCTUxL/RdH9oYEUJiN/F5jZ6j17OnCH0koQJBANBXF8JCvxK7JOBpqJYzDkJJRrB+gzYjYr6FOF1qODf6mpXejPh/DepjQWuAyIbT2L6SJq5Kl76Gq+Re1vTI5YcCQQDFFREPmiyju/XbMoCO0ahEoGssDZiltsuGFUTmyIHD3Kof4O1HNmoy/6XrjFp7j6hlyHDT5B2RXJV4KjjwW2BxAkB45+Io4XVjmGm5NngY2n5O55l3eaQJ+hUm/ccNJ0SC8BNgICxtVcasnHdtvOoinLSvO7/o6+8OKbd9q7BRlHjnAkEAmx3vpbYVOHHyGipvoPlHVWxlrfCtmpB7M/d9mZ9q8zu08w5X81rSz30DnJeFiAcT5biThVLgKs8SHdgtpJBnIQJAQa9Kr9vxs3nZDeXm4WXfbaUVewQREJqeaG0l+wknHCYJkAxQaFtDimJEDS/5Hx/n2G4QVlsJFyr8XRWvUQDVgw=='
+
+    PAY_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/zcgame/pay_callback'
+
+
+ZC_CHANNELS = [
+    ('qixiazi', '七匣子'),
+    ('youyi', '优艺市场'),
+    #('anjingling', '安精灵'),
+    ('jufeng', '聚丰网络'),
+    ('kaopu', '靠谱助手'),
+    ('shouyou', '手游之家'),
+    ('anfeng', '安锋网'),
+    ('hulizhushou', '狐狸助手'),
+    ('fengyou', '疯游网'),
+    #('zhidian', '指点传媒'),
+    #('wx', 'WX'),
+]
+for label, name in ZC_CHANNELS:
+    register(type('RuleZC%s' % label, (RuleZC,), dict(
+        LABEL='zc_%s' % label,
+        CH_NAME='筑巢%s小包' % name,
+        CHANNEL=label,
+    )))
