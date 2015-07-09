@@ -38,34 +38,38 @@ class ProductInfo {
 
 public class GameProxyImpl extends GameProxy {
 
+    private static final appid = "${APPID}";
     private static final int START_PAY = 1;
     private String mOrderInfo;
+    private Activity currentActivity;
+    private ProductInfo productInfo;
 
     Handler mHandler = new Handler()
     {
         public void handleMessage( android.os.Message msg )
         {
+            JSONObject jOrder = new JSONObject(mOrderInfo);
             if (msg.what == START_PAY)
             {
                 Bundle localBundle = new Bundle();
-                localBundle.putString("transNo", orderID);// 交易流水号，由订单推送接口返回
-                localBundle.putString("accessKey", accessKey);// 由订单推送接口返回
-                localBundle.putString("productName", "商品名称");//商品名称
-                localBundle.putString("productDes", "商品描述");//商品描述
-                localBundle.putLong("price", 1000);//价格,单位为分（1000即10.00元）
+                localBundle.putString("transNo", jOrder.getString("orderNumber"));// 交易流水号，由订单推送接口返回
+                localBundle.putString("accessKey", jOrder.getString("access_token"));// 由订单推送接口返回
+                localBundle.putString("productName", productInfo.productName);//商品名称
+                localBundle.putString("productDes", productInfo.productDesc);//商品描述
+                localBundle.putLong("price", productInfo.price);//价格,单位为分（1000即10.00元）
                 localBundle.putString("appId", appid);// appid为vivo开发者平台中生成的App ID
 
                 // 以下为可选参数，能收集到务必填写，如未填写，掉单、用户密码找回等问题可能无法解决。
-                localBundle.putString("blance", "100元宝");
-                localBundle.putString("vip", "vip2");
-                localBundle.putInt("level", 35);
-                localBundle.putString("party", "工会");
-                localBundle.putString("roleId", "角色id");
-                localBundle.putString("roleName", "角色名称");
-                localBundle.putString("serverName", "区服信息");
-                localBundle.putString("extInfo", "扩展参数");
+                //localBundle.putString("blance", "100元宝");
+                //localBundle.putString("vip", "vip2");
+                //localBundle.putInt("level", 35);
+                //localBundle.putString("party", "工会");
+                //localBundle.putString("roleId", "角色id");
+                //localBundle.putString("roleName", "角色名称");
+                //localBundle.putString("serverName", "区服信息");
+                localBundle.putString("extInfo", productInfo.callBackInfo);
                 localBundle.putBoolean("logOnOff", false);// CP在接入过程请传true值,接入完成后在改为false, 传true会在支付SDK打印大量日志信息	 
-                Intent target = new Intent(TestActivity.this, PaymentActivity.class);
+                Intent target = new Intent(currentActivity, PaymentActivity.class);
                 target.putExtra("payment_params", localBundle);
                 startActivityForResult(target, 1);
             }
@@ -91,7 +95,7 @@ public class GameProxyImpl extends GameProxy {
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
 
-        productInfo = new ProductInfo(name, "元宝", df.format(price), 1,
+        productInfo = new ProductInfo(name, "元宝", df.format(price),
                 userName, goodsID, orderID, callBackInfo);
 
         new Thread(new Runnable()
@@ -122,28 +126,25 @@ public class GameProxyImpl extends GameProxy {
                 connection.setDoOutput(true);// 是否输入参数
                 StringBuffer params = new StringBuffer();
                 params.append("channel=");
-                params.append(enCode(mJsonObject.getString(CHANNEL)));
+                params.append(enCode("vivo"));
                 params.append("&returnJson=");
-                params.append(enCode(mLoginJson));
+                params.append(enCode("{\"channel\": \"vivo\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
                 params.append("&productName=");
-                params.append(enCode(productInfo.getProductName()));
+                params.append(enCode(productInfo.productName()));
                 params.append("&description=");
-                params.append(enCode(productInfo.getDescription()));
+                params.append(enCode(productInfo.productDesc));
                 params.append("&amount=");
-                params.append(enCode(productInfo.getAmount()));
+                params.append(enCode(productInfo.price));
                 params.append("&number=");
-                params.append(productInfo.getNumber());
+                params.append("1");
                 params.append("&manufacturerName=");
-                params.append(enCode(productInfo.getManufacturerName()));
+                params.append(enCode(productInfo.userName));
                 params.append("&id=");
-                params.append(enCode(productInfo.getId()));
+                params.append(enCode(productInfo.goodsID));
                 params.append("&orderid=");
-                params.append(enCode(productInfo.getOrderid()));
+                params.append(enCode(productInfo.orderID));
                 params.append("&cpPrivateInfo=");
-                if (productInfo.getCpPrivateInfo() != null)
-                {
-                    params.append(enCode(productInfo.getCpPrivateInfo()));
-                }
+                params.append(enCode(productInfo.callBackInfo));
                 Log.d("MyView", "getOrderInfo: " + params.toString());
                 byte[] bytes = params.toString().getBytes();
                 connection.connect();

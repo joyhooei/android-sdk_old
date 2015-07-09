@@ -282,6 +282,8 @@ class RuleVivo(RuleBase):
     SDKTYPE = '42'
     PACKAGE_NAME = 'com.yunyue.fs.vivo'
 
+    APPID = "a639b48b57908dfc423d89b2271217b4"
+
 
 @register
 class RulePaojiao(RuleBase):
