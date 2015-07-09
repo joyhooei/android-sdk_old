@@ -204,7 +204,8 @@ public class GameProxyImpl extends GameProxy {
         return enCodeValue;
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    @Override
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
 		Log.d("sdk", "MainActivity, onActivityResult,requestCode="+requestCode+", resultCode="+resultCode);
 		if(requestCode == REQUEST_CODE_LOGIN){
 			if(resultCode == Activity.RESULT_OK){
