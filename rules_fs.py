@@ -139,7 +139,7 @@ class RuleYYH(RuleBase):
     DIRECTORY = 'yyh'
     CH_NAME = '应用汇小包'
     SDKTYPE = '34'
-    PACKAGE_NAME = 'com.yunyue.nzgl.yyh'
+    PACKAGE_NAME = 'com.yunyue.fs.yyh'
 
     APPID = '10932'
     APPKEY = 'xBtsAo9c4F1CNnW0'
