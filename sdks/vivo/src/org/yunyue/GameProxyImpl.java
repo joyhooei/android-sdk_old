@@ -108,11 +108,15 @@ public class GameProxyImpl extends GameProxy {
         return true;
     }
 
-    //public boolean supportCommunity() {
-    //    return true;
-    //}
+    public boolean supportCommunity() {
+        return false;
+    }
 
     public boolean supportPay() {
+        return true;
+    }
+
+    public boolean supportLogout() {
         return true;
     }
 
@@ -246,4 +250,12 @@ public class GameProxyImpl extends GameProxy {
             //
         }
 	}
+
+    public void logout(Activity activity,Object customParams) {
+        String KEY_SWITCH_ACCOUNT = "switchAccount";
+        Intent swithIntent = new Intent(activity, LoginActivity.class);
+        swithIntent.putExtra(KEY_SWITCH_ACCOUNT, true);
+        startActivityForResult(swithIntent, REQUEST_CODE_LOGIN);
+        userListerner.onLogout(customParams);
+    }
 }
