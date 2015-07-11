@@ -26,6 +26,7 @@ import java.net.URLEncoder;
 
 import com.vivo.account.base.activity.LoginActivity;
 import com.bbk.payment.PaymentActivity;
+import com.bbk.payment.PaymentActionDetailsInit;
 
 class ProductInfo {
     public String productName;
@@ -220,6 +221,9 @@ public class GameProxyImpl extends GameProxy {
                     u.userID = openid;
                     u.token = authtoken;
                     userListerner.onLoginSuccess(u, null);
+
+                    new PaymentActionDetailsInit(activity, appid);
+                    Log.v("sdk", "vivo activity");
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
