@@ -255,7 +255,7 @@ public class GameProxyImpl extends GameProxy {
         String KEY_SWITCH_ACCOUNT = "switchAccount";
         Intent swithIntent = new Intent(activity, LoginActivity.class);
         swithIntent.putExtra(KEY_SWITCH_ACCOUNT, true);
-        startActivityForResult(swithIntent, REQUEST_CODE_LOGIN);
+        activity.startActivityForResult(swithIntent, REQUEST_CODE_LOGIN);
         userListerner.onLogout(customParams);
     }
 }
