@@ -56,12 +56,13 @@ public class GameProxyImpl extends GameProxy {
 	public final static String KEY_AUTHTOKEN = "authtoken";
 	public final static String KEY_SHOW_TEMPLOGIN = "showTempLogin";
     private static final int REQUEST_CODE_LOGIN = 1;
-    private static final int REQUEST_CODE_PAY = 1;
+    private static final int REQUEST_CODE_PAY = 2;
     private static final String appid = "${APPID}";
     private static final int START_PAY = 1;
     private String mOrderInfo;
     private Activity currentActivity;
     private ProductInfo productInfo;
+    private PayCallBack payCallBack;
 
     Handler mHandler = new Handler()
     {
@@ -121,6 +122,7 @@ public class GameProxyImpl extends GameProxy {
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+        this.payCallBack = payCallBack;
 
         DecimalFormat df = new DecimalFormat("0.00");
         productInfo = new ProductInfo(name, "元宝", df.format(price),
@@ -233,6 +235,14 @@ public class GameProxyImpl extends GameProxy {
 			}
 		}
         else if (requestCode == REQUEST_CODE_PAY) {
+            Bundle extras = data.getBundleExtra("pay_info");
+            String res_code = extras.getString("result_code");
+            if (res_code.compareTo("9000") == 0) {
+                payCallBack.onSuccess("");
+            }
+            else {
+                payCallBack.onFail("");
+            }
             //
         }
 	}
