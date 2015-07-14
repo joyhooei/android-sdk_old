@@ -51,7 +51,7 @@ public class GameProxyImpl extends GameProxy{
         pjApi = PJApi.newInstance(activity, APP_ID, APP_KEY, SHOW_SPLASH, SDK_DEBUG);
     }
 
-    public void login(Activity activity, final Object customParams) {
+    public void login(final Activity activity, final Object customParams) {
         pjApi.openLoginDialog(new CallbackListener(activity) {
 
             public void onError(Throwable error) {
