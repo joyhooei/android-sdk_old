@@ -329,6 +329,8 @@ ZC_CHANNELS = [
     ('fengyou', '疯游网'),
     #('zhidian', '指点传媒'),
     #('wx', 'WX'),
+    ('shenma', '神马'),
+    ('sougou', '搜狗'),
 ]
 for label, name in ZC_CHANNELS:
     register(type('RuleZC%s' % label, (RuleZC,), dict(
