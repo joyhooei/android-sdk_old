@@ -49,9 +49,6 @@ public class GameProxyImpl extends GameProxy{
     public void applicationInit(Activity activity) {
         /** 调用API初始化SDK */
         pjApi = PJApi.newInstance(activity, APP_ID, APP_KEY, SHOW_SPLASH, SDK_DEBUG);
-
-		//挂载悬浮窗
-		PJApi.showFloatSecondActivity(activity, true);
     }
 
     public void login(Activity activity, final Object customParams) {
@@ -63,6 +60,10 @@ public class GameProxyImpl extends GameProxy{
         
             public void onLoginSuccess(Bundle bundle) {
                 super.onLoginSuccess(bundle);
+
+                //挂载悬浮窗
+                PJApi.showFloatSecondActivity(activity, true);
+
                 User u = new User();
                 u.token = bundle.getString(PJUser.TOKEN);
                 u.userID = bundle.getString(PJUser.UID);
