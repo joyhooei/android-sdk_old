@@ -69,10 +69,11 @@ class RuleXiaomi(RuleBase):
     DIRECTORY = 'xiaomi'
     CH_NAME = '小米小包'
     SDKTYPE = '18'
-    PACKAGE_NAME = 'com.yunyue.fs.xiaomi'
+    PACKAGE_NAME = 'com.yunyue.fs.mi'
+    YY_PACKAGE_NAME = 'com.yunyue.fs.xiaomi'
 
-    APPID = '2882303761517353553'
-    APPKEY = '5501735324553'
+    APPID = '2882303761517359510'
+    APPKEY = '5801735962510'
 
     @classmethod
     def rules(cls):

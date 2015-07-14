@@ -34,6 +34,7 @@
             </intent-filter>
         </activity>
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+        <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"
