@@ -33,6 +33,7 @@ public class GameProxyImpl extends GameProxy{
     public static final boolean SHOW_SPLASH = true;
     /** SDK对象 */
     private PJApi pjApi;
+    private String ext;
 
     public boolean supportLogin() {
         return true;
@@ -121,5 +122,24 @@ public class GameProxyImpl extends GameProxy{
 		//销毁悬浮窗
 		PJApi.removeFloatSecondActivity(activity);
 	}
-	
+
+    public void exit(Activity activity, ExitCallback callback) {
+        JSONObject jExt = new JSONObject(ext);
+        RoleInfo roleInfo = null;
+        try {
+            roleInfo = new RoleInfo(jExt.getString("name"), Integer.parseInt(jExt.getString("level")), jExt.getString("serverName"), Integer.parseInt(jExt.getString("gold")));
+        } catch (JSONException e) {
+            return;
+        }
+        pjApi.exitGame(roleInfo, true,
+                new ExitInterface() {
+                    public void onExit() {
+                        poem.quitApplication();
+                    }
+                });
+    }
+
+    public void setExtData(Context context, String ext) {
+        this.ext = ext;
+    }
 }
