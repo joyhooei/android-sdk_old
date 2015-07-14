@@ -110,4 +110,19 @@ public class GameProxyImpl extends GameProxy{
 
         });
     }
+
+    @Override
+	public void onAttachedToWindow(Activity activity) {
+		super.onAttachedToWindow(activity);
+		//挂载悬浮窗
+		PJApi.showFloatSecondActivity(activity, true);
+	}
+	
+	@Override
+	public void onDestroy(Activity activity) {
+		super.onDestroy(activity);
+		//销毁悬浮窗
+		PJApi.removeFloatSecondActivity(activity);
+	}
+	
 }
