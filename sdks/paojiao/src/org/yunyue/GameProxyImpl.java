@@ -132,6 +132,7 @@ public class GameProxyImpl extends GameProxy{
             } catch (JSONException e) {
                 return;
             }
+            pjApi.uploadPlayerInfo(roleInfo);
             pjApi.exitGame(roleInfo, true,
                     new ExitInterface() {
                         public void onExit() {
