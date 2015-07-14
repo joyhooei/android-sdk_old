@@ -132,7 +132,6 @@ public class GameProxyImpl extends GameProxy{
             } catch (JSONException e) {
                 return;
             }
-            pjApi.uploadPlayerInfo(roleInfo);
             pjApi.exitGame(roleInfo, true,
                     new ExitInterface() {
                         public void onExit() {
@@ -147,5 +146,19 @@ public class GameProxyImpl extends GameProxy{
 
     public void setExtData(Context context, String ext) {
         this.ext = ext;
+
+        RoleInfo roleInfo = null;
+        try {
+            JSONObject jExt = new JSONObject(ext);
+            roleInfo = new RoleInfo(jExt.getString("name"), Integer.parseInt(jExt.getString("level")), jExt.getString("serverName"), Integer.parseInt(jExt.getString("gold")));
+        } catch (JSONException e) {
+            return;
+        }
+
+        pjApi.uploadPlayerInfo(roleInfo,  new HttpPostResponse() {
+			@Override
+			public void response(String msg) {
+			}
+		});
     }
 }
