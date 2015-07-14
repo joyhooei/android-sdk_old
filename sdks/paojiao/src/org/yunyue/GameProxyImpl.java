@@ -63,7 +63,9 @@ public class GameProxyImpl extends GameProxy{
                 super.onLoginSuccess(bundle);
 
                 //挂载悬浮窗
-                PJApi.showFloatSecondActivity(activity, true);
+                //PJApi.showFloatSecondActivity(activity, true);
+                PJApi.showFloat(activity);
+				PJApi.showSimpleDialog(activity);
 
                 User u = new User();
                 u.token = bundle.getString(PJUser.TOKEN);
