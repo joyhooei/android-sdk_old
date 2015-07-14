@@ -124,9 +124,9 @@ public class GameProxyImpl extends GameProxy{
 	}
 
     public void exit(Activity activity, ExitCallback callback) {
-        JSONObject jExt = new JSONObject(ext);
         RoleInfo roleInfo = null;
         try {
+            JSONObject jExt = new JSONObject(ext);
             roleInfo = new RoleInfo(jExt.getString("name"), Integer.parseInt(jExt.getString("level")), jExt.getString("serverName"), Integer.parseInt(jExt.getString("gold")));
         } catch (JSONException e) {
             return;
