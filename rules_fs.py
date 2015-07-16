@@ -331,6 +331,16 @@ ZC_CHANNELS = [
     #('wx', 'WX'),
     ('shenma', '神马'),
     ('sougou', '搜狗'),
+    ('dashi1', '大使1'),
+    ('dashi2', '大使2'),
+    ('dashi3', '大使3'),
+    ('dashi4', '大使4'),
+    ('dashi5', '大使5'),
+    ('dashi6', '大使6'),
+    ('dashi7', '大使7'),
+    ('dashi8', '大使8'),
+    ('dashi9', '大使9'),
+    ('dashi10', '大使10'),
 ]
 for label, name in ZC_CHANNELS:
     register(type('RuleZC%s' % label, (RuleZC,), dict(
