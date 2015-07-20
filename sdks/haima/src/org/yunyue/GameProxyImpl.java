@@ -35,6 +35,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
         OnCheckTokenListener, OnLoginCancelListener, OnPayCancelListener{
     private static String appid = "${APPID}";
     private Activity currentActivity;
+    private PayCallBack payCallBack;
 
     public boolean supportLogin() {
         return false;
@@ -84,6 +85,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+        this.payCallBack = payCallBack;
         // 支付
         ZHPayOrderInfo orderInfo = new ZHPayOrderInfo();
         // 商品名称
