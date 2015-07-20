@@ -348,3 +348,16 @@ for label, name in ZC_CHANNELS:
         CH_NAME='筑巢%s小包' % name,
         CHANNEL=label,
     )))
+
+
+@register
+class RuleHaima(RuleBase):
+    LABEL = 'haima'
+    DIRECTORY = 'haima'
+    CH_NAME = '海马小包'
+    SDKTYPE = '43'
+    PACKAGE_NAME = 'com.yunyue.fs.haima'
+
+    APPID = '926c5d4a97c87328795f416516fe1cda'
+    APPKEY = '1b6c4530e2c8553f17cadb0a96cc0582'
+    HM_GAME_CHANNEL = ''
