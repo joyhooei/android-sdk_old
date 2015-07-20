@@ -26,9 +26,6 @@ import com.haima.payPlugin.callback.OnPayCancelListener;
 import com.haima.payPlugin.callback.OnPayListener;
 import com.haima.payPlugin.infos.ZHPayOrderInfo;
 import com.haima.plugin.haima.HMPay;
-import com.hmpaysdkexample.gameserver.GetRandomOrder;
-import com.hmpaysdkexample.gameserver.HttpGetUtil;
-import com.hmpaysdkexample.gameserver.ServerConstant;
 
 public class GameProxyImpl extends GameProxy implements OnLoginListener,
         OnCheckOrderListener, OnPayListener, OnCheckUpdateListener,
@@ -51,7 +48,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
 
     public void applicationInit(Activity activity) {
         currentActivity = activity;
-        if (!HMPay.init(activity, false, appid, activity,
+        if (!HMPay.init(activity, false, appid, this,
                     false, HMPay.CHECKUPDATE_FAILED_SHOW_CANCLEANDSURE)) {
                 Toast.makeText(activity, "初始化失败，参数不正确",
                         Toast.LENGTH_SHORT).show();
@@ -69,9 +66,9 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     public void onDestroy(Activity activity) {
         super.onDestroy(activity);
         // 取消登陆监听
-        HMPay.removeLoginListener(activity);
-        HMPay.removeLoginCancelListener(activity);
-        HMPay.removePayCancelListener(activity);
+        HMPay.removeLoginListener(this);
+        HMPay.removeLoginCancelListener(this);
+        HMPay.removePayCancelListener(this);
     }
 
     @Override
@@ -81,7 +78,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     }
 
     public void login(Activity activity,Object customParams) {
-        HMPay.login(activity, activity);
+        HMPay.login(activity, this);
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
@@ -97,7 +94,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
         // 订单号
         orderInfo.orderNo = orderID;
         orderInfo.userParam = callBackInfo;
-        HMPay.pay(orderInfo, activity, activity);
+        HMPay.pay(orderInfo, activity, this);
     }
 
     @Override
