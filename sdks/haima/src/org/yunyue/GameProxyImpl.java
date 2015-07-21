@@ -35,7 +35,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     private PayCallBack payCallBack;
 
     public boolean supportLogin() {
-        return false;
+        return true;
     }
 
     public boolean supportCommunity() {
@@ -43,7 +43,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     }
 
     public boolean supportPay() {
-        return false;
+        return true;
     }
 
     public void applicationInit(Activity activity) {
