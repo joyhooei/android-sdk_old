@@ -355,9 +355,15 @@ class RuleHaima(RuleBase):
     LABEL = 'haima'
     DIRECTORY = 'haima'
     CH_NAME = '海马小包'
-    SDKTYPE = '43'
+    SDKTYPE = '44'
     PACKAGE_NAME = 'com.yunyue.fs.haima'
 
     APPID = '926c5d4a97c87328795f416516fe1cda'
     APPKEY = '1b6c4530e2c8553f17cadb0a96cc0582'
     HM_GAME_CHANNEL = ''
+
+    @classmethod
+    def rules(cls):
+        return super(RuleHaima, cls).rules() + [
+            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+        ]
