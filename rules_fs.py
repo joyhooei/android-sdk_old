@@ -372,3 +372,15 @@ class RuleHaima(RuleBase):
         return super(RuleHaima, cls).rules() + [
             ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
         ]
+
+
+@register
+class RuleXY(RuleBase):
+    LABEL = 'xyandroid'
+    DIRECTORY = 'xyandroid'
+    CH_NAME = 'XY小包'
+    SDKTYPE = '45'
+    PACKAGE_NAME = 'com.yunyue.fs.xyandroid'
+
+    APPID = '10000304'
+    APPKEY = 'OJjkDM9ZAjYNDzdDgQCKaXDWilt0nJnM'

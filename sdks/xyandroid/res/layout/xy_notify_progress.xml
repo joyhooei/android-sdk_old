@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/update_root_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000"
+    android:orientation="horizontal"
+    android:padding="7dp" >
+
+    <ImageView
+        android:id="@+id/xy_notication_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_launcher" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/xy_notication_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/xy_notication_progressTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/xy_notication_app_name"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="0%"
+            android:textColor="#a09ca4"
+            android:textSize="13sp" />
+
+        <ProgressBar
+            android:id="@+id/xy_notication_progressBar"
+            style="@style/xyProgressBar_download_bar"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignLeft="@+id/xy_notication_app_name"
+            android:layout_alignRight="@+id/xy_notication_progressTxt"
+            android:layout_below="@+id/xy_notication_app_name"
+            android:layout_marginTop="11dp"
+            android:max="100" />
+    </RelativeLayout>
+
+</LinearLayout>

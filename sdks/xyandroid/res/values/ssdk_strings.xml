@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weibo_oauth_regiseter">应用授权</string>
+    <string name="website">http://www.mob.com</string>
+    <string name="weibo_upload_content">分享图片</string>
+    
+	<string name="sinaweibo">新浪微博</string>
+	<string name="tencentweibo">腾讯微博</string>
+	
+	<string name="instapaper_login">登录</string>
+	<string name="instapaper_logining">登录中…</string>
+
+	<string name="mingdao_share_content">网页分享</string>
+	<string name="share_to_qzone_default">来自%s的分享</string>
+	<string name="use_login_button">请改用“登录”按钮</string>
+</resources>
