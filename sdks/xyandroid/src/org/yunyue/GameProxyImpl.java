@@ -22,6 +22,9 @@ import com.kingnet.xyplatform.source.interfaces.XYSDKExitAccountListener;
 import com.kingnet.xyplatform.source.interfaces.XYSDKExitAppListener;
 import com.kingnet.xyplatform.source.interfaces.XYSDKExitPlatfromListener;
 import com.kingnet.xyplatform.source.interfaces.XYSDKVisitorToUserListener;
+import com.kingnet.xyplatform.source.bean.XYSDKPayBean;
+import com.kingnet.xyplatform.source.interfaces.XYSDKCallBackListener;
+import com.kingnet.xyplatform.source.interfaces.XYSDKExitAccountByGameListener;
 
 public class GameProxyImpl extends GameProxy{
 
@@ -43,7 +46,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void applicationInit(Activity activity) {
 		//初始化SDK
-		XYSDKGames.initSDK(getApplicationContext());
+		XYSDKGames.initSDK(activity.getApplicationContext());
 		//添加悬浮框
 		XYSDKGames.addHoverImageView();
         //从XYSDK退出
