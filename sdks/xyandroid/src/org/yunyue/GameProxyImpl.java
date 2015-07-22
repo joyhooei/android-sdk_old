@@ -60,7 +60,7 @@ public class GameProxyImpl extends GameProxy{
         });
     }
 
-    public void login(Activity activity, final Object customParams) {
+    public void login(final Activity activity, final Object customParams) {
         //登录回调<登录页点击左上角返回和注册页面点击右上角X也走该回调>（主动进入SDK）
         XYSDKGames.XYLogin(activity, new XYSDKCallBackListener() {
             @Override
@@ -135,9 +135,9 @@ public class GameProxyImpl extends GameProxy{
     public void logout(Activity activity,Object customParams) {
         XYSDKGames.XYExitAccountByGame(activity, new XYSDKExitAccountByGameListener() {
             @Override
-            public void exitAcoout(String account, String uidString) {
+            public void exitAccount(String account, String uidString) {
                 userListerner.onLogout(null);
             }
-        });
+        }, false);
     }
 }
