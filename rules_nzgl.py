@@ -78,6 +78,7 @@ class RuleXiaomi(RuleBase):
     CH_NAME = '小米小包'
     SDKTYPE = '18'
     PACKAGE_NAME = 'com.yunyue.nzgl.xiaomi'
+    YY_PACKAGE_NAME = 'com.yunyue.nzgl.xiaomi'
 
     APPID = '2882303761517320056'
     APPKEY = '5871732088056'
