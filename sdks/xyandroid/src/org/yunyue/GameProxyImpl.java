@@ -115,7 +115,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
-        XYSDKGames.XYPayResult(activity,new XYSDKPayBean("${APPNAME}","", String.valueOf((int)price), callBackInfo+"_"+orderID, 0),new XYSDKCallBackListener() {
+        XYSDKGames.XYPayResult(activity,new XYSDKPayBean("${APPNAME}",name, String.valueOf((int)price), "_" + callBackInfo + "_" + orderID, 0),new XYSDKCallBackListener() {
             @Override
             public void callback(int code, String msg) {
                 switch (code) {
