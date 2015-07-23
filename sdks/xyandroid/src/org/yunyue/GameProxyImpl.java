@@ -97,7 +97,7 @@ public class GameProxyImpl extends GameProxy{
     public void onResume(Activity activity) {
         super.onResume(activity);
         //如果该页面必定不需要显示悬浮框，例如启动页，加载页等，此处可调用下面的方法,其他需要显示悬浮框的页面的该生命周期方法中更改成XYSDKGames.showHoverImageView()，可参见demo的PayActivity;
-        XYSDKGames.hideHoverImageView();
+        XYSDKGames.showHoverImageView();
     }
 
     @Override
