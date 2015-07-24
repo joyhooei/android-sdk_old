@@ -46,13 +46,6 @@ public class GameProxyImpl extends GameProxy{
 
 					@Override
 					public void onInitRstCode(int rstCode) {
-						if (rstCode == PlayGCMessageUtils.INIT_SDK_SUCCESS) {
-							resultText.setText("初始化成功");
-						} else if (rstCode == PlayGCMessageUtils.INIT_SDK_FAIL) {
-							resultText.setText("初始化失败");
-						} else if (rstCode == PlayGCMessageUtils.INIT_SDK_REPEAT) {
-							resultText.setText("已初始化成功");
-						}
 					}
 				});
 
