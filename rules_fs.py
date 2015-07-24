@@ -386,3 +386,12 @@ class RuleXY(RuleBase):
 
     APPID = '10000304'
     APPKEY = 'OJjkDM9ZAjYNDzdDgQCKaXDWilt0nJnM'
+
+
+@register
+class RuleWO17(RuleBase):
+    LABEL = 'wo17'
+    DIRECTORY = 'wo17'
+    CH_NAME = '17WO小包'
+    SDKTYPE = '46'
+    PACKAGE_NAME = 'com.yunyue.fs.wo17'

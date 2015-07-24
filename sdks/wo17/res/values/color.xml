@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 白色 -->
+    <color name="white">#ffffff</color>
+    <!-- 黑色 -->
+    <color name="black">#000000</color>
+    <!-- 蓝色 -->
+    <color name="blue">#32aef8</color>
+    <!-- 黄色 -->
+    <color name="yellow">#ff8400</color>
+    <!-- 黄色 -->
+    <color name="light_yellow">#ff9a4c</color>
+    <!-- 红色 -->
+    <color name="red">#ff0000</color>
+    <!-- 支付页面顶部背景 -->
+    <color name="pay_top_bg">#f15b4e</color>
+    <color name="pay_line_bg">#eadcda</color>
+    <color name="pay_view_bg">#f6f4f3</color>
+    <color name="pay_view_on_bg">#f8d1c3</color>
+    <color name="pay_text_black">#444444</color>
+    <color name="pay_text_bg">#cab1ac</color>
+    <color name="pay_botton_bg_off">#f1bf13</color>
+    <color name="pay_botton_bg_on">#cc9e02</color>
+    <color name="pay_botton_bg_ban">#d7cac6</color>
+    <color name="pay_main_bg">#f1eeed</color>
+    <color name="TextColorGray">#FF505050</color>
+
+</resources>

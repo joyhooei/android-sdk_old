@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="pay_title">支付</string>
+    <string name="pay_account">当前账号</string>
+    <string name="pay_balance">账户余额</string>
+    <string name="pay_balance_note">(1元=10金币)</string>
+    <string name="pay_product_name">订购商品</string>
+    <string name="pay_product_price">金额(元)</string>
+    <string name="pay_balance_prompt">当前账户余额不足，无法支付</string>
+    <string name="pay_recharge">充值支付 </string>
+    <string name="pay_immediate">立即支付 </string>
+    <string name="pay_hot_line">免免助手手机热线：025-23645625</string>
+    <string name="pay_service_time">服务时间：9:00-22:00</string>
+    <string name="recharge_title">充值支付</string>
+    <string name="recharge_chose_type">请选择支付方式</string>
+    <string name="recharge_pay_of_ali">支付快捷支付</string>
+    <string name="recharge_ali_desc">无需跳转客户端,快捷支付!</string>
+    <string name="recharge_pay_of_unicom">联通话费支付</string>
+    <string name="recharge_unicom_desc">话费充值支付后多余金额会转入您的游戏账户。</string>
+    <string name="recharge_hine">请输入要充值的金额(1元=10金币)</string>
+    <string name="recharge_chose_amount">快速选择充值金额数</string>
+    <string name="recharge_prompt">充值成功后，会有5-10分钟延时，如有问题请联系客服，电话025-23645625（周一至周五 9:00-22:00）</string>
+
+</resources>
