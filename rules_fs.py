@@ -395,3 +395,7 @@ class RuleWO17(RuleBase):
     CH_NAME = '17WO小包'
     SDKTYPE = '46'
     PACKAGE_NAME = 'com.yunyue.fs.wo17'
+
+    APPID = '400556'
+    APPKEY = '88cf91a1aef212f3c2cd12406983427d'
+    APPSECRET = 'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIfdmhoEHp23e31Psvj9Bv+XlxnqpLqOfszO0XwcIt5ZUoSkvb7nbg4LT1gDeJka4U9DJ1l7m5VXfuXjp97qkKsCAwEAAQ=='
