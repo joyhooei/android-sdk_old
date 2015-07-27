@@ -22,6 +22,7 @@ import com.future.playgame.coin.manager.PlayGCMessageUtils;
 
 public class GameProxyImpl extends GameProxy{
 
+    private static boolean inited = false;
     private static String appid = "${APPID}";
     private static String appkey = "${APPNAME}";
 
@@ -44,6 +45,8 @@ public class GameProxyImpl extends GameProxy{
 					@Override
 					public void onInitRstCode(int rstCode) {
                         if (rstCode == PlayGCMessageUtils.INIT_SDK_SUCCESS) {
+                            inited = true;
+                            showFloatView(activity);
                             User u = new User();
                             u.token = PlayGCConfigManager.instance().getAuthCode();
                             u.userID = PlayGCConfigManager.instance().getMMId();
@@ -85,18 +88,20 @@ public class GameProxyImpl extends GameProxy{
      * 显示悬浮窗
      */
     private void showFloatView(Activity activity) {
-        PlayGCManager.instance().managerFloatView(activity,
-                PlayGCManager.MANAGER_FLOATVIEW_SHOW);
-
+        if (inited) {
+            PlayGCManager.instance().managerFloatView(activity,
+                    PlayGCManager.MANAGER_FLOATVIEW_SHOW);
+        }
     }
 
     /**
      * 移除悬浮窗
      */
     private void dismissFloatView(Activity activity) {
-        PlayGCManager.instance().managerFloatView(activity,
-                PlayGCManager.MANAGER_FLOATVIEW_DISMISS);
-
+        if (inited) {
+            PlayGCManager.instance().managerFloatView(activity,
+                    PlayGCManager.MANAGER_FLOATVIEW_DISMISS);
+        }
     }
 
     public void onResume(Activity activity) {
