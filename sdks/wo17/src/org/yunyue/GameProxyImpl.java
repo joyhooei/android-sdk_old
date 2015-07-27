@@ -46,6 +46,17 @@ public class GameProxyImpl extends GameProxy{
 
 					@Override
 					public void onInitRstCode(int rstCode) {
+                        if (rstCode == PlayGCMessageUtils.INIT_SDK_SUCCESS) {
+                            User u = new User();
+                            u.token = PlayGCConfigManager.instance().getAuthCode();
+                            u.userID = PlayGCConfigManager.instance().getID();
+                            userListerner.onLoginSuccess(u, null);
+                        } else if (rstCode == PlayGCMessageUtils.INIT_SDK_REPEAT){
+                            User u = new User();
+                            userListerner.onLoginSuccess(u, null);
+                        } else {
+                            userListerner.onLoginFailed("", null);
+                        }
 					}
 				});
 
