@@ -37,7 +37,7 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
-    public void login(Activity activity,Object customParams) {
+    public void login(Activity activity, final Object customParams) {
 		PlayGCManager.instance().initSDK(activity,
 				new PlayGCInitSDKListener() {
 
