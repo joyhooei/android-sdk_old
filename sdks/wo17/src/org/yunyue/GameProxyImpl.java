@@ -49,7 +49,7 @@ public class GameProxyImpl extends GameProxy{
                         if (rstCode == PlayGCMessageUtils.INIT_SDK_SUCCESS) {
                             User u = new User();
                             u.token = PlayGCConfigManager.instance().getAuthCode();
-                            u.userID = PlayGCConfigManager.instance().getID();
+                            u.userID = PlayGCConfigManager.instance().getUserID();
                             userListerner.onLoginSuccess(u, null);
                         } else if (rstCode == PlayGCMessageUtils.INIT_SDK_REPEAT){
                             User u = new User();
