@@ -45,7 +45,7 @@ public class GameProxyImpl extends GameProxy{
 	/**
 	 * 获取收银台参数
 	 */
-	private String genUrl( String appuserid, String cpprivateinfo, String waresid, float price, String cporderid) {
+	private String genUrl( String appuserid, String cpprivateinfo, int waresid, double price, String cporderid) {
 		String json = "";
 
 		JSONObject obj = new JSONObject();
@@ -88,7 +88,7 @@ public class GameProxyImpl extends GameProxy{
             Log.e("sdk", "roleInfo parse failed, ignore");
         }
 
-        String param = genUrl(appuserid, callBackInfo , ID , price , orderID);
+        String param = genUrl(appuserid, callBackInfo , ID.toInt32() , price , orderID);
         Log.e( "moli", "param : " + param );
 
         IAppPay.startPay(activity , param, new IPayResultCallback() {
