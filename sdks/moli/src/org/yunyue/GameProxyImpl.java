@@ -79,9 +79,14 @@ public class GameProxyImpl extends GameProxy{
 	}
 
     public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
-        String entity_id = roleInfo.getString("id");
-        String server_id = roleInfo.getString("serverID");
-        String appuserid = entity_id + "#" + server_id;
+        String appuserid = "";
+        try {
+            String entity_id = roleInfo.getString("id");
+            String server_id = roleInfo.getString("serverID");
+            appuserid = entity_id + "#" + server_id;
+        } catch (JSONException e) {
+            Log.e("sdk", "roleInfo parse failed, ignore");
+        }
 
         IAppPay.startPay(activity , genUrl(appuserid, callBackInfo , ID , price , orderID), new IPayResultCallback() {
 			@Override
