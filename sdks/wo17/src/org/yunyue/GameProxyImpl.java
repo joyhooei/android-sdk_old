@@ -22,11 +22,12 @@ import com.future.playgame.coin.manager.PlayGCMessageUtils;
 
 public class GameProxyImpl extends GameProxy{
 
+    private static boolean inited = false;
     private static String appid = "${APPID}";
     private static String appkey = "${APPNAME}";
 
     public boolean supportLogin() {
-        return false;
+        return true;
     }
 
     public boolean supportCommunity() {
@@ -37,25 +38,33 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
-    /**
-	 * 初始化SDK
-	 */
-	private void initSDK(Activity activity) {
+    public void login(final Activity activity, final Object customParams) {
 		PlayGCManager.instance().initSDK(activity,
 				new PlayGCInitSDKListener() {
 
 					@Override
 					public void onInitRstCode(int rstCode) {
+                        if (rstCode == PlayGCMessageUtils.INIT_SDK_SUCCESS) {
+                            inited = true;
+                            showFloatView(activity);
+                            User u = new User();
+                            u.token = PlayGCConfigManager.instance().getAuthCode();
+                            u.userID = PlayGCConfigManager.instance().getMMId();
+                            userListerner.onLoginSuccess(u, customParams);
+                        } else if (rstCode == PlayGCMessageUtils.INIT_SDK_REPEAT){
+                            User u = new User();
+                            u.token = PlayGCConfigManager.instance().getAuthCode();
+                            u.userID = PlayGCConfigManager.instance().getMMId();
+                            userListerner.onLoginSuccess(u, customParams);
+                        } else {
+                            userListerner.onLoginFailed("", customParams);
+                        }
 					}
 				});
-
 	}
 
-    public void applicationInit(Activity activity) {
-        initSDK(activity);
-    }
-
     public void onDestroy(Activity activity) {
+        dismissFloatView(activity);
         PlayGCManager.instance().closeSDK();
     }
 
@@ -73,5 +82,33 @@ public class GameProxyImpl extends GameProxy{
                     }
                 }, PlayGCManager.ACTIVITY_MMUNIPAY_FLAG, orderID, appid, "${APPNAME}",
                     appkey, name, "1", String.valueOf((int)price), ID, "可用于购买道具");
+    }
+
+    /**
+     * 显示悬浮窗
+     */
+    private void showFloatView(Activity activity) {
+        if (inited) {
+            PlayGCManager.instance().managerFloatView(activity,
+                    PlayGCManager.MANAGER_FLOATVIEW_SHOW);
+        }
+    }
+
+    /**
+     * 移除悬浮窗
+     */
+    private void dismissFloatView(Activity activity) {
+        if (inited) {
+            PlayGCManager.instance().managerFloatView(activity,
+                    PlayGCManager.MANAGER_FLOATVIEW_DISMISS);
+        }
+    }
+
+    public void onResume(Activity activity) {
+        showFloatView(activity);
+    }
+
+    public void onPause(Activity activity) {
+        dismissFloatView(activity);
     }
 }
