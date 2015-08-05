@@ -79,7 +79,7 @@ public class GameProxyImpl extends GameProxy{
     public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         String entity_id = roleInfo.getString("id");
         String server_id = roleInfo.getString("serverID");
-        String appuserid = entity_in + "#" + server_id;
+        String appuserid = entity_id + "#" + server_id;
 
         IAppPay.startPay(activity , genUrl(appuserid, callBackInfo , ID , price , orderID), new IPayResultCallback() {
 			@Override
@@ -97,7 +97,7 @@ public class GameProxyImpl extends GameProxy{
 					Toast.makeText(activity, "成功下单", Toast.LENGTH_LONG).show();
 					break;
 				default:
-                    Log.e(TAG, "failure pay, callback cp errorinfo : " + resultCode + "," + resultInfo);
+                    Log.e("failure pay", "failure pay, callback cp errorinfo : " + resultCode + "," + resultInfo);
                     Toast.makeText(activity, "payfail:["+ "resultCode:"+resultCode + "," + (TextUtils.isEmpty(resultInfo) ? "unkown error" : resultInfo) + "]", Toast.LENGTH_LONG).show();
                     payCallBack.onFail(null);
 					break;
@@ -111,12 +111,12 @@ public class GameProxyImpl extends GameProxy{
 			 * 
 			 * */
 			private boolean dealPaySuccess(String signValue) {
-				Log.i(TAG, "sign = " + signValue);
+				Log.i("signValue", "sign = " + signValue);
 				if (TextUtils.isEmpty(signValue)) {
 					/**
 					 *  没有签名值
 					 */
-					Log.e(TAG, "pay success,but it's signValue is null");
+					Log.e("pay error", "pay success,but it's signValue is null");
 					Toast.makeText(activity, "pay success, but sign value is null", Toast.LENGTH_LONG).show();
 					return false;
 				}
@@ -159,7 +159,7 @@ public class GameProxyImpl extends GameProxy{
 				if (signtype.equals("RSA") && RSAHelper.verify(transdata, PayConfig.publicKey, sign)) {
 					return true;
 				}else{
-					Log.e(TAG, "wrong type ");
+					Log.e("wrong type", "wrong type ");
 				}
 				return false;
 			}
