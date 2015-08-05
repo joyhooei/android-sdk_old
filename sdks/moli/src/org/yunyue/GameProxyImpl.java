@@ -1,6 +1,7 @@
 package org.yunyue;
 
 import java.util.UUID;
+import java.net.URLEncoder;
 import org.json.JSONObject;
 import org.json.JSONException;
 
@@ -13,11 +14,11 @@ import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
 
+import android.text.TextUtils;
 import com.iapppay.interfaces.callback.IPayResultCallback;
 import com.iapppay.sdk.main.IAppPay;
 import com.iapppay.ui.widget.ProgressDialog;
 import com.iapppay.utils.RSAHelper;
-import com.iapppay344.test.activity.R;
 
 public class GameProxyImpl extends GameProxy{
     private String appId = "${APPID}";
