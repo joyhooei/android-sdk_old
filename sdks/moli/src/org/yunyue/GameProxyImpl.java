@@ -23,6 +23,7 @@ import com.iapppay.utils.RSAHelper;
 public class GameProxyImpl extends GameProxy{
     private String appId = "${APPID}";
     private String cppKey = "${CPPKEY}";
+    private String publicKey = "${PUBLICKEY}";
 
     public boolean supportLogin() {
         return false;
@@ -43,7 +44,7 @@ public class GameProxyImpl extends GameProxy{
 	/**
 	 * 获取收银台参数
 	 */
-	private String genUrl( String appuserid, String cpprivateinfo, int waresid, double price, String cporderid) {
+	private String genUrl( String appuserid, String cpprivateinfo, String waresid, float price, String cporderid) {
 		String json = "";
 
 		JSONObject obj = new JSONObject();
@@ -156,7 +157,7 @@ public class GameProxyImpl extends GameProxy{
 				
 				String signtype = signValue.substring(signLast+"&signtype=".length());
 				
-				if (signtype.equals("RSA") && RSAHelper.verify(transdata, PayConfig.publicKey, sign)) {
+				if (signtype.equals("RSA") && RSAHelper.verify(transdata, publicKey, sign)) {
 					return true;
 				}else{
 					Log.e("wrong type", "wrong type ");
