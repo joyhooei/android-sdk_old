@@ -88,7 +88,10 @@ public class GameProxyImpl extends GameProxy{
             Log.e("sdk", "roleInfo parse failed, ignore");
         }
 
-        IAppPay.startPay(activity , genUrl(appuserid, callBackInfo , ID , price , orderID), new IPayResultCallback() {
+        String param = genUrl(appuserid, callBackInfo , ID , price , orderID);
+        Log.e( "moli", "param : " + param );
+
+        IAppPay.startPay(activity , param, new IPayResultCallback() {
 			@Override
 			public void onPayResult(int resultCode, String signvalue, String resultInfo) {
 				// TODO Auto-generated method stub
