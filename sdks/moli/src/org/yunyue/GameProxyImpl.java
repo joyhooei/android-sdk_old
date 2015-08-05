@@ -79,6 +79,7 @@ public class GameProxyImpl extends GameProxy{
 	}
 
     public void pay(final Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
+        Log.e( "sdk", "pay:" + ID);
         String appuserid = "";
         try {
             String entity_id = roleInfo.getString("id");
