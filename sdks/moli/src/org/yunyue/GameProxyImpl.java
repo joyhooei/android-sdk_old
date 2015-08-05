@@ -39,7 +39,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void applicationInit(final Activity activity) {
-		IAppPay.init(activity, IAppPay.LANDSCAPE, appId);
+		IAppPay.init(activity, IAppPay.PORTRAIT, appId);
     }
 
 	/**
