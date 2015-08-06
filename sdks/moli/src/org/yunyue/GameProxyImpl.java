@@ -39,13 +39,13 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void applicationInit(final Activity activity) {
-		IAppPay.init(activity, IAppPay.LANDSCAPE, appId);
+		IAppPay.init(activity, IAppPay.PORTRAIT, appId);
     }
 
 	/**
 	 * 获取收银台参数
 	 */
-	private String genUrl( String appuserid, String cpprivateinfo, String waresid, float price, String cporderid) {
+	private String genUrl( String appuserid, String cpprivateinfo, int waresid, double price, String cporderid) {
 		String json = "";
 
 		JSONObject obj = new JSONObject();
@@ -89,7 +89,7 @@ public class GameProxyImpl extends GameProxy{
             Log.e("sdk", "roleInfo parse failed, ignore");
         }
 
-        String param = genUrl(appuserid, callBackInfo , ID , price , orderID);
+        String param = genUrl(appuserid, callBackInfo , Integer.parseInt( ID ), price , orderID);
         Log.e( "moli", "param : " + param );
 
         IAppPay.startPay(activity , param, new IPayResultCallback() {
