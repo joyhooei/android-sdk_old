@@ -349,6 +349,8 @@ ZC_CHANNELS = [
     ('youxiqun', '游戏群'),
     ('tianxia', '天下江湖'),
     ('qianchi', '千尺'),
+    ('sikai', '斯凯'),
+    ('tianyu', '天语手机'),
 ]
 for label, name in ZC_CHANNELS:
     register(type('RuleZC%s' % label, (RuleZC,), dict(
