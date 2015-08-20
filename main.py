@@ -16,13 +16,16 @@ def one(rule):
     # preview replaces
     #os.system('git diff -p --raw .')
     os.system('ant clean linkassets release')
-    os.system('git clean -f -d .')
-    os.system('git checkout -- .')
+
     # TODO copy package
     d = '$HOME/android_package/%s/%s' % (rule.APPLABEL, rule.VERSION_CODE)
     os.system('mkdir -p %s'%d)
     output = '%s/%s_%s.apk'%(d, rule.CH_NAME, rule.VERSION_CODE)
     os.system('cp bin/poem-release.apk %s'%output)
+
+    os.system('git clean -f -d .')
+    os.system('git checkout -- .')
+
     os.chdir('../..')
 
 
