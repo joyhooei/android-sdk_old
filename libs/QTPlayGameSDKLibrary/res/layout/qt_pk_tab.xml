@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/qt_edit_height"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/qt_edit_height"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/qt_pk_tab_txt_title"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/qt_edit_height"
+            android:gravity="center"
+            android:textColor="@color/qt_color_black" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="1px"
+        android:layout_height="@dimen/qt_edit_height"
+        android:background="@color/qt_color_bg_grey" />
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/xy_progress_bar_init_bg"/>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="5dip" />
+
+                <gradient
+                    android:angle="270"
+                    android:centerColor="#2292fc"
+                    android:centerY="0.75"
+                    android:endColor="#2292fc"
+                    android:startColor="#2292fc" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

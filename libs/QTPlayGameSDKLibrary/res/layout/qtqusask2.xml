@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/qt_black_dark" >
+
+    <LinearLayout
+        android:id="@+id/qt_plate_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qt_main_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/qt_plate_paddingBottom_land" >
+
+        <include layout="@layout/qt_main_top" />
+
+        <include layout="@layout/qt_divider" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/qt_margin_gap" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/qt_edit_bg" >
+
+                <EditText
+                    android:id="@+id/qt_edit_q_ask_content"
+                    style="@style/qt_style_edit_text_normal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="left|top"
+                    android:minLines="3"
+                    android:singleLine="false" />
+
+                <TextView
+                    android:id="@+id/qt_edit_q_ask_txt_num"
+                    style="@style/qt_style_subtext_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingBottom="@dimen/qt_item_padding"
+                    android:paddingRight="@dimen/qt_item_padding"
+                    android:text="0>20" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/qt_margin_gap"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/qt_img_q_ask_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/qt_pic_height"
+                    android:src="@drawable/qt_icon_add_img" />
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:id="@+id/qt_plate_q_ask_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/qt_padding"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/qt_btn_q_ask_point"
+                        android:layout_width="@dimen/qt_img_user_bg_size_big"
+                        android:layout_height="@dimen/qt_img_user_bg_size_big"
+                        android:background="@drawable/qt_icon_point_0"
+                        android:gravity="center" />
+
+                    <TextView
+                        style="@style/qt_style_subtext_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/qt_string_point"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

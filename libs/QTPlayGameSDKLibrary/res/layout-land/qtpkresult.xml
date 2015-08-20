@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/qt_black_dark" >
+
+    <LinearLayout
+        android:id="@+id/qt_plate_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/qt_login_margin_size"
+        android:background="@drawable/qt_plate_bg_shape"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/qt_padding"
+        android:paddingLeft="@dimen/qt_margin_gap"
+        android:paddingRight="@dimen/qt_margin_gap" >
+
+        <include
+            layout="@layout/qt_main_top"
+            android:visibility="gone" />
+
+        <include
+            layout="@layout/qt_divider"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/qt_img_pk_tag"
+                android:layout_width="@dimen/qt_pk_tag_width_small"
+                android:layout_height="@dimen/qt_pk_tag_height_small"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/qt_icon_pk" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/qt_pk_txt_result"
+                    style="@style/qt_style_text_title_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="  "
+                    android:textColor="@color/qt_color_red"
+                    android:textSize="@dimen/qt_edit_text_pk_size" />
+
+                <TextView
+                    android:id="@+id/qt_pk_txt_pktime"
+                    style="@style/qt_style_subtext_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/qt_padding"
+                    android:text="  " />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/qt_padding"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/qt_pk_txt_vs"
+                        style="@style/qt_style_text_title_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/qt_img_user_size"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/qt_string_pk_vs" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/qt_padding"
+                        android:layout_toLeftOf="@id/qt_pk_txt_vs"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/qt_pk_txt_cscore"
+                            style="@style/qt_style_text_title_normal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/qt_img_user_size"
+                            android:gravity="center_vertical"/>
+
+                        <ImageView
+                            android:id="@+id/qt_pk_img_cface"
+                            android:layout_width="@dimen/qt_img_user_size_normal"
+                            android:layout_height="@dimen/qt_img_user_size_normal"
+                            android:layout_marginLeft="@dimen/qt_padding"
+                            android:minHeight="@dimen/qt_img_user_size_normal"
+                            android:minWidth="@dimen/qt_img_user_size_normal"
+                            android:src="@drawable/qt_default_avatar" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/qt_padding"
+                        android:layout_toRightOf="@id/qt_pk_txt_vs"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                            android:id="@+id/qt_pk_img_dface"
+                            android:layout_width="@dimen/qt_img_user_size_normal"
+                            android:layout_height="@dimen/qt_img_user_size_normal"
+                            android:minHeight="@dimen/qt_img_user_size_normal"
+                            android:minWidth="@dimen/qt_img_user_size_normal"
+                            android:src="@drawable/qt_default_avatar" />
+
+                        <TextView
+                            android:id="@+id/qt_pk_txt_dscore"
+                            style="@style/qt_style_text_title_normal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/qt_img_user_size"
+                            android:layout_marginLeft="@dimen/qt_padding"
+                            android:gravity="center_vertical"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="4" >
+
+            <Button
+                android:id="@+id/qt_btn_pk_restart"
+                style="@style/qt_style_btn_big"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/qt_padding"
+                android:text="@string/qt_string_restart_pk"
+                android:textColor="@color/qt_color_text"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/qt_plate_content"
+        android:layout_marginLeft="@dimen/qt_margin_gap"
+        android:layout_toRightOf="@id/qt_plate_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/qt_img_pk_share1"
+            android:layout_width="@dimen/qt_img_user_size"
+            android:layout_height="@dimen/qt_img_user_size"
+            android:src="@drawable/qt_icon_pk_share1" />
+
+        <ImageView
+            android:id="@+id/qt_img_pk_share2"
+            android:layout_width="@dimen/qt_img_user_size"
+            android:layout_height="@dimen/qt_img_user_size"
+            android:layout_marginTop="@dimen/qt_margin_gap"
+            android:src="@drawable/qt_icon_pk_share2" />
+
+        <ImageView
+            android:id="@+id/qt_img_pk_share3"
+            android:layout_width="@dimen/qt_img_user_size"
+            android:layout_height="@dimen/qt_img_user_size"
+            android:layout_marginTop="@dimen/qt_margin_gap"
+            android:src="@drawable/qt_icon_pk_share3" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/qt_pk_close"
+        android:layout_width="@dimen/qt_icon_close_size"
+        android:layout_height="@dimen/qt_icon_close_size"
+        android:layout_alignLeft="@id/qt_plate_content"
+        android:layout_alignTop="@id/qt_plate_content"
+        android:layout_marginLeft="@dimen/qt_icon_close_margin_size"
+        android:layout_marginTop="@dimen/qt_icon_close_margin_size"
+        android:src="@drawable/qt_icon_close" />
+
+</RelativeLayout>

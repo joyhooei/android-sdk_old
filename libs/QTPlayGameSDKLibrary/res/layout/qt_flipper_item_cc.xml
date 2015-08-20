@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/qt_img_q_cc_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/qt_pic_height"
+        android:minHeight="@dimen/qt_pic_height"
+        android:scaleType="centerCrop"
+        android:src="@drawable/qt_icon_add_img" />
+
+    <LinearLayout
+        android:id="@+id/qt_plate_cc_type0"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/qt_color_bg_hlaf_transparent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/qt_padding"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/qt_txt_cc_title"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/qt_color_white" />
+
+        <TextView
+            android:id="@+id/qt_txt_cc_pop"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/qt_padding"
+            android:text="@string/qt_string_popularize"
+            android:textColor="@color/qt_color_main" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/qt_plate_cc_type1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/qt_color_bg_hlaf_transparent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/qt_padding" >
+
+        <ImageView
+            android:layout_width="@dimen/qt_img_icon_small"
+            android:layout_height="@dimen/qt_img_icon_small"
+            android:src="@drawable/qt_icon_numpraise_c" />
+
+        <TextView
+            android:id="@+id/qt_txt_cc_numpraise"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/qt_item_padding"
+            android:textColor="@color/qt_color_main" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="@dimen/qt_img_icon_small"
+            android:layout_height="@dimen/qt_img_icon_small"
+            android:src="@drawable/qt_icon_numcomment_c" />
+
+        <TextView
+            android:id="@+id/qt_txt_cc_numcomment"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/qt_item_padding"
+            android:textColor="@color/qt_color_main" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.qtplay.gamesdk.widget.pulltorefresh.PullToRefreshListView
+        android:id="@+id/qt_pull_refresh_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@color/qt_color_bg_grey"
+        android:dividerHeight="1px"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
+        android:overScrollMode="never"
+        android:fadeScrollbars="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbars="none"  />
+
+    <include
+        android:id="@+id/qt_empty_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        layout="@layout/qt_empty_view"
+        android:visibility="gone" />
+
+</FrameLayout>

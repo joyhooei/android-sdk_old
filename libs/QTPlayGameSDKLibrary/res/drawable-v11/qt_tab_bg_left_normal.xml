@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+      <solid android:color="@color/qt_color_bg_tab"/>
+       <!-- 圆角 -->
+       <corners
+       android:bottomLeftRadius="@dimen/qt_corner_radius1" />
+</shape>

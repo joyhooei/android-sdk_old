@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/qt_tab_height"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/qt_rank_tab_txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/qt_color_black"
+				android:layout_centerInParent="true"
+				style="@style/qt_style_subtext_normal" />
+
+            <ImageView
+                android:id="@+id/qt_rank_tab_img_flag"
+                android:layout_width="@dimen/qt_flag_size"
+                android:layout_height="@dimen/qt_flag_size"
+                android:layout_toRightOf="@id/qt_rank_tab_txt_title"
+                android:layout_alignTop="@id/qt_rank_tab_txt_title"
+                android:src="@drawable/qt_icon_notice_shape"
+                android:visibility="invisible" />
+        </RelativeLayout>
+        <TextView
+                android:id="@+id/qt_rank_tab_txt_subtitle"
+				style="@style/qt_style_subtext_normal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/qt_padding"
+                android:textColor="@color/qt_color_black"
+                android:gravity="center"
+				android:visibility="gone" />
+    </LinearLayout>

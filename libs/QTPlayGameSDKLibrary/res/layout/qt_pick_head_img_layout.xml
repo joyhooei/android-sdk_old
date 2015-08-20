@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black" 
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@android:color/white" >
+        
+        <com.qtplay.gamesdk.widget.pickimg.CropImageView
+            android:id="@+id/qt_pickimg_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
+
+        
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/qt_pickimg_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+       <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/qt_pickimg_rotate_left"
+            android:src="@drawable/qt_btn_rotate_left"
+            />
+
+        <Button
+            android:id="@+id/qt_pickimg_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            style="@style/qt_style_btn_big"
+            android:text="@string/qt_string_action_cancel" />
+
+        <Button
+            android:id="@+id/qt_pickimg_save"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            style="@style/qt_style_btn_big"
+            android:text="@string/qt_string_action_save" />
+
+        <ImageView
+           android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/qt_pickimg_rotate_right"
+            android:src="@drawable/qt_btn_rotate_right"
+            />
+    </LinearLayout>
+
+</LinearLayout>

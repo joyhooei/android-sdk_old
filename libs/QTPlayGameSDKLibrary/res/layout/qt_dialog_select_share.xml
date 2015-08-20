@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/qt_color_white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="6px"
+        android:background="@color/qt_color_main" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/qt_plate_share_c2c"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/qt_img_share_c2c"
+            android:layout_width="@dimen/qt_subedit_text_size"
+            android:layout_height="@dimen/qt_subedit_text_size"
+            android:src="@drawable/qt_icon_check_c" />
+
+        <TextView
+            android:id="@+id/qt_txt_share_c2c"
+            style="@style/qt_style_subtext_normal"
+        	android:layout_marginLeft="2dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/qt_btn_share1"
+        style="@style/qt_style_btn_big"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/qt_btn_bg_black"
+        android:text="@string/qt_string_share_wx_friends" />
+
+    <Button
+        android:id="@+id/qt_btn_share2"
+        style="@style/qt_style_btn_big"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:background="@drawable/qt_btn_bg_black"
+        android:text="@string/qt_string_share_wx_team" />
+
+    <Button
+        android:id="@+id/qt_btn_pic_cancel"
+        style="@style/qt_style_btn_big"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:background="@drawable/qt_btn_bg_grey"
+        android:text="@string/qt_string_action_back" />
+
+</LinearLayout>

@@ -1,0 +1,149 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="QTThemeActivity" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+       <item name="android:windowAnimationStyle">@style/qt_no_animation</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    
+    <style name="qt_no_animation">  
+        <item name="android:activityOpenEnterAnimation">@null</item>  
+        <item name="android:activityOpenExitAnimation">@null</item>  
+        <item name="android:activityCloseEnterAnimation">@null</item>  
+        <item name="android:activityCloseExitAnimation">@null</item>  
+        <item name="android:taskOpenEnterAnimation">@null</item>  
+        <item name="android:taskOpenExitAnimation">@null</item>  
+        <item name="android:taskCloseEnterAnimation">@null</item>  
+        <item name="android:taskCloseExitAnimation">@null</item> 
+        <item name="android:taskToFrontEnterAnimation">@null</item>  
+        <item name="android:taskToFrontExitAnimation">@null</item> 
+        <item name="android:taskToBackEnterAnimation">@null</item>  
+        <item name="android:taskToBackExitAnimation">@null</item>  
+    </style>  
+    
+	<style name="qt_style_dialog_login" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="qt_style_dialog_agreement" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/qt_dialog_background_white</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="qt_style_edit_text_normal" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/qt_color_text</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/qt_color_text_hint</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textSize">@dimen/qt_edit_text_size</item>
+    </style>
+    <style name="qt_style_text_title_normal" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/qt_color_text</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/qt_color_text_hint</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textSize">@dimen/qt_edit_text_title_size</item>
+    </style>
+    <style name="qt_style_text_normal" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/qt_color_text</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/qt_color_text_hint</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textSize">@dimen/qt_edit_text_size</item>
+    </style>
+    <style name="qt_style_subtext_normal" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/qt_color_subtext</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/qt_color_text_hint</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textSize">@dimen/qt_subedit_text_size</item>
+    </style>
+    <style name="qt_style_text_normal2" parent="@style/qt_style_text_normal">
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+    <style name="qt_style_subtext_normal2" parent="@style/qt_style_subtext_normal">
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+    <style name="qt_style_text_tag" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/qt_color_white</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/qt_color_text_hint</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textSize">@dimen/qt_subedit_text_size</item>
+        <item name="android:maxLength">12</item>
+    </style>
+    <style name="qt_style_text_content" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@color/qt_color_subtext</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/qt_color_text_hint</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+        <item name="android:textSize">@dimen/qt_edit_text_size2</item>
+    </style>
+    <style name="qt_style_btn_normal" parent="@android:style/Widget.Button">    
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/qt_btn_bg</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/qt_btn_text_size</item>        
+         <item name="android:paddingLeft">@dimen/qt_margin_gap</item>      
+         <item name="android:paddingRight">@dimen/qt_margin_gap</item>      
+         <item name="android:paddingTop">@dimen/qt_padding</item>      
+         <item name="android:paddingBottom">@dimen/qt_padding</item>  
+    </style>
+        <style name="qt_style_btn_big" parent="@android:style/Widget.Button">    
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/qt_btn_bg</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/qt_btn_text_size</item>        
+         <item name="android:padding">@dimen/qt_margin_gap</item>         
+    </style>
+    <style name="qt_style_btn_small" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/qt_color_black</item>
+        <item name="android:background">@drawable/qt_btn_bg</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/qt_btn_text_size_small</item>       
+         <item name="android:layout_width">wrap_content</item>      
+         <item name="android:layout_height">@dimen/qt_btn_height_small</item>      
+         <item name="android:paddingLeft">@dimen/qt_margin_gap</item>      
+         <item name="android:paddingRight">@dimen/qt_margin_gap</item>      
+         <item name="android:paddingTop">@dimen/qt_item_padding</item>      
+         <item name="android:paddingBottom">@dimen/qt_item_padding</item>  
+    </style>
+    
+     <style name="qt_style_dialog_normal" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

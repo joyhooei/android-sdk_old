@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/qt_color_black" >
+
+    <com.qtplay.gamesdk.widget.PicViewGallery
+        android:id="@+id/qt_picview_gallery"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:spacing="0dip" >
+    </com.qtplay.gamesdk.widget.PicViewGallery>
+</RelativeLayout>

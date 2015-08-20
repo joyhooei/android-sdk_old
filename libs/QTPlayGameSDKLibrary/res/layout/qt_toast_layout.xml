@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal" >
+
+    <LinearLayout
+        android:id="@+id/qt_toast_bg_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/qt_toast_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/qt_toast_bg_padding">
+
+        <ImageView
+            android:id="@+id/qt_toast_icon"
+            android:layout_width="@dimen/qt_toast_icon_size"
+            android:layout_height="@dimen/qt_toast_icon_size"
+            android:layout_marginRight="@dimen/qt_toast_bg_padding"
+            android:src="@drawable/qt_icon_code"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/qt_toast_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3.5dp"
+                android:singleLine="true"
+                android:textColor="@color/qt_color_toast_title"
+                android:textSize="@dimen/qt_edit_text_size" 
+                android:visibility="gone"/>
+            
+            <TextView
+                android:id="@+id/qt_toast_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3.5dp"
+                android:maxLines="3"
+                android:textColor="@color/qt_color_toast_txt"
+                android:textSize="@dimen/qt_edit_text_size2" />
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</LinearLayout>

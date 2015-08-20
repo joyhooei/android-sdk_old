@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yunyue.nzgl.gfan"
+      android:installLocation="auto"
+      android:versionCode="130012"
+      android:versionName="1.30012">
+
+    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.DUMP" />
+
+    <!-- start for gfan sdk -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.webkit.permission.PLUGIN" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!-- end for gfan sdk -->
+
+    <application android:name="org.yunyue.app"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:debuggable="true">
+
+        <activity android:name="org.yunyue.poem"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- start for gfan sdk -->
+        <activity
+            android:name="com.mappn.sdk.uc.activity.LoginActivity"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name="com.mappn.sdk.uc.activity.RegisterActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name="com.mappn.sdk.uc.activity.ChooseAccountActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name="com.mappn.sdk.pay.payment.PaymentsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name="com.mappn.sdk.pay.chargement.ChargeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name="com.mappn.sdk.pay.account.LoginActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Transparent"
+            android:windowSoftInputMode="adjustUnspecified" />
+        <activity
+            android:name="com.mappn.sdk.uc.activity.WebViewActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name="com.mappn.sdk.pay.chargement.FeedbackActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Transparent" />
+
+        <!-- 免注册登录 -->
+        <activity
+        android:name="com.mappn.sdk.uc.activity.OnekeyLoignActivity"
+        android:configChanges="orientation|keyboardHidden"
+        android:theme="@style/Transparent" />
+        <!-- 完善用户信息 -->
+        <activity
+        android:name="com.mappn.sdk.uc.activity.ModfiyActivity"
+        android:configChanges="orientation|keyboardHidden"
+        android:theme="@style/Transparent" />
+        <service android:name="com.mappn.sdk.pay.GfanPayService" />
+        <!-- mo9 -->
+        <activity
+        android:name="com.mokredit.payment.MktPayment"
+        android:configChanges="keyboardHidden|orientation"
+        android:windowSoftInputMode="adjustResize" />
+        <!-- start for net bank -->
+        <activity android:name="com.unionpay.uppay.PayActivity" />
+        <!-- end for net bank -->
+        <!--alipay sdk begin -->
+        <activity
+        android:name="com.alipay.android.mini.window.sdk.MiniPayActivity"
+        android:configChanges="orientation"
+        android:excludeFromRecents="true"
+        android:exported="false"
+        android:label="@string/msp_app_name"
+        android:launchMode="singleTop"
+        android:process="com.alipay.sdk"
+        android:screenOrientation="portrait"
+        android:theme="@style/MspAppTheme"
+        android:windowSoftInputMode="adjustResize|stateHidden" >
+        <intent-filter android:priority="800" >
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter></activity>
+        <activity
+        android:name="com.alipay.android.mini.window.sdk.MiniWebActivity"
+        android:configChanges="orientation|keyboardHidden|navigation"
+        android:excludeFromRecents="true"
+        android:exported="false"
+        android:launchMode="singleTop"
+        android:process="com.alipay.sdk"
+        android:theme="@style/MspAppTheme" >
+        <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter> </activity>
+
+        <activity
+        android:name="com.alipay.android.mini.window.sdk.MiniWebActivity"
+        android:configChanges="orientation|keyboardHidden|navigation"
+        android:excludeFromRecents="true"
+        android:exported="false"
+        android:launchMode="singleTop"
+        android:process="com.alipay.sdk"
+        android:theme="@style/MspAppTheme" >
+        <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+        <service android:name="com.alipay.android.app.MspService"
+        android:process="com.alipay.sdk"
+        android:exported="false" >
+        <intent-filter android:priority="800" />
+        </service>
+        <!--alipay sdk end -->
+        <!-- 微信支付 start-->
+        <activity
+        android:name="com.ipaynow.plugin.activity.PayMethodActivity"
+        android:theme="@android:style/Theme.Dialog"
+        android:configChanges="orientation|keyboardHidden"
+        android:exported="false"
+        android:screenOrientation="portrait">
+        </activity>
+        <activity
+        android:name="com.ipaynow.plugin.inner_plugin.wechat_plugin.activity.WeChatNotifyActivity"
+        android:theme="@android:style/Theme.NoDisplay">
+        </activity>
+        <!-- 微信支付 end-->
+        <!-- 框支付插件
+        start-->
+        <activity
+        android:name="com.wangyin.wepay.kuang.ui.WePayActivity"
+        android:theme="@style/WePayTheme"
+        android:screenOrientation="portrait">
+        </activity>
+        <!-- 框支付插件
+        end-->
+
+        <meta-data android:name="gfan_pay_appkey" android:value="653373561" />
+        <meta-data android:name="gfan_cpid" android:value="gfan" />
+
+        <meta-data android:name="sdktype" android:value="28"/>
+    </application>
+
+    <supports-screens android:largeScreens="true"
+                      android:smallScreens="true"
+                      android:anyDensity="true"
+                      android:normalScreens="true"/>
+</manifest> 

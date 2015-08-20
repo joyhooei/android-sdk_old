@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="266dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/pj_corner_background_white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp" >
+
+    <ImageView
+        android:id="@+id/pj_banner_iv"
+        android:layout_width="match_parent"
+        android:layout_height="193dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/pj_exit_default_banner" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="14dp" >
+
+        <ImageView
+            android:id="@+id/pj_act_iv"
+            android:layout_width="125dp"
+            android:layout_height="46dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/pj_exit_activity" />
+
+        <ImageView
+            android:id="@+id/pj_gift_iv"
+            android:layout_width="125dp"
+            android:layout_height="46dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/pj_exit_gift" />
+
+        <Button
+            android:id="@+id/pj_exit_iv"
+            android:layout_width="125dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/pj_gift_iv"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/pj_exit_button"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/pj_exit_continute"
+            android:layout_width="125dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/pj_gift_iv"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/pj_exit_close_button"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</LinearLayout>

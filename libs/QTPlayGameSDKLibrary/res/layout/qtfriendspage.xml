@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/qt_plate_bg" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/qt_plate_friends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/qt_margin_gap"
+                android:paddingRight="@dimen/qt_margin_gap"
+                android:paddingTop="@dimen/qt_padding"
+                android:paddingBottom="@dimen/qt_padding"
+                android:background="@drawable/qt_list_item_bg"
+                android:descendantFocusability="blocksDescendants"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <RelativeLayout
+                    android:layout_width="@dimen/qt_img_user_size"
+                    android:layout_height="@dimen/qt_img_user_size" >
+
+                    <ImageView
+                        android:layout_width="@dimen/qt_img_user_size"
+                        android:layout_height="@dimen/qt_img_user_size"
+                        android:src="@drawable/qt_icon_friend" />
+
+                    <ImageView
+                        android:id="@+id/qt_item_img_func_flag"
+                        android:layout_width="@dimen/qt_flag_size"
+                        android:layout_height="@dimen/qt_flag_size"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/qt_icon_notice_shape"
+                        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <TextView
+                    style="@style/qt_style_text_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/qt_padding"
+                    android:singleLine="true"
+                    android:text="@string/qt_string_new_friend" />
+            </LinearLayout>
+            
+            <FrameLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="1px"
+		        android:background="@color/qt_color_bg_grey"
+                android:visibility="gone"  />
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <com.qtplay.gamesdk.widget.swiplistview.QTSwipeListView
+                    android:id="@+id/qt_swiplist"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:divider="@null"
+                    android:dividerHeight="0px"
+                    android:fadingEdge="none"
+                    android:fastScrollEnabled="false"
+                    android:footerDividersEnabled="true"
+                    android:headerDividersEnabled="true"
+                    android:overScrollMode="never"
+                    android:smoothScrollbar="true"
+                    android:scrollbars="none"/>
+
+                <TextView
+                    android:id="@+id/qt_txt_sort_dialog"
+                    android:layout_width="80.0dip"
+                    android:layout_height="80.0dip"
+                    android:layout_gravity="center"
+                    android:background="@drawable/qt_circle_img"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:visibility="invisible" />
+                
+                    <include
+				        android:id="@+id/qt_empty_view"
+				        android:layout_width="fill_parent"
+				        android:layout_height="fill_parent"
+				        layout="@layout/qt_empty_view"
+				        android:visibility="gone" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <com.qtplay.gamesdk.widget.SideBar
+            android:id="@+id/qt_txt_sort_sidrbar"
+            android:layout_width="@dimen/qt_sidrbar_width"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right|center" />
+    </LinearLayout>
+
+</RelativeLayout>

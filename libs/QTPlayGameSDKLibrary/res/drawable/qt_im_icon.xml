@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:maxLevel="0" android:drawable="@drawable/qt_mi_transparent" />  
+     <item android:maxLevel="1" android:drawable="@drawable/qt_mi_normal" />  
+  	 <item android:maxLevel="2" android:drawable="@drawable/qt_mi_click" /> 
+     <item android:maxLevel="3" android:drawable="@drawable/qt_mi_move_up" /> 
+     <item android:maxLevel="4" android:drawable="@drawable/qt_mi_move_down" /> 
+     <item android:maxLevel="5" android:drawable="@drawable/qt_mi_move_left" /> 
+     <item android:maxLevel="6" android:drawable="@drawable/qt_mi_move_right" /> 
+     <item android:maxLevel="7" android:drawable="@drawable/qt_mi_move_left_up" /> 
+     <item android:maxLevel="8" android:drawable="@drawable/qt_mi_move_right_up" /> 
+     <item android:maxLevel="9" android:drawable="@drawable/qt_mi_move_left_down" />
+     <item android:maxLevel="10" android:drawable="@drawable/qt_mi_move_right_down" /> 
+  	 <item android:maxLevel="11" android:drawable="@drawable/qt_mi_click2" /> 
+  	 <item android:maxLevel="12" android:drawable="@drawable/qt_mi_click3" /> 
+  	 <item android:maxLevel="13" android:drawable="@drawable/qt_mi_shadow" /> 
+  	 <item android:maxLevel="14" android:drawable="@drawable/qt_mi_hide_left" /> 
+  	 <item android:maxLevel="15" android:drawable="@drawable/qt_mi_hide_right" /> 
+	 
+</level-list> 

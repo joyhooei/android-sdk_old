@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/qt_black_dark" >
+
+    <LinearLayout
+        android:id="@+id/qt_plate_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qt_main_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/qt_plate_paddingBottom_land" >
+
+        <include layout="@layout/qt_main_top" />
+
+        <include layout="@layout/qt_divider" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="@dimen/qt_margin_gap"
+            android:layout_weight="1"
+            android:fadeScrollbars="false"
+            android:overScrollMode="never"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/qt_edit_bg_c"
+                    android:padding="@dimen/qt_item_padding" >
+
+                    <EditText
+                        android:id="@+id/qt_edit_cc_ask_content"
+                        style="@style/qt_style_edit_text_normal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|top"
+                        android:hint="@string/qt_string_hint_pl_input"
+                        android:lines="6"
+                        android:maxLength="100"
+                        android:singleLine="false" />
+
+                    <TextView
+                        android:id="@+id/qt_edit_cc_ask_txt_num"
+                        style="@style/qt_style_subtext_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/qt_edit_cc_ask_content"
+                        android:layout_below="@id/qt_edit_cc_ask_content"
+                        android:gravity="right"
+                        android:text="@string/qt_string_max_50" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/qt_img_cc_ask_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/qt_pic_height"
+                    android:layout_marginTop="@dimen/qt_margin_gap"
+                    android:src="@drawable/qt_icon_add_img" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

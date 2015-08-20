@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pj_dialog_fram_rl_"
+    android:layout_width="310dp"
+    android:layout_height="320dp"
+    android:background="@drawable/pj_corner_background_pink" >
+
+    <RelativeLayout
+        android:id="@+id/pj_uc_first_rl"
+        android:layout_width="310dp"
+        android:layout_height="320dp"
+        android:visibility="visible" >
+
+        <include
+            android:id="@+id/linearLayout1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            layout="@layout/pj_user_profile" />
+
+        <ListView
+            android:id="@+id/pj_msg_listview"
+            android:layout_width="290dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linearLayout1"
+            android:layout_centerHorizontal="true"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000"
+            android:dividerHeight="0dp" >
+        </ListView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pj_uc_second_rl"
+        android:layout_width="310dp"
+        android:layout_height="320dp"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="310dp"
+            android:layout_height="45dp" >
+
+            <TextView
+                android:id="@+id/pj_setting_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="10dp"
+                android:textColor="#ffe40019"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/pj_back_to_t_uc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="10dp"
+                android:src="@drawable/pj_background_uc_back" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:background="#FFE40019" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="255dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/linearLayout2" >
+
+            <include layout="@layout/pj_dialog_setting" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

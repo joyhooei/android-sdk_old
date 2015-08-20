@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/qt_style_text_normal"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/qt_edit_height"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="@drawable/qt_item_bg"
+    android:maxLength="14"
+    android:textSize="@dimen/qt_edit_text_size" />

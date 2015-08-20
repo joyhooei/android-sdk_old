@@ -1,0 +1,13 @@
+/gen
+/bin
+/.classpath
+/.project
+.cproject
+
+downjoy_android_sdk_ui_library.iml
+local.properties
+.idea
+.settings
+.gradle
+build
+cp_changeid.sh

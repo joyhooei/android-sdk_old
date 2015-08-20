@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/qt_plate_bg" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            layout="@layout/qt_pulllist" />
+        
+		<LinearLayout
+            android:id="@+id/qt_plate_c_content"
+            android:layout_width="fill_parent"
+           android:layout_height="@dimen/qt_edit_height"
+            android:addStatesFromChildren="true"
+            android:layout_margin="@dimen/qt_margin_gap_small"
+            android:background="@drawable/qt_edit_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/qt_edit_c_content"
+                style="@style/qt_style_edit_text_normal"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/qt_edit_height"
+                android:layout_weight="1"
+                android:hint="@string/qt_string_hint_c_reply"
+                android:textSize="@dimen/qt_edit_text_size" />
+            
+             <Button
+                android:id="@+id/qt_btn_c_send"
+                style="@style/qt_style_btn_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/qt_string_reply" />
+        </LinearLayout>
+    </LinearLayout>
+     
+
+</RelativeLayout>

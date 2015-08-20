@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/qt_list_item_bg"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/qt_margin_gap"
+    android:paddingRight="@dimen/qt_margin_gap" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/qt_margin_gap"
+        android:paddingBottom="@dimen/qt_margin_gap"  >
+
+        <ImageView
+            android:id="@+id/qt_img_item_icon"
+            android:layout_width="@dimen/qt_img_user_size"
+            android:layout_height="@dimen/qt_img_user_size"
+            android:layout_centerInParent="true"
+            android:minHeight="@dimen/qt_img_user_size"
+            android:minWidth="@dimen/qt_img_user_size"
+            android:src="@drawable/qt_default_avatar" />
+
+        <ImageView
+            android:id="@+id/qt_item_img_flag"
+            android:layout_width="@dimen/qt_flag_size"
+            android:layout_height="@dimen/qt_flag_size"
+            android:layout_alignRight="@id/qt_img_item_icon"
+            android:layout_alignTop="@id/qt_img_item_icon"
+            android:layout_marginRight="2dp"
+            android:src="@drawable/qt_icon_notice_shape"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/qt_txt_item_title"
+        style="@style/qt_style_text_normal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/qt_margin_gap"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/qt_txt_item_time"
+        style="@style/qt_style_subtext_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical" />
+
+    <ImageView
+        android:id="@+id/qt_img_item_tip"
+        android:layout_width="@dimen/qt_pk_tag_width"
+        android:layout_height="@dimen/qt_pk_tag_height"
+        android:layout_marginLeft="@dimen/qt_margin_gap"
+        android:src="@drawable/qt_icon_pk" />
+
+</LinearLayout>

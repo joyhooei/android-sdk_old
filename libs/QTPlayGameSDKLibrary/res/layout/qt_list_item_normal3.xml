@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/qt_list_item_bg"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
+    android:padding="@dimen/qt_margin_gap" >
+
+    <ImageView
+        android:id="@+id/qt_img_item_icon"
+        android:layout_width="@dimen/qt_img_user_size"
+        android:layout_height="@dimen/qt_img_user_size"
+        android:minHeight="@dimen/qt_img_user_size"
+        android:minWidth="@dimen/qt_img_user_size"
+        android:src="@drawable/qt_default_avatar" />
+
+    <ImageView
+        android:id="@+id/qt_item_img_flag"
+        android:layout_width="@dimen/qt_flag_size"
+        android:layout_height="@dimen/qt_flag_size"
+        android:layout_alignTop="@id/qt_img_item_icon"
+        android:layout_alignRight="@id/qt_img_item_icon"
+        android:layout_marginRight="2dp"
+        android:src="@drawable/qt_icon_notice_shape"
+        android:visibility="invisible" />
+    
+    <ImageView
+        android:id="@+id/qt_img_item_func"
+        android:layout_width="@dimen/qt_btn_height"
+        android:layout_height="@dimen/qt_btn_height"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/qt_icon_unselected"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/qt_btn_item_func"
+        style="@style/qt_style_btn_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/qt_btn_height"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/qt_string_invite"
+        android:visibility="gone" />
+    
+    <TextView
+        android:id="@+id/qt_txt_item_title"
+        style="@style/qt_style_text_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/qt_img_item_icon"
+        android:layout_marginLeft="@dimen/qt_padding"
+        android:layout_toRightOf="@id/qt_img_item_icon" 
+        android:layout_toLeftOf="@id/qt_btn_item_func"/>
+
+    <TextView
+        android:id="@+id/qt_txt_item_subtitle"
+        style="@style/qt_style_subtext_normal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/qt_txt_item_title"
+        android:layout_marginLeft="@dimen/qt_padding"
+        android:layout_toRightOf="@id/qt_img_item_icon" 
+        android:layout_toLeftOf="@id/qt_btn_item_func"/>
+    
+    <TextView
+        android:id="@+id/qt_txt_item_title2"
+        style="@style/qt_style_text_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/qt_padding"
+        android:layout_toRightOf="@id/qt_img_item_icon" 
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/qt_txt_item_time"
+        style="@style/qt_style_subtext_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/qt_img_item_icon"
+        android:layout_toRightOf="@id/qt_txt_item_title"
+        android:layout_alignParentRight="true"
+        android:visibility="gone" />
+    
+
+    
+
+</RelativeLayout>

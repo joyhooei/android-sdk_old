@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/qt_pop_text_bg_shape"
+        android:padding="@dimen/qt_item_padding"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <com.qtplay.gamesdk.widget.AutoScrollTextView
+             android:id="@+id/qt_pop_trumpet_scrolltext"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:textColor="@color/qt_color_white"/>
+    </LinearLayout>
+</FrameLayout>

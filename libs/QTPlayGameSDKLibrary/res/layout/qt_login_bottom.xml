@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/qt_topbar_height"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/qt_margin_gap"
+    android:gravity="center_vertical" >
+    <TextView
+	        android:id="@+id/qt_bottom_tip"
+	         android:layout_width="wrap_content"
+	   		 android:layout_height="wrap_content"
+	         style="@style/qt_style_subtext_normal"/>
+</LinearLayout>

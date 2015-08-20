@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="${PACKAGE_NAME}"
+      android:installLocation="auto"
+      android:versionCode="${VERSION_CODE}"
+      android:versionName="${VERSION_NAME}">
+
+    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.DUMP" />
+
+    <!-- sdk permission settinQTPlay start -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+    <!-- 短信支付的权限 -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- sdk permission settingQTPlay end -->
+    <application android:name="org.yunyue.app"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:debuggable="true">
+
+        <activity android:name="org.yunyue.poem"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+
+        <activity
+            android:name="com.qtplay.gamesdk.activity.QTMainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/QTThemeActivity" >
+        </activity>
+        <activity
+            android:name="com.qtplay.gamesdk.a.extend.QTPayListActivity"
+            android:theme="@style/QTThemeActivity"
+            android:configChanges="keyboardHidden|orientation" />      
+          <activity
+            android:name="com.qtplay.gamesdk.a.extend.QTOutActivity"
+            android:theme="@style/QTThemeActivity"
+            android:configChanges="keyboardHidden|orientation" />    
+        <activity
+            android:name="com.qtplay.gamesdk.activity.question.QTQusPageActivity"/>
+         <activity
+            android:name="com.qtplay.gamesdk.activity.question.QTQusListActivity"/>
+         <activity
+            android:name="com.qtplay.gamesdk.activity.question.QTQusAnsListActivity"/>
+         <activity
+            android:name="com.qtplay.gamesdk.activity.home.QTHomePageActivity"/>
+        <activity
+            android:name="com.qtplay.gamesdk.activity.rank.QTRankPageActivity"/>
+        <activity
+            android:name="com.qtplay.gamesdk.activity.QTFindFriendListActivity"/>
+        <activity
+            android:name="com.qtplay.gamesdk.activity.message.QTMsgPageActivity"/>
+         <activity
+            android:name="com.qtplay.gamesdk.activity.message.QTNoticeListActivity"/>
+        <activity
+            android:name="com.qtplay.gamesdk.activity.find.QTFindPageActivity"/>
+        <activity
+            android:name="com.qtplay.gamesdk.activity.find.QTCCListActivity"/>
+        <activity
+            android:name="com.qtplay.gamesdk.activity.QTInviteListActivity"/>
+         <activity
+            android:name="com.qtplay.gamesdk.activity.question.QTQusAsk2Activity"
+            android:theme="@style/QTThemeActivity" />
+        <activity
+            android:name="com.qtplay.gamesdk.activity.QTReportActivity"
+            android:theme="@style/QTThemeActivity" />  
+        <activity
+            android:name="com.qtplay.gamesdk.activity.find.QTCCAskActivity"
+            android:theme="@style/QTThemeActivity" />        
+         <activity
+            android:name="com.qtplay.gamesdk.activity.question.QTQusAnsActivity"
+            android:theme="@style/QTThemeActivity" />        
+         <activity
+            android:name="com.qtplay.gamesdk.activity.question.QTQusAskActivity"
+            android:theme="@style/QTThemeActivity" />
+         <activity
+            android:name="com.qtplay.gamesdk.activity.question.QTQusAnsDetailActivity"
+            android:theme="@style/QTThemeActivity" />
+         <activity
+            android:name="com.qtplay.gamesdk.activity.find.QTCCComListActivity"
+            android:theme="@style/QTThemeActivity" />
+         <activity
+            android:name="com.qtplay.gamesdk.activity.message.QTMsgListActivity"
+            android:theme="@style/QTThemeActivity" />
+         <activity
+            android:name="com.qtplay.gamesdk.activity.message.QTPKListActivity"
+            android:theme="@style/QTThemeActivity" />
+         <activity
+            android:name="com.qtplay.gamesdk.activity.QTPKResultActivity"
+            android:theme="@style/QTThemeActivity" />
+         <activity
+            android:name="com.qtplay.gamesdk.activity.message.QTMsgSendActivity"
+            android:theme="@style/QTThemeActivity" />
+         <activity
+            android:name="com.qtplay.gamesdk.activity.QTShowImgsActivity"
+            android:theme="@style/QTThemeActivity" />
+        <activity
+            android:name="com.qtplay.gamesdk.activity.user.QTUserInfoActivity"
+            android:theme="@style/QTThemeActivity" />
+        <activity
+            android:name="com.qtplay.gamesdk.activity.user.QTUserSettingActivity"
+            android:theme="@style/QTThemeActivity" />
+        <activity
+            android:name="com.qtplay.gamesdk.activity.user.QTUserDcodeActivity"
+            android:theme="@style/QTThemeActivity" />
+        <activity
+            android:name="com.qtplay.gamesdk.activity.QTMyQusListActivity"
+            android:theme="@style/QTThemeActivity" />
+        <activity android:name="com.qtplay.gamesdk.activity.find.QTCaptureActivity"
+            android:theme="@style/QTThemeActivity"/>
+        <activity
+            android:name="com.qtplay.gamesdk.activity.friend.QTFriendsPageActivity"
+            android:theme="@style/QTThemeActivity"/>
+        <activity
+            android:name="com.qtplay.gamesdk.widget.pickimg.CropImageActivity"
+            android:theme="@style/QTThemeActivity" />
+        <activity
+            android:name="com.qtplay.gamesdk.activity.QTShowWebActivity"
+            android:theme="@style/QTThemeActivity" />
+        <activity
+            android:name="com.qtplay.gamesdk.activity.QTScoreResultActivity"
+            android:theme="@style/QTThemeActivity" />
+
+        <service
+            android:name="com.qtplay.gamesdk.push.QTPushService"
+            android:process="com.qtplay.gamesdk.push" >
+            <intent-filter>
+                <action android:name="com.qtplay.gamesdk.push.bind.bindService" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="com.qtplay.gamesdk.push.QTNetChangeReceiver"
+            android:process="com.qtplay.gamesdk.push" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.qtplay.gamesdk.push.QTPushReceiver"
+            android:process="com.qtplay.gamesdk.push" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_PREPARE" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_START" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_QUICK_RESTART" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_ALARM" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_ACTION_UPDATE_TOPIC" />
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_CLEAR"/>
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_DO_COMMAND"/>
+                <action android:name="com.qtplay.gamesdk.push.intent.action.CHECK_BEAT"/>
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_ACTION_PRINT_TOPIC"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.qtplay.gamesdk.push.QTPushGameReceiver" >
+            <intent-filter>
+                <action android:name="com.qtplay.gamesdk.push.intent.action.PUSH_RECEIVE_MSG" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.qtplay.gamesdk.mi.QTMIService" />      
+
+        <!-- skin rank plate begin 1.6.2-->
+         <activity
+            android:name="com.qtplay.gamesdk.a.extend.activity.QTSkinRankActivity"
+            android:theme="@style/QTThemeActivity" />
+         <activity
+            android:name="com.qtplay.gamesdk.a.extend.activity.QTSkinPKListActivity"
+            android:theme="@style/QTThemeActivity" />
+         <activity
+            android:name="com.qtplay.gamesdk.a.extend.activity.QTSkinFindFriendListActivity"
+            android:theme="@style/QTThemeActivity" />
+
+        <!-- askin rank plate end 1.6.2-->      
+
+    <!-- 设置渠道号，当前游戏包的渠道 -->
+    <meta-data android:name="QTPLAY_CHANNEL" android:value="${QT_CHANNEL}"/>
+
+    <!--支付需要用到，不需要qtplay支付则不需要 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <!--qtplay支付 end -->
+
+        <!-- sdk application settinQTPlay end -->
+    </application>
+    <supports-screens android:largeScreens="true"
+                      android:smallScreens="true"
+                      android:anyDensity="true"
+                      android:normalScreens="true"/>
+</manifest> 

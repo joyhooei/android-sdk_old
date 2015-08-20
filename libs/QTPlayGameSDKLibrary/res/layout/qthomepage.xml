@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/qt_plate_bg" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:fadeScrollbars="false"
+        android:overScrollMode="never"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/qt_top_viewpager_size"
+                android:orientation="vertical" >
+
+                <com.qtplay.gamesdk.widget.ChildViewPager
+                    android:id="@+id/qt_home_pager"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/qt_top_viewpager_size"
+                    android:minHeight="@dimen/qt_top_viewpager_size" />
+
+                <com.qtplay.gamesdk.widget.CirclePageIndicator
+                    android:id="@+id/qt_home_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/qt_margin_gap_small"
+                    android:layout_marginRight="@dimen/qt_margin_gap" />
+            </RelativeLayout>
+            
+
+            <LinearLayout
+                android:id="@+id/qt_home_plate_acts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/qt_margin_gap"
+                android:layout_marginRight="@dimen/qt_margin_gap"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/qt_home_plate_more"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qt_edit_height"
+                android:background="@drawable/qt_list_item_bg"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/qt_home_txt_more"
+                    style="@style/qt_style_subtext_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:drawablePadding="5dp"
+                    android:drawableRight="@drawable/qt_click_expend"
+                    android:text="@string/qt_string_click_more" />
+                
+                <FrameLayout 
+				    android:layout_width="match_parent"
+				    android:layout_height="1px"
+				    android:background="@color/qt_color_bg_grey"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <com.qtplay.gamesdk.widget.QTAnimRelativeLayout
+                    android:id="@+id/qt_home_plate_anim_qus"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:id="@+id/qt_home_plate_flipper_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/qt_list_item_bg"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/qt_margin_gap"
+                    android:paddingRight="@dimen/qt_margin_gap" >
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="@dimen/qt_img_user_size_small"
+                        android:layout_height="@dimen/qt_img_user_size_small"
+                        android:src="@drawable/qt_icon_play" />
+
+                    <TextView
+                        android:id="@+id/qt_home_flipper_num"
+                        style="@style/qt_style_subtext_normal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+           
+			<include layout="@layout/qt_divider" />
+
+            <LinearLayout
+                android:id="@+id/qt_home_plate_cc1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/qt_margin_gap"
+                android:layout_marginRight="@dimen/qt_margin_gap"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/qt_home_plate_cc_sub1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/qt_margin_gap"
+                    android:layout_marginRight="@dimen/qt_margin_gap_small"
+                    android:layout_marginTop="@dimen/qt_margin_gap"
+                    android:layout_weight="1" >
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/qt_home_plate_cc_sub2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/qt_margin_gap"
+                    android:layout_marginLeft="@dimen/qt_margin_gap_small"
+                    android:layout_marginTop="@dimen/qt_margin_gap"
+                    android:layout_weight="1" >
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/qt_home_plate_cc2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/qt_margin_gap"
+                android:layout_marginRight="@dimen/qt_margin_gap"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/qt_home_plate_cc_sub3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/qt_margin_gap"
+                    android:layout_marginRight="@dimen/qt_margin_gap_small"
+                    android:layout_marginTop="@dimen/qt_margin_gap"
+                    android:layout_weight="1" >
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/qt_home_plate_cc_sub4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/qt_margin_gap"
+                    android:layout_marginLeft="@dimen/qt_margin_gap_small"
+                    android:layout_marginTop="@dimen/qt_margin_gap"
+                    android:layout_weight="1" >
+                </RelativeLayout>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/qt_home_plate_cc3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/qt_margin_gap"
+                android:layout_marginRight="@dimen/qt_margin_gap"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:id="@+id/qt_home_plate_cc_sub5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/qt_margin_gap"
+                    android:layout_marginRight="@dimen/qt_margin_gap_small"
+                    android:layout_marginTop="@dimen/qt_margin_gap"
+                    android:layout_weight="1" >
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/qt_home_plate_cc_sub6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/qt_margin_gap"
+                    android:layout_marginLeft="@dimen/qt_margin_gap_small"
+                    android:layout_marginTop="@dimen/qt_margin_gap"
+                    android:layout_weight="1" >
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

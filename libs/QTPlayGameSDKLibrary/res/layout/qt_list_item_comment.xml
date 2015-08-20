@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/qt_color_white"
+    android:paddingLeft="@dimen/qt_margin_gap"
+    android:paddingRight="@dimen/qt_margin_gap">
+
+    <LinearLayout
+        android:id="@+id/qt_plate_c_item"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+   		android:background="@color/qt_color_bg_grey2"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/qt_img_c_user_face"
+            android:layout_width="@dimen/qt_img_user_size_normal"
+            android:layout_height="@dimen/qt_img_user_size_normal"
+            android:layout_marginLeft="@dimen/qt_margin_gap"
+            android:layout_marginTop="@dimen/qt_margin_gap"
+            android:layout_marginBottom="@dimen/qt_margin_gap"
+            android:src="@drawable/qt_default_avatar" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/qt_margin_gap"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/qt_txt_c_name"
+                    style="@style/qt_style_subtext_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/qt_color_text" />
+
+                <ImageView
+                    android:id="@+id/qt_img_c_user_sex"
+                    android:layout_width="@dimen/qt_img_icon_size"
+                    android:layout_height="@dimen/qt_img_icon_size"
+                    android:background="@drawable/qt_icon_sex_bg_man"
+                    android:src="@drawable/qt_icon_sex_man" />
+
+                <TextView
+                    android:id="@+id/qt_txt_c_time"
+                    style="@style/qt_style_subtext_normal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" 
+            		android:layout_marginLeft="@dimen/qt_padding"/>
+
+                <TextView
+                    android:id="@+id/qt_txt_c_floor"
+                    style="@style/qt_style_subtext_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+            		android:layout_marginLeft="@dimen/qt_padding"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/qt_txt_c_item_content"
+                style="@style/qt_style_subtext_normal2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:textColor="@color/qt_color_text" />
+        </LinearLayout>
+    </LinearLayout>
+
+ 	<TextView
+            android:id="@+id/qt_txt_c_item_empty"
+            style="@style/qt_style_subtext_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/qt_margin_gap"
+            android:gravity="center"
+            android:text="@string/qt_string_com_empty"
+            android:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/qt_dialog_shape"
+        android:layout_margin="@dimen/qt_login_margin_size"
+        android:orientation="vertical" >
+
+        <include layout="@layout/qt_login_top" />
+        <include layout="@layout/qt_divider"/>
+        
+        <GridView 
+		    android:id="@+id/qt_login_gridview"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/qt_margin_top"
+            android:layout_marginLeft="@dimen/qt_margin_gap"
+            android:layout_marginRight="@dimen/qt_margin_gap"
+            android:background="@color/qt_color_transparent"
+		    android:listSelector="@color/qt_color_transparent"
+		    android:numColumns="4"
+		    android:verticalSpacing="@dimen/qt_vertical_spacing"
+		    android:horizontalSpacing="@dimen/qt_horizontal_spacing"
+		    android:columnWidth="@dimen/qt_img_user_size2"
+		    android:stretchMode="columnWidth"
+		    android:gravity="center"/>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/qt_edit_height"
+            android:layout_marginTop="@dimen/qt_margin_top"
+            android:layout_marginLeft="@dimen/qt_margin_gap"
+            android:layout_marginRight="@dimen/qt_margin_gap"
+            android:orientation="horizontal" >
+            <Button
+                android:id="@+id/qt_btn_login_bysms"
+                style="@style/qt_style_btn_big"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="@dimen/qt_margin_gap_small"
+                android:layout_weight="2"
+                android:text="@string/qt_string_enterbysms" />
+
+            <Button
+                android:id="@+id/qt_btn_login_byfriends"
+                style="@style/qt_style_btn_big"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="@dimen/qt_margin_gap_small"
+                android:layout_weight="1"
+                android:text="@string/qt_string_enterbycode" />
+        </LinearLayout>
+        <include layout="@layout/qt_login_bottom" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/qt_login_close"
+        android:layout_width="@dimen/qt_icon_close_size"
+        android:layout_height="@dimen/qt_icon_close_size"
+        android:src="@drawable/qt_icon_close" />
+</RelativeLayout>

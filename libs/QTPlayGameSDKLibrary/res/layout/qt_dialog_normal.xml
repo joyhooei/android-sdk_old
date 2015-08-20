@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/qt_color_white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/qt_dialog_title"
+        style="@style/qt_style_text_title_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/qt_edit_height"
+        android:layout_marginLeft="@dimen/qt_margin_gap"
+        android:textColor="@color/qt_color_main" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/qt_color_main" />
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0">
+
+        <TextView
+            android:id="@+id/qt_dialog_msg"
+            style="@style/qt_style_text_normal2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/qt_margin_gap" 
+            android:lineSpacingMultiplier="1.2"
+            android:singleLine="false" />
+
+        <WebView
+            android:id="@+id/qt_dialog_msg_web"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"  
+        	android:scrollbarSize="0dip"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <include layout="@layout/qt_divider" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/qt_edit_height"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/qt_date_picker_action1"
+            style="@style/qt_style_text_title_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/qt_edit_height"
+            android:textSize="@dimen/qt_edit_text_size2"
+            android:layout_weight="1"
+            android:background="@drawable/qt_list_item_bg"
+            android:gravity="center"
+            android:text="@string/qt_string_action_cancel" />
+
+        <FrameLayout
+            android:layout_width="1px"
+            android:layout_height="@dimen/qt_edit_height"
+            android:background="@color/qt_color_bg_grey" />
+
+        <TextView
+            android:id="@+id/qt_date_picker_action2"
+            style="@style/qt_style_text_title_normal"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/qt_edit_height"
+            android:textSize="@dimen/qt_edit_text_size2"
+            android:layout_weight="1"
+            android:background="@drawable/qt_list_item_bg"
+            android:gravity="center"
+            android:text="@string/qt_string_action_submit" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">${APPNAME}</string>
+    <string name="crash_toast_text">啊哦，一不小心崩溃啦 = =||| </string>
+    <string name="channel_id">dummy</string>
+</resources>
