@@ -14,7 +14,7 @@ class RuleBase(Rule):
 class RuleEmpty(RuleBase):
     LABEL = 'empty'
     DIRECTORY = 'empty'
-    CH_NAME = '白包小包'
+    CH_NAME = '宠物小精灵'
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.yunyue.fs.yy'
 
