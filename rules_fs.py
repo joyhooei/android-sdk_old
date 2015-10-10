@@ -6,7 +6,7 @@ from processor import register, Rule
 class RuleBase(Rule):
     VERSION_CODE = '100000'
     VERSION_NAME = '1.00000'
-    APPNAME = '封神小鲜肉'
+    APPNAME = '宠物小精灵'
     APPLABEL = 'fs'
 
 

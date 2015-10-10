@@ -81,7 +81,7 @@ if __name__ == '__main__':
     if options.copyicons_path:
         os.environ['ICON_DIRECTORY'] = options.copyicons_path
     elif os.environ['CLIENT_DIRECTORY']:
-        os.environ['ICON_DIRECTORY'] = os.path.join(os.environ['CLIENT_DIRECTORY'], '../ttxm_icon/android')
+        os.environ['ICON_DIRECTORY'] = os.path.join(os.environ['CLIENT_DIRECTORY'], '../win32_client/icon/android')
 
     if not os.path.isabs(os.environ['ICON_DIRECTORY']):
         os.environ['ICON_DIRECTORY'] = os.path.abspath(os.environ['ICON_DIRECTORY'])
