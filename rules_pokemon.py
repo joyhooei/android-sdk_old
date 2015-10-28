@@ -16,7 +16,7 @@ class RuleEmpty(RuleBase):
     DIRECTORY = 'empty'
     CH_NAME = '宠物小精灵'
     SDKTYPE = '0'
-    PACKAGE_NAME = 'com.winnergame.pokemon.yy'
+    PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
 
 
 @register
