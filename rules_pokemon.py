@@ -7,7 +7,7 @@ class RuleBase(Rule):
     VERSION_CODE = '100000'
     VERSION_NAME = '1.00000'
     APPNAME = '宠物小精灵'
-    APPLABEL = 'sprite'
+    APPLABEL = 'pokemon'
 
 
 @register
@@ -16,7 +16,7 @@ class RuleEmpty(RuleBase):
     DIRECTORY = 'empty'
     CH_NAME = '宠物小精灵'
     SDKTYPE = '0'
-    PACKAGE_NAME = 'com.winnergame.sprite.yy'
+    PACKAGE_NAME = 'com.winnergame.pokemon.yy'
 
 
 @register
@@ -25,7 +25,7 @@ class RuleUC(RuleBase):
     DIRECTORY = 'uc'
     CH_NAME = 'UC小包'
     SDKTYPE = '7'
-    PACKAGE_NAME = 'com.winnergame.sprite.uc'
+    PACKAGE_NAME = 'com.winnergame.pokemon.uc'
 
     GAMEID = '560262'
 
@@ -42,7 +42,7 @@ class RuleC360(RuleBase):
     DIRECTORY = 'c360'
     CH_NAME = '360小包'
     SDKTYPE = '19'
-    PACKAGE_NAME = 'com.winnergame.sprite.c360'
+    PACKAGE_NAME = 'com.winnergame.pokemon.c360'
 
     QHOPENSDK_APPKEY = '354483f127d6e773c14c21f6b3ef557a'
     QHOPENSDK_PRIVATEKEY = 'd184708aafa976a80b3411678c9a071b'
@@ -57,7 +57,7 @@ class RuleBaidu(RuleBase):
     DIRECTORY = 'baidu'
     CH_NAME = '百度小包'
     SDKTYPE = '17'
-    PACKAGE_NAME = 'com.winnergame.sprite.baidu'
+    PACKAGE_NAME = 'com.winnergame.pokemon.baidu'
 
     APPID = '6315322'
     APPKEY = 'wLezE8VtTkO6rVkapuWCyxyP'
@@ -69,8 +69,8 @@ class RuleXiaomi(RuleBase):
     DIRECTORY = 'xiaomi'
     CH_NAME = '小米小包'
     SDKTYPE = '18'
-    PACKAGE_NAME = 'com.winnergame.sprite.mi'
-    YY_PACKAGE_NAME = 'com.winnergame.sprite.xiaomi'
+    PACKAGE_NAME = 'com.winnergame.pokemon.mi'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.xiaomi'
 
     APPID = '2882303761517359510'
     APPKEY = '5801735962510'
@@ -88,7 +88,7 @@ class RuleWDJ(RuleBase):
     DIRECTORY = 'wdj'
     CH_NAME = '豌豆荚小包'
     SDKTYPE = '22'
-    PACKAGE_NAME = 'com.winnergame.sprite.wdj'
+    PACKAGE_NAME = 'com.winnergame.pokemon.wdj'
 
     APPKEY = '100028689'
     SECURITY_KEY = 'c5e52cb17c35df8d4b9fb83e9d909c0e'
@@ -106,7 +106,7 @@ class RuleAnzhi(RuleBase):
     DIRECTORY = 'anzhi'
     CH_NAME = '安智小包'
     SDKTYPE = '21'
-    PACKAGE_NAME = 'com.winnergame.sprite.anzhi'
+    PACKAGE_NAME = 'com.winnergame.pokemon.anzhi'
 
     APPKEY = '14356441495136mQAPB5s3XSafyoK9'
     APPSECRET = '3G91iXHaLTF852fxdJ3X8AlL'
@@ -124,8 +124,8 @@ class RuleOppo(RuleBase):
     DIRECTORY = 'oppo'
     CH_NAME = 'OPPO小包'
     SDKTYPE = '20'
-    PACKAGE_NAME = 'com.winnergame.sprite.nearme.gamecenter'
-    YY_PACKAGE_NAME = 'com.winnergame.sprite.oppo'
+    PACKAGE_NAME = 'com.winnergame.pokemon.nearme.gamecenter'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.oppo'
 
     APPID = '\\ 3867'
     APPKEY = 'bgWqwsx1v00sGK4w84OwoosGc'
@@ -140,7 +140,7 @@ class RuleYYH(RuleBase):
     DIRECTORY = 'yyh'
     CH_NAME = '应用汇小包'
     SDKTYPE = '34'
-    PACKAGE_NAME = 'com.winnergame.sprite.yyh'
+    PACKAGE_NAME = 'com.winnergame.pokemon.yyh'
 
     APPID = '10932'
     APPKEY = 'xBtsAo9c4F1CNnW0'
@@ -154,7 +154,7 @@ class RuleGfan(RuleBase):
     DIRECTORY = 'gfan'
     CH_NAME = '机锋小包'
     SDKTYPE = '28'
-    PACKAGE_NAME = 'com.winnergame.sprite.gfan'
+    PACKAGE_NAME = 'com.winnergame.pokemon.gfan'
 
     APPKEY = '164591850'
 
@@ -165,8 +165,8 @@ class RuleWanka(RuleBase):
     DIRECTORY = 'wanka'
     CH_NAME = '硬核小包'
     SDKTYPE = '23'
-    PACKAGE_NAME = 'com.winnergame.sprite.wanka'
-    YY_PACKAGE_NAME = 'com.winnergame.sprite.wanka'
+    PACKAGE_NAME = 'com.winnergame.pokemon.wanka'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.wanka'
     CREATE_ORDER_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/wanka/create_order'
 
 
@@ -176,7 +176,7 @@ class RuleDownjoy(RuleBase):
     DIRECTORY = 'downjoy'
     CH_NAME = '当乐小包'
     SDKTYPE = '38'
-    PACKAGE_NAME = 'com.winnergame.sprite.downjoy'
+    PACKAGE_NAME = 'com.winnergame.pokemon.downjoy'
 
     MERCHANT_ID = '1368'
     APPID = '3749'
@@ -195,7 +195,7 @@ class RuleMZW(RuleBase):
     DIRECTORY = 'mzw'
     CH_NAME = '拇指玩小包'
     SDKTYPE = '41'
-    PACKAGE_NAME = 'com.winnergame.sprite.mzw'
+    PACKAGE_NAME = 'com.winnergame.pokemon.mzw'
 
     APPKEY = 'f3244edd2c89a457b9708eb4e503b37d'
 
@@ -212,7 +212,7 @@ class RulePPS(RuleBase):
     DIRECTORY = 'pps'
     CH_NAME = 'PPS小包'
     SDKTYPE = '39'
-    PACKAGE_NAME = 'com.winnergame.sprite.pps'
+    PACKAGE_NAME = 'com.winnergame.pokemon.pps'
 
     GAMEID = '3639'
 
@@ -223,9 +223,9 @@ class RulePPTV(RuleBase):
     DIRECTORY = 'pptv'
     CH_NAME = 'PPTV小包'
     SDKTYPE = '40'
-    PACKAGE_NAME = 'com.winnergame.sprite.pptv'
+    PACKAGE_NAME = 'com.winnergame.pokemon.pptv'
 
-    APPID = 'spritexxr_m'
+    APPID = 'pokemonxxr_m'
     PPTV_CID = '269'
     PPTV_CCID = ''
     UMENG_APPKEY = '5596584e67e58edf5f001607'
@@ -238,8 +238,8 @@ class RulePipaw(RuleBase):
     DIRECTORY = 'pipaw'
     CH_NAME = '琵琶网小包'
     SDKTYPE = '32'
-    PACKAGE_NAME = 'com.winnergame.sprite.ppw'
-    YY_PACKAGE_NAME = 'com.winnergame.sprite.pipaw'
+    PACKAGE_NAME = 'com.winnergame.pokemon.ppw'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.pipaw'
 
     APPID = '12381435890541'
     MERCHANT_ID = "1238"
@@ -259,7 +259,7 @@ class RuleEGame(RuleBase):
     DIRECTORY = 'egame'
     CH_NAME = '电信爱游戏小包'
     SDKTYPE = '37'
-    PACKAGE_NAME = 'com.winnergame.sprite.egame'
+    PACKAGE_NAME = 'com.winnergame.pokemon.egame'
 
     APPID = '5053651'
     APPKEY = 'ac1dd0b898e076b2ed49624c16253924'
@@ -271,7 +271,7 @@ class RuleEGame(RuleBase):
     @classmethod
     def rules(cls):
         return super(RuleEGame, cls).rules() + [
-            ('extra_assets/feeInfo.dat', 'copy', 'feeInfo_sprite.dat'),
+            ('extra_assets/feeInfo.dat', 'copy', 'feeInfo_pokemon.dat'),
         ]
 
 
@@ -281,7 +281,7 @@ class RuleVivo(RuleBase):
     DIRECTORY = 'vivo'
     CH_NAME = 'VIVO小包'
     SDKTYPE = '42'
-    PACKAGE_NAME = 'com.winnergame.sprite.vivo'
+    PACKAGE_NAME = 'com.winnergame.pokemon.vivo'
 
     APPID = "a639b48b57908dfc423d89b2271217b4"
     CREATE_ORDER_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/wanka/create_order'
@@ -293,7 +293,7 @@ class RulePaojiao(RuleBase):
     DIRECTORY = 'paojiao'
     CH_NAME = '泡椒小包'
     SDKTYPE = '31'
-    PACKAGE_NAME = 'com.winnergame.sprite.paojiao'
+    PACKAGE_NAME = 'com.winnergame.pokemon.paojiao'
 
     APPID = '1274'
     APPKEY = 'LJICymT8uw5gvZBOTw2IPN6V4Ii8QXUe'
@@ -306,7 +306,7 @@ class RuleZC(RuleBase):
     DIRECTORY = 'zc'
     CH_NAME = '筑巢小包'
     SDKTYPE = '9'
-    PACKAGE_NAME = 'com.winnergame.sprite.zc'
+    PACKAGE_NAME = 'com.winnergame.pokemon.zc'
     CHANNEL = ''
 
     TD_APPID = '33e15d27544f42d9b5f4f953a44e92e2'
@@ -366,7 +366,7 @@ class RuleHaima(RuleBase):
     DIRECTORY = 'haima'
     CH_NAME = '海马小包'
     SDKTYPE = '44'
-    PACKAGE_NAME = 'com.winnergame.sprite.haima'
+    PACKAGE_NAME = 'com.winnergame.pokemon.haima'
 
     APPID = '926c5d4a97c87328795f416516fe1cda'
     APPKEY = '1b6c4530e2c8553f17cadb0a96cc0582'
@@ -385,7 +385,7 @@ class RuleXY(RuleBase):
     DIRECTORY = 'xyandroid'
     CH_NAME = 'XY小包'
     SDKTYPE = '45'
-    PACKAGE_NAME = 'com.winnergame.sprite.xyandroid'
+    PACKAGE_NAME = 'com.winnergame.pokemon.xyandroid'
 
     APPID = '10000304'
     APPKEY = 'OJjkDM9ZAjYNDzdDgQCKaXDWilt0nJnM'
@@ -397,7 +397,7 @@ class RuleWO17(RuleBase):
     DIRECTORY = 'wo17'
     CH_NAME = '17WO小包'
     SDKTYPE = '46'
-    PACKAGE_NAME = 'com.winnergame.sprite.wo17'
+    PACKAGE_NAME = 'com.winnergame.pokemon.wo17'
 
     APPID = '400556'
     APPKEY = '88cf91a1aef212f3c2cd12406983427d'
@@ -409,7 +409,7 @@ class RuleMoLi(RuleBase):
     DIRECTORY = 'moli'
     CH_NAME = '墨狸小包'
     SDKTYPE = '47'
-    PACKAGE_NAME = 'com.winnergame.sprite.moli'
+    PACKAGE_NAME = 'com.winnergame.pokemon.moli'
 
     APPID = '3002650777'
     CPPKEY = 'MIICXgIBAAKBgQDSQEvPkbjVJ5JPpcY6DJrq2A07QdFkXnkjBXEzgmO669uGRwNkK8XUqFfzpwn49V0gEUINbmiWjyECBoK9zg0dVm6OUyNCIE5MtGx7V9cEpTsFMoPidIn/4sbsQqv/Eef9lGCSToxIlbpQNO0xpm8eBCz+6ZyQIuLgsRNeLhN5EwIDAQABAoGBALdpdXjuw1HXQnCOyd0L7/zcWraN1S98pqohbj4kCgIfDJMX0eKJuPupm4gm+LEgwotd4sQ6w6xL0dyld1pCrPaLM3gjA04qxGKgMpsGPtMfCuwu0lb/x3JVIljqigBXFtRIppN+s0mJFPYv4TCOqpebFo92f5KLs/OCL0xIfathAkEA/1giJxfN6oIuDy10AEIo938N2fEmCXll1Czo7e5h/k3dccXj7+HL9/yoG3ekNmVkosVYikeHwI0OwK1cDdO6kQJBANLKhJd/FCk/gr51qm20+cdrLmkbes335//ZRUWDFt9HPEM1KhXl9tqVOJAR3s8MEuJTBvVJ8zPykZ1r29Loo2MCQQC4mer3AEqqQ7sw1deLaEldxMkqyyCIsO9hWaZ8fV7zDzANVNfZURC5FDwkv3ZErUD4PFwqfFQ0bMZBnhNzG6NBAkA/oSBrNtIYLXLDGXPL0BCCMQl+cuwcFpRyt9xgQlT6K1+2jerZV2Sv0NGVM7/FUki1BwkXrC385WEtWuytesovAkEA6QxUmkrLpItVHNrdg9FPBbydUlXsYO5AN0XdF6vzo4Y6Mz5+lTRO64M40gn6OpNodmI+4fU3M3G/ju0lgIWJtw=='
