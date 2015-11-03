@@ -1,2 +1,3 @@
 *.pyc
 assets
+sdks/uc/local.properties
