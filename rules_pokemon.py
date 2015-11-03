@@ -72,8 +72,8 @@ class RuleXiaomi(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.mi'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.xiaomi'
 
-    APPID = '2882303761517359510'
-    APPKEY = '5801735962510'
+    APPID = '2882303761517406973'
+    APPKEY = '5261740665973'
 
     @classmethod
     def rules(cls):
