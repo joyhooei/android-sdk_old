@@ -1,3 +1,4 @@
 *.pyc
 assets
 sdks/uc/local.properties
+sdks/c360/local.properties
