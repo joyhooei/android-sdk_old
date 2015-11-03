@@ -42,11 +42,11 @@ class RuleC360(RuleBase):
     DIRECTORY = 'c360'
     CH_NAME = '360小包'
     SDKTYPE = '19'
-    PACKAGE_NAME = 'com.winnergame.pokemon.c360'
+    PACKAGE_NAME = 'com.winnergame.pokemon.qh360'
 
-    QHOPENSDK_APPKEY = '354483f127d6e773c14c21f6b3ef557a'
-    QHOPENSDK_PRIVATEKEY = 'd184708aafa976a80b3411678c9a071b'
-    QHOPENSDK_APPID = '202593516'
+    QHOPENSDK_APPKEY = '59415bb722fba561d067b225f4a984f8'
+    QHOPENSDK_PRIVATEKEY = '977ad2c554bb8aa422aa0e1208f28dfc'
+    QHOPENSDK_APPID = '202793901'
 
     PAY_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/c360/pay_callback'
 
