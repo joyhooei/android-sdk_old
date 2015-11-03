@@ -27,7 +27,7 @@ class RuleUC(RuleBase):
     SDKTYPE = '7'
     PACKAGE_NAME = 'com.winnergame.pokemon.uc'
 
-    GAMEID = '560262'
+    GAMEID = '579041'
 
     @classmethod
     def rules(cls):
