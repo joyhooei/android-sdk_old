@@ -70,7 +70,7 @@ class RuleXiaomi(RuleBase):
     CH_NAME = '小米小包'
     SDKTYPE = '18'
     PACKAGE_NAME = 'com.winnergame.pokemon.mi'
-    YY_PACKAGE_NAME = 'com.winnergame.pokemon.xiaomi'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.mi'
 
     APPID = '2882303761517406973'
     APPKEY = '5261740665973'
