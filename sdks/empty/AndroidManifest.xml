@@ -3,7 +3,7 @@
     package="${PACKAGE_NAME}"
       android:installLocation="auto"
       android:versionCode="${VERSION_CODE}"
-      android:versionName="${VERSION_NAME}" >
+      android:versionName="${VERSION_NAME}">
 
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="18"/>
 
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="sdktype" android:value="0"/>
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"

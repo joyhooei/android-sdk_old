@@ -166,7 +166,6 @@ public class GameProxyImpl extends GameProxy implements OnLoginProcessListener, 
 	@Override
 	public void finishLoginProcess( int arg0, MiAccountInfo arg1 )
 	{
-        Log.v("sdk", "finishLoginProcess:" + arg0);
 		if ( MiErrorCode.MI_XIAOMI_PAYMENT_SUCCESS == arg0 )
 		{
 			accountInfo = arg1;

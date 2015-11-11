@@ -57,8 +57,8 @@ public class GameProxyImpl extends GameProxy {
                             @ Override
                             public void onSuccess( ProductInfo lastProductInfo )
                             {
-                                //Toast.makeText(currentActivity, "当前支付成功",
-                                //    Toast.LENGTH_LONG).show();
+                                Toast.makeText(currentActivity, "当前支付成功",
+                                    Toast.LENGTH_LONG).show();
                                 payCallBack.onSuccess("支付成功");
                             }
 
@@ -66,9 +66,9 @@ public class GameProxyImpl extends GameProxy {
                             public void onFail( ProductInfo lastProductInfo,
                                 String paramString )
                             {
-                                //Toast.makeText(currentActivity,
-                                //    "当前支付失败： " + paramString,
-                                //    Toast.LENGTH_LONG).show();
+                                Toast.makeText(currentActivity,
+                                    "当前支付失败： " + paramString,
+                                    Toast.LENGTH_LONG).show();
                                 payCallBack.onFail("支付失败：" + paramString);
                             }
                         });
