@@ -28,13 +28,13 @@
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <application android:name="org.yunyue.app"
+    <application android:name="org.weilan.app"
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
         android:debuggable="true">
 
         <activity
-            android:name="org.yunyue.SplashActivity"
+            android:name="org.weilan.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"
@@ -47,7 +47,7 @@
         </activity>
 
         <activity
-            android:name="org.yunyue.poem"
+            android:name="org.weilan.poem"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"

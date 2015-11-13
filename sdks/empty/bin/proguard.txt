@@ -1,6 +1,0 @@
-# view AndroidManifest.xml #generated:18
--keep class org.yunyue.app { <init>(...); }
-
-# view AndroidManifest.xml #generated:23
--keep class org.yunyue.poem { <init>(...); }
-

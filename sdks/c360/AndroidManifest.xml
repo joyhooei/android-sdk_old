@@ -41,12 +41,12 @@
         android:allowBackup="true" 
         android:label="@string/app_name" 
         android:icon="@drawable/ic_launcher"
-        android:name="org.yunyue.app" >
+        android:name="org.weilan.app" >
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
 
         <activity
-            android:name="org.yunyue.poem"
+            android:name="org.weilan.poem"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">

@@ -48,7 +48,7 @@ class RuleC360(RuleBase):
     QHOPENSDK_PRIVATEKEY = '977ad2c554bb8aa422aa0e1208f28dfc'
     QHOPENSDK_APPID = '202793901'
 
-    PAY_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/c360/pay_callback'
+    PAY_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/c360/pay_callback'
 
 
 @register
@@ -78,7 +78,7 @@ class RuleXiaomi(RuleBase):
     @classmethod
     def rules(cls):
         return super(RuleXiaomi, cls).rules() + [
-            ('src/org/yunyue/MiAppApplication.java', 'replace', cls.common_replaces()),
+            ('src/org/weilan/MiAppApplication.java', 'replace', cls.common_replaces()),
         ]
 
 
@@ -96,7 +96,7 @@ class RuleWDJ(RuleBase):
     @classmethod
     def rules(cls):
         return super(RuleWDJ, cls).rules() + [
-            ('src/org/yunyue/sdk_app.java', 'replace', cls.common_replaces()),
+            ('src/org/weilan/sdk_app.java', 'replace', cls.common_replaces()),
         ]
 
 
@@ -114,7 +114,7 @@ class RuleAnzhi(RuleBase):
     @classmethod
     def rules(cls):
         return super(RuleAnzhi, cls).rules() + [
-            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+            ('src/org/weilan/SplashActivity.java', 'replace', cls.common_replaces()),
         ]
 
 
@@ -131,7 +131,7 @@ class RuleOppo(RuleBase):
     APPKEY = 'bgWqwsx1v00sGK4w84OwoosGc'
     APPSECRET = 'D566f23f01AA489fF84409d6a5280769'
 
-    PAY_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/oppo/pay_callback'
+    PAY_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/oppo/pay_callback'
 
 
 @register
@@ -167,7 +167,7 @@ class RuleWanka(RuleBase):
     SDKTYPE = '23'
     PACKAGE_NAME = 'com.winnergame.pokemon.wanka'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.wanka'
-    CREATE_ORDER_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/wanka/create_order'
+    CREATE_ORDER_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/wanka/create_order'
 
 
 @register
@@ -185,7 +185,7 @@ class RuleDownjoy(RuleBase):
     @classmethod
     def rules(cls):
         return super(RuleDownjoy, cls).rules() + [
-            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+            ('src/org/weilan/SplashActivity.java', 'replace', cls.common_replaces()),
         ]
 
 
@@ -202,7 +202,7 @@ class RuleMZW(RuleBase):
     @classmethod
     def rules(cls):
         return super(RuleMZW, cls).rules() + [
-            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+            ('src/org/weilan/SplashActivity.java', 'replace', cls.common_replaces()),
         ]
 
 
@@ -249,7 +249,7 @@ class RulePipaw(RuleBase):
     @classmethod
     def rules(cls):
         return super(RulePipaw, cls).rules() + [
-            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+            ('src/org/weilan/SplashActivity.java', 'replace', cls.common_replaces()),
         ]
 
 
@@ -284,7 +284,7 @@ class RuleVivo(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.vivo'
 
     APPID = "a639b48b57908dfc423d89b2271217b4"
-    CREATE_ORDER_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/sdk/wanka/create_order'
+    CREATE_ORDER_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/wanka/create_order'
 
 
 @register
@@ -314,7 +314,7 @@ class RuleZC(RuleBase):
 
     ZC_APPID = '619086295154565120'
     ZC_RSA = 'MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKSsxVpGBR+BEY0UHNAVoRxN3skQbatVvG3QbO4lm5GLLe1XOzHtHWraMtFiPa4GxhTn1GZFp0dPcvP1EoCbRIyZMkUNmix9rye88kDagpOZSUxUGirnQnT8vxzKhKsMj2JKp6SLIM7BzV2z+iQ7Z2xx/9779OVrj6e9xkhtVCqZAgMBAAECgYBmN3gpGN2FOLCUSa+42jQvRYbMd44blBRqdb2n9WAjb6kKceMkknJ4KQjyP3DZ3QqHX3/QG9xBv2czVyQtADQDswl4urPPQCdPh7P8H2foIxYAIyYnMwK0J8YuHzcs2gVrxQke0jneY+DIZsqcAnVpvzF5ONkxI5zXW40tC+hyoQJBAM/lJAyjzoUT3bw9fW+G90I54N7YUjZCybXIdLc2zD+OQjB5APaGFxmXjR7/qz0sa0WzuAKmG6hE6khSD+5C5AMCQQDKx3EGUhTyeUInwEShR2GrmYs3zDpNJ38cGx5zbZykHFM8iVW6NQSyovv7NVuPaf/irI8FRkR4vrbcetzDMuozAkEAuUInYsAiTAKNCK7+9YCfHDv5gHvinwnbOAu+vnmtf0FlCE78JbMOKLcdga8xyFyp5z4kzu95G/T1labTHW4sQwJAaxcnPrJMs72MTZgB5rbfAxQk7QPjamnIfFxqGYWy6wy2fMr+xkdHwtvGfeWxBC1z4Q9GvP9eG/KEei48tq4F9wJAQen9rksNxrP27XrS3RzW8HUEyZwWXQ2RQ5ToorVyM3bmBl+HwYNdXmKzz3WSOXiAq7cCI9TKPjFOWE83qfx3Vg=='
-    PAY_URL = 'http://sdk.fengshen.yunyuegame.com/sdk/android/zcgame/pay_callback'
+    PAY_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/zcgame/pay_callback'
 
 
 ZC_CHANNELS = [
@@ -375,7 +375,7 @@ class RuleHaima(RuleBase):
     @classmethod
     def rules(cls):
         return super(RuleHaima, cls).rules() + [
-            ('src/org/yunyue/SplashActivity.java', 'replace', cls.common_replaces()),
+            ('src/org/weilan/SplashActivity.java', 'replace', cls.common_replaces()),
         ]
 
 

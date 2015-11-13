@@ -37,7 +37,7 @@ class Rule(object):
     def rules(cls):
         return [
             ('AndroidManifest.xml', 'replace', cls.common_replaces()),
-            ('src/org/yunyue/GameProxyImpl.java', 'replace', cls.common_replaces()),
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
             ('res/values/strings.xml', 'replace', cls.common_replaces()),
         ]
 

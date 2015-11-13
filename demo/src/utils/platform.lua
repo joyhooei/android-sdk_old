@@ -34,17 +34,17 @@ end
 
 -- 登录
 function PlatformBase:login()
-    luaj.callStaticMethod("org/yunyue/poem", "accountLogin", {}, '()V')
+    luaj.callStaticMethod("org/weilan/poem", "accountLogin", {}, '()V')
 end
 
 -- 主动登出
 function PlatformBase:logout()
-    luaj.callStaticMethod("org/yunyue/poem", "accountLogout", {}, '()V')
+    luaj.callStaticMethod("org/weilan/poem", "accountLogout", {}, '()V')
 end
 
 -- 切换帐号
 function PlatformBase:switch()
-    luaj.callStaticMethod("org/yunyue/poem", "accountSwitch", {}, '()V')
+    luaj.callStaticMethod("org/weilan/poem", "accountSwitch", {}, '()V')
 end
 
 -- roleInfo：构成
@@ -60,5 +60,5 @@ function PlatformBase:pay(goodID, goodName, goodPrice, roleInfo)
     local sig = '(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;FLjava/lang/String;Ljava/lang/String;)V'
     local callBackInfo = string.format('%d_%d', roleInfo.serverID, roleInfo.id)
     local args = {goodID, goodName, "test-order-id2", goodPrice, callBackInfo, cjson.encode(roleInfo)}
-    luaj.callStaticMethod("org/yunyue/poem", "pay", args, sig)
+    luaj.callStaticMethod("org/weilan/poem", "pay", args, sig)
 end
