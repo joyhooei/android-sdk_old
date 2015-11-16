@@ -6,7 +6,7 @@ from processor import register, Rule
 class RuleBase(Rule):
     VERSION_CODE = '100000'
     VERSION_NAME = '1.00000'
-    APPNAME = '宠物小精灵'
+    APPNAME = '萌宠小精灵'
     APPLABEL = 'pokemon'
 
 
@@ -14,7 +14,7 @@ class RuleBase(Rule):
 class RuleEmpty(RuleBase):
     LABEL = 'empty'
     DIRECTORY = 'empty'
-    CH_NAME = '宠物小精灵'
+    CH_NAME = '萌宠小精灵'
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
 
