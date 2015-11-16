@@ -414,3 +414,25 @@ class RuleMoLi(RuleBase):
     APPID = '3002650777'
     CPPKEY = 'MIICXgIBAAKBgQDSQEvPkbjVJ5JPpcY6DJrq2A07QdFkXnkjBXEzgmO669uGRwNkK8XUqFfzpwn49V0gEUINbmiWjyECBoK9zg0dVm6OUyNCIE5MtGx7V9cEpTsFMoPidIn/4sbsQqv/Eef9lGCSToxIlbpQNO0xpm8eBCz+6ZyQIuLgsRNeLhN5EwIDAQABAoGBALdpdXjuw1HXQnCOyd0L7/zcWraN1S98pqohbj4kCgIfDJMX0eKJuPupm4gm+LEgwotd4sQ6w6xL0dyld1pCrPaLM3gjA04qxGKgMpsGPtMfCuwu0lb/x3JVIljqigBXFtRIppN+s0mJFPYv4TCOqpebFo92f5KLs/OCL0xIfathAkEA/1giJxfN6oIuDy10AEIo938N2fEmCXll1Czo7e5h/k3dccXj7+HL9/yoG3ekNmVkosVYikeHwI0OwK1cDdO6kQJBANLKhJd/FCk/gr51qm20+cdrLmkbes335//ZRUWDFt9HPEM1KhXl9tqVOJAR3s8MEuJTBvVJ8zPykZ1r29Loo2MCQQC4mer3AEqqQ7sw1deLaEldxMkqyyCIsO9hWaZ8fV7zDzANVNfZURC5FDwkv3ZErUD4PFwqfFQ0bMZBnhNzG6NBAkA/oSBrNtIYLXLDGXPL0BCCMQl+cuwcFpRyt9xgQlT6K1+2jerZV2Sv0NGVM7/FUki1BwkXrC385WEtWuytesovAkEA6QxUmkrLpItVHNrdg9FPBbydUlXsYO5AN0XdF6vzo4Y6Mz5+lTRO64M40gn6OpNodmI+4fU3M3G/ju0lgIWJtw=='
     PUBLICKEY = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0eAOhgqPXHn8d0iOuOt/RkjxzIE7Fjo7KkaiUEMLDLUaVe29vKMFPx6Di4fCbqOZZia02ZhgXikKrrZKcVBoJ/6hn7obwPcN2NBa12uacNqbtPILaNM7Zyd567EZXE7pNNwZDaiCRYDPLV5UXcT8aw4HixhiH2L09RUtw4JTxiwIDAQAB'
+
+@register
+class RuleHuawei(RuleBase):
+    LABEL = 'huawei'
+    DIRECTORY = 'huawei'
+    CH_NAME = '华为小包'
+    SDKTYPE = '48'
+    PACKAGE_NAME = 'com.winnergame.pokemon.huawei'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.huawei'
+
+    APPID = '10383675'
+    PAYID = '900086000022190346'
+    PUBLIC_KEY = 'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKQM73iEYW/f6JtRgOuwsyvvk1hfKNUnC3F0arwr8+YqrIOrPZMA+5fzV6hMH4Pqeinp7QtRrWwKycH96dWPt08CAwEAAQ=='
+    GET_BUOY_PRIVATE_KEY = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/huawei/buoy'
+    GET_PAY_PRIVATE_KEY = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/huawei/pay'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleHuawei, cls).rules() + [
+            ('src/org/weilan/GlobalParam.java', 'replace', cls.common_replaces()),
+        ]
+
