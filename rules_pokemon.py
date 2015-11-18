@@ -16,7 +16,7 @@ class RuleEmpty(RuleBase):
     DIRECTORY = 'empty'
     CH_NAME = '萌宠小精灵'
     SDKTYPE = '0'
-    PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
+    PACKAGE_NAME = 'com.winnergame.pokemon.empty'
 
 
 @register
@@ -434,5 +434,25 @@ class RuleHuawei(RuleBase):
     def rules(cls):
         return super(RuleHuawei, cls).rules() + [
             ('src/org/weilan/GlobalParam.java', 'replace', cls.common_replaces()),
+        ]
+
+@register
+class RuleWeilan(RuleBase):
+    LABEL = 'weilan'
+    DIRECTORY = 'weilan'
+    CH_NAME = '萌宠小精灵_微蓝'
+    SDKTYPE = '49'
+    PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
+
+    APP_KEY    = '5i29qfd23a4bghaswx9w'
+    APP_SECRET = 'psyvmyra6f7of4sacvpu'
+    SERVER_ID  = 'M1028A'
+    PROJECT_ID = 'P10116A'
+    PRODUCT_ID = 'D10053A'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleWeilan, cls).rules() + [
+            ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
         ]
 
