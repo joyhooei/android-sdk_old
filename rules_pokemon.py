@@ -48,7 +48,7 @@ class RuleC360(RuleBase):
     QHOPENSDK_PRIVATEKEY = '977ad2c554bb8aa422aa0e1208f28dfc'
     QHOPENSDK_APPID = '202793901'
 
-    PAY_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/c360/pay_callback'
+    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/c360/pay_callback'
 
 
 @register
