@@ -30,6 +30,7 @@ public class GameBoxUtil
         final String productName,
         final String productDesc,
         final String requestId,
+        final String extReserved,
         final IPayHandler handler)
     {
         
@@ -80,6 +81,8 @@ public class GameBoxUtil
         
         // 设置支付界面横竖屏，默认竖屏
         payInfo.put(GlobalParam.PayParams.SCREENT_ORIENT, GlobalParam.PAY_ORI);
+
+        payInfo.put( "extReserved", extReserved );
         
         DebugConfig.d("startPay", "支付请求参数 : " + payInfo.toString());
         
@@ -104,8 +107,9 @@ public class GameBoxUtil
         final String productName,
         final String productDesc,
         final String requestId,
+        final String extReserved,
         final IPayHandler handler)
     {
-        pay( activity, price, productName, productDesc, requestId, handler );
+        pay( activity, price, productName, productDesc, requestId, extReserved, handler );
     }
 }
