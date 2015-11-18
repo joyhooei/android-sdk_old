@@ -44,9 +44,9 @@ class RuleC360(RuleBase):
     SDKTYPE = '19'
     PACKAGE_NAME = 'com.winnergame.pokemon.qh360'
 
-    QHOPENSDK_APPKEY = '59415bb722fba561d067b225f4a984f8'
-    QHOPENSDK_PRIVATEKEY = '977ad2c554bb8aa422aa0e1208f28dfc'
-    QHOPENSDK_APPID = '202793901'
+    QHOPENSDK_APPKEY = '7861bd2c6c6af2840cc201d24f277b4c'
+    QHOPENSDK_PRIVATEKEY = 'b42f8bf97b4efe3e907a4e237aa3fcfd'
+    QHOPENSDK_APPID = '202820771'
 
     PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/c360/pay_callback'
 
