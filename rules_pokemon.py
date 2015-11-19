@@ -456,3 +456,20 @@ class RuleWeilan(RuleBase):
             ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
         ]
 
+@register
+class RuleLenovo(RuleBase):
+    LABEL = 'lenovo'
+    DIRECTORY = 'lenovo'
+    CH_NAME = '萌宠小精灵_联想'
+    SDKTYPE = '50'
+    PACKAGE_NAME = 'com.winnergame.pokemon.lenovo'
+
+    OPEN_APPID = '1511180153656.app.ln'
+    PAY_APPKEY = '${PAY_APPKEY}'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleLenovo, cls).rules() + [
+            ('src/org/weilan/SdkConfig.java', 'replace', cls.common_replaces()),
+        ]
+
