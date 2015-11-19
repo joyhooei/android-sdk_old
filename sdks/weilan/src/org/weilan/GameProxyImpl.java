@@ -38,6 +38,7 @@ public class GameProxyImpl extends GameProxy{
     private Handler mSdkHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
+                /*
                 case MSG_LOGIN_CALLBACK: {
                     if (msg.arg1 == MSG_TYPE.LOGIN) {
                         if (msg.arg2 == MSG_STATUS.SUCCESS) {
@@ -66,6 +67,7 @@ public class GameProxyImpl extends GameProxy{
                     }
                 }
                 break;
+                */
 
                 case MSG_PAYMENT_CALLBACK: {
                     if (msg.arg1 == MSG_TYPE.PAYMENT) {
@@ -106,7 +108,7 @@ public class GameProxyImpl extends GameProxy{
     };
 
     public boolean supportLogin() {
-        return true;
+        return false;
     }
 
     public boolean supportCommunity() {
@@ -122,8 +124,13 @@ public class GameProxyImpl extends GameProxy{
         WLSdkConfig.initParam(activity);
 
         mSDKManager = SDKManager.getInstance(activity);
+
+        // 静默登陆
+        WLSdkConfig.setAutoGetUserInfo( true );
+        mSDKManager.setConfigInfo( false, false ,false );
     }
 
+    /*
     public void login(Activity activity,Object customParams) {
         // 登录，customParams透传给回调
         mCustomParam = customParams;
@@ -141,6 +148,7 @@ public class GameProxyImpl extends GameProxy{
 
         mSDKManager.showLoginView(mSdkHandler, MSG_LOGIN_CALLBACK, false);
     }
+    */
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         // 支付 ID：商品ID，name：商品名，orderID：CP订单号，price：金额（单位元），callBackInfo：需要透传给服务器回调，roleInfo：角色信息json，payCallBack：支付回调
@@ -168,9 +176,12 @@ public class GameProxyImpl extends GameProxy{
         // 设置模式，true表示购买支付，false表示充值卓越币到个人账户
         boolean isBuyMode = true;
 
-        mSDKManager.showPaymentView(mSdkHandler, MSG_PAYMENT_CALLBACK, serverId, callBackInfo, (int)(price * 100), isZyCoin, isCloseWindow, isBuyMode, null, name);
+        String extendStr = roleInfo.optString("serverID") + "_" + roleInfo.optString("id") + "_" + orderID;
+        Log.d("cocos2dx", "extendStr = " + extendStr);
+        mSDKManager.showPaymentView(mSdkHandler, MSG_PAYMENT_CALLBACK, serverId, extendStr, (int)(price * 100), isZyCoin, isCloseWindow, isBuyMode, null, name);
     }
 
+    /*
     private void onSdkLoginSuccess(LoginCallbackInfo info)
     {
         User usr = new User();
@@ -189,6 +200,7 @@ public class GameProxyImpl extends GameProxy{
     {
         userListerner.onLoginFailed( reason, mCustomParam );
     }
+    */
 
     private void onSdkPaySuccess(String paymentInfo)
     {
