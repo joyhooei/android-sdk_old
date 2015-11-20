@@ -6,7 +6,7 @@ from processor import register, Rule
 class RuleBase(Rule):
     VERSION_CODE = '100000'
     VERSION_NAME = '1.00000'
-    APPNAME = '萌宠小精灵'
+    APPNAME = '神奇小精灵'
     APPLABEL = 'pokemon'
 
 
