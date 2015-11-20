@@ -127,11 +127,11 @@ class RuleOppo(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.nearme.gamecenter'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.oppo'
 
-    APPID = '\\ 3867'
-    APPKEY = 'bgWqwsx1v00sGK4w84OwoosGc'
-    APPSECRET = 'D566f23f01AA489fF84409d6a5280769'
+    APPID = '4671'
+    APPKEY = 'bjiQLpsqyu8Gg4kgK8goCKko4'
+    APPSECRET = '8d68A258e9D93812b86B532567635352'
 
-    PAY_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/oppo/pay_callback'
+    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/oppo/pay_callback'
 
 
 @register
