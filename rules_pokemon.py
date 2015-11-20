@@ -440,7 +440,7 @@ class RuleHuawei(RuleBase):
 class RuleWeilan(RuleBase):
     LABEL = 'weilan'
     DIRECTORY = 'weilan'
-    CH_NAME = '萌宠小精灵_微蓝'
+    CH_NAME = '微蓝小包'
     SDKTYPE = '49'
     PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
 
@@ -460,7 +460,7 @@ class RuleWeilan(RuleBase):
 class RuleLenovo(RuleBase):
     LABEL = 'lenovo'
     DIRECTORY = 'lenovo'
-    CH_NAME = '萌宠小精灵_联想'
+    CH_NAME = '联想小包'
     SDKTYPE = '50'
     PACKAGE_NAME = 'com.winnergame.pokemon.lenovo'
 
