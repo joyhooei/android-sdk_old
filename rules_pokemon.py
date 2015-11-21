@@ -473,3 +473,18 @@ class RuleLenovo(RuleBase):
             ('src/org/weilan/SdkConfig.java', 'replace', cls.common_replaces()),
         ]
 
+@register
+class RuleAmigo(RuleBase):
+    LABEL = 'amigo'
+    DIRECTORY = 'amigo'
+    CH_NAME = '金立小包'
+    SDKTYPE = '51'
+    PACKAGE_NAME = 'com.winnergame.pokemon.am'
+
+    APP_KEY    = '11B5BA6537274E798CEED85864AC63CF'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleAmigo, cls).rules() + [
+            ('src/org/weilan/SdkConfig.java', 'replace', cls.common_replaces()),
+        ]
