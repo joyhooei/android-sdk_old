@@ -41,6 +41,8 @@ public class GameProxyImpl extends GameProxy{
 
     private static final int START_PAY = 1;
 
+    private String mOrderInfo;
+
     private Handler mHandler = new Handler()
     {
         public void handleMessage( android.os.Message msg )
@@ -183,36 +185,39 @@ public class GameProxyImpl extends GameProxy{
         });
     }
 
-    private onSdkPay(String outOrderNum, String submitTime)
+    private void onSdkPay(String outOrderNum, String submitTime)
     {
-        //创建订单信息
-        OrderInfo orderInfo = new OrderInfo();
-        //开发者后台申请的Apikey
-        orderInfo.setApiKey(SdkConfig.APP_KEY); 
-        //商户订单号，与创建支付订单中的"out_order_no"值相同
-        orderInfo.setOutOrderNo(outOrderNum);
-        //支付订单提交时间，与创建支付订单中的"submit_time"值相同
-        orderInfo.setSubmitTime(submitTime);
-        
-        //调用启动收银台接口 
-        mGamePayer.pay(orderInfo, mGamePayCallback);
+        try {
+            //创建订单信息
+            OrderInfo orderInfo = new OrderInfo();
+            //开发者后台申请的Apikey
+            orderInfo.setApiKey(SdkConfig.APP_KEY);
+            //商户订单号，与创建支付订单中的"out_order_no"值相同
+            orderInfo.setOutOrderNo(outOrderNum);
+            //支付订单提交时间，与创建支付订单中的"submit_time"值相同
+            orderInfo.setSubmitTime(submitTime);
+
+            //调用启动收银台接口
+            mGamePayer.pay(orderInfo, mGamePayCallback);
+        } catch( Exception e ){
+            e.printStackTrace();
+        }
     }
 
     /** 支付前去服务端创建订单 */
     private void getOrderInfo( )
     {
-        String sUrl = ((poem)currentActivity).getMetaData("create_order_url");
         try
         {
-            URL url = new URL(sUrl);
+            URL url = new URL(SdkConfig.ORDER_URL);
             HttpURLConnection connection = (HttpURLConnection) url
                 .openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-type",
                     "application/x-www-form-urlencoded");
             connection.setDoOutput(true);// 是否输入参数
-            /*
             StringBuffer params = new StringBuffer();
+            /*
             params.append("&returnJson=");
             params.append(enCode("{\"channel\": \"vivo\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
             params.append("&productName=");
