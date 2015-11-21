@@ -144,7 +144,7 @@ public class GameProxyImpl extends GameProxy {
 
 		final FixedPayInfo payInfo = new FixedPayInfo(orderID, callBackInfo, (int)price * 100);
 		payInfo.setProductDesc(name);
-		payInfo.setProductName("元宝");
+		payInfo.setProductName("钻石");
 		payInfo.setCallbackUrl("${PAY_URL}");
 		payInfo.setGoodsCount((int)price*10);
 		GameCenterSDK.getInstance().doFixedKebiPayment(kebiPayment, payInfo, activity);

@@ -16,7 +16,7 @@ class RuleEmpty(RuleBase):
     DIRECTORY = 'empty'
     CH_NAME = '神奇小精灵'
     SDKTYPE = '0'
-    PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
+    PACKAGE_NAME = 'com.winnergame.pokemon.empty'
 
 
 @register
@@ -127,11 +127,11 @@ class RuleOppo(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.nearme.gamecenter'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.oppo'
 
-    APPID = '\\ 3867'
-    APPKEY = 'bgWqwsx1v00sGK4w84OwoosGc'
-    APPSECRET = 'D566f23f01AA489fF84409d6a5280769'
+    APPID = '4671'
+    APPKEY = 'bjiQLpsqyu8Gg4kgK8goCKko4'
+    APPSECRET = '8d68A258e9D93812b86B532567635352'
 
-    PAY_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/oppo/pay_callback'
+    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/oppo/pay_callback'
 
 
 @register
@@ -434,5 +434,42 @@ class RuleHuawei(RuleBase):
     def rules(cls):
         return super(RuleHuawei, cls).rules() + [
             ('src/org/weilan/GlobalParam.java', 'replace', cls.common_replaces()),
+        ]
+
+@register
+class RuleWeilan(RuleBase):
+    LABEL = 'weilan'
+    DIRECTORY = 'weilan'
+    CH_NAME = '微蓝小包'
+    SDKTYPE = '49'
+    PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
+
+    APP_KEY    = '5i29qfd23a4bghaswx9w'
+    APP_SECRET = 'psyvmyra6f7of4sacvpu'
+    SERVER_ID  = 'M1028A'
+    PROJECT_ID = 'P10116A'
+    PRODUCT_ID = 'D10053A'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleWeilan, cls).rules() + [
+            ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
+        ]
+
+@register
+class RuleLenovo(RuleBase):
+    LABEL = 'lenovo'
+    DIRECTORY = 'lenovo'
+    CH_NAME = '联想小包'
+    SDKTYPE = '50'
+    PACKAGE_NAME = 'com.winnergame.pokemon.lenovo'
+
+    OPEN_APPID = '1511180153656.app.ln'
+    PAY_APPKEY = 'MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJ3oZzcR7MWIkpyUOv133CgRLbs7IrcHj4VHOHgZl7+naUDpqAXf8BfxzoQJDRJy7zsRADvu044w5UU9Pntbb+eRWQipdArfZ30RRsCA2lwXwbzMuzaGBmlrqwyeZOHS9uU3vQ6oPoIp+ZYpBaEJN8Io3MoxGMy0/0i7V1BMjbTRAgMBAAECgYAky22ZmHSqhqtbDvM78rz7HR2h3iK1sW5Q6QqQea4xe2n8NTXwwICqo66yd4VzQhLamZiLXpgvLteNrbqsdd76IOyAgnHbXHhNLR9HZWAG5iRxjChOAI3B1Hw+6CgFbKA2Z5MAGu1VYzpYdXI364GME1XzoVVuxUsWTK+Qrjw87QJBAOf00NJhvMJmT1RSnaGHmdZjfNBU73U+uv2Z5VxCNUs+rkhgtBt9Rodll3Ut0z41Gri/wORKgweUsBcRX7bnLNsCQQCuRqO3UJGzECNNzVG/7zGqK3GuNzPBiqNPvXHzexwqjW7P9JMLiDbH6mJRBpoukBBQcja5oqZeemC4sZuHRL7DAkAgpYxej/MJSW0Q6S/WdEdqrUX77HhngBTBbM+jVI47sO5GsRWoaNFsbRgMHg8FSmQgbJyxhOs8Pekq1f8qtw7RAkBXV2XDgKiUsljPLEB1Td55J27A3j+dFutEEnDikueJ1/oaVLvBQtIZnTkK3KE3BtJ2Ttdob8Crhu+kgLaus2BbAkEApwxWPb3UEFaQBIwdHALNjF/sQzflbJavCyOLBL3D53hvQ1rOPV9f0FFvozaPy8fnKOC4PPQXGkGNsrC+R+F6Bw=='
+
+    @classmethod
+    def rules(cls):
+        return super(RuleLenovo, cls).rules() + [
+            ('src/org/weilan/SdkConfig.java', 'replace', cls.common_replaces()),
         ]
 
