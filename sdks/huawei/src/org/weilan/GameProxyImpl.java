@@ -112,6 +112,7 @@ public class GameProxyImpl extends GameProxy {
     private String productName;
     private String productDesc;
     private String requestId;
+    private String extReserved = "";
 
     private static final int START_INIT_SDK = 1;
     private static final int START_PAY = 2;
@@ -149,7 +150,7 @@ public class GameProxyImpl extends GameProxy {
             }
 
             if( msg.what == START_PAY ) {
-                GameBoxUtil.startPay( currentActivity, df_price, productName, productDesc, requestId, payHandler );
+                GameBoxUtil.startPay( currentActivity, df_price, productName, productDesc, requestId, extReserved, payHandler );
             }
         };
     };
@@ -252,6 +253,12 @@ public class GameProxyImpl extends GameProxy {
         currentActivity = activity;
         this.payCallBack = payCallBack;
 
+        try {
+        extReserved = roleInfo.getString( "id" ) + "_" + roleInfo.getString( "serverID" ) + "_" + orderID;
+        } catch (JSONException e) {
+            Log.e( "sdk", "pay roleInfo json error" );
+        }
+
         DecimalFormat df = new DecimalFormat( "0.00" );
         if( "".equals( GlobalParam.PAY_RSA_PRIVATE ) ) {
             df_price = df.format( price );
@@ -261,7 +268,7 @@ public class GameProxyImpl extends GameProxy {
 
             new Thread( getPayTask ).start();
         } else {
-            GameBoxUtil.startPay( activity, df.format( price ), name, "钻石", orderID, payHandler );
+            GameBoxUtil.startPay( activity, df.format( price ), name, "钻石", orderID, extReserved, payHandler );
         }
     }
 

@@ -14,7 +14,7 @@ class RuleBase(Rule):
 class RuleEmpty(RuleBase):
     LABEL = 'empty'
     DIRECTORY = 'empty'
-    CH_NAME = '萌宠小精灵'
+    CH_NAME = '神奇小精灵'
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.winnergame.pokemon.empty'
 
@@ -44,11 +44,11 @@ class RuleC360(RuleBase):
     SDKTYPE = '19'
     PACKAGE_NAME = 'com.winnergame.pokemon.qh360'
 
-    QHOPENSDK_APPKEY = '59415bb722fba561d067b225f4a984f8'
-    QHOPENSDK_PRIVATEKEY = '977ad2c554bb8aa422aa0e1208f28dfc'
-    QHOPENSDK_APPID = '202793901'
+    QHOPENSDK_APPKEY = '7861bd2c6c6af2840cc201d24f277b4c'
+    QHOPENSDK_PRIVATEKEY = 'b9ce75b9c21477feb06ff8e61e581905'
+    QHOPENSDK_APPID = '202820771'
 
-    PAY_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/c360/pay_callback'
+    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/c360/pay_callback'
 
 
 @register
