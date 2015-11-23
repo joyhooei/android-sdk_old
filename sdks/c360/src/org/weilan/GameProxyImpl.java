@@ -130,7 +130,7 @@ public class GameProxyImpl extends GameProxy {
             public void onFinished(String data) {
                 try {
                     JSONObject ret = new JSONObject(data);
-                    switch ( ret.getIntValue("which", 0) )
+                    switch ( ret.optInt("which", 0) )
                     {
                         case 0:
                             // cancle  donothing
@@ -147,6 +147,9 @@ public class GameProxyImpl extends GameProxy {
                             {
                                 mExitCallback.onExit();
                             }
+                            break;
+                        default:
+                            break;
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -169,7 +172,7 @@ public class GameProxyImpl extends GameProxy {
         // 必需参数,使用360SDK的退出模块。 
         bundle.putInt(ProtocolKeys.FUNCTION_CODE, ProtocolConfigs.FUNC_CODE_QUIT);
         Intent intent = new Intent(activity, ContainerActivity.class); intent.putExtras(bundle);
-        Matrix.invokeActivity(activity, intent, mthiiQuitCallback);
+        Matrix.invokeActivity(activity, intent, mQuitCallback);
     }
 
     @Override
