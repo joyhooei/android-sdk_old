@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -26,7 +25,13 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-	<uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" /> 
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
         android:allowBackup="true" 
@@ -59,9 +64,14 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         <activity
-            android:name="com.nearme.gamecenter.open.core.LoginActivity"
+            android:name="com.nearme.gamecenter.open.core.OppoLogoActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/Theme_Dialog_Custom"  >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.nearme.gamecenter.open.core.OnePlusLogoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         <activity
             android:name="com.nearme.gamecenter.open.core.WebViewBarActivity"
@@ -74,80 +84,6 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         
-        <activity
-            android:name="com.nearme.gamecenter.open.core.KebiChargeActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask"
-            android:theme="@style/nmgc_activitynotfloat" >
-        </activity>
-        <activity
-            android:name="com.nearme.gamecenter.open.core.KebiNormalPayActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask"
-            android:theme="@style/nmgc_activitynotfloat" >
-        </activity>
-        <activity
-            android:name="com.nearme.gamecenter.open.core.KebiRealPayActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask"
-            android:theme="@style/nmgc_activitynotfloat" >
-        </activity>
-        <activity
-            android:name="com.nearme.gamecenter.open.core.KebiRatePayActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask"
-            android:theme="@style/Theme_Dialog_Custom" >
-        </activity>
-        
-        <activity
-            android:name="com.nearme.gamecenter.open.core.KebiFixedPayActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask"
-            android:theme="@style/Theme_Dialog_Custom" >
-        </activity>
-        
-        <activity
-            android:name="com.nearme.gamecenter.open.core.RegistActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/Theme_Dialog_Custom" >
-        </activity>
-        
-        <activity
-            android:name="com.nearme.gamecenter.open.core.AccountLoginActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/Theme_Dialog_Custom" >
-        </activity>
-        
-        <activity
-            android:name="com.nearme.gamecenter.open.core.FastRegActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/Theme_Dialog_Custom" >
-        </activity>
-        
-        <activity
-            android:name="com.nearme.gamecenter.open.core.PhoneRegActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/Theme_Dialog_Custom" >
-        </activity>
-        
-        <activity
-            android:name="com.nearme.gamecenter.open.core.OneKeyRegSuccessActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/Theme_Dialog_Custom"  >
-        </activity>
-        
-        <activity
-            android:name="com.nearme.gamecenter.open.core.NormalPhoneRegActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/Theme_Dialog_Custom"  >
-        </activity>
-        
-        <activity
-            android:name="com.nearme.gamecenter.open.core.NormalRegActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@style/Theme_Dialog_Custom"  >
-        </activity>
-    
         <!-- activity for sdk upgrade -->
         <activity
             android:name="com.oppo.upgrade.activity.ForceUpgradeDialog"
@@ -168,91 +104,62 @@
             android:screenOrientation="nosensor"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         
-        
-        <!-- activity for sdk charge begin -->
-        <!-- 支付相关的activity -->
-         <activity
-            android:name="com.nearme.wappay.activity.BaseClientActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true" >
-        </activity>
+        <!-- OPEN SDK Register start -->
         <activity
-            android:name="com.nearme.wappay.activity.BasePluginActivity"
+            android:name="com.oppo.usercenter.opensdk.register.AccountRegisterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true" >
-        </activity>
-        <activity
-            android:name="com.nearme.wappay.activity.BasePayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@style/NearMePayActivityNotFloat"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-        </activity>
-        <activity
-            android:name="com.nearme.wappay.activity.BaseRechargeActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@style/NearMePayActivityNotFloat"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-        </activity>
-        <activity
-            android:name="com.nearme.wappay.activity.StartPayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@style/NearMePayActivityNotFloat"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-        </activity>
-        <activity
-            android:name="com.nearme.wappay.activity.AlipayPluginActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.nearme.wappay.activity.UniPayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.nearme.wappay.activity.UPPayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.nearme.wappay.activity.TenPayPluginActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@style/NearMePayActivityNotFloat" />
-        <activity
-            android:name="com.nearme.wappay.activity.NativeSmsActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name="com.nearme.wappay.activity.DMBillingPayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-		<activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
-        <activity
-            android:name="com.alipay.sdk.auth.AuthActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
-        <activity
-            android:name="com.unionpay.uppay.PayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:excludeFromRecents="true"
-            android:screenOrientation="portrait" />
-        <!-- 支付相关的activity -->
+            android:screenOrientation="nosensor"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.oppo.usercenter.opensdk_register" />
 
-        <!-- activity for sdk charge end --> 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.oppo.usercenter.opensdk.register.RegisterClauseActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="nosensor"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity
+            android:name="com.oppo.usercenter.opensdk.login.AccountLoginActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="nosensor"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.oppo.usercenter.opensdk_login" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.oppo.usercenter.opensdk.findpsw.AccountFindPswActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="nosensor"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        
+        <activity
+            android:name="com.oppo.usercenter.opensdk.register.OneKeyRegSetPswActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="nosensor"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+
+        <!-- OPEN SDK Register end -->
+
+        <!-- UserCenter SDK Register start -->
+        <receiver
+            android:name="com.oppo.usercenter.sdk.helper.UserCenterOperateReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.oppo.usercenter.account_login" />
+                <action android:name="com.oppo.usercenter.account_logout" />
+                <action android:name="com.oppo.usercenter.modify_name" />
+            </intent-filter>
+        </receiver>
+        <!-- UserCenter SDK Register end -->
+        
         <!-- activity for sdk all end !!! -->
+
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
         <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
         <meta-data android:name="appid" android:value="${APPID}"/>
