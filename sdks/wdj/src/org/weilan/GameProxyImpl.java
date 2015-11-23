@@ -52,6 +52,31 @@ public class GameProxyImpl extends GameProxy {
                 // 如果是coco2d-x 游戏，则保持为空实现即可。实体通过jni调用。
             }
         });
+
+        wandouGamesApi.addWandouAccountListener( new WandouAccountListener() {
+
+            @Override
+            public void onLoginFailed(int arg0, String arg1) {
+                userListerner.onLoginFailed("用户失败", customParams);
+            }
+
+            @Override
+            public void onLoginSuccess() {
+                WandouPlayer info = wandouGamesApi.getCurrentPlayerInfo();
+                long duration = System.currentTimeMillis();
+
+                User u = new User();
+                u.userID = info.getId();
+                u.token = wandouGamesApi.getToken();
+                userListerner.onLoginSuccess(u, customParams);
+            }
+
+            @Override
+            public void onLogoutSuccess() {
+                userListerner.onLogout(null);
+            }
+
+        });
     }
 
     @Override
