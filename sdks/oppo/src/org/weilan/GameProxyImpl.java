@@ -190,6 +190,7 @@ public class GameProxyImpl extends GameProxy {
 
     @Override
     public void openCommunity(Activity activity) {
+        GameCenterSDK.setmCurrentContext(activity);
         GameCenterSDK.getInstance().doShowGameCenter(activity);
     }
 }
