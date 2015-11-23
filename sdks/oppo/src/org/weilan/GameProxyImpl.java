@@ -89,9 +89,17 @@ public class GameProxyImpl extends GameProxy {
 
             @Override
             public void onSuccess(String content, int code) {
-                User u = new User();
-                u.token = GameCenterSDK.getInstance().doGetAccessToken();
-                userListerner.onLoginSuccess(u, customParams);
+                try{
+                    JSONObject tokenObj = new JSONObject(GameCenterSDK.getInstance().doGetAccessToken());
+                    String oauth_token        = tokenObj.optString("oauth_token");
+                    String oauth_token_secret = tokenObj.optString("oauth_token_secret");
+                    String token = "oauth_token=" + oauth_token + "&oauth_token_secret=" + oauth_token_secret;
+                    User u = new User();
+                    u.token = token;
+                    userListerner.onLoginSuccess(u, customParams);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
