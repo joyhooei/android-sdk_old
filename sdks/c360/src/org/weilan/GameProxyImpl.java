@@ -35,6 +35,7 @@ public class GameProxyImpl extends GameProxy {
     private Object loginCustomParams;
     private Object switchCustomParams;
     private PayCallBack payCallBack;
+    private ExitCallback mExitCallback;
 
     @Override
     public void applicationInit(Activity activity) {
@@ -110,15 +111,72 @@ public class GameProxyImpl extends GameProxy {
         Matrix.invokeActivity(activity, intent, mPayCallback);
     }
 
+    /**
+     * * 使用360SDK的论坛接口
+     * *
+     * * @param isLandScape 是否横屏显示支付界面 */
+    protected void doSdkBBS(boolean isLandScape) { Bundle bundle = new Bundle();
+        // 界面相关参数,360SDK 界面是否以横屏显示。
+        bundle.putBoolean(ProtocolKeys.IS_SCREEN_ORIENTATION_LANDSCAPE, isLandScape);
+        // 必需参数,使用360SDK的论坛模块。
+        bundle.putInt(ProtocolKeys.FUNCTION_CODE, ProtocolConfigs.FUNC_CODE_BBS);
+        Intent intent = new Intent(currentActivity, ContainerActivity.class); intent.putExtras(bundle);
+        Matrix.invokeActivity(currentActivity, intent, null);
+        }
+
+    // 退出的回调
+    private IDispatcherCallback mQuitCallback = new IDispatcherCallback() {
+        @Override
+            public void onFinished(String data) {
+                try {
+                    JSONObject ret = new JSONObject(data);
+                    switch ( ret.getIntValue("which", 0) )
+                    {
+                        case 0:
+                            // cancle  donothing
+                            break;
+                        case 1:
+                            // enter furm
+                            {
+                                doSdkBBS(false);
+                                mExitCallback.onExit();
+                            }
+                            break;
+                        case 2:
+                            // exit game
+                            {
+                                mExitCallback.onExit();
+                            }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+    };
+
+
     @Override
     public void exit(Activity activity, ExitCallback callback) {
         Log.v("sdk", "exit");
-        callback.onNo3rdExiterProvide();
+        mExitCallback = callback;
+        currentActivity = activity;
+        //callback.onNo3rdExiterProvide();
+        Bundle bundle = new Bundle();
+        // 界面相关参数,360SDK 界面是否以横屏显示。 
+        bundle.putBoolean(ProtocolKeys.IS_SCREEN_ORIENTATION_LANDSCAPE, false);
+        // 可选参数,登录界面的背景图片路径,必须是本地图片路径 
+        bundle.putString(ProtocolKeys.UI_BACKGROUND_PICTRUE, "");
+        // 必需参数,使用360SDK的退出模块。 
+        bundle.putInt(ProtocolKeys.FUNCTION_CODE, ProtocolConfigs.FUNC_CODE_QUIT);
+        Intent intent = new Intent(activity, ContainerActivity.class); intent.putExtras(bundle);
+        Matrix.invokeActivity(activity, intent, mthiiQuitCallback);
     }
 
     @Override
     public void applicationDestroy(Activity activity) {
         Log.v("sdk", "applicationDestroy");
+        super.applicationDestroy(activity);
+        Matrix.destroy(activity);
     }
 
     @Override
