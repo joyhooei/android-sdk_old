@@ -18,11 +18,9 @@ import android.text.TextUtils;
 
 
 import com.nearme.gamecenter.open.api.ApiCallback;
-import com.nearme.gamecenter.open.api.FixedPayInfo;
 import com.nearme.gamecenter.open.api.GameCenterSDK;
 import com.nearme.gamecenter.open.api.GameCenterSettings;
 import com.nearme.gamecenter.open.api.PayInfo;
-import com.nearme.gamecenter.open.api.RatePayInfo;
 import com.nearme.gamecenter.open.core.util.ImageLoader;
 import com.nearme.gamecenter.open.core.util.Util;
 import com.nearme.oauth.log.LogUtil;
