@@ -18,11 +18,9 @@ import android.text.TextUtils;
 
 
 import com.nearme.gamecenter.open.api.ApiCallback;
-import com.nearme.gamecenter.open.api.FixedPayInfo;
 import com.nearme.gamecenter.open.api.GameCenterSDK;
 import com.nearme.gamecenter.open.api.GameCenterSettings;
 import com.nearme.gamecenter.open.api.PayInfo;
-import com.nearme.gamecenter.open.api.RatePayInfo;
 import com.nearme.gamecenter.open.core.util.ImageLoader;
 import com.nearme.gamecenter.open.core.util.Util;
 import com.nearme.oauth.log.LogUtil;
@@ -37,51 +35,41 @@ public class GameProxyImpl extends GameProxy {
     @Override
     public void applicationInit(Activity activity) {
         Log.v("sdk", "applicationInit");
-		GameCenterSettings gameCenterSettings = new GameCenterSettings(
-				"${APPKEY}", "${APPSECRET}") {
+        GameCenterSettings gameCenterSettings = new GameCenterSettings(
+                "${APPKEY}", "${APPSECRET}") {
 
-			@Override
-			public void onForceReLogin() {
-				// sdk由于某些原因登出,此方法通知cp,cp需要在此处清理当前的登录状态并重新请求登录.
-				// 可以发广播通知页面重新登录
+            @Override
+            public void onForceReLogin() {
+                // sdk由于某些原因登出,此方法通知cp,cp需要在此处清理当前的登录状态并重新请求登录.
+                // 可以发广播通知页面重新登录
                 userListerner.onLogout(null);
-			}
-			
-			@Override 
-			public void onForceUpgradeCancel() {
-				// 游戏自升级，后台有设置为强制升级，用户点击取消时的回调函数。
-				// 若开启强制升级模式 ，  一般要求不更新则强制退出游戏并杀掉进程。
-				// System.exit(0) or kill this process
-			}
-		};
-		// TODO for test old
-//		AccountAgent.useNewApi = true;
-		GameCenterSettings.isDebugModel = false;// 测试log开关
-		GameCenterSettings.isOritationPort = true;// 控制SDK activity的横竖屏 true为竖屏
-		GameCenterSettings.proInnerSwitcher = false;//是否支持游戏内切换账号
-		GameCenterSDK.init(gameCenterSettings, activity);
+            }
+            
+            @Override 
+            public void onForceUpgradeCancel() {
+                // 游戏自升级，后台有设置为强制升级，用户点击取消时的回调函数。
+                // 若开启强制升级模式 ，  一般要求不更新则强制退出游戏并杀掉进程。
+                // System.exit(0) or kill this process
+            }
+        };
+        // TODO for test old
+//        AccountAgent.useNewApi = true;
+        GameCenterSettings.isDebugModel = false;// 测试log开关
+        GameCenterSettings.isOritationPort = true;// 控制SDK activity的横竖屏 true为竖屏
+        GameCenterSettings.proInnerSwitcher = false;//是否支持游戏内切换账号
+        GameCenterSDK.init(gameCenterSettings, activity);
     }
 
-	@Override
-	public void onResume(Activity activity) {
-		super.onResume(activity);
+    @Override
+    public void onResume(Activity activity) {
+        super.onResume(activity);
         GameCenterSDK.setmCurrentContext(activity);
-
-        GameCenterSDK.getInstance().doShowSprite(new ApiCallback() {
-            @Override
-            public void onSuccess(String content, int code) {
-                //makeToast("切换账号成功:" + content + "#" + code);
-            }
-            @Override
-            public void onFailure(String content, int code) {
-                //makeToast("切换账号失败:" + content + "#" + code);
-            }
-        }, activity);//显示浮标
+        GameCenterSDK.getInstance().doShowSprite(activity);//显示浮标
     }
 
-	@Override
-	public void onPause(Activity activity) {
-		super.onPause(activity);
+    @Override
+    public void onPause(Activity activity) {
+        super.onPause(activity);
         GameCenterSDK.getInstance().doDismissSprite(activity);
     }
 
@@ -94,22 +82,32 @@ public class GameProxyImpl extends GameProxy {
     public void login(final Activity activity, final Object customParams) {
         // 调用SDK执行登陆操作
         Log.v("sdk", "login");
+        currentActivity = activity;
+        GameCenterSDK.setmCurrentContext(activity);
 
-		GameCenterSDK.getInstance().doLogin(new ApiCallback() {
+        GameCenterSDK.getInstance().doLogin(new ApiCallback() {
 
-			@Override
-			public void onSuccess(String content, int code) {
-                User u = new User();
-                u.token = GameCenterSDK.getInstance().doGetAccessToken();
-                userListerner.onLoginSuccess(u, customParams);
-			}
+            @Override
+            public void onSuccess(String content, int code) {
+                try{
+                    JSONObject tokenObj = new JSONObject(GameCenterSDK.getInstance().doGetAccessToken());
+                    String oauth_token        = tokenObj.optString("oauth_token");
+                    String oauth_token_secret = tokenObj.optString("oauth_token_secret");
+                    String token = "oauth_token=" + oauth_token + "&oauth_token_secret=" + oauth_token_secret;
+                    User u = new User();
+                    u.token = token;
+                    userListerner.onLoginSuccess(u, customParams);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
 
-			@Override
-			public void onFailure(String content, int code) {
-                Toast.makeText(activity, content, Toast.LENGTH_LONG).show();
+            @Override
+            public void onFailure(String content, int code) {
+                Toast.makeText(currentActivity, content, Toast.LENGTH_LONG).show();
                 userListerner.onLoginFailed(content, customParams);
-			}
-		}, activity);
+            }
+        }, activity);
     }
 
     @Override
@@ -123,18 +121,18 @@ public class GameProxyImpl extends GameProxy {
         switchCustomParams = customParams;
     }
 
-	private ApiCallback kebiPayment = new ApiCallback() {
-		@Override
-		public void onSuccess(String content, int code) {
+    private ApiCallback kebiPayment = new ApiCallback() {
+        @Override
+        public void onSuccess(String content, int code) {
             payCallBack.onSuccess("支付成功");
-		}
+        }
 
-		@Override
-		public void onFailure(String content, int code) {
+        @Override
+        public void onFailure(String content, int code) {
             payCallBack.onFail(content + "," + code);
             Toast.makeText(currentActivity, "消耗可币失败:" + content, Toast.LENGTH_LONG).show();
-		}
-	};
+        }
+    };
 
     @Override
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
@@ -142,12 +140,11 @@ public class GameProxyImpl extends GameProxy {
         currentActivity = activity;
         this.payCallBack = payCallBack;
 
-		final FixedPayInfo payInfo = new FixedPayInfo(orderID, callBackInfo, (int)price * 100);
-		payInfo.setProductDesc(name);
-		payInfo.setProductName("钻石");
-		payInfo.setCallbackUrl("${PAY_URL}");
-		payInfo.setGoodsCount((int)price*10);
-		GameCenterSDK.getInstance().doFixedKebiPayment(kebiPayment, payInfo, activity);
+        final PayInfo payInfo = new PayInfo(orderID, callBackInfo, (int)price * 100);
+        payInfo.setProductDesc(name);
+        payInfo.setProductName(name);
+        payInfo.setCallbackUrl("${PAY_URL}");
+        GameCenterSDK.getInstance().doKebiPay(kebiPayment, payInfo, activity);
     }
 
     @Override
@@ -178,7 +175,7 @@ public class GameProxyImpl extends GameProxy {
             JSONObject src = new JSONObject(ext);
             String extendInfo = new StringBuilder()
                 .append("gameId=").append(((poem)currentActivity).getMetaData("appid"))
-                .append("&service=").append(0)
+                .append("&service=").append(src.getString("serverID"))
                 .append("&role=").append(src.getString("name"))
                 .append("&grade=").append(src.getString("level")).toString();
 
@@ -193,6 +190,7 @@ public class GameProxyImpl extends GameProxy {
 
     @Override
     public void openCommunity(Activity activity) {
-        GameCenterSDK.getInstance().doShowForum(activity);
+        GameCenterSDK.setmCurrentContext(activity);
+        GameCenterSDK.getInstance().doShowGameCenter(activity);
     }
 }

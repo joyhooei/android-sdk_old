@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="${PACKAGE_NAME}"
+      android:installLocation="auto"
+      android:versionCode="${VERSION_CODE}"
+      android:versionName="${VERSION_NAME}">
+
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="18"/>
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.DUMP" />
+
+    <!-- 开始添加Amigo Play SDK 需要的权限,开发者重点关注 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 结束Amigo Play SDK 添加权限 -->
+
+    <application android:name="org.weilan.app"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:debuggable="true">
+
+        <activity android:name="org.weilan.poem"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+
+        <!-- Amigo Play SDK 组件声明开始 -->
+        <service android:name="com.gionee.gsp.floatingwindow.FloatingWindowService" >
+            <intent-filter>
+                <action android:name="com.gionee.pay.ic.FloatingWindowService" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.gionee.gsp.service.activity.AssistActivity"
+            android:configChanges="mcc|mnc|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <!-- Amigo Play SDK 组件声明结束 -->
+    </application>
+    <supports-screens android:largeScreens="true"
+                      android:smallScreens="true"
+                      android:anyDensity="true"
+                      android:normalScreens="true"/>
+</manifest> 

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/nmgc_log_reg_width"
+    android:layout_height="200dp"
+    android:background="@drawable/nmgc_dialog_170"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/nmgc_fast_login_dia_title"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:gravity="center"
+        android:text="@string/nmgc_login_account"
+        android:textColor="#333333"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:id="@+id/nmgc_login_now"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/nmgc_fast_login_dia_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/nmgc_green_btn_selector"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/login_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:text="@string/nmgc_fast_login"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/send_msg_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_now"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/nmgc_need_send_msg"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/handling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:text="@string/nmgc_global_handing"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:id="@+id/progress_root"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@+id/handling" >
+            <ProgressBar 
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateDrawable="@anim/onekey_reg_countdown_animation"/>
+
+            <TextView
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="25"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/list_item_divider" />
+
+    <TextView
+        android:id="@+id/nmgc_login_with_other_account"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:drawableRight="@drawable/login_keke_hint_bar"
+        android:gravity="center"
+        android:paddingRight="20dp"
+        android:text="@string/switch_account_use_other"
+        android:textColor="#333333"
+        android:textSize="15sp" />
+
+</RelativeLayout>
