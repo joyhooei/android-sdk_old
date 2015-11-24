@@ -16,5 +16,6 @@
     <dimen name="vcoin_ticket_state_marginTop2">5dp</dimen>
     <dimen name="vcoin_ticket_state_marginTop3">5dp</dimen>  
     <dimen name="bbk_action_cancel_id_marginRight">10dp</dimen>    
-    <dimen name="bbk_action_paddingLeft">5dip</dimen>              
+    <dimen name="bbk_action_paddingLeft">5dip</dimen>
+    <dimen name="bbk_customor_size">12sp</dimen>              
 </resources>

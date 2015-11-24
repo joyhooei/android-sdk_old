@@ -24,9 +24,12 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 
-import com.vivo.account.base.activity.LoginActivity;
 import com.bbk.payment.PaymentActivity;
 import com.bbk.payment.PaymentActionDetailsInit;
+
+import com.vivo.account.base.accounts.OnVivoAccountChangedListener;
+import com.vivo.account.base.accounts.VivoAccountManager;
+import com.vivo.account.base.activity.LoginActivity;
 
 class ProductInfo {
     public String productName;
@@ -100,8 +103,33 @@ public class GameProxyImpl extends GameProxy {
         };
     };
 
+    /** 登入回调接口 **/
+    OnVivoAccountChangedListener mOnVivoAccountChangedListener = new OnVivoAccountChangedListener() {
+        @Override
+        public void onAccountLogin(String name, String openid, String authtoken) {
+            User u = new User();
+            u.userID = openid;
+            u.token = authtoken;
+            userListerner.onLoginSuccess(u, null);
+
+            new PaymentActionDetailsInit(currentActivity, appid);
+        }
+
+        // 第三方游戏不需要使用此回调
+        @Override
+        public void onAccountRemove(boolean isRemoved) {
+        }
+
+        @Override
+        public void onAccountLoginCancled() {
+            Log.d("TAG", "onAccountLoginCancled");
+        }
+
+    };
+
     public void applicationInit(Activity activity) {
         currentActivity = activity;
+        VivoAccountManager.getInstance(activity).registeListener(mOnVivoAccountChangedListener);
     }
 
     public boolean supportLogin() {
@@ -121,11 +149,14 @@ public class GameProxyImpl extends GameProxy {
     }
 
     public void login(Activity activity, Object customParams) {
+        currentActivity = activity;
         Intent loginIntent = new Intent(activity, LoginActivity.class);
-        activity.startActivityForResult(loginIntent, REQUEST_CODE_LOGIN);
+        //activity.startActivityForResult(loginIntent, REQUEST_CODE_LOGIN);
+        activity.startActivity(loginIntent);
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+        currentActivity = activity;
         this.payCallBack = payCallBack;
 
         DecimalFormat df = new DecimalFormat("0.00");
@@ -242,10 +273,12 @@ public class GameProxyImpl extends GameProxy {
             Bundle extras = data.getBundleExtra("pay_info");
             String res_code = extras.getString("result_code");
             if (res_code.compareTo("9000") == 0) {
-                payCallBack.onSuccess("");
+                if(payCallBack != null)
+                    payCallBack.onSuccess("");
             }
             else {
-                payCallBack.onFail("");
+                if(payCallBack != null)
+                    payCallBack.onFail("");
             }
             //
         }

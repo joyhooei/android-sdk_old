@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_layout"
+    android:layout_width="100dp"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="10dp"
+	android:layout_marginRight="10dp"
+	android:background="@android:color/white"
+	android:paddingLeft="10dip"
+	android:paddingRight="10dip"
+	android:orientation="vertical">
+	<com.vivo.account.base.Utils.EditTextErrorFixed
+	    android:id="@+id/dialog_input"
+	    android:layout_width="match_parent"
+	    android:layout_height="30dp"
+	    android:background="@null"
+	    android:layout_marginTop="5dip"	   
+	    />
+</LinearLayout>

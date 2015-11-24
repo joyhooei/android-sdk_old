@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/account_login_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vivo_activity_background_color"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/account_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vivowindowTitleHeight"
+        android:background="@drawable/vivo_window_title_bar"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/vivo_app_name"
+            android:textColor="@color/vivo_windowTitleColor"
+            android:textSize="@dimen/vivowindowTitleTextSize" />
+
+        <Button
+            android:id="@+id/titleLeftBtn"
+            android:layout_width="40.5dp"
+            android:layout_height="40.5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/vivo_btn_title_back" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/titleLeftBtn"
+            android:background="@drawable/vivo_title_left_line" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/account_num_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vivo_edit_container_height"
+        android:layout_below="@+id/account_title_layout"
+        android:layout_marginTop="@dimen/vivo_first_view_marginTop"
+        android:background="@drawable/vivo_edit_top_round"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/vivo_change_pwd_lable_paddingLeft" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/vivo_label_field_marginLeft"
+                android:layout_marginRight="@dimen/vivo_label_field_marginRight"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/vivo_account_num_label"
+                android:textColor="@color/vivo_text_color_small"
+                android:textSize="@dimen/vivo_text_size_small" />
+        </LinearLayout>
+
+        <com.vivo.account.base.Utils.EditTextErrorFixed
+            android:id="@+id/account_num_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/vivo_account_hint_label"
+            android:inputType="textNoSuggestions"
+            android:paddingLeft="@dimen/vivo_edit_field_paddingLeft"
+            android:paddingRight="@dimen/vivo_edit_field_paddingRight"
+            android:singleLine="true"
+            android:textColor="@color/vivo_text_color_middle"
+            android:textSize="@dimen/vivo_text_size_middle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/account_password_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vivo_edit_container_height"
+        android:layout_below="@+id/account_num_input_layout"
+        android:background="@drawable/vivo_edit_bottom_round"
+        android:paddingLeft="@dimen/vivo_change_pwd_lable_paddingLeft" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/vivo_label_field_marginLeft"
+                android:layout_marginRight="@dimen/vivo_label_field_marginRight"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/vivo_account_password_label"
+                android:textColor="@color/vivo_text_color_small"
+                android:textSize="@dimen/vivo_text_size_small" />
+        </LinearLayout>
+
+        <com.vivo.account.base.Utils.EditTextErrorFixed
+            android:id="@+id/account_password_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:inputType="textNoSuggestions"
+            android:paddingLeft="@dimen/vivo_edit_field_paddingLeft"
+            android:paddingRight="@dimen/vivo_edit_field_paddingRight"
+            android:password="true"
+            android:singleLine="true"
+            android:textColor="@color/vivo_text_color_middle"
+            android:textSize="@dimen/vivo_text_size_middle" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/account_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vivo_green_btn_hight"
+        android:layout_below="@+id/account_password_input_layout"
+        android:layout_marginLeft="@dimen/vivo_green_btn_marginLeft"
+        android:layout_marginRight="@dimen/vivo_green_btn_marginRight"
+        android:layout_marginTop="20dip"
+        android:background="@drawable/vivo_login_btn"
+        android:singleLine="true"
+        android:text="@string/vivo_account_login"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/account_tempLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="35dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/account_login"
+        android:layout_marginRight="@dimen/vivo_green_btn_marginRight"
+        android:background="@null"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/vivo_use_temp_account"
+        android:textColor="@drawable/vivo_register_color_selector"
+        android:textSize="@dimen/vivo_text_size_middle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/account_login"
+        android:layout_marginLeft="@dimen/vivo_green_btn_marginLeft"
+        android:layout_marginRight="@dimen/vivo_green_btn_marginRight"
+        android:layout_marginTop="30dip"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/account_registe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@null"
+            android:gravity="center"
+            android:paddingLeft="2dip"
+            android:paddingRight="16dip"
+            android:singleLine="true"
+            android:text="@string/vivo_account_registe"
+            android:textColor="@drawable/vivo_register_color_selector"
+            android:textSize="@dimen/vivo_text_size_middle" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/vivo_register_findpwd_separater" />
+
+        <TextView
+            android:id="@+id/account_findpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:gravity="center"
+            android:paddingLeft="16dip"
+            android:paddingRight="2dip"
+            android:singleLine="true"
+            android:text="@string/vivo_account_findpassword"
+            android:textColor="@drawable/vivo_register_color_selector"
+            android:textSize="@dimen/vivo_text_size_middle" />
+    </LinearLayout>
+
+</RelativeLayout>

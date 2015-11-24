@@ -283,8 +283,15 @@ class RuleVivo(RuleBase):
     SDKTYPE = '42'
     PACKAGE_NAME = 'com.winnergame.pokemon.vivo'
 
-    APPID = "a639b48b57908dfc423d89b2271217b4"
-    CREATE_ORDER_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/wanka/create_order'
+    APPID = "829b98597d987dd831b7f36d92d8fd04"
+    CREATE_ORDER_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/vivo/create_order'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleVivo, cls).rules() + [
+            ('src/org/weilan/wxapi/WXPayEntryActivity.java', 'replace', cls.common_replaces()),
+        ]
+
 
 
 @register
