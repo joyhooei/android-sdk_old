@@ -197,9 +197,27 @@ public class GameProxyImpl extends GameProxy{
                 // 获取amigoToken
                 String amigoToken = accountInfo.mToken;
 
+                //"{access_token=\'"+amigoToken+"\',auth_code=\"\",token_secret=\"\"}";
+                /*
+                String tokenStr = "";
+                try {
+                    JSONObject t   = new JSONObject(amigoToken);
+                    JSONObject ret = new JSONObject();
+                    ret.put("access_token",t);
+                    ret.put("auth_code","");
+                    ret.put("token_secret","");
+
+                    tokenStr = ret.toString();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                */
+
                 User usr = new User();
                 usr.userID = playerId;
                 usr.token  = amigoToken;
+                //usr.token  = tokenStr;
 
                 userListerner.onLoginSuccess(usr, mCustomParams);
             }
@@ -250,8 +268,8 @@ public class GameProxyImpl extends GameProxy{
                     "application/x-www-form-urlencoded");
             connection.setDoOutput(true);// 是否输入参数
             StringBuffer params = new StringBuffer();
-            //params.append("&returnJson=");
-            //params.append(enCode("{\"channel\": \"vivo\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
+            params.append("&returnJson=");
+            params.append(enCode("{\"channel\": \"Gionee\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
             params.append("&productName=");
             params.append(enCode(productInfo.productName));
             params.append("&description=");

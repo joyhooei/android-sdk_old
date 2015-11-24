@@ -52,6 +52,19 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name="org.weilan.PushReceiver" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="org.weilan.PushService"
+            android:enabled="true"
+            />
+
         <activity
             android:name="com.wandoujia.mariosdk.plugin.apk.activity.MarioAccountActivity"
             android:configChanges="orientation|keyboardHidden"
