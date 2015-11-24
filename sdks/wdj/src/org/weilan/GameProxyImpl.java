@@ -31,9 +31,11 @@ import com.wandoujia.mariosdk.plugin.api.model.model.LogoutFinishType;
 import com.wandoujia.mariosdk.plugin.api.model.model.UnverifiedPlayer;
 import com.wandoujia.mariosdk.plugin.api.model.model.WandouPlayer;
 import com.wandoujia.mariosdk.plugin.api.model.model.result.UserInfoSettingResult;
+import com.wandoujia.mariosdk.plugin.api.model.callback.WandouAccountListener;
 
 public class GameProxyImpl extends GameProxy {
     private WandouGamesApi wandouGamesApi;
+    private Object mCustomParams = null;
 
     @Override
     public void applicationInit(Activity activity) {
@@ -52,13 +54,43 @@ public class GameProxyImpl extends GameProxy {
                 // 如果是coco2d-x 游戏，则保持为空实现即可。实体通过jni调用。
             }
         });
+
+        wandouGamesApi.addWandouAccountListener( new WandouAccountListener() {
+
+            @Override
+            public void onLoginFailed(int arg0, String arg1) {
+                userListerner.onLoginFailed("用户失败", mCustomParams);
+            }
+
+            @Override
+            public void onLoginSuccess() {
+                /*
+                if ( mCustomParams == null )
+                    return;
+
+                WandouPlayer info = wandouGamesApi.getCurrentPlayerInfo();
+                long duration = System.currentTimeMillis();
+
+                User u = new User();
+                u.userID = info.getId();
+                u.token = wandouGamesApi.getToken(duration);
+                userListerner.onLoginSuccess(u, mCustomParams);
+                */
+            }
+
+            @Override
+            public void onLogoutSuccess() {
+                userListerner.onLogout(null);
+            }
+
+        });
     }
 
     @Override
     public void login(Activity activity, final Object customParams) {
         // 调用SDK执行登陆操作
         Log.v("sdk", "login");
-
+        mCustomParams = customParams;
         wandouGamesApi.login(new OnLoginFinishedListener() {
             @Override
             public void onLoginFinished(LoginFinishType loginFinishType, UnverifiedPlayer unverifiedPlayer) {
@@ -78,6 +110,7 @@ public class GameProxyImpl extends GameProxy {
     @Override
     public void logout(Activity activity, final Object customParams) {
         Log.v("sdk", "logout");
+        //mCustomParams = customParams;
         wandouGamesApi.logout(new OnLogoutFinishedListener() {
             @Override
             public void onLoginFinished(LogoutFinishType logoutFinishType) {
@@ -88,6 +121,7 @@ public class GameProxyImpl extends GameProxy {
 
     @Override
     public void switchAccount(Activity activity, Object customParams) {
+        //mCustomParams = customParams;
     }
 
     @Override

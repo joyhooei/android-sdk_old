@@ -90,8 +90,8 @@ class RuleWDJ(RuleBase):
     SDKTYPE = '22'
     PACKAGE_NAME = 'com.winnergame.pokemon.wdj'
 
-    APPKEY = '100028689'
-    SECURITY_KEY = 'c5e52cb17c35df8d4b9fb83e9d909c0e'
+    APPKEY = '100034487'
+    SECURITY_KEY = 'e41c62ee82d9777bff71cabe0b1eb7a7'
 
     @classmethod
     def rules(cls):
