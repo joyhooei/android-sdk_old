@@ -482,7 +482,7 @@ class RuleAmigo(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.am'
 
     APP_KEY    = '11B5BA6537274E798CEED85864AC63CF'
-    ORDER_URL  = ''
+    ORDER_URL  = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/gionee/create_order'
 
     @classmethod
     def rules(cls):

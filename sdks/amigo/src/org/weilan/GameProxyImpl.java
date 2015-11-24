@@ -1,6 +1,7 @@
 package org.weilan;
 
 import java.util.UUID;
+import java.text.DecimalFormat;
 import org.json.JSONObject;
 import org.json.JSONException;
 
@@ -28,6 +29,27 @@ import com.gionee.gamesdk.GamePayer;
 import com.gionee.gamesdk.GamePlatform;
 import com.gionee.gamesdk.GamePlatform.LoginListener;
 
+class ProductInfo {
+    public String productName;
+    public String productDesc;
+    public String price;
+    public String userName;
+    public String goodsID;
+    public String orderID;
+    public String callBackInfo;
+
+    public ProductInfo(String productName, String productDesc, String price, String userName, String goodsID, String orderID, String callBackInfo) {
+        this.productName = productName;
+        this.productDesc = productDesc;
+        this.price = price;
+        this.userName = userName;
+        this.goodsID = goodsID;
+        this.orderID = orderID;
+        this.callBackInfo = callBackInfo;
+    }
+}
+
+
 public class GameProxyImpl extends GameProxy{
     private Object mCustomParams;
 
@@ -43,6 +65,8 @@ public class GameProxyImpl extends GameProxy{
 
     private String mOrderInfo;
 
+    private ProductInfo productInfo;
+
     private Handler mHandler = new Handler()
     {
         public void handleMessage( android.os.Message msg )
@@ -51,7 +75,9 @@ public class GameProxyImpl extends GameProxy{
             {
                 try {
                     JSONObject jOrder = new JSONObject(mOrderInfo);
-                    onSdkPay("", "");
+                    String order_id    = jOrder.optString("order_id");
+                    String submit_time = jOrder.optString("submit_time");
+                    onSdkPay(order_id, submit_time);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -131,12 +157,18 @@ public class GameProxyImpl extends GameProxy{
          *  raw_username = g_sdk_username,
          *}
          */
+        mPayCallback = payCallBack;
+
+        DecimalFormat df = new DecimalFormat("0.00");
+        productInfo = new ProductInfo(name, "钻石", df.format(price),
+                "", ID, orderID, callBackInfo);
+
         new Thread(new Runnable()
             {
                 @Override
                 public void run( )
                 {
-                    getOrderInfo();
+                    getOrderInfo( productInfo );
                 }
             }).start();
     }
@@ -188,6 +220,7 @@ public class GameProxyImpl extends GameProxy{
     private void onSdkPay(String outOrderNum, String submitTime)
     {
         try {
+            Log.d("cocos2d", "outOrderNum = " + outOrderNum + ",submitTime = " + submitTime);
             //创建订单信息
             OrderInfo orderInfo = new OrderInfo();
             //开发者后台申请的Apikey
@@ -205,7 +238,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     /** 支付前去服务端创建订单 */
-    private void getOrderInfo( )
+    private void getOrderInfo(ProductInfo productInfo)
     {
         try
         {
@@ -217,9 +250,8 @@ public class GameProxyImpl extends GameProxy{
                     "application/x-www-form-urlencoded");
             connection.setDoOutput(true);// 是否输入参数
             StringBuffer params = new StringBuffer();
-            /*
-            params.append("&returnJson=");
-            params.append(enCode("{\"channel\": \"vivo\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
+            //params.append("&returnJson=");
+            //params.append(enCode("{\"channel\": \"vivo\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
             params.append("&productName=");
             params.append(enCode(productInfo.productName));
             params.append("&description=");
@@ -231,7 +263,6 @@ public class GameProxyImpl extends GameProxy{
             params.append("&cpPrivateInfo=");
             params.append(enCode(productInfo.callBackInfo));
             Log.d("MyView", "getOrderInfo: " + params.toString());
-            */
             byte[] bytes = params.toString().getBytes();
             connection.connect();
             connection.getOutputStream().write(bytes);
