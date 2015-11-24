@@ -80,11 +80,15 @@ if __name__ == '__main__':
 
     if options.copyicons_path:
         os.environ['ICON_DIRECTORY'] = options.copyicons_path
-    elif os.environ['CLIENT_DIRECTORY']:
-        os.environ['ICON_DIRECTORY'] = os.path.join(os.environ['CLIENT_DIRECTORY'], '../win32_client/icon/android')
+    else :
+        c_dir = os.environ.get("CLIENT_DIRECTORY", "")
+        if c_dir != "" :
+            os.environ['ICON_DIRECTORY'] = os.path.join(c_dir, '../win32_client/icon/android')
 
-    if not os.path.isabs(os.environ['ICON_DIRECTORY']):
-        os.environ['ICON_DIRECTORY'] = os.path.abspath(os.environ['ICON_DIRECTORY'])
+    i_dir = os.environ.get("ICON_DIRECTORY", "")
+    if i_dir != "" :
+        if not os.path.isabs(i_dir):
+            os.environ['ICON_DIRECTORY'] = os.path.abspath(i_dir)
 
     if options.list:
         for rule in all_rules.values():
