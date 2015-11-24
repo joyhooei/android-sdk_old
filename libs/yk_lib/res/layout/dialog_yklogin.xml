@@ -203,7 +203,7 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
         <TextView
@@ -211,8 +211,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/YK_GameSDK_40PX"
-            android:layout_marginLeft="@dimen/YK_GameSDK_360PX"
             android:layout_marginTop="@dimen/YK_GameSDK_32PX"
+			android:layout_marginLeft="@dimen/YK_GameSDK_400PX"            
             android:text="@string/yk_text_a_wjmm"
             android:textColor="@drawable/yk_tv_hink_find_pwd_selector"
             android:textSize="@dimen/YK_GameSDK_32PX" />

@@ -107,6 +107,8 @@
             android:paddingLeft="@dimen/YK_GameSDK_10PX"
             android:paddingTop="@dimen/YK_GameSDK_26PX"
             android:singleLine="true"
+            android:textColor="@color/yk_color_pay_vip_text2"
+            android:textCursorDrawable="@drawable/yk_dialog_yt_cursor"
             android:textColorHint="@color/yk_edit_text_hint"
             android:textSize="@dimen/YK_GameSDK_26PX" />
 
@@ -123,6 +125,8 @@
             android:paddingLeft="@dimen/YK_GameSDK_10PX"
             android:paddingTop="@dimen/YK_GameSDK_26PX"
             android:singleLine="true"
+            android:textColor="@color/yk_color_pay_vip_text2"
+            android:textCursorDrawable="@drawable/yk_dialog_yt_cursor"
             android:textColorHint="@color/yk_edit_text_hint"
             android:textSize="@dimen/YK_GameSDK_26PX" />
 

@@ -53,7 +53,7 @@
     	android:layout_marginTop="@dimen/YK_GameSDK_32PX"
         android:text="@string/yk_text_notice"
         android:textColor="@color/yk_edit_text_hint"
-        android:textSize="@dimen/YK_GameSDK_30PX"
+        android:textSize="@dimen/YK_GameSDK_24PX"
          />
     
     
@@ -75,7 +75,7 @@
             android:gravity="center_vertical"
             android:text="@string/yk_text_nykyy"
             android:textColor="@color/yk_edit_text_hint"
-            android:textSize="@dimen/YK_GameSDK_30PX" />
+            android:textSize="@dimen/YK_GameSDK_24PX" />
 
         <TextView
             android:id="@+id/tv_reg_name"
@@ -87,7 +87,7 @@
             android:gravity="center_vertical"
             android:text="@string/yk_text_a_yhmzc"
             android:textColor="#22b8ff"
-            android:textSize="@dimen/YK_GameSDK_30PX" />
+            android:textSize="@dimen/YK_GameSDK_24PX" />
     </RelativeLayout>
     
     <LinearLayout
@@ -106,12 +106,12 @@
         <Button
             android:id="@+id/btn_other_login"
             android:layout_width="fill_parent"
-            android:layout_height="@dimen/YK_GameSDK_130PX"
+            android:layout_height="@dimen/YK_GameSDK_110PX"
             android:background="@drawable/yk_btn_white_selector"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/yk_text_btn_yk_user_login"
-            android:textColor="@color/yk_text_gray"
-            android:textSize="@dimen/YK_GameSDK_32PX" />
+            android:textColor="@color/yk_button_text"
+            android:textSize="@dimen/YK_GameSDK_26PX" />
     </LinearLayout>
 
 </LinearLayout>

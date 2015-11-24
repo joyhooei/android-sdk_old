@@ -77,7 +77,7 @@
         <Button
             android:id="@+id/btn_other_login"
             android:layout_width="fill_parent"
-            android:layout_height="@dimen/YK_GameSDK_130PX"
+            android:layout_height="@dimen/YK_GameSDK_110PX"
             android:background="@drawable/yk_btn_white_selector"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/yk_text_btn_yk_user_login"

@@ -489,3 +489,28 @@ class RuleAmigo(RuleBase):
         return super(RuleAmigo, cls).rules() + [
             ('src/org/weilan/SdkConfig.java', 'replace', cls.common_replaces()),
         ]
+
+@register
+class RuleYouku(RuleBase):
+    LABEL = 'youku'
+    DIRECTORY = 'youku'
+    CH_NAME = '优酷小包'
+    SDKTYPE = '33'
+    PACKAGE_NAME = 'com.winnergame.pokemon.youku'
+
+    APPID      = '2285'
+    APPKEY     = '7f293b5b56e3f737'
+    APPSECRET  = '42de96b7b26686decac50e75409c6d31'
+    YOUKU_VERSION_CODE = ''
+
+    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/youku/pay_callback'
+
+    @classmethod
+    def rules(cls):
+        codeNum = int(RuleBase.VERSION_CODE)
+        cls.YOUKU_VERSION_CODE = str(codeNum/10000) + str(codeNum%100)
+        print 'YOUKU_VERSION_CODE = ' + cls.YOUKU_VERSION_CODE
+        return super(RuleYouku, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
+

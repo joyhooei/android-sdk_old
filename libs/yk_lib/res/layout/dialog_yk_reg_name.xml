@@ -33,7 +33,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/yk_text_hint_user_name"
-                android:tag="user#11" />
+                android:tag="user_special#20" />
 
             <Button
                 android:id="@+id/button_clear"
@@ -58,7 +58,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@string/yk_text_hint_csmm_reg"
-            android:tag="password#10" />
+            android:tag="password_visible#16" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -75,7 +75,7 @@
             android:gravity="right"
             android:text="@string/yk_text_a_zcxy"
             android:textColor="@drawable/yk_tv_hink_protocol_selector"
-            android:textSize="@dimen/YK_GameSDK_26PX" />
+            android:textSize="@dimen/YK_GameSDK_18PX" />
  <!-- yk_text_a_zcxy -->
 
     </RelativeLayout>
@@ -83,7 +83,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/YK_GameSDK_50PX"
+        android:layout_marginBottom="@dimen/YK_GameSDK_20PX"
         android:layout_marginLeft="@dimen/YK_GameSDK_36PX"
         android:layout_marginRight="@dimen/YK_GameSDK_36PX"
         android:layout_marginTop="@dimen/YK_GameSDK_32PX"
@@ -98,7 +98,30 @@
             android:background="@drawable/yk_btn_blue_selector"
             android:text="@string/yk_text_btn_ljzc"
             android:textColor="@color/yk_btn_text_white"
-            android:textSize="@dimen/YK_GameSDK_32PX" />
+            android:textSize="@dimen/YK_GameSDK_30PX" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/yk_title_line" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yk_ykbgColor"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_other_login"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/YK_GameSDK_110PX"
+            android:background="@drawable/yk_btn_white_selector"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/yk_text_btn_yk_user_login"
+            android:textColor="@color/yk_button_text"
+            android:textSize="@dimen/YK_GameSDK_26PX" />
     </LinearLayout>
 
 </LinearLayout>

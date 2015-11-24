@@ -64,21 +64,70 @@
             </RelativeLayout>
 
             <ImageView
-                android:id="@+id/yk_float_change_account_img"
+                android:id="@+id/yk_float_record_img"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingLeft="@dimen/YK_GameSDK_18PX"
+                android:paddingLeft="@dimen/YK_GameSDK_7PX"
                 android:paddingRight="@dimen/YK_GameSDK_18PX"
-                android:src="@drawable/yk_float_change_account"
-                android:visibility="gone"  />
+                android:src="@drawable/yk_float_record"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/yk_float_forum_img"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/YK_GameSDK_7PX"
+                android:paddingRight="@dimen/YK_GameSDK_18PX"
+                android:src="@drawable/yk_float_forum"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/yk_float_msg_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/YK_GameSDK_7PX"
+                android:paddingRight="@dimen/YK_GameSDK_14PX" >
+
+                <ImageView
+                    android:id="@+id/yk_float_msg_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/yk_float_msg" />
+
+                <ImageView
+                    android:id="@+id/yk_float_msg_pot_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/yk_float_msg_img"
+                    android:src="@drawable/yk_float_pot"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/yk_float_more_img"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/YK_GameSDK_7PX"
+                android:paddingRight="@dimen/YK_GameSDK_18PX"
+                android:src="@drawable/yk_float_more" />
 
             <ImageView
                 android:id="@+id/yk_float_hide_img"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingLeft="@dimen/YK_GameSDK_18PX"
+                android:paddingLeft="@dimen/YK_GameSDK_7PX"
                 android:paddingRight="@dimen/YK_GameSDK_18PX"
-                android:src="@drawable/yk_float_hide"/>
+                android:src="@drawable/yk_float_hide" />
+            
+            <ImageView
+                android:id="@+id/yk_float_change_account_img"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/YK_GameSDK_7PX"
+                android:paddingRight="@dimen/YK_GameSDK_18PX"
+                android:src="@drawable/yk_float_change_account_two"
+                android:visibility="gone"  />
         </LinearLayout>
     </LinearLayout>
 

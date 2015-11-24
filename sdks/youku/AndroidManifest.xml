@@ -5,32 +5,44 @@
       android:versionCode="${YOUKU_VERSION_CODE}"
       android:versionName="${VERSION_NAME}">
 
-    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
+      <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.DUMP" />
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+      <uses-permission android:name="android.permission.WAKE_LOCK" />
+      <uses-permission android:name="android.permission.READ_LOGS" />
+      <uses-permission android:name="android.permission.DUMP" />
+      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.READ_SETTINGS" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+      <uses-permission android:name="android.permission.INTERNET"/>
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+      <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+      <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+      <uses-permission android:name="android.permission.READ_SETTINGS" />
+      <uses-permission android:name="android.permission.GET_TASKS" />
+      <uses-permission android:name="android.permission.READ_LOGS" />
+      <uses-permission android:name="android.permission.SEND_SMS"/>
+      <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+      <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+      <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+      <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+      <uses-permission android:name="android.permission.READ_SMS"/>
+      <uses-permission android:name="android.permission.WRITE_SMS"/>
+      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- push sdk 所需权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.WRITE_SMS"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+
 
     <application android:name="org.weilan.app"
         android:label="@string/app_name"
@@ -38,21 +50,55 @@
         android:debuggable="true">
 
         <activity android:name="org.weilan.poem"
-                  android:label="@string/app_name"
-                  android:screenOrientation="portrait"
-                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-                  android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
-                  >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:configChanges="fontScale|orientation|keyboardHidden|locale|navigation|screenSize|uiMode"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <receiver android:name="org.weilan.PushReceiver" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="org.weilan.PushService"
+            android:enabled="true"
+            />
+
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
         <meta-data android:name="YYVersionCode" android:value="${VERSION_CODE}"/>
 
-        <!--以下为声明必须的Activity/Service,不可擅自更改(尤其是支付宝横竖屏设置)-->
+        <!--添加优酷SDK 必需的 meta-data:YKGAME_APPID。 Value为申请的APPID-->
+        <meta-data
+            android:name="YKGAME_APPID"
+            android:value="${APPID}" >
+        </meta-data>
+        <!--添加优酷SDK 必需的 meta-data:YKGAME_APPNAME,Value为游戏名称.可以为中文-->
+        <meta-data
+            android:name="YKGAME_APPNAME"
+            android:value="${APPNAME}" >
+        </meta-data>
+        <!--添加优酷SDK 必需的 meta-data:YKGAME_APPKEY。 Value为申请的APPKEY-->
+        <meta-data
+            android:name="YKGAME_APPKEY"
+            android:value="${APPKEY}" >
+        </meta-data>
+        <!--添加优酷SDK 必需的 meta-data:YKGAME_PRIVATEKEY。 Value为申请的—APPSECRET-->
+        <meta-data
+            android:name="YKGAME_PRIVATEKEY"
+            android:value="${APPSECRET}" >
+        </meta-data>
+
+        <!--以下为声明必须的Activity/Service，不可擅自更改（尤其是支付宝横竖屏设置）-->
         <activity
             android:name="com.alipay.android.mini.window.sdk.MiniPayActivity"
             android:configChanges="orientation"
@@ -82,15 +128,41 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity  android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"/>
         <activity android:name="com.youku.gamesdk.widget.WebViewActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Black"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.youku.gamesdk.operatorpay.CTResultActivity"
-            android:theme="@android:style/Theme.Translucent"/>
-        <activity android:name="com.estore.ui.CTEStoreSDKActivity"
+            android:theme="@android:style/Theme.Black"/>
+        <activity android:name="com.youku.gamesdk.widget.WebViewFullscreenActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.youku.gamesdk.widget.WebViewVipActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.youku.gamesdk.widget.YKRebateActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.youku.gamesdk.activity.YKActivityApplication"/>
+        <activity android:name="com.youku.gamesdk.activity.YKInitActivity" android:excludeFromRecents="true" android:launchMode="singleTop"  android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.youku.gamesdk.activity.YKRelayActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.youku.gamesdk.operatorpay.CTResultActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.estore.ui.CTEStoreSDKActivity" 
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent"/>
+        <activity
+            android:name="com.unicom.woopenchannelsmspayment.UnicomWoOpenPaymentMainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" >
+        </activity>
+        <activity
+            android:name="com.unicom.woopenchannelsmspayment.UnicomSMSSuccessActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.unicom.woopenchannelsmspayment.UnicomSMSFaildActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <meta-data
+            android:name="CHINA_UNICOM_MOBILE_CHANNEL"
+            android:value="23" />
         <service android:name="com.youku.gamesdk.update.DownloadService"/>
         <service android:name="com.z.beans.android.common.MdoSmsService"/>
         <service android:name="com.alipay.android.app.MspService"
@@ -98,35 +170,67 @@
             android:exported="false" >
             <intent-filter android:priority="800" />
         </service>
-        <service android:name="com.youku.gamesdk.memfloat.FloatService"
-            android:enabled="true"
-            android:exported="true" >
+        <service android:name="com.youku.gamesdk.memfloat.FloatService" android:enabled="true"
+            android:exported="false" >
         </service>
         <receiver android:name="com.zb.feecharge.processline.sms.SmsReceiver" >
             <intent-filter android:priority="2147483647" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-        <!--添加优酷SDK 必需的 meta-data:YKGAME_APPID。 Value为申请的APPID-->
+        <receiver 
+            android:name="net.sourceforge.simcpux.AppRegister">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.youku.gamesdk.memfloat.YKSDKPushRelayReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.youku.sdk.start.pushrelay" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.youku.gamesdk.memfloat.YKSDKPushRelayService"
+            android:exported="true"
+            android:process="com.sdk.YKPushRelayService" >
+            <intent-filter>
+                <action android:name="com.youku.pushsdk.pushservice.START_PUSH_SERVICE" />
+            </intent-filter>
+        </service>
+
+        <!-- 以下为声明为 push 部分-->
+        <receiver android:name="com.youku.gamesdk.act.MsgReceiver" >
+            <intent-filter>
+                <action android:name="com.youku.android.pushsdk.action.MESSAGE" />
+            </intent-filter>
+        </receiver>
         <meta-data
-            android:name="YKGAME_APPID"
-            android:value="${APPID}" >
-        </meta-data>
-        <!--添加优酷SDK 必需的 meta-data:YKGAME_APPNAME,Value为游戏名称.可以为中文-->
-        <meta-data
-            android:name="YKGAME_APPNAME"
-            android:value="${APPNAME}" >
-        </meta-data>
-        <!--添加优酷SDK 必需的 meta-data:YKGAME_APPKEY。 Value为申请的APPKEY-->
-        <meta-data
-            android:name="YKGAME_APPKEY"
-            android:value="${APPKEY}" >
-        </meta-data>
-        <!--添加优酷SDK 必需的 meta-data:YKGAME_PRIVATEKEY。 Value为申请的—APPSECRET-->
-        <meta-data
-            android:name="YKGAME_PRIVATEKEY"
-            android:value="${APPSECRET}" >
-        </meta-data>
+            android:name="app_type"
+            android:value="16" />
+        <service
+            android:name="com.youku.pushsdk.service.PushService"
+            android:exported="true"
+            android:process="com.push.Youku_PushService" >
+            <intent-filter>
+                <action android:name="com.youku.pushsdk.pushservice.START_PUSH_SERVICE" />
+            </intent-filter>
+        </service>
+        <receiver android:name="com.youku.pushsdk.receiver.YoukuMyPushServiceReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.youku.pushsdk.receiver.YoukuAppActionReceiver" >
+            <intent-filter>
+                <action android:name="com.youku.pushsdk.pushservice.ALARM_TICK" />
+                <action android:name="com.youku.pushsdk.pushservice.ALARM_DATA_COLLECT" />
+            </intent-filter>
+        </receiver>
+
     </application>
     <supports-screens android:largeScreens="true"
         android:smallScreens="true"

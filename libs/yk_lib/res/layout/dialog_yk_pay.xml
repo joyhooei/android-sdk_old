@@ -95,6 +95,44 @@
                             android:layout_height="@dimen/YK_GameSDK_75PX"
                             android:background="@drawable/yk_pay_logo_alipay" />
                     </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/yk_pay_select_wxpay_bt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/YK_GameSDK_14PX" >
+
+                        <ImageView
+                            android:id="@+id/yk_pay_wxpay_arrow_img"
+                            android:layout_width="@dimen/YK_GameSDK_150PX"
+                            android:layout_height="@dimen/YK_GameSDK_75PX"
+                            android:background="@drawable/yk_pay_arrow_blue" />
+
+                        <ImageView
+                            android:id="@+id/yk_pay_wxpay_logo_img"
+                            android:layout_width="@dimen/YK_GameSDK_150PX"
+                            android:layout_height="@dimen/YK_GameSDK_75PX"
+                            android:background="@drawable/yk_pay_logo_wxpay" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/yk_pay_select_yk_wxpay_bt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/YK_GameSDK_14PX" >
+
+                        <ImageView
+                            android:id="@+id/yk_pay_yk_wxpay_arrow_img"
+                            android:layout_width="@dimen/YK_GameSDK_150PX"
+                            android:layout_height="@dimen/YK_GameSDK_75PX"
+                            android:background="@drawable/yk_pay_arrow_blue" />
+
+                        <ImageView
+                            android:id="@+id/yk_pay_yk_wxpay_logo_img"
+                            android:layout_width="@dimen/YK_GameSDK_150PX"
+                            android:layout_height="@dimen/YK_GameSDK_75PX"
+                            android:background="@drawable/yk_pay_logo_wxpay" />
+                    </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/yk_pay_select_operator_bt"

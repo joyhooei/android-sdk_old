@@ -61,7 +61,7 @@
             android:layout_marginTop="@dimen/YK_GameSDK_36PX"
             android:layout_weight="1.6"
             android:contentDescription="@string/yk_text_hint_new_pwd"
-            android:tag="password#16" />
+            android:tag="password_visible#16" />
     </LinearLayout>
 
     <LinearLayout
