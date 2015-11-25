@@ -33,6 +33,8 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     private static String appid = "${APPID}";
     private Activity currentActivity;
     private PayCallBack payCallBack;
+    private boolean inited = false;
+    private Object mCustomParam;
 
     public boolean supportLogin() {
         return true;
@@ -48,18 +50,18 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
 
     public void applicationInit(Activity activity) {
         currentActivity = activity;
-        if (!HMPay.init(activity, false, appid, this,
-                    false, HMPay.CHECKUPDATE_FAILED_SHOW_CANCLEANDSURE)) {
-                Toast.makeText(activity, "初始化失败，参数不正确",
-                        Toast.LENGTH_SHORT).show();
-                return;
-            }
+        if (!HMPay.init(activity, false, appid, this, false, HMPay.CHECKUPDATE_FAILED_SHOW_CANCLEANDSURE)) {
+            Toast.makeText(activity, "初始化失败，参数不正确", Toast.LENGTH_SHORT).show();
+            inited = true;
+            return;
+        }
     }
 
     @Override
     public void onResume(Activity activity) {
         super.onResume(activity);
-        HMPay.onResume(activity);
+        if(inited)
+            HMPay.onResume(activity);
     }
 
     @Override
@@ -74,11 +76,20 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     @Override
     public void onPause(Activity activity) {
         super.onPause(activity);
-        HMPay.onPause();
+        if(inited)
+            HMPay.onPause();
     }
 
     public void login(Activity activity,Object customParams) {
+        mCustomParam = customParams;
         HMPay.login(activity, this);
+    }
+
+    public void logout(Activity activity,Object customParams) {
+        // 登出，customParams透传给回调
+        if(HMPay.isLogined() && HMPay.logout()){
+            userListerner.onLogOut(customParams);
+        }
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
@@ -102,7 +113,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
         User u = new User();
         u.userID = arg0.getUid();
         u.token = arg0.getLoginToken();
-        userListerner.onLoginSuccess(u, null);
+        userListerner.onLoginSuccess(u, mCustomParam);
     }
 
     @Override
