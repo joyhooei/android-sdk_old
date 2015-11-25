@@ -22,12 +22,16 @@
         android:layout_toRightOf="@id/dk_cashcoupon_platform_type_iv"
         android:orientation="vertical" >
 
-        <TextView
+        <com.duoku.platform.view.common.DKMarqueeTextView
             android:id="@+id/dk_cashcoupon_platform_type_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dk_cashcoupon_platform_text"
             android:textColor="@color/dk_color_b06b05"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:textSize="@dimen/text_size_16_sp" />
 
         <TextView

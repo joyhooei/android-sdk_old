@@ -621,6 +621,7 @@
             android:layout_marginTop="4dp"
             android:background="@drawable/dk_ll_prize_up"
             android:gravity="center"
+            android:visibility="gone"
             android:orientation="horizontal" >
 
             <RelativeLayout

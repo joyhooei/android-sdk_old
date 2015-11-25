@@ -59,8 +59,8 @@ class RuleBaidu(RuleBase):
     SDKTYPE = '17'
     PACKAGE_NAME = 'com.winnergame.pokemon.baidu'
 
-    APPID = '6315322'
-    APPKEY = 'wLezE8VtTkO6rVkapuWCyxyP'
+    APPID = '7187701'
+    APPKEY = 'cmDV5PRTiFk4lrlydnsw3Dew'
 
 
 @register
