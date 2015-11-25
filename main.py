@@ -83,7 +83,7 @@ if __name__ == '__main__':
     else :
         c_dir = os.environ.get("CLIENT_DIRECTORY", "")
         if c_dir != "" :
-            os.environ['ICON_DIRECTORY'] = os.path.join(c_dir, '../win32_client/icon/android')
+            os.environ['ICON_DIRECTORY'] = os.path.join(c_dir, '../pokemon_icons/android')
 
     i_dir = os.environ.get("ICON_DIRECTORY", "")
     if i_dir != "" :
