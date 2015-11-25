@@ -373,10 +373,10 @@ class RuleHaima(RuleBase):
     DIRECTORY = 'haima'
     CH_NAME = '海马小包'
     SDKTYPE = '44'
-    PACKAGE_NAME = 'com.winnergame.pokemon.haima'
+    PACKAGE_NAME = 'com.winnergame.pokemon.ad.hm'
 
-    APPID = '926c5d4a97c87328795f416516fe1cda'
-    APPKEY = '1b6c4530e2c8553f17cadb0a96cc0582'
+    APPID = '07958c0f992df0d72e71dfdeaf06d72f'
+    APPKEY = '57093e2be9da90b6f7c158a239aa9ad8'
     HM_GAME_CHANNEL = ''
 
     @classmethod
