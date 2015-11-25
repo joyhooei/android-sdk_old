@@ -15,10 +15,10 @@
 -->
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="false" android:color="#80343434"/>
-    <item android:state_window_focused="false" android:color="#ff343434"/>
-    <item android:state_pressed="true" android:color="#80343434"/>
-    <item android:state_selected="true" android:color="#80343434"/>
-    <item android:state_focused="true" android:color="#80343434"/>
-    <item android:color="#ff343434"/>
+   <item android:state_enabled="false" android:color="#8000aeff"/>
+    <item android:state_window_focused="false" android:color="#ff00aeff"/>
+    <item android:state_pressed="true" android:color="#8000aeff"/>
+    <item android:state_selected="true" android:color="#8000aeff"/>
+    <item android:state_focused="true" android:color="#8000aeff"/>
+    <item android:color="#ff00aeff"/>
 </selector>

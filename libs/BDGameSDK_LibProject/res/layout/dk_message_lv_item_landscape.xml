@@ -54,7 +54,7 @@
 		        android:includeFontPadding="false"
 		        android:layout_marginTop="@dimen/text_size_6_dp"
 		        android:layout_below="@id/dk_message_item_title"
-		        android:layout_marginBottom="@dimen/text_size_14_dp"
+		        android:layout_marginBottom="@dimen/text_size_12_dp"
 		        android:maxLines="1"
 		        android:ellipsize="end"
 		        android:textSize="@dimen/text_size_12_sp"

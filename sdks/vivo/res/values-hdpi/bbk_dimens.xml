@@ -17,7 +17,8 @@
     <dimen name="vcoin_ticket_state_marginTop3">3dp</dimen>  
     <dimen name="bbk_action_cancel_id_marginRight">10dp</dimen>    
     <dimen name="bbk_action_paddingLeft">4dp</dimen> 
-    <dimen name="ticket_size_small">11sp</dimen>    
-	<dimen name="vcoin_ticket_state_marginLeft">4dip</dimen>    
-	<dimen name="vcoin_ticketamount_marginTop">40dp</dimen>   	
+    <dimen name="ticket_size_small">11sp</dimen> 
+    <dimen name="bbk_customor_size">12sp</dimen>      
+    <dimen name="vcoin_ticket_state_marginLeft">4dip</dimen>    
+    <dimen name="vcoin_ticketamount_marginTop">40dp</dimen>   	
 </resources>

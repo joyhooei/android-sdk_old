@@ -24,8 +24,8 @@
   	 <string name="yk_btn_text_xczs">下次再说</string>
   	 <string name="yk_btn_text_wcbj">完成绑定</string>
   	 <string name="yk_text_0.0">0.0</string>
-  	 <string name="yk_text_jbye">金币余额</string>
-  	 <string name="yk_text_czjb">充值金币</string>
+  	 <string name="yk_text_jbye">优豆余额</string>
+  	 <string name="yk_text_czjb">充值优豆</string>
   	 <string name="yk_text_sxje">刷新余额</string>
   	 <string name="yk_text_10yuan">10元</string>
   	 <string name="yk_text_20yuan">20元</string>
@@ -34,7 +34,9 @@
   	 <string name="yk_text_100yuan">100元</string>
   	 <string name="yk_text_300yuan">300元</string>
   	 <string name="yk_text_hint_qtje">其他金额（元）</string>
-  	 <string name="yk_text_prompt_dhbl1bi1">金币和人民币兑换比例为 1：1</string>
+  	 <string name="yk_text_prompt_dhbl1bi1">优豆和人民币兑换比例为 1：1</string>
+  	 <string name="yk_text_jinbitihuan_tip">*金币已等值替换成优豆，请放心使用</string>
+  	 <string name="yk_text_back_to_game">返回游戏</string>
   	 <string name="yk_text_a_xyfwxy">查看YouKu虚拟社区币服务协议</string>
   	 <string name="yk_text_ljcz">立即充值</string>
   	 <string name="yk_text_prompt_yd_lt_ykt">支持：移动神州行 联通一卡充 电信一卡通</string>
@@ -45,24 +47,27 @@
   	 <string name="yk_text_prompt_buy_msg">将通过手机话费支付方式购买，可能会收到计费通知短信。</string>
   	 <string name="yk_text_ykgame_pay">优酷游戏支付</string>
   	 <string name="yk_text_ykgame_paydetails">交易明细</string>
+  	 <string name="yk_text_viplist_title">会员特权礼包</string>
+  	 <string name="yk_text_msg_title">消息中心</string>
   	 <string name="yk_text_ykgame_announcement_title">公告</string>
   	 <string name="yk_text_000.00">￥000.00</string>
+  	 <string name="yk_text_time">2015年8月12日</string>
   	 <string name="yk_text_user_maohao">用户:</string>
   	 <string name="yk_text_null">null</string>
   	 <string name="yk_text_good_maohao">商品:</string>
   	 <string name="yk_text_0xingzuan">0星钻</string>
   	 <string name="yk_text_a_qzfbfk">去支付宝付款</string>
-  	 <string name="yk_text_prompt_xzmzxtczk">选择面值相同的充值卡选项，否则会导致换取失败和充值卡作废。\n支付完成后余下金额将自动充入优酷金币。</string>
+  	 <string name="yk_text_prompt_xzmzxtczk">选择面值相同的充值卡选项，否则会导致换取失败和充值卡作废。\n支付完成后余下金额将自动充入优酷优豆。</string>
   	 <string name="yk_text_prompt_ljgd">了解更多</string>
   	 <string name="yk_text_hint_yyzczh">用于注册帐号</string>
   	 <string name="yk_btn_text_yzsf_1">验证身份</string>
   	 <string name="yk_text_nykyy">您也可以用</string>
-  	 <string name="yk_text_notice">只能使用手机号进行注册哦！</string>
+  	 <string name="yk_text_notice">将发送短信进行验证</string>
   	 <string name="yk_text_a_yhmzc">用户名注册</string>
   	 <string name="yk_text_btn_yk_user_login">使用优酷帐号登录</string>
-  	 <string name="yk_text_hint_user_name">用户名</string>
+  	  <string name="yk_text_hint_user_name">请输入4—20位字母+数字组合</string>
   	 <string name="yk_text_hint_yfpzh_modify">本账户是系统预分配，可进行修改</string>
-  	 <string name="yk_text_hint_csmm_reg">输入密码，完成注册</string>
+  	 <string name="yk_text_hint_csmm_reg">请输入6—16位字母或数字</string>
   	 <string name="yk_text_a_zcxy">用户注册协议</string>
   	 <string name="yk_text_btn_ljzc">立即注册</string>
   	 <string name="yk_text_btn_login_in">登录并进入游戏</string>
@@ -200,6 +205,8 @@
      <string name="yk_text_meiyuan2"> $ </string>
      <string name="yk_text_queding">确定</string>
      <string name="yk_text_jiaoyimingxi">交易明细</string>
+     <string name="yk_text_rebate_tips">注：以支付成功到账为前提，返利到账过程需要1到2分钟。</string>
+     <string name="yk_text_rebate_already">已返利</string>
      
      <string name="yk_content_description_mini_root">mini_root</string>
      <string name="yk_content_description_mini_linBlocksConpent">mini_linBlocksConpent</string>
@@ -216,5 +223,14 @@
     <string name="yk_lastUpdateTime">最近更新：%s</string>
     <string name="yk_load_full">已加载全部</string>
     <string name="yk_no_data">暂无数据</string>
+    <string name="yk_no_msg">当前暂无消息哦。</string>
     <string name="yk_more">加载中</string>
+    <string name="yk_pay_vip_title">您已获得领取会员特权礼包资格</string>
+    <string name="yk_pay_vip_prompt">*礼包激活码将在1-2分钟内发放</string>
+    <string name="dialog_yt_title_tv_content">您已经获得七天优酷会员体验时间，请复制激活码。</string>
+    <string name="yk_precenter_cash">优豆余额 :</string>
+    <string name="yk_precenter_cash_value">" 0"</string>
+    <string name="yk_precenter_title_username">未知用户名</string>
+    <string name="yk_precenter_super_title_name">个人中心</string>
+    <string name="yk_precenter_title_default">...</string>
 </resources>

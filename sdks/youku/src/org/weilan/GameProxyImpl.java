@@ -91,19 +91,18 @@ public class GameProxyImpl extends GameProxy{
             }
         @Override
         public void onFailed(String failReason) {
-            Toast.makeText(activity, "登录失败" + failReason,
-                Toast.LENGTH_LONG).show();
+            userListerner.onLoginFailed("登录失败" + failReason, customParams);
         }
         }, activity);
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
         YKPayBean ykPayBean = new YKPayBean();
-        ykPayBean.setAmount(String.valueOf((int)price * 100));//金额（以分为单位，只能传整数值，不能有小数）
-		ykPayBean.setAppOrderId(orderID);////cp自己生成的订单号，不能为空，不能重复（若是单机游戏没有订单号，则传"defaultapporderid"）
-		ykPayBean.setNotifyUri("${PAY_URL}");//cp的支付回调通知地址，不能为空，（目前优酷后台不提供设置通知地址的功能）
-		ykPayBean.setProductId(ID);//cp的物品ID（没有可以传"0"）
-		ykPayBean.setProductName(name);//物品名称（没有就传"游戏道具"）
+        ykPayBean.setAmount(String.valueOf((int)(price * 100)));//金额（以分为单位，只能传整数值，不能有小数）
+        ykPayBean.setAppOrderId(orderID);////cp自己生成的订单号，不能为空，不能重复（若是单机游戏没有订单号，则传"defaultapporderid"）
+        ykPayBean.setNotifyUri("${PAY_URL}");//cp的支付回调通知地址，不能为空，（目前优酷后台不提供设置通知地址的功能）
+        ykPayBean.setProductId(ID);//cp的物品ID（没有可以传"0"）
+        ykPayBean.setProductName(name);//物品名称（没有就传"游戏道具"）
         ykPayBean.setAppExt1(callBackInfo);//cp透传参数（没有透传参数就注销本行,支持最多64位,不支持中文）
 
         YKPlatform.doPay(activity, ykPayBean, new YKCallBack(){

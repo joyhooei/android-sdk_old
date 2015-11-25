@@ -31,7 +31,7 @@
         android:gravity="center_vertical"
         android:text="@string/yk_text_ykyx_user_title"
         android:textColor="@color/yk_text_title"
-        android:textSize="@dimen/YK_GameSDK_32PX" />
+        android:textSize="@dimen/YK_GameSDK_30PX" />
 
     <Button
         android:id="@+id/back"

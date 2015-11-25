@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.DUMP" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <!-- 开始添加Amigo Play SDK 需要的权限,开发者重点关注 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -39,6 +40,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name="org.weilan.PushReceiver" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="org.weilan.PushService"
+            android:enabled="true"
+            />
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
 

@@ -23,8 +23,10 @@
             android:background="@null"
             android:numeric="integer"
             android:singleLine="true"
+            android:textColor="@color/yk_color_pay_vip_text2"
+            android:textCursorDrawable="@drawable/yk_dialog_yt_cursor"
             android:textColorHint="@color/yk_edit_text_hint"
-            android:textSize="@dimen/YK_GameSDK_30PX" />
+            android:textSize="@dimen/YK_GameSDK_24PX" />
     </LinearLayout>
 
     <include layout="@layout/yk_ed_line_include" />

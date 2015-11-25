@@ -85,9 +85,14 @@
     
     <dimen name="YK_GameSDK_70PX">105px</dimen>
     
+    <dimen name="YK_GameSDK_72PX">108px</dimen>
+    
     <dimen name="YK_GameSDK_75PX">112.5px</dimen>
+    <dimen name="YK_GameSDK_76PX">114px</dimen>
     
     <dimen name="YK_GameSDK_80PX">120px</dimen>
+    
+    <dimen name="YK_GameSDK_85PX">127.5px</dimen>
     
     <dimen name="YK_GameSDK_88PX">132px</dimen>
     
@@ -96,6 +101,8 @@
     <dimen name="YK_GameSDK_100PX">150px</dimen>
     
     <dimen name="YK_GameSDK_110PX">165px</dimen>
+    
+    <dimen name="YK_GameSDK_115PX">172.5px</dimen>
     
     <dimen name="YK_GameSDK_119PX">178.5px</dimen>
     
@@ -106,6 +113,8 @@
     <dimen name="YK_GameSDK_138PX">207px</dimen>
     
     <dimen name="YK_GameSDK_150PX">225px</dimen>
+    
+    <dimen name="YK_GameSDK_180PX">270px</dimen>
     
     <dimen name="YK_GameSDK_200PX">300px</dimen>
     
@@ -121,17 +130,21 @@
     
     <dimen name="YK_GameSDK_360PX">540px</dimen>
     
+    <dimen name="YK_GameSDK_400PX">600px</dimen>
+    
     <dimen name="YK_GameSDK_427PX">640.5px</dimen>
     
     <dimen name="YK_GameSDK_428PX">642px</dimen>
     
     <dimen name="YK_GameSDK_474PX">711px</dimen>
     
+    <dimen name="YK_GameSDK_496PX">744px</dimen>
+    <dimen name="YK_GameSDK_544PX">816px</dimen>
     <dimen name="YK_GameSDK_552PX">828px</dimen>
     <dimen name="YK_GameSDK_565PX">847.5px</dimen>
-    
+    <dimen name="YK_GameSDK_580PX">870px</dimen>
     <dimen name="YK_GameSDK_590PX">885px</dimen>
-    
+    <dimen name="YK_GameSDK_600PX">900px</dimen>
     <dimen name="YK_GameSDK_664PX">996px</dimen>
     
     

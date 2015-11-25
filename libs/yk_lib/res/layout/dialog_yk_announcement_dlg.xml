@@ -64,7 +64,7 @@
             android:id="@+id/yk_announcement_list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/YK_GameSDK_20PX"
+            android:layout_marginBottom="@dimen/YK_GameSDK_5PX"
             android:scrollbars="none" >
         </ListView>
     </RelativeLayout>

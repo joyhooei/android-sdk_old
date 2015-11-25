@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    
+    <color name="vivo_account_change_text_color_selected">#555555</color>
+     <color name="vivo_account_change_text_color">#8e8c8c</color>
+     <color name="vivo_account_lable_text_color">#ffffff</color>
+    <!-- <color name="transparent">#0000</color> -->
     <drawable name="vivo_activity_background_color">#fff4f4f4</drawable>
-    <color name="vivo_text_color_middle">#343434</color>
+    <color name="vivo_text_color_middle">#000000</color>
     <color name="vivo_text_color_small">#818181</color>
     <color name="vivo_windowTitleColor">#ff000000</color>
     <color name="vivo_windowTitleShadowColor">#00494d59</color>
     <color name="vivo_windowTitlleButtonShadowColor">#ff00aeff</color>
     <drawable name="green">#0f0</drawable>  
     <drawable name="blue">#4876FF</drawable>
-    
+    <color name="vivo_common_bg_color">#009CFF</color>
+   <color name="vivo_listview_item_default">#00F7F7F7</color>
+    <color name="vivo_text_color_login_color">#d2d7e8</color>
+    <color name="vivo_text_color_login_color_selected">#4cd2d7e8</color>
+    <color name="vivo_text_color_register_color">#00aeff</color>
+    <color name="vivo_text_color_register_color_selected">#4c00aeff</color>
 </resources>

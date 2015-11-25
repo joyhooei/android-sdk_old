@@ -63,7 +63,7 @@
                     android:layout_toLeftOf="@+id/order_price_unit"
                     android:textColor="@color/TextColorRed"
                     android:textSize="@dimen/text_size_middle" />
-                
+
                 <TextView
                     android:id="@+id/order_price_unit"
                     android:layout_width="wrap_content"
@@ -72,7 +72,6 @@
                     android:text="@string/bbk_price_unit_title"
                     android:textColor="@color/TextColorRed"
                     android:textSize="@dimen/text_size_middle" />
-                                
             </RelativeLayout>
 
             <RelativeLayout
@@ -92,8 +91,8 @@
                     android:id="@+id/bbk_order_vcoin_balance_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/bbk_order_vcoin_balance"
                     android:layout_alignBottom="@+id/bbk_order_vcoin_balance"
+                    android:layout_toLeftOf="@+id/bbk_order_vcoin_balance"
                     android:textColor="@color/TextColorBlack"
                     android:textSize="@dimen/text_size_middle" />
 
@@ -137,17 +136,17 @@
                     android:id="@+id/credits_special_num_arrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/bbk_next_pay" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/bbk_vcoin_chose_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
-                android:visibility="gone">
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
 
                 <ImageView
                     android:id="@+id/bbk_not_enough_id"
@@ -155,11 +154,11 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_gravity="center"
-                    android:contentDescription=""
                     android:layout_marginLeft="@dimen/vcoin_gift_state_marginLeft"
                     android:layout_marginRight="5dip"
                     android:layout_marginTop="13dp"
-                    android:background="@drawable/bbk_not_enough" />
+                    android:background="@drawable/bbk_not_enough"
+                    android:contentDescription="" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -186,17 +185,30 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/bbk_pay_submit_layout"
+            android:id="@+id/bbk_customer_service_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp" 
-            android:visibility="gone">
+            android:layout_marginBottom="10dp" >
+
+            <TextView
+                android:id="@+id/bbk_customor_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/vcoin_gift_state_marginLeft"
+                android:layout_marginRight="@dimen/vcoin_gift_state_marginRight"
+                android:layout_centerHorizontal="true"
+                android:singleLine="true"
+                android:text="@string/bbk_customer_service"
+                android:textColor="@color/customer_text_tip"
+                android:textSize="@dimen/bbk_customor_size" />
 
             <Button
                 android:id="@+id/pay_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/bbk_customor_service"
                 android:layout_marginLeft="@dimen/vcoin_gift_state_marginLeft"
                 android:layout_marginRight="@dimen/vcoin_gift_state_marginRight"
                 android:background="@drawable/bbk_btn_default"
@@ -204,7 +216,8 @@
                 android:singleLine="true"
                 android:text="@string/bbk_pay_next_step"
                 android:textColor="@color/bbk_TextColorWhite"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:visibility="gone" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -214,6 +227,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center" >
+
         <include layout="@layout/bbk_loading_layout" />
     </LinearLayout>
 

@@ -24,9 +24,12 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 
-import com.vivo.account.base.activity.LoginActivity;
 import com.bbk.payment.PaymentActivity;
 import com.bbk.payment.PaymentActionDetailsInit;
+
+import com.vivo.account.base.accounts.OnVivoAccountChangedListener;
+import com.vivo.account.base.accounts.VivoAccountManager;
+import com.vivo.account.base.activity.LoginActivity;
 
 class ProductInfo {
     public String productName;
@@ -52,9 +55,9 @@ public class GameProxyImpl extends GameProxy {
 
     public final static String KEY_NAME = "name";
     public final static String KEY_LOGIN_RESULT = "LoginResult";
-	public final static String KEY_OPENID = "openid";
-	public final static String KEY_AUTHTOKEN = "authtoken";
-	public final static String KEY_SHOW_TEMPLOGIN = "showTempLogin";
+    public final static String KEY_OPENID = "openid";
+    public final static String KEY_AUTHTOKEN = "authtoken";
+    public final static String KEY_SHOW_TEMPLOGIN = "showTempLogin";
     private static final int REQUEST_CODE_LOGIN = 1;
     private static final int REQUEST_CODE_PAY = 2;
     private static final String appid = "${APPID}";
@@ -89,7 +92,7 @@ public class GameProxyImpl extends GameProxy {
                     //localBundle.putString("roleName", "角色名称");
                     //localBundle.putString("serverName", "区服信息");
                     localBundle.putString("extInfo", productInfo.callBackInfo);
-                    localBundle.putBoolean("logOnOff", false);// CP在接入过程请传true值,接入完成后在改为false, 传true会在支付SDK打印大量日志信息	 
+                    localBundle.putBoolean("logOnOff", false);// CP在接入过程请传true值,接入完成后在改为false, 传true会在支付SDK打印大量日志信息     
                     Intent target = new Intent(currentActivity, PaymentActivity.class);
                     target.putExtra("payment_params", localBundle);
                     currentActivity.startActivityForResult(target, REQUEST_CODE_PAY);
@@ -100,8 +103,33 @@ public class GameProxyImpl extends GameProxy {
         };
     };
 
+    /** 登入回调接口 **/
+    OnVivoAccountChangedListener mOnVivoAccountChangedListener = new OnVivoAccountChangedListener() {
+        @Override
+        public void onAccountLogin(String name, String openid, String authtoken) {
+            User u = new User();
+            u.userID = openid;
+            u.token = authtoken;
+            userListerner.onLoginSuccess(u, null);
+
+            new PaymentActionDetailsInit(currentActivity, appid);
+        }
+
+        // 第三方游戏不需要使用此回调
+        @Override
+        public void onAccountRemove(boolean isRemoved) {
+        }
+
+        @Override
+        public void onAccountLoginCancled() {
+            Log.d("TAG", "onAccountLoginCancled");
+        }
+
+    };
+
     public void applicationInit(Activity activity) {
         currentActivity = activity;
+        VivoAccountManager.getInstance(activity).registeListener(mOnVivoAccountChangedListener);
     }
 
     public boolean supportLogin() {
@@ -121,11 +149,14 @@ public class GameProxyImpl extends GameProxy {
     }
 
     public void login(Activity activity, Object customParams) {
+        currentActivity = activity;
         Intent loginIntent = new Intent(activity, LoginActivity.class);
-        activity.startActivityForResult(loginIntent, REQUEST_CODE_LOGIN);
+        //activity.startActivityForResult(loginIntent, REQUEST_CODE_LOGIN);
+        activity.startActivity(loginIntent);
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+        currentActivity = activity;
         this.payCallBack = payCallBack;
 
         DecimalFormat df = new DecimalFormat("0.00");
@@ -213,16 +244,16 @@ public class GameProxyImpl extends GameProxy {
 
     @Override
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
-		Log.d("sdk", "MainActivity, onActivityResult,requestCode="+requestCode+", resultCode="+resultCode);
-		if(requestCode == REQUEST_CODE_LOGIN){
-			if(resultCode == Activity.RESULT_OK){
-				String loginResult = data.getStringExtra(KEY_LOGIN_RESULT);
-				JSONObject loginResultObj;
-				try {
-					loginResultObj = new JSONObject(loginResult);
-					String name = loginResultObj.getString(KEY_NAME);
-					String openid = loginResultObj.getString(KEY_OPENID);
-					String authtoken = loginResultObj.getString(KEY_AUTHTOKEN);
+        Log.d("sdk", "MainActivity, onActivityResult,requestCode="+requestCode+", resultCode="+resultCode);
+        if(requestCode == REQUEST_CODE_LOGIN){
+            if(resultCode == Activity.RESULT_OK){
+                String loginResult = data.getStringExtra(KEY_LOGIN_RESULT);
+                JSONObject loginResultObj;
+                try {
+                    loginResultObj = new JSONObject(loginResult);
+                    String name = loginResultObj.getString(KEY_NAME);
+                    String openid = loginResultObj.getString(KEY_OPENID);
+                    String authtoken = loginResultObj.getString(KEY_AUTHTOKEN);
                     User u = new User();
                     u.userID = openid;
                     u.token = authtoken;
@@ -230,26 +261,28 @@ public class GameProxyImpl extends GameProxy {
 
                     new PaymentActionDetailsInit(activity, appid);
                     Log.v("sdk", "vivo activity");
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} 
-//				Toast.makeText(mContext, loginResult, Toast.LENGTH_SHORT).show();
-				Log.d("sdk", "loginResult="+loginResult);
-			}
-		}
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } 
+//                Toast.makeText(mContext, loginResult, Toast.LENGTH_SHORT).show();
+                Log.d("sdk", "loginResult="+loginResult);
+            }
+        }
         else if (requestCode == REQUEST_CODE_PAY) {
             Bundle extras = data.getBundleExtra("pay_info");
             String res_code = extras.getString("result_code");
             if (res_code.compareTo("9000") == 0) {
-                payCallBack.onSuccess("");
+                if(payCallBack != null)
+                    payCallBack.onSuccess("");
             }
             else {
-                payCallBack.onFail("");
+                if(payCallBack != null)
+                    payCallBack.onFail("");
             }
             //
         }
-	}
+    }
 
     public void logout(Activity activity,Object customParams) {
         String KEY_SWITCH_ACCOUNT = "switchAccount";

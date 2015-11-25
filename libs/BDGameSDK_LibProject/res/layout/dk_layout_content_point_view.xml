@@ -38,7 +38,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@drawable/dk_landscape_bg_point_bottom" >
+        android:background="@drawable/dk_rl_point_top" >
     </RelativeLayout>
 
     <GridView

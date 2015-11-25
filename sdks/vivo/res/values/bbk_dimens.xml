@@ -13,6 +13,7 @@
     <dimen name="text_size_middle">18sp</dimen>
     <dimen name="text_size_small">14sp</dimen>
     <dimen name="ticket_size_small">12sp</dimen>
+    <dimen name="bbk_customor_size">12sp</dimen>    
     <dimen name="vcoin_gift_state_marginLeft">15dip</dimen>
     <dimen name="vcoin_gift_state_marginRight">15dip</dimen>
     <dimen name="vcoin_gift_state_maxWidth">200dip</dimen>
@@ -30,5 +31,5 @@
     <dimen name="bbk_tick_layout_width">110dp</dimen>
     <dimen name="bbk_action_cancel_id_marginRight">10dp</dimen>    
     <dimen name="bbk_action_paddingLeft">4dp</dimen>  
-	<dimen name="vcoin_ticketamount_marginTop">42dp</dimen>       
+    <dimen name="vcoin_ticketamount_marginTop">42dp</dimen>       
 </resources>
