@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
 
-import com.haima.loginplugin.callback.OnCheckUpdateListener;
 import com.haima.plugin.haima.HMPay;
 import com.haima.loginplugin.ZHErrorInfo;
 import com.haima.loginplugin.ZHPayUserInfo;
@@ -87,8 +86,8 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
 
     public void logout(Activity activity,Object customParams) {
         // 登出，customParams透传给回调
-        if(HMPay.isLogined() && HMPay.logout()){
-            userListerner.onLogOut(customParams);
+        if(HMPay.isLogined() && HMPay.logOut()){
+            userListerner.onLogout(customParams);
         }
     }
 
