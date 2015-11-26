@@ -53,7 +53,7 @@ public class GameProxyImpl extends GameProxy{
             return;
         }
 
-        Log.v("cocos","初始化失败，进行第" + mInitCount + "次初始化重试");
+        Log.v("cocos","初始化失败，进行第" + initCout + "次初始化重试");
         GPApiFactory.getGPApi().initSdk(curActivity, "${APPID}", "${APPKEY}", mInitObsv);
     }
 
@@ -63,8 +63,6 @@ public class GameProxyImpl extends GameProxy{
     private IGPSDKInitObsv mInitObsv = new IGPSDKInitObsv() {
         @Override
         public void onInitFinish(GPSDKInitResult initResult) {
-            Log.i(TAG, "GPSDKInitResult mInitErrCode: " + initResult.mInitErrCode);
-            Log.i(TAG, "loginToken" + GPApiFactory.getGPApi().getLoginToken());
             switch (initResult.mInitErrCode) {
                 case GPSDKInitResult.GPInitErrorCodeConfig:
                     Log.e("cocos","初始化回调:初始化配置错误");
@@ -163,7 +161,7 @@ public class GameProxyImpl extends GameProxy{
         payParam.mItemName   = "钻石";
         payParam.mPaymentDes = name;
         payParam.mItemPrice  = price;         // 订单的价格（以元为单位）
-        payParam.mItemCount  = (int)(price * 10): // 数量
+        payParam.mItemCount  = (int)(price * 10); // 数量
         payParam.mCurrentActivity = activity;// 用户当前的activity
         payParam.mSerialNumber = orderID;// 订单号，这里用时间代替（用户需填写订单的订单号）
         payParam.mItemId      = ID;// 商品编号ID
