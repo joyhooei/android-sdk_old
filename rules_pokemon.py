@@ -156,7 +156,7 @@ class RuleGfan(RuleBase):
     SDKTYPE = '28'
     PACKAGE_NAME = 'com.winnergame.pokemon.gfan'
 
-    APPKEY = '164591850'
+    APPKEY = '1677378043'
 
 
 @register

@@ -45,7 +45,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void applicationInit(Activity activity) {
-        GfanPay.getInstance(activity.getApplicationContext()).init();
+        // init  int splash activity
     }
 
     public void login(Activity activity,final Object customParams) {
@@ -69,7 +69,7 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onError(int loginType) {
                 Log.v("cocos sdk login", "login failed");
-                // TODO失败处理
+                userListerner.onLoginFailed("login failed", customParams);
             }
         });
     }
@@ -91,15 +91,13 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onSuccess(User user, Order order) {
                 payCallBack.onSuccess(null);
-                //Toast.makeText(activity.getApplicationContext(), "支付成功 user：" + user.getUserName() + "金额：" + order.getMoney(), Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onError(User user) {
                 payCallBack.onFail(null);
                 if (user != null) {
-                    //Toast.makeText(activity.getApplicationContext(), "支付失败 user：" + user.getUserName(), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(activity.getApplicationContext(), "用户未登录", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "用户未登录", Toast.LENGTH_SHORT).show();
                 }
             }
         });
