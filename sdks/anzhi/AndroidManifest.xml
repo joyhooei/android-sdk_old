@@ -43,6 +43,7 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name="org.weilan.app"
@@ -77,7 +78,7 @@
             android:enabled="true"
             />
 
-        <!-- ========================================================== -->
+    <!-- ========================================================== -->
         <activity
             android:name="com.unionpay.uppay.PayActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" >
