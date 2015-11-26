@@ -36,7 +36,7 @@
     <application android:name="org.weilan.app"
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
-        android:debuggable="true">
+        >
 
         <activity android:name="org.weilan.poem"
                   android:label="@string/app_name"
