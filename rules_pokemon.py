@@ -108,8 +108,8 @@ class RuleAnzhi(RuleBase):
     SDKTYPE = '21'
     PACKAGE_NAME = 'com.winnergame.pokemon.anzhi'
 
-    APPKEY = '14356441495136mQAPB5s3XSafyoK9'
-    APPSECRET = '3G91iXHaLTF852fxdJ3X8AlL'
+    APPKEY = '14482459076Q40C2DSvGMJ2Y69551d'
+    APPSECRET = 'F4TWgtKHesIKN5v3eEsSQM42'
 
     @classmethod
     def rules(cls):
