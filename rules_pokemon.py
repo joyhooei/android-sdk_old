@@ -521,3 +521,14 @@ class RuleYouku(RuleBase):
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
 
+@register
+class RuleGuopan(RuleBase):
+    LABEL = 'guopan'
+    DIRECTORY = 'guopan'
+    CH_NAME = 'XX果盘小包'
+    SDKTYPE = '55'
+    PACKAGE_NAME = 'com.winnergame.pokemon.ad.guopan'
+
+    APPID      = '102121'
+    APPKEY     = 'CJOVUCOA7728E002'
+
