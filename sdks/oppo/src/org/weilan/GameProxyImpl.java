@@ -104,7 +104,7 @@ public class GameProxyImpl extends GameProxy {
 
             @Override
             public void onFailure(String content, int code) {
-                Toast.makeText(currentActivity, content, Toast.LENGTH_LONG).show();
+                //Toast.makeText(currentActivity, content, Toast.LENGTH_LONG).show();
                 userListerner.onLoginFailed(content, customParams);
             }
         }, activity);
@@ -130,7 +130,7 @@ public class GameProxyImpl extends GameProxy {
         @Override
         public void onFailure(String content, int code) {
             payCallBack.onFail(content + "," + code);
-            Toast.makeText(currentActivity, "消耗可币失败:" + content, Toast.LENGTH_LONG).show();
+            //Toast.makeText(currentActivity, "消耗可币失败:" + content, Toast.LENGTH_LONG).show();
         }
     };
 
