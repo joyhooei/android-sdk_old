@@ -103,7 +103,11 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
         orderInfo.goodPrice = price;
         // 订单号
         orderInfo.orderNo = orderID;
-        orderInfo.userParam = callBackInfo;
+
+        String callbackStr = "1_" + 
+            roleInfo.optString("serverID") + "_" +
+            roleInfo.optString("id");
+        orderInfo.userParam = callbackStr;
         HMPay.pay(orderInfo, activity, this);
     }
 
