@@ -532,3 +532,15 @@ class RuleGuopan(RuleBase):
     APPID      = '102121'
     APPKEY     = 'CJOVUCOA7728E002'
 
+@register
+class RuleCpad(RuleBase):
+    LABEL = 'cpad'
+    DIRECTORY = 'cpad'
+    CH_NAME = '酷派小包'
+    SDKTYPE = '52'
+    PACKAGE_NAME = 'com.winnergame.pokemon.cpad'
+
+    APPID      = '5000002454'
+    APPKEY     = '4bcd7fccf85b4adeb438a3e9f97e9f82'
+    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/c360/pay_callback'
+
