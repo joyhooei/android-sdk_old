@@ -137,9 +137,9 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onResult(Bundle arg0) {
                 // 登录成功 在返回的Bundle中获取AuthCode
-                String authCode = arg0.getString(Constants.RESPONSE_TYPE_CODE);
+                mAuthCode = arg0.getString(Constants.RESPONSE_TYPE_CODE);
                 User usr  = new User();
-                usr.token = authCode;
+                usr.token = mAuthCode;
                 userListerner.onLoginSuccess(usr, mCustomeParams);
             }
 
@@ -228,33 +228,23 @@ public class GameProxyImpl extends GameProxy{
                 @Override
                 public void run( )
                 {
-                    getOrderInfo();
+                    getOrderInfo(mAuthCode);
                 }
             }).start();
 
     }
 
     /** 支付前去服务端获取玩家登陆信息 */
-    private void getOrderInfo()
+    private void getOrderInfo(String authCode)
     {
         try
         {
-            URL url = new URL("${USERINFO_URL}");
+            String getUrl = "${USERINFO_URL}" + "?auth_code=" + authCode;
+            URL url = new URL(getUrl);
             HttpURLConnection connection = (HttpURLConnection) url
                 .openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-type",
-                    "application/x-www-form-urlencoded");
-            connection.setDoOutput(true);// 是否输入参数
-            StringBuffer params = new StringBuffer();
-            //params.append("&returnJson=");
-            //params.append(enCode("{\"channel\": \"Gionee\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
-            params.append("&auth_code=");
-            params.append(mAuthCode);
-            Log.d("cocos", "getUserInfo: " + params.toString());
-            byte[] bytes = params.toString().getBytes();
+            Log.d("cocos", "getUserInfo: " + getUrl);
             connection.connect();
-            connection.getOutputStream().write(bytes);
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(connection.getInputStream()));
             StringBuffer readbuff = new StringBuffer();
