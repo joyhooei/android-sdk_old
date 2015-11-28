@@ -16,6 +16,15 @@ import android.os.Message;
 import android.widget.Toast;
 import android.content.pm.ActivityInfo;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
 import com.coolcloud.uac.android.api.Coolcloud;
 import com.coolcloud.uac.android.api.ErrInfo;
 import com.coolcloud.uac.android.api.OnResultListener;
@@ -28,6 +37,27 @@ import com.iapppay.interfaces.callback.IPayResultCallback;
 import com.iapppay.sdk.main.CoolPadPay;
 import com.iapppay.utils.RSAHelper;
 
+class ProductInfo {
+    public String productName;
+    public String productDesc;
+    public String userName;
+    public String orderID;
+    public String callBackInfo;
+    public double price;
+    public int    goodsID;
+
+    public ProductInfo(String productName, String productDesc, double price, String userName, int goodsID, String orderID, String callBackInfo) {
+        this.productName = productName;
+        this.productDesc = productDesc;
+        this.price = price;
+        this.userName = userName;
+        this.goodsID = goodsID;
+        this.orderID = orderID;
+        this.callBackInfo = callBackInfo;
+    }
+}
+
+
 public class GameProxyImpl extends GameProxy{
     public static final String APP_ID   = "${APPID}";
     public static final String APP_KEY  = "${APPKEY}";
@@ -39,6 +69,33 @@ public class GameProxyImpl extends GameProxy{
     private String coolPadOpenID    = null;
     private Object mCustomeParams   = null;
     private PayCallBack mPayCallBack = null;
+    private String mAuthCode;
+    private String mUserInfo;
+
+    private Activity curActivity;
+
+    private ProductInfo productInfo;
+
+    private static final int START_PAY = 1;
+
+    private Handler mHandler = new Handler()
+    {
+        public void handleMessage( android.os.Message msg )
+        {
+            if (msg.what == START_PAY)
+            {
+                try {
+                    JSONObject usr = new JSONObject(mUserInfo);
+                    //coolPadAuthToken = usr.optString("order_id");
+                    //coolPadOpenID    = usr.optString("submit_time");
+                    onSdkPay();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+    };
+
 
     public boolean supportLogin() {
         return false;
@@ -118,7 +175,7 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onResult(Bundle arg0) {
                 // 登录成功 在返回的Bundle中获取AuthCode
-                String mAuthCode = arg0.getString(Constants.RESPONSE_TYPE_CODE);
+                mAuthCode = arg0.getString(Constants.RESPONSE_TYPE_CODE);
                 User usr  = new User();
                 usr.token = mAuthCode;
                 userListerner.onLoginSuccess(usr, mCustomeParams);
@@ -152,10 +209,109 @@ public class GameProxyImpl extends GameProxy{
          *}
          */
         mPayCallBack = payCallBack;
-        String genUrl = getGenUrl(ID, orderID, (double)price, callBackInfo);
+        curActivity  = activity;
+
+        productInfo = new ProductInfo(name, "钻石", (double)price, "", Integer.parseInt(ID), orderID, callBackInfo);
+
+        new Thread(new Runnable()
+            {
+                @Override
+                public void run( )
+                {
+                    getOrderInfo();
+                }
+            }).start();
+
+    }
+
+    /** 支付前去服务端获取玩家登陆信息 */
+    private void getOrderInfo()
+    {
+        try
+        {
+            URL url = new URL("${USERINFO_URL}");
+            HttpURLConnection connection = (HttpURLConnection) url
+                .openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-type",
+                    "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);// 是否输入参数
+            StringBuffer params = new StringBuffer();
+            //params.append("&returnJson=");
+            //params.append(enCode("{\"channel\": \"Gionee\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
+            params.append("&auth_code=");
+            params.append(enCode(mAuthCode));
+            Log.d("MyView", "getUserInfo: " + params.toString());
+            byte[] bytes = params.toString().getBytes();
+            connection.connect();
+            connection.getOutputStream().write(bytes);
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
+            StringBuffer readbuff = new StringBuffer();
+            String lstr = null;
+            while ((lstr = reader.readLine()) != null)
+            {
+                readbuff.append(lstr);
+            }
+            connection.disconnect();
+            reader.close();
+            mUserInfo = readbuff.toString();
+            Log.i("MyView", "getOrderInfo: " + mUserInfo);
+            mHandler.sendEmptyMessage(START_PAY);
+
+        } catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    /*客户端下单模式
+     *
+     * 生成数据后需要对数据做签名，签名的算法是使用应用的私钥做RSA签名。
+     * 应用的私钥可以在商户自服务获取
+     *
+     *   */
+    private String getGenUrl(){
+        String json = "";
+
+        JSONObject obj = new JSONObject();
+        try {
+            obj.put("appid", APP_ID);
+            obj.put("waresid", productInfo.goodsID);
+            obj.put("cporderid", productInfo.orderID);
+            obj.put("price", productInfo.price);
+            obj.put("appuserid", coolPadOpenID);
+
+            /*CP私有信息，选填*/
+            obj.put("cpprivateinfo", productInfo.callBackInfo);
+
+            /*支付成功的通知地址。选填。如果客户端不设置本参数，则使用服务端配置的地址。*/
+            if( PAY_URL.length() > 0 )
+                obj.put("notifyurl", PAY_URL);
+
+            json = obj.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String sign = "";
+        try {
+            sign = RSAHelper.signForPKCS1(json, APP_KEY);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "transdata=" + enCode(json) + "&sign=" + enCode(sign) + "&signtype=" + "RSA";
+    }
+
+    private void onSdkPay(){
+        String genUrl = getGenUrl();
         AccountBean account = null;
-        account = CoolPadPay.buildAccount(activity, coolPadAuthToken, APP_ID, coolPadOpenID);
-        CoolPadPay.startPay(activity, genUrl, account, new IPayResultCallback() {
+        account = CoolPadPay.buildAccount(curActivity, coolPadAuthToken, APP_ID, coolPadOpenID);
+        CoolPadPay.startPay(curActivity, genUrl, account, new IPayResultCallback() {
 
             @Override
             public void onPayResult(int resultCode, String signvalue, String resultInfo) {
@@ -173,41 +329,16 @@ public class GameProxyImpl extends GameProxy{
 
     }
 
-    /*客户端下单模式
-     *
-     * 生成数据后需要对数据做签名，签名的算法是使用应用的私钥做RSA签名。
-     * 应用的私钥可以在商户自服务获取
-     *
-     *   */
-    private String getGenUrl(int waresid, String orderId, double price, String callbackInfo){
-        String json = "";
-
-        JSONObject obj = new JSONObject();
-        try {
-            obj.put("appid", APP_ID);
-            obj.put("waresid", waresid);
-            obj.put("cporderid", orderId);
-            obj.put("price", price);
-            obj.put("appuserid", coolPadOpenID);
-
-            /*CP私有信息，选填*/
-            obj.put("cpprivateinfo", callbackInfo);
-
-            /*支付成功的通知地址。选填。如果客户端不设置本参数，则使用服务端配置的地址。*/
-            if( PAY_URL.length() > 0 )
-                obj.put("notifyurl", PAY_URL);
-
-            json = obj.toString();
-        } catch (Exception e) {
+    private String enCode( String value )
+    {
+        String enCodeValue = null;
+        try
+        {
+            enCodeValue = URLEncoder.encode(value, "UTF-8");
+        } catch (UnsupportedEncodingException e)
+        {
             e.printStackTrace();
         }
-        String sign = "";
-        try {
-            sign = RSAHelper.signForPKCS1(json, APP_KEY);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return "transdata=" + URLEncoder.encode(json) + "&sign=" + URLEncoder.encode(sign) + "&signtype=" + "RSA";
+        return enCodeValue;
     }
 }
