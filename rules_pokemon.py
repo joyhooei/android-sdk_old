@@ -532,3 +532,13 @@ class RuleGuopan(RuleBase):
     APPID      = '102121'
     APPKEY     = 'CJOVUCOA7728E002'
 
+@register
+class RuleM4399(RuleBase):
+    LABEL = 'm4399'
+    DIRECTORY = 'm4399'
+    CH_NAME = 'm4399小包'
+    SDKTYPE = '30'
+    PACKAGE_NAME = 'com.winnergame.pokemon.m4399'
+
+    APPKEY     = 'fa633fea35570a4ecd279da3dcd6d97a'
+

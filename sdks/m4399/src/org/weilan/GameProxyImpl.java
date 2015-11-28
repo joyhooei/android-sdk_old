@@ -51,7 +51,7 @@ public class GameProxyImpl extends GameProxy{
             .setOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
             .setPopLogoStyle(PopLogoStyle.POPLOGOSTYLE_ONE)
             .setPopWinPosition(PopWinPosition.POS_LEFT)
-            .setSupportExcess(true)
+            .setSupportExcess(false)
             .setGameKey("${APPKEY}")
             .build();
         mOpeCenter.setConfig(opeConfig);
@@ -93,12 +93,14 @@ public class GameProxyImpl extends GameProxy{
         }
     }
 
-    public void applicationInit(Activity activity) {
-        initSDK(activity);
+    @Override
+    private void onDestroy(Activity activity) {
+        super.onDestroy(activity);
+        destroySDK();
     }
 
-    public void applicationDestroy(Activity activity) {
-        destroySDK();
+    public void applicationInit(Activity activity) {
+        initSDK(activity);
     }
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, final PayCallBack payCallBack) {
@@ -130,7 +132,7 @@ public class GameProxyImpl extends GameProxy{
             public void onQuitGame(boolean shouldQuit) {
                 if (shouldQuit) {
                     destroySDK();
-                    poem.quitApplication();
+                    callback.onExit();
                 }
             }
         });
