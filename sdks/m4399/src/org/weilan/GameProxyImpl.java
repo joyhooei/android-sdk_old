@@ -152,7 +152,9 @@ public class GameProxyImpl extends GameProxy{
                     u.token = userInfo.getState();
                     userListerner.onLoginSuccess(u, null);
                 } else {
-                    userListerner.onLoginFailed(OperateCenter.getResultMsg(resultCode), null);
+                    String msg = OperateCenter.getResultMsg(resultCode);
+                    userListerner.onLoginFailed(msg, null);
+                    Log.i("cocos", "LoginFail: " + msg);
                 }
             }
         });
