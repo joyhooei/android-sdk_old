@@ -4,6 +4,11 @@ import java.util.UUID;
 import org.json.JSONObject;
 import org.json.JSONException;
 
+import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.Context;
@@ -27,6 +32,8 @@ import com.kaopu.supersdk.model.params.PayParams;
 
 public class GameProxyImpl extends GameProxy{
     private Activity curActivity;
+    private Object   mCustomParams = null;
+    private PayCallBack mPayCallback = null;
 
     public static String getSystemProperty(String propName){
         String line;
@@ -94,47 +101,55 @@ public class GameProxyImpl extends GameProxy{
                         userListerner.onLogout(null);
                     }
 
-                @Override
+                    @Override
                     public void onLogout() {
                         // 在这里实现注销账号的逻辑
-                        userListerner.onLogout(null);
+                        userListerner.onLogout(mCustomParams);
                     }
+
                 });
 
                 if(getSystemProperty("ro.miui.ui.version.name") != null){
                     // 是miui
-                    KPSuperSDK.StartGuide(curActivity);
+                    KPSuperSDK.startGuide(curActivity);
                 }
+            }
+
+            @Override
+            public void onAuthFailed() {
+                LogUtil.out("授权失败");
             }
         });
     }
 
     public void login(Activity activity,Object customParams) {
+        mCustomParams = customParams;
         // 登录，customParams透传给回调
         KPSuperSDK.login(activity, new KPLoginCallBack() {
             @Override
             public void onLoginSuccess(UserInfo info) {
                 User usr = new User();
-                usr.token   = info.token;
-                usr.userID  = info.openid;
-                usr.username = info.tag;
-                userListerner.onLoginSuccess(usr, customParams);
+                usr.token   = info.getToken();
+                usr.userID  = info.getOpenid();
+                usr.username = info.getTag();
+                userListerner.onLoginSuccess(usr, mCustomParams);
             }
 
         @Override
             public void onLoginFailed() {
-                userListerner.onLoginFailed("登录失败",customParams);
+                userListerner.onLoginFailed("登录失败",mCustomParams);
             }
 
         @Override
             public void onLoginCanceled() {
-                userListerner.onLoginFailed("登录取消",customParams);
+                userListerner.onLoginFailed("登录取消",mCustomParams);
             }
         });
     }
 
     public void logout(Activity activity,Object customParams) {
         // 登出，customParams透传给回调
+        mCustomParams = customParams;
         KPSuperSDK.logoutAccount();
     }
 
@@ -151,6 +166,7 @@ public class GameProxyImpl extends GameProxy{
          *  raw_username = g_sdk_username,
          *}
          */
+        mPayCallback = payCallBack;
         PayParams payParams = new PayParams();
         payParams.setAmount((double)price); // 充值金额
         payParams.setGamename(KPSuperSDK.getGameName()); // 充值游戏
@@ -169,17 +185,17 @@ public class GameProxyImpl extends GameProxy{
         KPSuperSDK.pay(activity, payParams, new KPPayCallBack() {
             @Override
             public void onPaySuccess() {
-                payCallBack.onSuccess("充值成功");
+                mPayCallback.onSuccess("充值成功");
             }
 
         @Override
             public void onPayFailed() {
-                payCallBack.onFail("充值失败");
+                mPayCallback.onFail("充值失败");
             }
 
         @Override
             public void onPayCancle() {
-                payCallBack.onFail("退出支付");
+                mPayCallback.onFail("退出支付");
             }
         });
     }
