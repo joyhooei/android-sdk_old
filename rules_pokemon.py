@@ -554,3 +554,16 @@ class RuleMz(RuleBase):
     APPKEY    = 'e158c5bd9d2c49a29c890e5a588d9952'
     ORDER_URL = ''
 
+@register
+class RuleKaopu(RuleBase):
+    LABEL = 'kaopu'
+    DIRECTORY = 'kaopu'
+    CH_NAME = '靠谱小包'
+    SDKTYPE = '57'
+    PACKAGE_NAME = 'com.winnergame.pokemon.kaopu'
+
+    APPID      = '10216001'
+    APPKEY     = '10216'
+    APPSECRET  = 'B7FA47A6-3765-4DE8-8DC5-7C8355D7C7C5'
+    SDKVERSION = '1.0'
+
