@@ -132,7 +132,7 @@ public class GameProxyImpl extends GameProxy{
             public void onQuitGame(boolean shouldQuit) {
                 if (shouldQuit) {
                     destroySDK();
-                    callback.onExit();
+                    poem.quitApplication();
                 }
             }
         });
