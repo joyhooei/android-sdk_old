@@ -96,6 +96,10 @@ public class GameProxyImpl extends GameProxy{
         };
     };
 
+    public void onDestroy(Activity activity) {
+        super.onDestroy(activity);
+        CoolPadPay.mPayResultCallback = null;
+    }
 
     public boolean supportLogin() {
         return true;
@@ -211,7 +215,13 @@ public class GameProxyImpl extends GameProxy{
         mPayCallBack = payCallBack;
         curActivity  = activity;
 
-        productInfo = new ProductInfo(name, "钻石", (double)price, "", Integer.parseInt(ID), orderID, callBackInfo);
+        int waresid = 0;
+        try {
+            waresid = Integer.parseInt(ID);
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+        productInfo = new ProductInfo(name, "钻石", (double)price, "", waresid, orderID, callBackInfo);
 
         new Thread(new Runnable()
             {
@@ -240,8 +250,8 @@ public class GameProxyImpl extends GameProxy{
             //params.append("&returnJson=");
             //params.append(enCode("{\"channel\": \"Gionee\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
             params.append("&auth_code=");
-            params.append(enCode(mAuthCode));
-            Log.d("MyView", "getUserInfo: " + params.toString());
+            params.append(mAuthCode);
+            Log.d("cocos", "getUserInfo: " + params.toString());
             byte[] bytes = params.toString().getBytes();
             connection.connect();
             connection.getOutputStream().write(bytes);
@@ -256,7 +266,7 @@ public class GameProxyImpl extends GameProxy{
             connection.disconnect();
             reader.close();
             mUserInfo = readbuff.toString();
-            Log.i("MyView", "getOrderInfo: " + mUserInfo);
+            Log.i("cocos", "getUserInfo: " + mUserInfo);
             mHandler.sendEmptyMessage(START_PAY);
 
         } catch (MalformedURLException e)
@@ -304,7 +314,7 @@ public class GameProxyImpl extends GameProxy{
             e.printStackTrace();
         }
 
-        return "transdata=" + enCode(json) + "&sign=" + enCode(sign) + "&signtype=" + "RSA";
+        return "transdata=" + URLEncoder.encode(json) + "&sign=" + URLEncoder.encode(sign) + "&signtype=" + "RSA";
     }
 
     private void onSdkPay(){
@@ -329,16 +339,4 @@ public class GameProxyImpl extends GameProxy{
 
     }
 
-    private String enCode( String value )
-    {
-        String enCodeValue = null;
-        try
-        {
-            enCodeValue = URLEncoder.encode(value, "UTF-8");
-        } catch (UnsupportedEncodingException e)
-        {
-            e.printStackTrace();
-        }
-        return enCodeValue;
-    }
 }
