@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
+import android.content.pm.ActivityInfo;
 
 import com.coolcloud.uac.android.api.Coolcloud;
 import com.coolcloud.uac.android.api.ErrInfo;
@@ -36,6 +37,8 @@ public class GameProxyImpl extends GameProxy{
     private int screen = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
     private String coolPadAuthToken = null;
     private String coolPadOpenID    = null;
+    private Object mCustomeParams   = null;
+    private PayCallBack mPayCallBack = null;
 
     public boolean supportLogin() {
         return false;
@@ -55,10 +58,11 @@ public class GameProxyImpl extends GameProxy{
         /**
          * pay SDK初始化，完成SDK的初始化
          */
-        CoolPadPay.init(GoodsActivity.this, screenType, PayConfig.appid);
+        CoolPadPay.init(activity, screen, APP_ID);
     }
 
     public void login(Activity activity,Object customParams) {
+        mCustomeParams = customParams;
         // 登录，customParams透传给回调
         Bundle mInput = new Bundle();
         // 设置屏幕方向
@@ -75,19 +79,19 @@ public class GameProxyImpl extends GameProxy{
                 String authCode = arg0.getString(Constants.RESPONSE_TYPE_CODE);
                 User usr  = new User();
                 usr.token = authCode;
-                userListerner.onLoginSuccess(usr, customParams);
+                userListerner.onLoginSuccess(usr, mCustomeParams);
             }
 
         @Override
             public void onError(ErrInfo s) {
                 // 登录失败
-                userListerner.onLoginFailed("登录失败", customParams);
+                userListerner.onLoginFailed("登录失败", mCustomeParams);
             }
 
         @Override
             public void onCancel() {
                 // 登录被取消
-                userListerner.onLoginFailed("登录被取消", customParams);
+                userListerner.onLoginFailed("登录被取消", mCustomeParams);
             }
         });
     }
@@ -100,6 +104,7 @@ public class GameProxyImpl extends GameProxy{
 
 
     public void switchAccount(Activity activity,Object customParams) {
+        mCustomeParams = customParams;
         // 切换帐号（目前没用到），customParams透传给回调
         Bundle mInput = new Bundle();
         // 设置屏幕方向
@@ -116,19 +121,19 @@ public class GameProxyImpl extends GameProxy{
                 String mAuthCode = arg0.getString(Constants.RESPONSE_TYPE_CODE);
                 User usr  = new User();
                 usr.token = mAuthCode;
-                userListerner.onLoginSuccess(usr, customParams);
+                userListerner.onLoginSuccess(usr, mCustomeParams);
             }
 
         @Override
             public void onError(ErrInfo s) {
                 // 登录失败
-                userListerner.onLoginFailed("登录失败", customParams);
+                userListerner.onLoginFailed("登录失败", mCustomeParams);
             }
 
         @Override
             public void onCancel() {
                 // 登录被取消
-                userListerner.onLoginFailed("登录被取消", customParams);
+                userListerner.onLoginFailed("登录被取消", mCustomeParams);
             }
         });
     }
@@ -146,7 +151,8 @@ public class GameProxyImpl extends GameProxy{
          *  raw_username = g_sdk_username,
          *}
          */
-        String genUrl = "";// getGenUrl();
+        mPayCallBack = payCallBack;
+        String genUrl = getGenUrl(ID, orderID, (double)price, callBackInfo);
         AccountBean account = null;
         account = CoolPadPay.buildAccount(activity, coolPadAuthToken, APP_ID, coolPadOpenID);
         CoolPadPay.startPay(activity, genUrl, account, new IPayResultCallback() {
@@ -155,11 +161,11 @@ public class GameProxyImpl extends GameProxy{
             public void onPayResult(int resultCode, String signvalue, String resultInfo) {
                 switch (resultCode) {
                     case CoolPadPay.PAY_SUCCESS:
-                        payCallBack.onSuccess(signvalue);
+                        mPayCallBack.onSuccess(signvalue);
                         break;
 
                     default:
-                        payCallBack.onFail(resultInfo);
+                        mPayCallBack.onFail(resultInfo);
                         break;
                 }
             }
