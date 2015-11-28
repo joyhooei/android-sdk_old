@@ -542,3 +542,15 @@ class RuleM4399(RuleBase):
 
     APPKEY     = 'fa633fea35570a4ecd279da3dcd6d97a'
 
+@register
+class RuleMz(RuleBase):
+    LABEL = 'mz'
+    DIRECTORY = 'mz'
+    CH_NAME = '魅族小包'
+    SDKTYPE = '56'
+    PACKAGE_NAME = 'com.winnergame.pokemon.mz'
+
+    APPID     = '2820741'
+    APPKEY    = 'e158c5bd9d2c49a29c890e5a588d9952'
+    ORDER_URL = ''
+
