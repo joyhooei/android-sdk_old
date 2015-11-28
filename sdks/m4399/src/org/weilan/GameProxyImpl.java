@@ -94,7 +94,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     @Override
-    private void onDestroy(Activity activity) {
+    public void onDestroy(Activity activity) {
         super.onDestroy(activity);
         destroySDK();
     }
