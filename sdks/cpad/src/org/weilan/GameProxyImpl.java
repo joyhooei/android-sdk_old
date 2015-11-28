@@ -4,6 +4,8 @@ import java.util.UUID;
 import org.json.JSONObject;
 import org.json.JSONException;
 
+import java.net.URLEncoder;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.Context;
@@ -26,8 +28,9 @@ import com.iapppay.sdk.main.CoolPadPay;
 import com.iapppay.utils.RSAHelper;
 
 public class GameProxyImpl extends GameProxy{
-    public static final String APP_ID  = "${APPID}";
-    public static final String PAY_URL = "${PAY_URL}";
+    public static final String APP_ID   = "${APPID}";
+    public static final String APP_KEY  = "${APPKEY}";
+    public static final String PAY_URL  = "${PAY_URL}";
     private GameAssistApi mGameAssistApi;
     private Coolcloud coolcloud = null;
     private int screen = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
@@ -69,10 +72,9 @@ public class GameProxyImpl extends GameProxy{
             @Override
             public void onResult(Bundle arg0) {
                 // 登录成功 在返回的Bundle中获取AuthCode
-                //coolPadOpenID    = arg0.getString(Constants.OPEN_ID);
-                coolPadAuthToken = arg0.getString(Constants.RESPONSE_TYPE_CODE);
+                String authCode = arg0.getString(Constants.RESPONSE_TYPE_CODE);
                 User usr  = new User();
-                usr.token = coolPadAuthToken;
+                usr.token = authCode;
                 userListerner.onLoginSuccess(usr, customParams);
             .show();
             }
@@ -148,7 +150,7 @@ public class GameProxyImpl extends GameProxy{
          */
         String genUrl = getGenUrl();
         AccountBean account = null;
-        //account = CoolPadPay.buildAccount(activity, coolPadAuthToken, APP_ID, coolPadOpenID);
+        account = CoolPadPay.buildAccount(activity, coolPadAuthToken, APP_ID, coolPadOpenID);
         CoolPadPay.startPay(activity, genUrl, account, new IPayResultCallback() {
 
             @Override
@@ -197,7 +199,7 @@ public class GameProxyImpl extends GameProxy{
         }
         String sign = "";
         try {
-            sign = RSAHelper.signForPKCS1(json, appPrivateKey);
+            sign = RSAHelper.signForPKCS1(json, APP_KEY);
         } catch (Exception e) {
             e.printStackTrace();
         }

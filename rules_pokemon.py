@@ -542,5 +542,5 @@ class RuleCpad(RuleBase):
 
     APPID      = '5000002454'
     APPKEY     = '4bcd7fccf85b4adeb438a3e9f97e9f82'
-    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/c360/pay_callback'
+    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/cpad/pay_callback'
 
