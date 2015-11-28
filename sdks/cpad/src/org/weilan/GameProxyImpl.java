@@ -76,7 +76,6 @@ public class GameProxyImpl extends GameProxy{
                 User usr  = new User();
                 usr.token = authCode;
                 userListerner.onLoginSuccess(usr, customParams);
-            .show();
             }
 
         @Override
@@ -118,7 +117,6 @@ public class GameProxyImpl extends GameProxy{
                 User usr  = new User();
                 usr.token = mAuthCode;
                 userListerner.onLoginSuccess(usr, customParams);
-            .show();
             }
 
         @Override
@@ -148,7 +146,7 @@ public class GameProxyImpl extends GameProxy{
          *  raw_username = g_sdk_username,
          *}
          */
-        String genUrl = getGenUrl();
+        String genUrl = "";// getGenUrl();
         AccountBean account = null;
         account = CoolPadPay.buildAccount(activity, coolPadAuthToken, APP_ID, coolPadOpenID);
         CoolPadPay.startPay(activity, genUrl, account, new IPayResultCallback() {
@@ -164,8 +162,8 @@ public class GameProxyImpl extends GameProxy{
                         payCallBack.onFail(resultInfo);
                         break;
                 }
-            });
-        }
+            }
+        });
 
     }
 
