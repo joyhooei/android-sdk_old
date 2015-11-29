@@ -172,6 +172,8 @@ public class GameProxyImpl extends GameProxy{
         payParams.setGamename(KPSuperSDK.getGameName()); // 充值游戏
         payParams.setGameserver(roleInfo.optString("serverID")); // 充值游戏服务器
         payParams.setRolename(roleInfo.optString("name")); // 充值角色名称
+        // 因为没有回传数据故把回传信息放在订单号之前
+        orderID = callBackInfo + "_" + orderID;
         payParams.setOrderid(orderID); // 唯一订单号
 
         // 创建订单配置
