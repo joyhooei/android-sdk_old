@@ -547,7 +547,7 @@ class RuleMz(RuleBase):
     LABEL = 'mz'
     DIRECTORY = 'mz'
     CH_NAME = '魅族小包'
-    SDKTYPE = '56'
+    SDKTYPE = '57'
     PACKAGE_NAME = 'com.winnergame.pokemon.mz'
 
     APPID     = '2820741'
@@ -559,7 +559,7 @@ class RuleKaopu(RuleBase):
     LABEL = 'kaopu'
     DIRECTORY = 'kaopu'
     CH_NAME = '靠谱小包'
-    SDKTYPE = '57'
+    SDKTYPE = '56'
     PACKAGE_NAME = 'com.winnergame.pokemon.kaopu'
 
     APPID      = '10216001'
