@@ -532,3 +532,38 @@ class RuleGuopan(RuleBase):
     APPID      = '102121'
     APPKEY     = 'CJOVUCOA7728E002'
 
+@register
+class RuleM4399(RuleBase):
+    LABEL = 'm4399'
+    DIRECTORY = 'm4399'
+    CH_NAME = 'm4399小包'
+    SDKTYPE = '30'
+    PACKAGE_NAME = 'com.winnergame.pokemon.m4399'
+
+    APPKEY     = 'fa633fea35570a4ecd279da3dcd6d97a'
+
+@register
+class RuleMz(RuleBase):
+    LABEL = 'mz'
+    DIRECTORY = 'mz'
+    CH_NAME = '魅族小包'
+    SDKTYPE = '57'
+    PACKAGE_NAME = 'com.winnergame.pokemon.mz'
+
+    APPID     = '2820741'
+    APPKEY    = 'e158c5bd9d2c49a29c890e5a588d9952'
+    ORDER_URL = ''
+
+@register
+class RuleKaopu(RuleBase):
+    LABEL = 'kaopu'
+    DIRECTORY = 'kaopu'
+    CH_NAME = '靠谱小包'
+    SDKTYPE = '56'
+    PACKAGE_NAME = 'com.winnergame.pokemon.kaopu'
+
+    APPID      = '10216001'
+    APPKEY     = '10216'
+    APPSECRET  = 'B7FA47A6-3765-4DE8-8DC5-7C8355D7C7C5'
+    SDKVERSION = '1.0'
+
