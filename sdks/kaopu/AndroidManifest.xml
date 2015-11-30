@@ -3,7 +3,10 @@
     package="${PACKAGE_NAME}"
       android:installLocation="auto"
       android:versionCode="${VERSION_CODE}"
-      android:versionName="${VERSION_NAME}">
+      android:versionName="1.0"
+      >
+
+        <!-- android:versionName="${VERSION_NAME}" -->
 
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="18"/>
 
