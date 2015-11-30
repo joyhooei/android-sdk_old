@@ -166,9 +166,10 @@ public class GameProxyImpl extends GameProxy{
          *  raw_username = g_sdk_username,
          *}
          */
+        double p = Double.parseDouble(String.valueOf(price)) ;
         mPayCallback = payCallBack;
         PayParams payParams = new PayParams();
-        payParams.setAmount((double)price); // 充值金额
+        payParams.setAmount(p); // 充值金额
         payParams.setGamename(KPSuperSDK.getGameName()); // 充值游戏
         payParams.setGameserver(roleInfo.optString("serverID")); // 充值游戏服务器
         payParams.setRolename(roleInfo.optString("name")); // 充值角色名称
