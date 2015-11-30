@@ -241,6 +241,7 @@ public class GameProxyImpl extends GameProxy{
         }
         String sign = "";
         try {
+            Log.e("cocos","json = " + json);
             sign = RSAHelper.signForPKCS1(json, APP_KEY);
         } catch (Exception e) {
             e.printStackTrace();
