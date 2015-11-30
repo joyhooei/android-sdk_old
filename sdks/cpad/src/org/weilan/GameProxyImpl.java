@@ -226,6 +226,7 @@ public class GameProxyImpl extends GameProxy{
         try {
             obj.put("appid", APP_ID);
             obj.put("waresid", waresid );
+            obj.put("quantity", 1 );
             obj.put("cporderid", orderID);
             obj.put("price", price);
             obj.put("appuserid", coolPadOpenID);
