@@ -540,7 +540,7 @@ class RuleM4399(RuleBase):
     SDKTYPE = '30'
     PACKAGE_NAME = 'com.winnergame.pokemon.m4399'
 
-    APPKEY     = 'fa633fea35570a4ecd279da3dcd6d97a'
+    APPKEY     = '109598'
 
 @register
 class RuleMz(RuleBase):
