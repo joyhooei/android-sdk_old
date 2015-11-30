@@ -552,7 +552,7 @@ class RuleMz(RuleBase):
 
     APPID     = '2820741'
     APPKEY    = 'e158c5bd9d2c49a29c890e5a588d9952'
-    ORDER_URL = ''
+    ORDER_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/meizu/create_order'
 
 @register
 class RuleKaopu(RuleBase):
@@ -565,5 +565,5 @@ class RuleKaopu(RuleBase):
     APPID      = '10216001'
     APPKEY     = '10216'
     APPSECRET  = 'B7FA47A6-3765-4DE8-8DC5-7C8355D7C7C5'
-    SDKVERSION = '1.2'
+    SDKVERSION = '5.2'
 
