@@ -126,6 +126,30 @@ public class GameProxyImpl extends GameProxy{
         });
     }
 
+    public void setExtData(Context context, String ext) {
+        // 上报角色数据给sdk，ext:json数据，格式如下
+        /* local info = {
+         *     state = send_type,                   -- type
+         *     id = roleId,                      -- roleId
+         *     name = roleName,                    -- roleName
+         *     level = roleLevel,                   -- roleLevel
+         *     serverID = zoneId,                      -- zoneId
+         *     serverName = zoneName,                    -- zoneName
+         *     gold = balance,                     -- balance
+         *     vip = vip,                         -- vip 
+         *     factionName = partyName                    -- partyName 
+         * }
+         */
+        // need set server id 
+        try {
+            JSONObject roleInfo = new JSONObject(ext);
+            String serverId     = roleInfo.optString("serverID");
+            mOpeCenter.setServer(serverId);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void exit(Activity activity, ExitCallback callback) {
         mOpeCenter.shouldQuitGame(activity, new OnQuitGameListener() {
             @Override
