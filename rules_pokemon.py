@@ -565,5 +565,5 @@ class RuleKaopu(RuleBase):
     APPID      = '10216001'
     APPKEY     = '10216'
     APPSECRET  = 'B7FA47A6-3765-4DE8-8DC5-7C8355D7C7C5'
-    SDKVERSION = '1.0'
+    SDKVERSION = '1.2'
 
