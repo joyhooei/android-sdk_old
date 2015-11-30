@@ -40,6 +40,7 @@ import com.iapppay.utils.RSAHelper;
 public class GameProxyImpl extends GameProxy{
     public static final String APP_ID   = "${APPID}";
     public static final String APP_KEY  = "${APPKEY}";
+    public static final String PRIVATE_KEY  = "${PRIVATEKEY}";
     public static final String PAY_URL  = "${PAY_URL}";
     private GameAssistApi mGameAssistApi;
     private Coolcloud coolcloud = null;
@@ -243,7 +244,7 @@ public class GameProxyImpl extends GameProxy{
         String sign = "";
         try {
             Log.e("cocos","json = " + json);
-            sign = RSAHelper.signForPKCS1(json, APP_KEY);
+            sign = RSAHelper.signForPKCS1(json, PRIVATE_KEY);
         } catch (Exception e) {
             e.printStackTrace();
         }

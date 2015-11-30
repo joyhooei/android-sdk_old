@@ -542,6 +542,7 @@ class RuleCpad(RuleBase):
 
     APPID      = '5000002454'
     APPKEY     = '4bcd7fccf85b4adeb438a3e9f97e9f82'
+    PRIVATEKEY = 'MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIyxc7C7gPo6zG/8JG5p9NMFkGGoKIN7AyOpvvUQxCyPb3Ra7etcWVaG3F9Dp3+y3kIGWCQhzRNhislJ6va7wNBxC9k2qoZ5GtW5CVKYjLfUp4ornBkflNYAZfPsN6ziiqjWNkgCVdusgLZ3aT5YsgH7Q8a/woK/IEZbmv3PE5rtAgMBAAECgYAejhdbBY3ASm7Fz1O2KwrBnY66tsN9soR/BUl0fZytNMV21pyfJeI9GXLYuZ+x6w279xbDWhfooqF6j7QYu7Pm+4BhM2eTVWhs5ao90PN2azFxr2l1kw4su7a55OhjrqhuKl9bDOK2ILoW/ilSnqbVbVyVndoMgR8bjaBaCkPjAQJBAPil7J0QkrhZFLemHvomWKkS970mb1T+FlgoxLSNamwzAzEpXdk3xEX1+1AY+mn6wnCWLCZ6zCdIIWFhXva9NEECQQCQ2mQtYaQ8SqSIB+4drzW8X4OvbH2Nuj1Ud9zvtulSK3UszVx6Rr2IY2r72lCPMzV3QK3ISNcJmNszv0h/2IutAkEAkytyPwy+KsrfDkwO7bSgqYIGjDghkUbK5udKdit1oBEZhJGdcKInU9liJGiEXxIC4CyieSwZhe6Vg1Pkp1oZgQJAISfsEDsuVaKcQIrYJTFKsoCGauwBXSSJD0GUb8ZFZ8qMuqGTDmYM0iA3h8hz8iM9lLtYS+ToW8kCO7kIBkNxzQJAVTsR4yuJI7oCtPpc1Ih+r0aFWb4EtDTxhXOE8KZQbILff0FRv6dEyZ+dScmypgyGwmmVpl3IsIAXpluF6q7RSA=='
     #PAY_URL    = 'http://pokemon.sdk.dnastdio.com:8888/sdk/cpad/pay_callback'
     PAY_URL    = ''
     USERINFO_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/coolpad/info'
