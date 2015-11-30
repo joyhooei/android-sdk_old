@@ -190,7 +190,8 @@ public class GameProxyImpl extends GameProxy{
             e.printStackTrace();
         }
 
-        String genUrl = getGenUrl(waresid, orderID, price, callBackInfo, coolPadOpenID);
+        double p = Double.parseDouble(String.valueOf(price)) ;
+        String genUrl = getGenUrl(waresid, orderID, p, callBackInfo, coolPadOpenID);
         AccountBean account = null;
         account = CoolPadPay.buildAccount(curActivity, coolPadAuthToken, APP_ID, coolPadOpenID);
         CoolPadPay.startPay(curActivity, genUrl, account, new IPayResultCallback() {
