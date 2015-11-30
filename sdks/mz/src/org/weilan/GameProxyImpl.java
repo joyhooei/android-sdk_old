@@ -1,5 +1,6 @@
 package org.weilan;
 
+import java.util.Iterator;
 import java.util.UUID;
 import org.json.JSONObject;
 import org.json.JSONException;
@@ -53,6 +54,7 @@ public class GameProxyImpl extends GameProxy{
             if (msg.what == START_PAY)
             {
                 try {
+                    Log.v("cocos","payInfoJson = " + payInfoJson.toString());
                     JSONObject object = payInfoJson;
                     String orderId = object.getString("cp_order_id");
                     String sign = object.getString("sign");
@@ -85,6 +87,7 @@ public class GameProxyImpl extends GameProxy{
                         .setAppid(appid)
                         .setUserUid(uid)
                         .setPayType(payType);
+
                     onSdkPay(buyInfo);
                 }catch (JSONException e) {
                     e.printStackTrace();
@@ -228,11 +231,17 @@ public class GameProxyImpl extends GameProxy{
             URL url = new URL("${ORDER_URL}");
             HttpURLConnection connection = (HttpURLConnection) url
                 .openConnection();
-            //connection.setRequestMethod("POST");
+            connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-type",
-                    "application/json");
+                    "application/x-www-form-urlencoded");
             connection.setDoOutput(true);// 是否输入参数
             StringBuffer params = new StringBuffer();
+            Iterator it = payInfoJson.keys();
+            while ( it.hasNext() ){
+                 String key = (String) it.next();
+                 String value = payInfoJson.getString(key);
+                 params.append("&").append(key).append("=").append(value);
+            }
             /*
             params.append("&returnJson=");
             params.append(enCode("{\"channel\": \"mz\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
@@ -247,7 +256,6 @@ public class GameProxyImpl extends GameProxy{
             params.append("&cpPrivateInfo=");
             params.append(enCode(productInfo.callBackInfo));
             */
-            params.append(enCode(payInfoJson.toString()));
             Log.d("cocos", "getOrderInfo: " + params.toString());
             byte[] bytes = params.toString().getBytes();
             connection.connect();
