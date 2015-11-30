@@ -228,7 +228,7 @@ public class GameProxyImpl extends GameProxy{
             URL url = new URL("${ORDER_URL}");
             HttpURLConnection connection = (HttpURLConnection) url
                 .openConnection();
-            connection.setRequestMethod("POST");
+            //connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-type",
                     "application/json");
             connection.setDoOutput(true);// 是否输入参数
