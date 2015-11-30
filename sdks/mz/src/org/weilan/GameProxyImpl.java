@@ -33,37 +33,16 @@ import com.meizu.gamecenter.sdk.MzPayListener;
 import com.meizu.gamecenter.sdk.PayResultCode;
 
 
-class ProductInfo {
-    public String productName;
-    public String productDesc;
-    public String price;
-    public String userName;
-    public String goodsID;
-    public String orderID;
-    public String callBackInfo;
-
-    public ProductInfo(String productName, String productDesc, String price, String userName, String goodsID, String orderID, String callBackInfo) {
-        this.productName = productName;
-        this.productDesc = productDesc;
-        this.price = price;
-        this.userName = userName;
-        this.goodsID = goodsID;
-        this.orderID = orderID;
-        this.callBackInfo = callBackInfo;
-    }
-}
-
-
 public class GameProxyImpl extends GameProxy{
     private static final String APP_ID  = "${APPID}";
     private static final String APP_KEY = "${APPKEY}";
 
     private Activity    curActivity;
-    private ProductInfo productInfo;
     private PayCallBack  mPayCallback = null;
-    private String mOrderInfo;
 
     private static final int START_PAY = 1;
+
+    private JSONObject payInfoJson;
 
     private Object mCustomParams;
 
@@ -74,8 +53,7 @@ public class GameProxyImpl extends GameProxy{
             if (msg.what == START_PAY)
             {
                 try {
-                    JSONObject object = new JSONObject(mOrderInfo);
-                    object = object.getJSONObject("value");
+                    JSONObject object = payInfoJson;
                     String orderId = object.getString("cp_order_id");
                     String sign = object.getString("sign");
                     String signType = object.getString("sign_type");
@@ -191,16 +169,37 @@ public class GameProxyImpl extends GameProxy{
         curActivity = activity;
         mPayCallback = payCallBack;
 
-        DecimalFormat df = new DecimalFormat("0.00");
-        productInfo = new ProductInfo(name, "钻石", df.format(price),
-                "", ID, orderID, callBackInfo);
+        try {
+            long playerId = roleInfo.optLong("id");
+
+            DecimalFormat df = new DecimalFormat("0.00");
+            payInfoJson = new JSONObject();
+            payInfoJson.put("app_id"     , ${APPID});
+            payInfoJson.put("cp_order_id", orderID);
+            payInfoJson.put("uid"        , playerId);
+            payInfoJson.put("sign_type"  , "md5");
+            payInfoJson.put("buy_amount" , price * 10);
+            payInfoJson.put("user_info"  , callBackInfo);
+            payInfoJson.put("total_price", df.format(price));
+            payInfoJson.put("product_id" , ID + "");
+            payInfoJson.put("product_subject", name);
+            payInfoJson.put("product_body", name);
+            payInfoJson.put("product_unit", "钻石");
+            payInfoJson.put("product_per_price", "0.1");
+            payInfoJson.put("create_time", System.currentTimeMillis());
+            payInfoJson.put("pay_type"   , 0);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return;
+        }
 
         new Thread(new Runnable()
             {
                 @Override
                 public void run( )
                 {
-                    getOrderInfo( productInfo );
+                    getOrderInfo();
                 }
             }).start();
     }
@@ -222,7 +221,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     /** 支付前去服务端创建订单 */
-    private void getOrderInfo(ProductInfo productInfo)
+    private void getOrderInfo()
     {
         try
         {
@@ -231,9 +230,10 @@ public class GameProxyImpl extends GameProxy{
                 .openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-type",
-                    "application/x-www-form-urlencoded");
+                    "application/json");
             connection.setDoOutput(true);// 是否输入参数
             StringBuffer params = new StringBuffer();
+            /*
             params.append("&returnJson=");
             params.append(enCode("{\"channel\": \"mz\", \"open_id\": \"\", \"user_name\": \"\", \"access_token\": \"\" }"));
             params.append("&productName=");
@@ -246,6 +246,8 @@ public class GameProxyImpl extends GameProxy{
             params.append(enCode(productInfo.orderID));
             params.append("&cpPrivateInfo=");
             params.append(enCode(productInfo.callBackInfo));
+            */
+            params.append(enCode(payInfoJson.toString()));
             Log.d("cocos", "getOrderInfo: " + params.toString());
             byte[] bytes = params.toString().getBytes();
             connection.connect();
@@ -260,11 +262,15 @@ public class GameProxyImpl extends GameProxy{
             }
             connection.disconnect();
             reader.close();
-            mOrderInfo = readbuff.toString();
+            String mOrderInfo = readbuff.toString();
+            payInfoJson.put("sign", mOrderInfo);
             Log.i("cocos", "getOrderInfo: " + mOrderInfo);
             mHandler.sendEmptyMessage(START_PAY);
 
         } catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        } catch (JSONException e)
         {
             e.printStackTrace();
         } catch (IOException e)
