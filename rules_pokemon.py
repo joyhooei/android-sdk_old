@@ -567,3 +567,7 @@ class RuleKaopu(RuleBase):
     APPSECRET  = 'B7FA47A6-3765-4DE8-8DC5-7C8355D7C7C5'
     SDKVERSION = '1.0'
 
+    @classmethod
+    def rules(cls):
+        cls.VERSION_NAME = "1.0"
+        return super(RuleKaopu, cls).rules()

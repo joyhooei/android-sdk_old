@@ -64,6 +64,7 @@ public class GameProxyImpl extends GameProxy{
                 }
             }
         }
+        Log.v("cocos", "getSystemProperty : " + line);
         return line;
     }
 
@@ -80,6 +81,12 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void applicationInit(Activity activity) {
+        // 判断是否是miui
+        if(getSystemProperty("ro.miui.ui.version.name") != null){
+            // 是miui
+            KPSuperSDK.startGuide(activity);
+        }
+
         // SDK初始化
         // 若在此时传入配置数据，则会相对应的覆盖 kaopu_game_config.json 中的数据
         final HashMap<String, String> configData = new HashMap<String, String>();
@@ -108,11 +115,6 @@ public class GameProxyImpl extends GameProxy{
                     }
 
                 });
-
-                if(getSystemProperty("ro.miui.ui.version.name") != null){
-                    // 是miui
-                    KPSuperSDK.startGuide(curActivity);
-                }
             }
 
             @Override
