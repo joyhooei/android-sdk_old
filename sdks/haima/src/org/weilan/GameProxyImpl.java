@@ -32,7 +32,6 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     private static String appid = "${APPID}";
     private Activity currentActivity;
     private PayCallBack payCallBack;
-    private boolean inited = false;
     private Object mCustomParam;
 
     public boolean supportLogin() {
@@ -40,7 +39,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     }
 
     public boolean supportCommunity() {
-        return false;
+        return true;
     }
 
     public boolean supportPay() {
@@ -51,7 +50,6 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
         currentActivity = activity;
         if (!HMPay.init(activity, false, appid, this, false, HMPay.CHECKUPDATE_FAILED_SHOW_CANCLEANDSURE)) {
             Toast.makeText(activity, "初始化失败，参数不正确", Toast.LENGTH_SHORT).show();
-            inited = true;
             return;
         }
     }
@@ -59,8 +57,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     @Override
     public void onResume(Activity activity) {
         super.onResume(activity);
-        if(inited)
-            HMPay.onResume(activity);
+        HMPay.onResume(activity);
     }
 
     @Override
@@ -75,8 +72,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     @Override
     public void onPause(Activity activity) {
         super.onPause(activity);
-        if(inited)
-            HMPay.onPause();
+        HMPay.onPause();
     }
 
     public void login(Activity activity,Object customParams) {
@@ -104,7 +100,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
         // 订单号
         orderInfo.orderNo = orderID;
 
-        String callbackStr = "1_" + 
+        String callbackStr = "1_" +
             roleInfo.optString("serverID") + "_" +
             roleInfo.optString("id");
         orderInfo.userParam = callbackStr;
@@ -128,6 +124,15 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     public void onLogOut() {
         userListerner.onLogout(null);
     }
+
+    public void openCommunity(Activity activity) {
+        // 打开社区
+        if( !HMPay.startUserCenter(activity) )
+        {
+            Log.e("cocos","openCommunity faild");
+        }
+    }
+
 
     @Override
     public void onCheckOrderFailed(String orderId, ZHErrorInfo errorInfo) {
