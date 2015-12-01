@@ -189,7 +189,7 @@ public class GameProxyImpl extends GameProxy{
             payInfoJson.put("product_body", name);
             payInfoJson.put("product_unit", "钻石");
             payInfoJson.put("product_per_price", "0.1");
-            payInfoJson.put("create_time", System.currentTimeMillis());
+            payInfoJson.put("create_time", (int)(System.currentTimeMillis()/1000));
             payInfoJson.put("pay_type"   , 0);
 
         } catch (JSONException e) {
