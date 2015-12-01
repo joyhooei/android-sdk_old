@@ -8,6 +8,7 @@ class RuleBase(Rule):
     VERSION_NAME = '1.00000'
     APPNAME = '神奇小精灵'
     APPLABEL = 'pokemon'
+    ICON_PATH = '../../../pokemon_icons/android'
 
 
 @register
