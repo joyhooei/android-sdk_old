@@ -175,13 +175,13 @@ public class GameProxyImpl extends GameProxy{
         try {
             long playerId = roleInfo.optLong("id");
 
-            DecimalFormat df = new DecimalFormat("0.00");
+            DecimalFormat df = new DecimalFormat("0.0");
             payInfoJson = new JSONObject();
             payInfoJson.put("app_id"     , ${APPID});
             payInfoJson.put("cp_order_id", orderID);
             payInfoJson.put("uid"        , playerId);
             payInfoJson.put("sign_type"  , "md5");
-            payInfoJson.put("buy_amount" , price * 10);
+            payInfoJson.put("buy_amount" , "1");
             payInfoJson.put("user_info"  , callBackInfo);
             payInfoJson.put("total_price", df.format(price));
             payInfoJson.put("product_id" , ID + "");
@@ -189,7 +189,8 @@ public class GameProxyImpl extends GameProxy{
             payInfoJson.put("product_body", name);
             payInfoJson.put("product_unit", "钻石");
             payInfoJson.put("product_per_price", "0.1");
-            payInfoJson.put("create_time", (int)(System.currentTimeMillis()/1000));
+            //payInfoJson.put("create_time", (long)(System.currentTimeMillis()/1000));
+            payInfoJson.put("create_time", System.currentTimeMillis());
             payInfoJson.put("pay_type"   , 0);
 
         } catch (JSONException e) {
