@@ -175,13 +175,13 @@ public class GameProxyImpl extends GameProxy{
         try {
             long playerId = roleInfo.optLong("id");
 
-            DecimalFormat df = new DecimalFormat("0.00");
+            DecimalFormat df = new DecimalFormat("0.0");
             payInfoJson = new JSONObject();
             payInfoJson.put("app_id"     , ${APPID});
             payInfoJson.put("cp_order_id", orderID);
             payInfoJson.put("uid"        , playerId);
             payInfoJson.put("sign_type"  , "md5");
-            payInfoJson.put("buy_amount" , price * 10);
+            payInfoJson.put("buy_amount" , "1");
             payInfoJson.put("user_info"  , callBackInfo);
             payInfoJson.put("total_price", df.format(price));
             payInfoJson.put("product_id" , ID + "");
@@ -189,6 +189,7 @@ public class GameProxyImpl extends GameProxy{
             payInfoJson.put("product_body", name);
             payInfoJson.put("product_unit", "钻石");
             payInfoJson.put("product_per_price", "0.1");
+            //payInfoJson.put("create_time", (long)(System.currentTimeMillis()/1000));
             payInfoJson.put("create_time", System.currentTimeMillis());
             payInfoJson.put("pay_type"   , 0);
 
@@ -318,6 +319,7 @@ public class GameProxyImpl extends GameProxy{
                         // 支付失败，包含错误码和错误消息。
                         // 注意，错误消息需要由游戏展示给用户，错误码可以打印，供调试使用
                         mPayCallback.onFail("支付失败 : " + errorMsg + " , code = " + code);
+                        Log.e("cocos", "支付失败 : " + errorMsg + " , code = " + code);
                         Toast.makeText(curActivity, "支付失败 : " + errorMsg, Toast.LENGTH_LONG).show();
                         break;
                 }
