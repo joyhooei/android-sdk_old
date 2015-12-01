@@ -41,6 +41,8 @@ public class GameProxyImpl extends GameProxy{
     private Activity    curActivity;
     private PayCallBack  mPayCallback = null;
 
+    private long  iSdkUid = 0;
+
     private static final int START_PAY = 1;
 
     private JSONObject payInfoJson;
@@ -139,6 +141,8 @@ public class GameProxyImpl extends GameProxy{
                         usr.userID   = uid;
                         usr.token    = session;
                         userListerner.onLoginSuccess(usr, mCustomParams);
+
+                        iSdkUid = Long.parseLong(uid);
                         break;
                     case LoginResultCode.LOGIN_ERROR_CANCEL:
                         //  用户取消登陆操作
@@ -173,13 +177,11 @@ public class GameProxyImpl extends GameProxy{
         mPayCallback = payCallBack;
 
         try {
-            long playerId = roleInfo.optLong("id");
-
             DecimalFormat df = new DecimalFormat("0.0");
             payInfoJson = new JSONObject();
             payInfoJson.put("app_id"     , ${APPID});
             payInfoJson.put("cp_order_id", orderID);
-            payInfoJson.put("uid"        , playerId);
+            payInfoJson.put("uid"        , iSdkUid);
             payInfoJson.put("sign_type"  , "md5");
             payInfoJson.put("buy_amount" , "1");
             payInfoJson.put("user_info"  , callBackInfo);
