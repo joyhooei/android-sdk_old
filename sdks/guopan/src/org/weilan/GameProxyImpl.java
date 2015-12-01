@@ -158,10 +158,10 @@ public class GameProxyImpl extends GameProxy{
         mPayCallBack = payCallBack;
 
         GPSDKGamePayment payParam = new GPSDKGamePayment();
-        payParam.mItemName   = "钻石";
+        payParam.mItemName   = name;
         payParam.mPaymentDes = name;
         payParam.mItemPrice  = price;         // 订单的价格（以元为单位）
-        payParam.mItemCount  = (int)(price * 10); // 数量
+        payParam.mItemCount  = 1; // 数量
         payParam.mCurrentActivity = activity;// 用户当前的activity
         payParam.mSerialNumber = orderID;// 订单号，这里用时间代替（用户需填写订单的订单号）
         payParam.mItemId      = ID;// 商品编号ID
