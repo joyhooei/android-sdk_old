@@ -74,6 +74,13 @@
 
     <!-- SDK 中用到的 Activity(包括第三方) BEGIN -->
     <!-- SDK Activity BEGIN -->
+    <!-- fix start -->
+    <activity
+        android:name="com.haima.loginplugin.activities.ZHMyPropsActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:windowSoftInputMode="adjustResize|stateHidden" />
+    <activity
+        android:name="com.haima.loginplugin.activities.ZHVipPrivilegeActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:windowSoftInputMode="adjustResize|stateHidden" />
+    <!-- fix ended -->
+
     <activity
         android:name="com.haima.loginplugin.activities.ZHLoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:windowSoftInputMode="adjustResize|stateHidden" />
     <activity
@@ -108,4 +115,4 @@
                       android:smallScreens="true"
                       android:anyDensity="true"
                       android:normalScreens="true"/>
-</manifest> 
+</manifest>
