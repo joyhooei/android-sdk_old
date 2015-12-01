@@ -318,6 +318,7 @@ public class GameProxyImpl extends GameProxy{
                         // 支付失败，包含错误码和错误消息。
                         // 注意，错误消息需要由游戏展示给用户，错误码可以打印，供调试使用
                         mPayCallback.onFail("支付失败 : " + errorMsg + " , code = " + code);
+                        Log.e("cocos", "支付失败 : " + errorMsg + " , code = " + code);
                         Toast.makeText(curActivity, "支付失败 : " + errorMsg, Toast.LENGTH_LONG).show();
                         break;
                 }
