@@ -5,12 +5,9 @@
       android:versionCode="${VERSION_CODE}"
       android:versionName="${VERSION_NAME}">
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="18"/>
+    ${BASE_SDK_VERSION}
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.DUMP" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    ${BASE_PERMISSION}
 
     <!-- SDK need -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -36,13 +33,13 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    
+
     <uses-permission android:name="com.lenovo.lsf.device.permission.MESSAGE" />
 	<uses-permission android:name="com.lenovo.lsf.device.permission.RECEIVE" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <uses-permission android:name="android.permission.RESTART_PACKAGES" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    
+
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
 
     <application android:name="org.weilan.app"
@@ -50,33 +47,7 @@
         android:icon="@drawable/ic_launcher"
         >
 
-        <activity android:name="org.weilan.poem"
-                  android:label="@string/app_name"
-                  android:screenOrientation="portrait"
-                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-                  android:configChanges="keyboardHidden|orientation">
-            <intent-filter>
-                <!--
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                -->
-                <action android:name="lenovoid.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <receiver android:name="org.weilan.PushReceiver" >
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="android.intent.action.USER_PRESENT"/>
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="org.weilan.PushService"
-            android:enabled="true"
-            />
+        ${BASE_ACTIVITY}
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
 
@@ -88,17 +59,17 @@
             android:screenOrientation="portrait"
             android:theme="@style/com_lenovo_pay_theme_dialog" />
         <!-- 收银台界面结束-->
-        
+
 
         <!-- 登录配置开始 -->
         <meta-data
             android:name="lenovo.open.appid"
             android:value="${OPEN_APPID}" /><!--在此处填入申请的lenovo open AppID-->
-        
+
         <meta-data
             android:name="lenovo.gamesdk.new"
             android:value="2.4.2.2" />
-        
+
 		<!-- 闪屏界面，默认横屏，通过screenOrientation可以进行修改-->
         <activity
             android:name="com.lenovo.lsf.gamesdk.ui.WelcomeActivity"
@@ -113,7 +84,7 @@
             </intent-filter>
         </activity>
         <!-- 闪屏界面结束 -->
-        
+
         <!-- 登录成功欢迎条界面，默认横屏，通过screenOrientation可以进行修改 -->
         <activity
             android:name="com.lenovo.lsf.lenovoid.ui.KeyLoginActivity"
@@ -123,7 +94,7 @@
             android:windowSoftInputMode="stateHidden" >
         </activity>
         <!-- 登录成功欢迎条界面结束 -->
-        
+
         <!-- 登录过程界面，默认横屏，通过screenOrientation可以进行修改 -->
         <activity
             android:name="com.lenovo.lsf.lenovoid.ui.PsLoginActivity"
@@ -200,7 +171,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/com_lenovo_lsf_Translucent_NoTitle_Dialog" >
         </activity>
-        
+
         <activity
             android:name="com.lenovo.lsf.lenovoid.ui.QuitActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|navigation"
@@ -208,26 +179,26 @@
             android:theme="@style/com_lenovo_lsf_Translucent_NoTitle_Dialog" >
         </activity>
         <!-- 登录过程界面结束 -->
-        
+
        <service
          android:name="com.lenovo.lsf.lenovoid.toolbar.AppCheckService" >
        </service>
-       
+
        <receiver android:name="com.lenovo.lsf.gamesdk.receiver.GameSdkReceiver" android:permission="com.lenovo.lsf.device.permission.MESSAGE">
 	   <intent-filter>
 			<action android:name="com.lenovo.lsf.gamesdk.receiver.GameSdkReceiver"></action>
             <action android:name="${OPEN_APPID}"></action>  <!--在此处填入申请的lenovo open AppID-->
 			<category android:name="${PACKAGE_NAME}" /> <!--在此处填入Package Name-->
 	   </intent-filter>
-	 </receiver>      
-       
-     <receiver android:name="com.lenovo.lsf.gamesdk.receiver.GameSdkAndroidLReceiver"> 
+	 </receiver>
+
+     <receiver android:name="com.lenovo.lsf.gamesdk.receiver.GameSdkAndroidLReceiver">
 	   <intent-filter>
 			<action android:name="com.lenovo.lsf.device.ANDROID_L_MSG"></action>
             <category android:name="${PACKAGE_NAME}" /><!--在此处填入Package Name-->
 	   </intent-filter>
 	 </receiver>
-	 
+
         <receiver android:name="com.lenovo.lsf.push.receiver.PushReceiver" android:process=":PushService">
             <intent-filter >
                 <action android:name="com.lenovo.lsf.intent.REGISTER" />
@@ -239,19 +210,19 @@
                 <action android:name="com.lenovo.lsf.intent.SWITCH_OFF_SERVICE" />
             </intent-filter>
         </receiver>
-        
+
         <service android:name="com.lenovo.lsf.push.service.PushService" android:process=":PushService"
             android:exported="true">
         </service>
-        
+
         <activity android:name="com.lenovo.lsf.push.ui.DisplayActivity" android:process=":DisplayActivity"
              android:theme="@android:style/Theme.Translucent" android:screenOrientation="portrait">
         </activity>
-        
+
         <service android:name="com.lenovo.lsf.push.ui.DisplayService" android:process=":PushService"
             android:exported="true">
         </service>
-       
+
        <!-- 登录配置结束 -->
 
 
@@ -260,4 +231,4 @@
                       android:smallScreens="true"
                       android:anyDensity="true"
                       android:normalScreens="true"/>
-</manifest> 
+</manifest>

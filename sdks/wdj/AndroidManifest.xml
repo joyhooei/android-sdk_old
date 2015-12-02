@@ -5,11 +5,9 @@
     android:versionCode="${VERSION_CODE}"
     android:versionName="${VERSION_NAME}">
 
-    <uses-sdk
-        android:minSdkVersion="7"
-        android:targetSdkVersion="19" />
+    ${BASE_SDK_VERSION}
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    ${BASE_PERMISSION}
 
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -41,29 +39,10 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:name="org.weilan.sdk_app">
+
         <meta-data android:name="sdktype" android:value="${SDKTYPE}" />
-        <activity
-            android:name="org.weilan.poem"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
-        <receiver android:name="org.weilan.PushReceiver" >
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="android.intent.action.USER_PRESENT"/>
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="org.weilan.PushService"
-            android:enabled="true"
-            />
+        ${BASE_ACTIVITY}
 
         <activity
             android:name="com.wandoujia.mariosdk.plugin.apk.activity.MarioAccountActivity"

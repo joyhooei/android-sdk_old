@@ -5,16 +5,9 @@
       android:versionCode="${VERSION_CODE}"
       android:versionName="${VERSION_NAME}">
 
-    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15"/>
+    ${BASE_SDK_VERSION}
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.DUMP" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    ${BASE_PERMISSION}
 
     <uses-permission android:name="com.bbk.account.permission.READ_ACCOUNTINFO" />
     <uses-permission android:name="com.bbk.account.permission.WRITE_ACCOUNTINFO" />
@@ -43,33 +36,11 @@
         android:icon="@drawable/ic_launcher"
         >
 
-        <activity android:name="org.weilan.poem"
-                  android:label="@string/app_name"
-                  android:screenOrientation="portrait"
-                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-                  android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <receiver android:name="org.weilan.PushReceiver" >
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="android.intent.action.USER_PRESENT"/>
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="org.weilan.PushService"
-            android:enabled="true"
-            />
+        ${BASE_ACTIVITY}
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
         <meta-data android:name="create_order_url" android:value="${CREATE_ORDER_URL}"/>
-		
+
         <!-- vivo -->
         <!-- vivo activity begin -->
         <activity
@@ -343,4 +314,4 @@
                       android:smallScreens="true"
                       android:anyDensity="true"
                       android:normalScreens="true"/>
-</manifest> 
+</manifest>

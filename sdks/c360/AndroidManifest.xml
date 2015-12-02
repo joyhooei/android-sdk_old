@@ -4,11 +4,9 @@
     android:versionCode="${VERSION_CODE}"
     android:versionName="${VERSION_NAME}" >
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+    ${BASE_SDK_VERSION}
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    ${BASE_PERMISSION}
 
     <!-- 添加360SDK必需要的权限。begin -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -51,37 +49,14 @@
     <!-- qiku end -->
     <!-- 添加360SDK必需要的权限。end -->
     <application
-        android:allowBackup="true" 
-        android:label="@string/app_name" 
+        android:allowBackup="true"
+        android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
         android:name="org.weilan.app" >
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
 
-        <activity
-            android:name="org.weilan.poem"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <receiver android:name="org.weilan.PushReceiver" >
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="android.intent.action.USER_PRESENT"/>
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="org.weilan.PushService"
-            android:enabled="true"
-            />
+        ${BASE_ACTIVITY}
 
         <!-- 添加360SDK必需的activity：com.qihoopay.insdk.activity.ContainerActivity -->
         <activity

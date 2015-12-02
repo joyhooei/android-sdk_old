@@ -9,6 +9,60 @@ class RuleBase(Rule):
     APPNAME = '神奇小精灵'
     APPLABEL = 'pokemon'
 
+    BASE_SDK_VERSION = """
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="18"/>
+    """
+
+    BASE_PERMISSION = """
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.DUMP" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    """
+
+    NATIVE_MAIN_BOOT = True
+    BASE_ACTIVITY = """
+        <activity android:name="org.weilan.poem"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection">
+        """ + ("" if not NATIVE_MAIN_BOOT else """
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        """) + """
+        </activity>
+
+        <activity android:name="org.weilan.VideoActivity"
+            android:label="@string/app_name"
+            >
+            <intent-filter>
+                <action android:name="org.weilan.VideoActivity" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="org.weilan.PushReceiver" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="org.weilan.PushService"
+            android:enabled="true"
+            />
+    """
+
 
 @register
 class RuleEmpty(RuleBase):
@@ -157,6 +211,11 @@ class RuleGfan(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.gfan'
 
     APPKEY = '1677378043'
+
+    @classmethod
+    def rules(cls):
+        NATIVE_MAIN_BOOT = False
+        return super(RuleGfan, cls).rules()
 
 
 @register

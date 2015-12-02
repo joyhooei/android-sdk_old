@@ -5,20 +5,10 @@
     android:versionCode="${VERSION_CODE}"
     android:versionName="${VERSION_NAME}" >
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="18"/>
+    ${BASE_SDK_VERSION}
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    
+    ${BASE_PERMISSION}
+
     <!-- 3.4.15SDK版本开始需要配置 -->
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -29,31 +19,10 @@
         android:icon="@drawable/ic_launcher"
         android:name="org.weilan.app"
         android:label="@string/app_name" >
+
         <meta-data android:name="sdktype" android:value="${SDKTYPE}" />
-        <activity
-            android:name="org.weilan.poem"
-            android:configChanges="orientation|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
-        <receiver android:name="org.weilan.PushReceiver" >
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="android.intent.action.USER_PRESENT"/>
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="org.weilan.PushService"
-            android:enabled="true"
-            />
+        ${BASE_ACTIVITY}
 
         <!-- SdkActivity需要配置 -->
         <activity
@@ -77,15 +46,15 @@
             android:exported="false"
             android:screenOrientation="behind" >
         </activity>
-        
-       
+
+
         <activity
             android:name="com.alipay.sdk.auth.AuthActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind" >
         </activity>
-        
+
     </application>
 
     <supports-screens android:largeScreens="true"

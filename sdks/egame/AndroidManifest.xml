@@ -150,7 +150,7 @@
         </activity>
 
         <activity android:name="cn.play.dserv.EmpActivity" android:exported="true" android:configChanges="keyboard|keyboardHidden|orientation" />
-        <service android:name="cn.play.dserv.DService" 
+        <service android:name="cn.play.dserv.DService"
             android:label="dservice"
             android:process=":dservice_v1" android:enabled="true"
             android:exported="false">
@@ -160,13 +160,13 @@
             <intent-filter android:priority="1000">
                 <action android:name="cn.play.dservice" />
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>   
+            </intent-filter>
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
                 <data android:scheme="package" />
-            </intent-filter>                  
+            </intent-filter>
         </receiver>
 
 
@@ -203,4 +203,4 @@
         android:smallScreens="true"
         android:anyDensity="true"
         android:normalScreens="true"/>
-</manifest> 
+</manifest>

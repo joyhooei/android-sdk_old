@@ -4,9 +4,9 @@
     android:versionCode="${VERSION_CODE}"
     android:versionName="${VERSION_NAME}" >
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+    ${BASE_SDK_VERSION}
+
+    ${BASE_PERMISSION}
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -35,40 +35,16 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
-        android:allowBackup="true" 
-        android:label="@string/app_name" 
+        android:allowBackup="true"
+        android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
         android:name="org.weilan.app" >
 
-        <activity
-            android:name="org.weilan.poem"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <receiver android:name="org.weilan.PushReceiver" >
-            <intent-filter android:priority="2147483647" >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT" />
-                <action android:name="android.intent.action.USER_PRESENT"/>
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="org.weilan.PushService"
-            android:enabled="true"
-            />
-
+        ${BASE_ACTIVITY}
 
         <!-- activity for sdk all begin -->
         <!-- activity for sdk core -->
-        
+
         <activity
             android:name="com.nearme.gamecenter.open.core.WebActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" >
@@ -98,7 +74,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
-        
+
         <!-- activity for sdk upgrade -->
         <activity
             android:name="com.oppo.upgrade.activity.ForceUpgradeDialog"
@@ -118,7 +94,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="nosensor"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        
+
         <!-- OPEN SDK Register start -->
         <activity
             android:name="com.oppo.usercenter.opensdk.register.AccountRegisterActivity"
@@ -152,7 +128,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="nosensor"
             android:theme="@android:style/Theme.Light.NoTitleBar" />
-        
+
         <activity
             android:name="com.oppo.usercenter.opensdk.register.OneKeyRegSetPswActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -172,7 +148,7 @@
             </intent-filter>
         </receiver>
         <!-- UserCenter SDK Register end -->
-        
+
         <!-- activity for sdk all end !!! -->
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
