@@ -12,6 +12,12 @@ def one(rule):
         os.system('git status')
         return
     os.system('git clean -f -d .')
+
+    # icon path
+    os.environ['ICON_DIRECTORY'] = rule.ICON_PATH
+    if not os.path.isabs( rule.ICON_PATH ):
+        os.environ['ICON_DIRECTORY'] = os.path.abspath( rule.ICON_PATH )
+
     process(rule.rules())
     # preview replaces
     #os.system('git diff -p --raw .')
@@ -78,17 +84,17 @@ if __name__ == '__main__':
         if not os.path.isabs(os.environ['CLIENT_DIRECTORY']):
             os.environ['CLIENT_DIRECTORY'] = os.path.abspath(os.environ['CLIENT_DIRECTORY'])
 
-    if options.copyicons_path:
-        os.environ['ICON_DIRECTORY'] = options.copyicons_path
-    else :
-        c_dir = os.environ.get("CLIENT_DIRECTORY", "")
-        if c_dir != "" :
-            os.environ['ICON_DIRECTORY'] = os.path.join(c_dir, '../pokemon_icons/android')
+    #if options.copyicons_path:
+    #    os.environ['ICON_DIRECTORY'] = options.copyicons_path
+    #else :
+    #    c_dir = os.environ.get("CLIENT_DIRECTORY", "")
+    #    if c_dir != "" :
+    #        os.environ['ICON_DIRECTORY'] = os.path.join(c_dir, '../pokemon_icons/android')
 
-    i_dir = os.environ.get("ICON_DIRECTORY", "")
-    if i_dir != "" :
-        if not os.path.isabs(i_dir):
-            os.environ['ICON_DIRECTORY'] = os.path.abspath(i_dir)
+    #i_dir = os.environ.get("ICON_DIRECTORY", "")
+    #if i_dir != "" :
+    #    if not os.path.isabs(i_dir):
+    #        os.environ['ICON_DIRECTORY'] = os.path.abspath(i_dir)
 
     if options.list:
         for rule in all_rules.values():

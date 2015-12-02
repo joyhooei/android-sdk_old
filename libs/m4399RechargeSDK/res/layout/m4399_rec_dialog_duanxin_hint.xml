@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/m4399_rec_paddingLeft"
        	android:paddingRight="@dimen/m4399_rec_paddingRight"
-	    android:paddingTop="dp"
+	    android:paddingTop="12dp"
        	android:paddingBottom="12dp"
         android:gravity="center"
         android:orientation="horizontal" >
