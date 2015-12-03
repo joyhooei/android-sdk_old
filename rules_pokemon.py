@@ -82,6 +82,8 @@ class RuleUC(RuleBase):
     SDKTYPE = '7'
     PACKAGE_NAME = 'com.winnergame.pokemon.uc'
 
+    ICON_PATH = '../../../pokemon_icons/uc'
+
     GAMEID = '579041'
 
     @classmethod
@@ -113,6 +115,8 @@ class RuleBaidu(RuleBase):
     CH_NAME = '百度小包'
     SDKTYPE = '17'
     PACKAGE_NAME = 'com.winnergame.pokemon.baidu'
+
+    ICON_PATH = '../../../pokemon_icons/baidu'
 
     APPID = '7187701'
     APPKEY = 'cmDV5PRTiFk4lrlydnsw3Dew'
@@ -163,6 +167,8 @@ class RuleAnzhi(RuleBase):
     SDKTYPE = '21'
     PACKAGE_NAME = 'com.winnergame.pokemon.anzhi'
 
+    ICON_PATH = '../../../pokemon_icons/anzhi'
+
     APPKEY = '14482459076Q40C2DSvGMJ2Y69551d'
     APPSECRET = 'F4TWgtKHesIKN5v3eEsSQM42'
 
@@ -210,6 +216,8 @@ class RuleGfan(RuleBase):
     CH_NAME = '机锋小包'
     SDKTYPE = '28'
     PACKAGE_NAME = 'com.winnergame.pokemon.gfan'
+
+    ICON_PATH = '../../../pokemon_icons/android/gfan'
 
     APPKEY = '1677378043'
 
@@ -435,6 +443,8 @@ class RuleHaima(RuleBase):
     SDKTYPE = '44'
     PACKAGE_NAME = 'com.winnergame.pokemon.ad.hm'
 
+    ICON_PATH = '../../../pokemon_icons/android/haima'
+
     APPID = '07958c0f992df0d72e71dfdeaf06d72f'
     APPKEY = '57093e2be9da90b6f7c158a239aa9ad8'
     HM_GAME_CHANNEL = ''
@@ -531,6 +541,8 @@ class RuleLenovo(RuleBase):
     SDKTYPE = '50'
     PACKAGE_NAME = 'com.winnergame.pokemon.lenovo'
 
+    ICON_PATH = '../../../pokemon_icons/lianxiang'
+
     OPEN_APPID = '1511180153656.app.ln'
     PAY_APPKEY = 'MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJ3oZzcR7MWIkpyUOv133CgRLbs7IrcHj4VHOHgZl7+naUDpqAXf8BfxzoQJDRJy7zsRADvu044w5UU9Pntbb+eRWQipdArfZ30RRsCA2lwXwbzMuzaGBmlrqwyeZOHS9uU3vQ6oPoIp+ZYpBaEJN8Io3MoxGMy0/0i7V1BMjbTRAgMBAAECgYAky22ZmHSqhqtbDvM78rz7HR2h3iK1sW5Q6QqQea4xe2n8NTXwwICqo66yd4VzQhLamZiLXpgvLteNrbqsdd76IOyAgnHbXHhNLR9HZWAG5iRxjChOAI3B1Hw+6CgFbKA2Z5MAGu1VYzpYdXI364GME1XzoVVuxUsWTK+Qrjw87QJBAOf00NJhvMJmT1RSnaGHmdZjfNBU73U+uv2Z5VxCNUs+rkhgtBt9Rodll3Ut0z41Gri/wORKgweUsBcRX7bnLNsCQQCuRqO3UJGzECNNzVG/7zGqK3GuNzPBiqNPvXHzexwqjW7P9JMLiDbH6mJRBpoukBBQcja5oqZeemC4sZuHRL7DAkAgpYxej/MJSW0Q6S/WdEdqrUX77HhngBTBbM+jVI47sO5GsRWoaNFsbRgMHg8FSmQgbJyxhOs8Pekq1f8qtw7RAkBXV2XDgKiUsljPLEB1Td55J27A3j+dFutEEnDikueJ1/oaVLvBQtIZnTkK3KE3BtJ2Ttdob8Crhu+kgLaus2BbAkEApwxWPb3UEFaQBIwdHALNjF/sQzflbJavCyOLBL3D53hvQ1rOPV9f0FFvozaPy8fnKOC4PPQXGkGNsrC+R+F6Bw=='
 
@@ -547,6 +559,8 @@ class RuleAmigo(RuleBase):
     CH_NAME = '金立小包'
     SDKTYPE = '51'
     PACKAGE_NAME = 'com.winnergame.pokemon.am'
+
+    ICON_PATH = '../../../pokemon_icons/jinli'
 
     APP_KEY    = '11B5BA6537274E798CEED85864AC63CF'
     ORDER_URL  = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/gionee/create_order'
@@ -645,3 +659,39 @@ class RuleCpad(RuleBase):
     PRIVATEKEY = 'MIICXAIBAAKBgQCMsXOwu4D6Osxv/CRuafTTBZBhqCiDewMjqb71EMQsj290Wu3rXFlWhtxfQ6d/st5CBlgkIc0TYYrJSer2u8DQcQvZNqqGeRrVuQlSmIy31KeKK5wZH5TWAGXz7Des4oqo1jZIAlXbrIC2d2k+WLIB+0PGv8KCvyBGW5r9zxOa7QIDAQABAoGAHo4XWwWNwEpuxc9TtisKwZ2OurbDfbKEfwVJdH2crTTFdtacnyXiPRly2LmfsesNu/cWw1oX6KKheo+0GLuz5vuAYTNnk1VobOWqPdDzdmsxca9pdZMOLLu2ueToY66obipfWwzitiC6Fv4pUp6m1W1clZ3aDIEfG42gWgpD4wECQQD4peydEJK4WRS3ph76JlipEve9Jm9U/hZYKMS0jWpsMwMxKV3ZN8RF9ftQGPpp+sJwliwmeswnSCFhYV72vTRBAkEAkNpkLWGkPEqkiAfuHa81vF+Dr2x9jbo9VHfc77bpUit1LM1ceka9iGNq+9pQjzM1d0CtyEjXCZjbM79If9iLrQJBAJMrcj8MvirK3w5MDu20oKmCBow4IZFGyubnSnYrdaARGYSRnXCiJ1PZYiRohF8SAuAsonksGYXulYNT5KdaGYECQCEn7BA7LlWinECK2CUxSrKAhmrsAV0kiQ9BlG/GRWfKjLqhkw5mDNIgN4fIc/IjPZS7WEvk6FvJAju5CAZDcc0CQFU7EeMriSO6ArT6XNSIfq9GhVm+BLQ08YVzhPCmUGyC339BUb+nRMmfnUnJsqYMhsJplaZdyLCAF6Zbhequ0Ug='
     PAY_URL    = 'http://pokemon.sdk.dnastdio.com:8888/sdk/coolpad/pay_callback'
     #PAY_URL    = ''
+
+@register
+class RuleBaidu2(RuleBase):
+    APPNAME = '萌宠小精灵'
+    LABEL = 'baidu2'
+    DIRECTORY = 'baidu2'
+    CH_NAME = '萌宠百度小包'
+    SDKTYPE = '58'
+    PACKAGE_NAME = 'com.winnergame.sprite.baidu'
+
+    ICON_PATH = '../../../pokemon_icons/baidu'
+
+    APPID = '7398765'
+    APPKEY = 'mMdG57EWUYFMEb19cQSVoCFx'
+
+@register
+class RuleWeilan2(RuleBase):
+    APPNAME = '萌宠小精灵'
+    LABEL = 'weilan2'
+    DIRECTORY = 'weilan2'
+    CH_NAME = '萌宠微蓝小包'
+    SDKTYPE = '59'
+    PACKAGE_NAME = 'com.winnergame.sprite.weilan'
+
+    APP_KEY    = 'attgos3er5dk2ekrifa7'
+    APP_SECRET = 'rv29y983xdmkzywi3op8'
+    SERVER_ID  = 'M1029A'
+    PROJECT_ID = 'P10117A'
+    PRODUCT_ID = 'D10054A'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleWeilan2, cls).rules() + [
+            ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
+        ]
+
