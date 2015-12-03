@@ -26,6 +26,7 @@ import com.mappn.sdk.uc.GfanUCenter;
 import com.mappn.sdk.uc.User;
 import com.mappn.sdk.uc.util.StringUtil;
 import com.mappn.sdk.uc.util.UserUtil;
+import com.mappn.sdk.pay.GfanPayInitCallback;
 
 public class GameProxyImpl extends GameProxy{
     public boolean supportLogin() {
@@ -46,6 +47,15 @@ public class GameProxyImpl extends GameProxy{
 
     public void applicationInit(Activity activity) {
         // init  int splash activity
+        GfanPay.getInstance(activity.getApplicationContext()).init(activity,new GfanPayInitCallback() {
+            @Override
+            public void onSuccess() {
+            }
+
+        @Override
+            public void onError() {
+            }
+        });
     }
 
     public void login(Activity activity,final Object customParams) {

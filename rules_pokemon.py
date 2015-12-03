@@ -223,7 +223,7 @@ class RuleGfan(RuleBase):
 
     @classmethod
     def rules(cls):
-        NATIVE_MAIN_BOOT = False
+        #NATIVE_MAIN_BOOT = False
         return super(RuleGfan, cls).rules()
 
 
