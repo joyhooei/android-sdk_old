@@ -519,7 +519,7 @@ class RuleWeilan(RuleBase):
     DIRECTORY = 'weilan'
     CH_NAME = '微蓝小包'
     SDKTYPE = '49'
-    PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
+    PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
 
     APP_KEY    = '5i29qfd23a4bghaswx9w'
     APP_SECRET = 'psyvmyra6f7of4sacvpu'
