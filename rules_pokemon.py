@@ -752,3 +752,23 @@ class RuleHaoMeng(RuleBase):
         return super(RuleHaoMeng, cls).rules() + [
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
+
+@register
+class RuleYYB(RuleBase):
+    LABEL = 'yyb'
+    DIRECTORY = 'yyb'
+    CH_NAME = '应用宝小包'
+    SDKTYPE = '24'
+    PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.yyb'
+
+    APP_ID     = '516'
+    APP_KEY    = 'yWpx3hWQHFhSnTCj#516#6KuRKuaAjLJ5sYRy'
+    CREATE_ORDER_URL = ''
+    QUERY_BALANCE_URL = ''
+
+    @classmethod
+    def rules(cls):
+        return super(RuleHaoMeng, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
