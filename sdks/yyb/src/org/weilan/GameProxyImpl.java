@@ -46,7 +46,6 @@ import com.tencent.msdk.api.TokenRet;
 import com.tencent.msdk.api.WGPlatformObserver;
 import com.tencent.msdk.api.WakeupRet;
 
-import com.tencent.unipay.plugsdk.IUnipayServiceCallBack;
 import com.tencent.unipay.plugsdk.IUnipayServiceCallBackPro;
 import com.tencent.unipay.plugsdk.UnipayPlugAPI;
 import com.tencent.unipay.plugsdk.UnipayPlugTools;
@@ -96,12 +95,12 @@ public class GameProxyImpl extends GameProxy {
          ***********************************************************/
         MsdkBaseInfo baseInfo = new MsdkBaseInfo();
 
-        baseInfo.qqAppId = "${QQ_APPID}";
+        baseInfo.qqAppId  = "${QQ_APPID}";
         baseInfo.qqAppKey = "${QQ_APPKEY}";
-        baseInfo.wxAppId = "${WX_APPID}";
-        baseInfo.wxAppKey = "${WX_APPKEY}";
+        baseInfo.wxAppId  = "${WX_APPID}";
+        baseInfo.msdkKey  = "${MSDK_KEY}";
         //订阅型测试用offerId
-        baseInfo.offerId = "${QQ_APPID}";
+        baseInfo.offerId  = "${QQ_APPID}";
 
         // 注意：传入Initialized的activity即this，在游戏运行期间不能被销毁，否则会产生Crash
         WGPlatform.Initialized(activity, baseInfo);
@@ -179,7 +178,7 @@ public class GameProxyImpl extends GameProxy {
 
         unipayAPI = new UnipayPlugAPI(currentActivity);
     	//unipayAPI.setCallBack(unipayStubCallBack);
-    	unipayAPI.bindUnipayService();
+    	//unipayAPI.bindUnipayService();
         //unipayAPI.setLogEnable(false);
     }
 
@@ -189,7 +188,7 @@ public class GameProxyImpl extends GameProxy {
         super.onStop(activity);
         WGPlatform.onStop();
 
-        unipayAPI.unbindUnipayService();
+        //unipayAPI.unbindUnipayService();
     }
 
     @Override
@@ -413,7 +412,7 @@ public class GameProxyImpl extends GameProxy {
 
     //回调接口
 	IUnipayServiceCallBackPro.Stub unipayStubCallBackPro = new IUnipayServiceCallBackPro.Stub() {
-		
+
 		@Override
 		public void UnipayNeedLogin() throws RemoteException
 		{
@@ -423,10 +422,10 @@ public class GameProxyImpl extends GameProxy {
 		@Override
 		public void UnipayCallBack(UnipayResponse response) throws RemoteException
 		{
-			Log.i("sdk", "UnipayCallBack \n" + 
-					"\nresultCode = " + response.resultCode + 
-					"\npayChannel = "+ response.payChannel + 
-					"\npayState = "+ response.payState + 
+			Log.i("sdk", "UnipayCallBack \n" +
+					"\nresultCode = " + response.resultCode +
+					"\npayChannel = "+ response.payChannel +
+					"\npayState = "+ response.payState +
 					"\nproviderState = " + response.provideState+
 					"\nsavetype = "+ response.extendInfo);
 
@@ -434,12 +433,12 @@ public class GameProxyImpl extends GameProxy {
                 case UnipayResponse.PAYRESULT_SUCC:
                     new Thread(new Runnable()
                             {
-                                @ Override
-                        public void run( )
-                        {
-                            queryBalance();
-                        }
-                    }).start();
+                                @Override
+                                public void run( )
+                                {
+                                    queryBalance();
+                                }
+                            }).start();
                     break;
                 default:
                     payCallBack.onFail("支付失败");
@@ -459,7 +458,7 @@ public class GameProxyImpl extends GameProxy {
 		public void UnipayNeedLogin() throws RemoteException
 		{
 			Log.i("sdk", "UnipayNeedLogin");
-			
+
 		}
 
 		@Override
@@ -467,30 +466,30 @@ public class GameProxyImpl extends GameProxy {
 				int payState, int providerState, int saveNum, String resultMsg,
 				String extendInfo) throws RemoteException
 		{
-			Log.i("sdk", "UnipayCallBack \n" + 
-					"\nresultCode = " + resultCode + 
-					"\npayChannel = "+ payChannel + 
-					"\npayState = "+ payState + 
+			Log.i("sdk", "UnipayCallBack \n" +
+					"\nresultCode = " + resultCode +
+					"\npayChannel = "+ payChannel +
+					"\npayState = "+ payState +
 					"\nproviderState = " + providerState+
 					"\nsavetype = "+ extendInfo);
-			
+
 			retCode = resultCode;
 			retMessage = resultMsg;
 
 			handler.sendEmptyMessage(0);
-			
+
 		}
 	};
     */
-	
+
     /*
 	Handler handler = new Handler()
 	{
 		public void handleMessage(Message msg)
 		{
 			Toast.makeText(currentActivity, "call back retCode=" + String.valueOf(retCode) + " retMessage=" + retMessage, Toast.LENGTH_SHORT).show();
-		
-			
+
+
 			if(retCode == -2)
 			{//service绑定不成功
 				unipayAPI.bindUnipayService();

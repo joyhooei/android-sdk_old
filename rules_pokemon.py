@@ -762,8 +762,12 @@ class RuleYYB(RuleBase):
     PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.yyb'
 
-    APP_ID     = '516'
-    APP_KEY    = 'yWpx3hWQHFhSnTCj#516#6KuRKuaAjLJ5sYRy'
+    QQ_APPID = ''
+    QQ_APPKEY = ''
+    WX_APPID = ''
+    MSDK_KEY = ''
+
+
     CREATE_ORDER_URL = ''
     QUERY_BALANCE_URL = ''
 
