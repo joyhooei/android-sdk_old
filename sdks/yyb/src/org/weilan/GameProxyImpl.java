@@ -74,6 +74,10 @@ public class GameProxyImpl extends GameProxy {
     private UnipayPlugAPI unipayAPI = null;
     private String callBackInfo = null;
 
+    static {
+        System.loadLibrary("NativeRQD"); // 游戏需要加载此动态库, 数据上报用
+    }
+
     @Override
     public void onCreate(Activity activity) {
         currentActivity = activity;
