@@ -767,8 +767,3 @@ class RuleYYB(RuleBase):
     CREATE_ORDER_URL = ''
     QUERY_BALANCE_URL = ''
 
-    @classmethod
-    def rules(cls):
-        return super(RuleHaoMeng, cls).rules() + [
-            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
-        ]
