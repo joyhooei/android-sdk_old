@@ -55,7 +55,7 @@ public class GameProxyImpl extends GameProxy{
         int i = SDK.wdInital(appInfo);
         Log.e("setAppId", "inital=======" + i);
 
-        SDK.wdSetScreenOrientation( WdCommplatform.SCREEN_ORIENTATION_LANDSCAPE );
+        SDK.wdSetScreenOrientation( WdCommplatform.SCREEN_ORIENTATION_PORTRAIT );
     }
 
     @Override
@@ -74,6 +74,7 @@ public class GameProxyImpl extends GameProxy{
                     case WdReturnCode.WD_COM_PLATFORM_SUCCESS:
                         // 登录成功
                         User u = new User();
+                        u.userID = WdCommplatform.getInstance().wdGetAccount( activity );
                         u.token = WdCommplatform.getInstance().wdGetSessionId( activity );
                         userListerner.onLoginSuccess(u, loginCustomParams);
                         break;
