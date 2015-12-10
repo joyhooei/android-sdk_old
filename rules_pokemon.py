@@ -43,6 +43,8 @@ class RuleBase(Rule):
 
         <activity android:name="org.weilan.VideoActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection">
             >
             <intent-filter>
                 <action android:name="org.weilan.VideoActivity" />
@@ -550,6 +552,42 @@ class RuleLenovo(RuleBase):
 
     @classmethod
     def rules(cls):
+        cls.BASE_ACTIVITY = """
+                <activity android:name="org.weilan.poem"
+                          android:label="@string/app_name"
+                          android:screenOrientation="portrait"
+                          android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                          android:configChanges="keyboardHidden|orientation">
+                    <intent-filter>
+                        <action android:name="lenovoid.MAIN" />
+                        <category android:name="android.intent.category.DEFAULT" />
+                    </intent-filter>
+                </activity>
+
+                <activity android:name="org.weilan.VideoActivity"
+                    android:label="@string/app_name"
+                    android:screenOrientation="portrait"
+                    android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection">
+                    >
+                    <intent-filter>
+                        <action android:name="org.weilan.VideoActivity" />
+                        <category android:name="android.intent.category.DEFAULT"/>
+                    </intent-filter>
+                </activity>
+
+                <receiver android:name="org.weilan.PushReceiver" >
+                    <intent-filter android:priority="2147483647" >
+                        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                        <category android:name="android.intent.category.DEFAULT" />
+                        <action android:name="android.intent.action.USER_PRESENT"/>
+                    </intent-filter>
+                </receiver>
+
+                <service
+                    android:name="org.weilan.PushService"
+                    android:enabled="true"
+                    />
+        """
         return super(RuleLenovo, cls).rules() + [
             ('src/org/weilan/SdkConfig.java', 'replace', cls.common_replaces()),
         ]

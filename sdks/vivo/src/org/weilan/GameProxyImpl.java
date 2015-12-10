@@ -92,7 +92,7 @@ public class GameProxyImpl extends GameProxy {
                     //localBundle.putString("roleName", "角色名称");
                     //localBundle.putString("serverName", "区服信息");
                     localBundle.putString("extInfo", productInfo.callBackInfo);
-                    localBundle.putBoolean("logOnOff", false);// CP在接入过程请传true值,接入完成后在改为false, 传true会在支付SDK打印大量日志信息     
+                    localBundle.putBoolean("logOnOff", false);// CP在接入过程请传true值,接入完成后在改为false, 传true会在支付SDK打印大量日志信息
                     Intent target = new Intent(currentActivity, PaymentActivity.class);
                     target.putExtra("payment_params", localBundle);
                     currentActivity.startActivityForResult(target, REQUEST_CODE_PAY);
@@ -176,7 +176,8 @@ public class GameProxyImpl extends GameProxy {
     /** 支付前去服务端创建订单 */
     private void getOrderInfo( ProductInfo productInfo )
     {
-        String sUrl = ((poem)currentActivity).getMetaData("create_order_url");
+        //String sUrl = ((poem)currentActivity).getMetaData("create_order_url");
+        String sUrl = "${CREATE_ORDER_URL}";
         try
         {
             URL url = new URL(sUrl);
@@ -264,7 +265,7 @@ public class GameProxyImpl extends GameProxy {
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
-                } 
+                }
 //                Toast.makeText(mContext, loginResult, Toast.LENGTH_SHORT).show();
                 Log.d("sdk", "loginResult="+loginResult);
             }
