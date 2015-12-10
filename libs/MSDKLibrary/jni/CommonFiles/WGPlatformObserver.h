@@ -34,6 +34,8 @@ public:
 	 * @return void
 	 */
 	virtual void OnWakeupNotify(WakeupRet& wakeupRet) = 0;
+
+	virtual void OnRelationNotify(RelationRet& relationRet) = 0;
     
 	virtual ~WGPlatformObserver() {};
 	
