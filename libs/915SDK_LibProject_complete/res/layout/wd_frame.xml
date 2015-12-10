@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.0"
+        android:background="@color/wd_background"
+        android:orientation="vertical" >
+
+        <com.weedong.gamesdkplatform.widget.WdTopBar
+            android:id="@+id/wd_topbar"
+            android:layout_width="fill_parent"
+            android:visibility="gone"
+            android:layout_height="24dip" />
+
+        <com.weedong.gamesdkplatform.widget.WdTitleBar
+            android:id="@+id/wd_titlepanel"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp" />
+
+        <RelativeLayout
+            android:id="@+id/wd_content"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1.0" >
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/wd_frame_service_tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:visibility="gone"
+            android:text="@string/wd_service_telphone"/>
+    </LinearLayout>
+
+</LinearLayout>

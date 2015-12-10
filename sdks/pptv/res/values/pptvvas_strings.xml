@@ -63,6 +63,7 @@
     <string name="pptvvas4_szfpay_decrible">手机充值卡支付\n快速充值</string>
     <string name="pptvvas4_cftpay_decrible">安全便捷 \n享受支付体验</string>
     <string name="pptvvas4_mo9pay_decrible">快捷便利\n先玩游戏后付款</string>
+    <string name="pptvvas4_wechatpay_decrible">无需开通网银\n轻松支付</string>
     <string name="pptvvas4_gpay_decrible">PPTV游戏\n官方虚拟货币</string>
     <string name="pptvvas4_unipay_name">银联支付</string>
     <string name="pptvvas4_shenpay_name">盛付通</string>
@@ -75,11 +76,13 @@
     <string name="pptvvas4_fail_cancel">算了吧</string>
     <string name="pptvvas4_fail_try">再试一次</string>
     <string name="pptvvas4_pay_g">G币</string>
+    <string name="pptvvas4_pay_nowpay">微信支付</string>
     <string name="pptvvas4_pay_g_acount">账户余额：</string>
     <string name="pptvvas4_pay_g_deduct">本次扣除：</string>
     <string name="pptvvas4_pay_g_hint">请输入支付密码（没有请先设置）</string>
     <string name="pptvvas4_pay_should_choice">请选择支付方式</string>
-    <string name="pptvvas4_pay_no_cashcoupon">当前没有现金劵</string>
+    <string name="pptvvas4_pay_no_cashcoupon">当前没有现金劵请关注活动哟</string>
+    <string name="pptvvas4_no_use_cashcoupon">不使用\n现金券</string>
 
     <!-- 修改密码 -->
     <string name="pptvvas4_change_password_confirm">确定修改</string>
@@ -530,5 +533,9 @@
     <string name="pptvvas_floatingview_bbs">论坛</string>
     <string name="pptvvas_userdefine_dialog_content">亲~摇一摇手机显示飘窗哦~</string>
     <string name="pptvvas_userdefine_dialog_hint">不再提示</string>
+    
+    <!-- 4.3 pay -->
+        <string name="pptvvas4_pay_selecting">正在查询充值结果，请稍后</string>
+         <string name="pptvvas4_get_pay_type_default">正在获取默认支付方式，请稍后</string>
 
 </resources>

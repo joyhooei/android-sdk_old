@@ -292,11 +292,12 @@ class RulePPTV(RuleBase):
     CH_NAME = 'PPTV小包'
     SDKTYPE = '40'
     PACKAGE_NAME = 'com.winnergame.pokemon.pptv'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.pptv'
 
-    APPID = 'pokemonxxr_m'
+    APPID = 'sqxjl_m'
     PPTV_CID = '269'
     PPTV_CCID = ''
-    UMENG_APPKEY = '5596584e67e58edf5f001607'
+    UMENG_APPKEY = '73d3493fa8ffea3701e47e6c9657549c'
     UMENG_CHANNEL = '269'
 
 
@@ -665,7 +666,7 @@ class RuleCpad(RuleBase):
 class RuleBaidu2(RuleBase):
     APPNAME = '萌宠小精灵'
     LABEL = 'baidu2'
-    DIRECTORY = 'baidu2'
+    DIRECTORY = 'baidu'
     CH_NAME = '萌宠百度小包'
     SDKTYPE = '58'
     PACKAGE_NAME = 'com.winnergame.sprite.baidu'
@@ -679,7 +680,7 @@ class RuleBaidu2(RuleBase):
 class RuleWeilan2(RuleBase):
     APPNAME = '萌宠小精灵'
     LABEL = 'weilan2'
-    DIRECTORY = 'weilan2'
+    DIRECTORY = 'weilan'
     CH_NAME = '萌宠微蓝小包'
     SDKTYPE = '59'
     PACKAGE_NAME = 'com.winnergame.sprite.weilan'
@@ -696,3 +697,25 @@ class RuleWeilan2(RuleBase):
             ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
         ]
 
+@register
+class RuleHaoMeng(RuleBase):
+    APPNAME = '萌宠小精灵'
+    LABEL = 'haomeng'
+    DIRECTORY = 'haomeng'
+    CH_NAME = '萌宠微蓝小包'
+    SDKTYPE = '60'
+    PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
+
+    APP_ID     = ''
+    APP_KEY    = 'attgos3er5dk2ekrifa7'
+    APP_SECRET = 'rv29y983xdmkzywi3op8'
+    SERVER_ID  = 'M1029A'
+    PROJECT_ID = 'P10117A'
+    PRODUCT_ID = 'D10054A'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleWeilan2, cls).rules() + [
+            ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
+        ]

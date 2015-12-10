@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <!-- 内容 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <!-- 图标 -->
+
+
+            <!--
+                 <ImageView
+                style="@style/wd_option_margin_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dip"
+                android:layout_marginTop="5dp"
+                android:contentDescription="@string/wd_img_desc"
+                android:src="@drawable/wd_login_logo" />
+            -->
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@color/wd_top_titile_bg"
+                android:gravity="center"
+                android:text="欢迎登录"
+                android:textColor="@color/wd_white"
+                android:textSize="18sp" />
+
+            <!-- 通行证、密码 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical" >
+
+                <!-- 通行证 -->
+
+                <LinearLayout
+                    android:id="@+id/wd_account_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/text"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/name" />
+
+                    <ImageView
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="17dp"
+                        android:background="@drawable/icon_x" />
+
+                    <EditText
+                        android:id="@+id/wd_account_login_account"
+                        style="@style/wd_option_edittext_style"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+                        android:hint="@string/wd_account_input_hint"
+                        android:nextFocusDown="@+id/wd_account_login_password"
+                        android:paddingBottom="3dp"
+                        android:paddingTop="3dp"
+                        android:singleLine="true"
+                        android:textColor="@color/wd_black"
+                        android:textColorHint="#cccccc" >
+                    </EditText>
+
+                    <ImageView
+                        android:id="@+id/wd_login_del_account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/wd_img_desc"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/wd_login_default_del"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/wd_account_login_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:contentDescription="@string/wd_img_desc"
+                        android:paddingRight="12dp"
+                        android:src="@drawable/wd_login_dropdown_icon" >
+                    </ImageView>
+                </LinearLayout>
+
+                <!-- 密码 -->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/text"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/password" />
+
+                    <ImageView
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="17dp"
+                        android:background="@drawable/icon_x" />
+
+                    <EditText
+                        android:id="@+id/wd_account_login_password"
+                        style="@style/wd_option_edittext_style"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginRight="12dp"
+                        android:layout_weight="1"
+                        android:hint="@string/wd_password_input_hint"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:textColor="@color/wd_black"
+                        android:textColorHint="#cccccc" >
+                    </EditText>
+
+                    <ImageView
+                        android:id="@+id/wd_login_del_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/wd_img_desc"
+                        android:paddingRight="5dp"
+                        android:src="@drawable/wd_login_default_del"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 注册/登录 -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible" >
+
+                <Button
+                    android:id="@+id/wd_account_login_reg"
+                    android:layout_width="125dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/text"
+                    android:gravity="center"
+                    android:text="@string/wd_account_login_button_left"
+                    android:textColor="#cccccc"
+                    android:textSize="18sp" >
+                </Button>
+
+                <TextView
+                    android:layout_width="26dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/wd_account_login_log"
+                    android:layout_width="125dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/btn_determine"
+                    android:gravity="center"
+                    android:text="@string/wd_account_login_title"
+                    android:textColor="@color/wd_white"
+                    android:textSize="18sp" >
+                </Button>
+            </LinearLayout>
+
+            <!-- 忘记密码 -->
+
+            <RelativeLayout
+                android:id="@+id/wd_forget_password_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:visibility="visible" >
+
+                <ImageView
+                    android:id="@+id/wd_login_yijian_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/icon_phone_login" />
+
+                <TextView
+                    android:id="@+id/wd_login_yijian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/wd_login_yijian_icon"
+                    android:text="@string/wd_account_login_yijian"
+                    android:textColor="@color/wd_top_titile_bg"
+                    android:textSize="14sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/wd_login_forget_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/wd_account_login_tip_forget_password"
+                    android:textColor="@color/wd_top_titile_bg"
+                    android:textSize="14sp" >
+                </TextView>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="1dp"
+                    android:background="#cccccc" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="或使用其他账号登录"
+                    android:textColor="#959595"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="1dp"
+                    android:background="#cccccc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/wd_login_weixin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="3dp"
+                    android:drawableTop="@drawable/icon_weixin"
+                    android:gravity="center_horizontal"
+                    android:text="微信"
+                    android:visibility="gone"
+                    android:textColor="#959595"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/wd_login_qq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:drawablePadding="3dp"
+                    android:drawableTop="@drawable/icon_qq"
+                    android:gravity="center_horizontal"
+                    android:text="QQ"
+                    android:textColor="#959595"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/wd_login_weibo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:drawablePadding="3dp"
+                    android:drawableTop="@drawable/icon_weibo"
+                    android:gravity="center_horizontal"
+                    android:text="微博"
+                    android:textColor="#959595"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/wd_login_meitu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:clickable="true"
+                    android:drawablePadding="3dp"
+                    android:drawableTop="@drawable/icon_xiuxiu"
+                    android:gravity="center_horizontal"
+                    android:text="美图"
+                    android:visibility="gone"
+                    android:textColor="#959595"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.22"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/wd_login_versin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="V 2.0.0"
+                    android:textColor="#70959595"
+                    android:textSize="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wd_login_progress"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/wd_login_remote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/wd_img_desc"
+                android:src="@drawable/wd_login_remote" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="正在登录..." />
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>

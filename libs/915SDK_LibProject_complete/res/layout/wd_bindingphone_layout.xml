@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+
+   
+        <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+           android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+         android:orientation="vertical" >
+         
+             <TextView
+        android:id="@+id/wd_bindingphone_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/wd_black"
+        android:visibility="gone"
+        android:text="TextView" />
+             
+             
+             
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/text"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/icon_iphone" />
+
+                   <ImageView android:layout_width="1dp"
+                       android:layout_height="wrap_content"
+                       android:layout_marginRight="7dp"
+                       android:background="@drawable/icon_x"/>
+
+                    <EditText
+                        android:id="@+id/wd_bindingphone_phone_edit"
+                        style="@style/wd_option_edittext_style"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:hint="请输入您的手机号码"                      
+                        android:textColor="@color/wd_black"
+                    	android:textColorHint="#cccccc"
+                        android:nextFocusDown="@+id/wd_bindingphone_code_edit"
+                        android:singleLine="true" >
+                    </EditText>                   
+                </LinearLayout>             
+             
+      
+             
+              <LinearLayout  android:layout_width="match_parent"
+         android:gravity="center_vertical"
+           android:layout_marginTop="5dp"
+         android:layout_height="45dp" >
+      <LinearLayout
+         android:layout_width="wrap_content"
+         android:gravity="center_vertical"
+          android:background="@drawable/text"
+          android:layout_weight="1"
+         android:layout_height="45dp" >
+
+       	<ImageView
+                 android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/icon_news" />
+
+                   <ImageView android:layout_width="1dp"
+                       android:layout_height="wrap_content"
+                       android:layout_marginRight="7dp"
+                       android:background="@drawable/icon_x"/>
+
+                   
+                    <EditText
+                        android:id="@+id/wd_bindingphone_code_edit"
+                        style="@style/wd_option_edittext_style"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:hint="请输入短信验证码"
+                        android:inputType="number"
+                        android:textColor="@color/wd_black"
+                    	android:textColorHint="#cccccc"
+                        android:nextFocusDown="@+id/wd_account_login_password"
+                        android:singleLine="true" >
+                    </EditText>  
+                   
+                    </LinearLayout>
+      
+
+      <Button
+           android:id="@+id/wd_bindingphone_phone_Btn"
+            android:layout_width="90dp"
+           android:layout_marginLeft="5dp"
+           android:layout_height="30dp"
+           android:background="@drawable/btn_verification"
+           android:textSize="14sp"
+           android:textColor="#52ade6"
+           android:text="获取验证码" />     
+     </LinearLayout>    
+                
+                
+                
+                
+                
+             
+  
+    
+
+       <Button
+           android:id="@+id/wd_bindingphone_code_btn"
+           android:layout_width="fill_parent"
+           android:layout_height="35dp"
+           android:textSize="18sp"
+           android:layout_marginTop="20dp"
+           android:background="@drawable/wd_pay_ensure_btn_bg"
+           android:textColor="@color/wd_white"           
+           android:text="立即绑定手机" />
+ 
+     
+      
+     
+    
+
+  
+     </LinearLayout>
+
+    
+</LinearLayout>

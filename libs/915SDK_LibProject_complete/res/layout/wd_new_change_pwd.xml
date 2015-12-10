@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/wd_new_login_title"
+        layout="@layout/wd_new_title" />
+
+    <LinearLayout
+        android:id="@+id/wd_new_change_pwd_old"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wd_new_login_title"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+           
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/wd_new_icon_password" />
+
+        <EditText
+            android:id="@+id/wd_new_change_pwd_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/wd_new_textbackground"
+            android:hint="请输入旧密码"
+            android:paddingLeft="5dp"
+            android:textColorHint="#a5a5a5"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wd_new_change_pwd_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wd_new_change_pwd_old"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/wd_new_icon_password" />
+
+        <EditText
+            android:id="@+id/wd_new_change_pwd_new_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/wd_new_textbackground"
+            android:hint="请输入新密码"
+            android:paddingLeft="5dp"
+            android:textColorHint="#a5a5a5"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wd_new_change_pwd_sec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wd_new_change_pwd_new"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/wd_new_icon_input" />
+
+        <EditText
+            android:id="@+id/wd_new_change_pwd_sec_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/wd_new_textbackground"
+            android:hint="请再次输入新密码"
+            android:paddingLeft="5dp"
+            android:textColorHint="#a5a5a5"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wd_new_change_pwd_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wd_new_change_pwd_sec"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="23dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/wd_new_change_pwd_commit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@drawable/wd_new_loginregisterselector"
+            android:text="改好了，提交"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>

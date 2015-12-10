@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="wd_important_update">重要更新</string>
+    <string name="wd_version_force_normal_2">发现新版本V%1$s。本次更新为强制更新,请您立即升级版本,否则软件将无法正常运行！</string>
+    <string name="wd_version_force_normal">发现新版本V%1$s/%2$s。本次更新为强制更新,请您立即升级版本,否则软件将无法正常运行！</string>
+    <string name="wd_version_intro_normal_2">发现新版本V%1$s</string>
+    <string name="wd_version_intro_normal">发现新版本V%1$s/%2$s</string>
+    <string name="wd_update_tip">升级提示</string>
+    <string name="wd_update_now">立即升级</string>
+    <string name="wd_cancel">取消</string>
+    
+    <string name="wd_app_download_progress_1">已下载 %1$s KB / %2$s KB</string>
+	<string name="wd_app_download_progress_2">已下载 %1$s KB / %2$s MB</string>
+    <string name="wd_app_download_progress_3">已下载 %1$s MB / %2$s MB</string>
+	<string name="wd_version_update_download_percent">正在下载 %1$s</string> 
+	<string name="wd_downapp_finish_instant">%1$s下载完成，是否立即安装？</string>
+	<string name="wd_downapp_install_confirm_title">确认安装</string>
+	<string name="wd_instant">安装</string>
+	<string name="wd_version_update_loaded">(下载完成,点击安装)</string>
+	<string name="wd_version_update_loading">正在下载(点击取消下载)</string>
+	<string name="wd_version_download_progress">已下载 %1$s/%2$s</string>
+	<string name="wd_version_download_progress_2">已下载 %1$s</string>
+
+</resources>

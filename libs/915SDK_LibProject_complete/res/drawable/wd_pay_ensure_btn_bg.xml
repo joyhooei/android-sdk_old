@@ -1,0 +1,11 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Non focused states -->
+    <item android:state_pressed="true"   android:drawable="@drawable/wd_pay_ensure_btn_press" />
+
+    <item android:state_checked="true" android:drawable="@drawable/wd_pay_ensure_btn_press" />
+    <item android:state_selected="true" android:drawable="@drawable/wd_pay_ensure_btn_press" />
+
+    <!-- Pressed -->
+    
+    <item android:drawable="@drawable/wd_pay_ensure_btn" />
+</selector>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">915MobilePlatform</string>
+    <string name="wd_title_back">返回</string>
+    <string name="wd_title_exit">退出</string>
+    <string name="wd_title_help">帮助</string>
+    <string name="wd_progress_wait">请稍等...</string>
+    <string name="wd_img_desc">image desc</string>
+    <string name="wd_exchangeRateText">请选择充值金额(1元=%1$s %2$s)</string>
+    <string name="wd_is_loading">加载中&#8230;&#8230;&#8230;</string>
+    <!-- 登录 -->
+    <string name="wd_account_input_hint">输入手机号</string>
+    <string name="wd_password_input_hint">输入密码，6-18个字符</string>
+    <string name="wd_no_login">未登录</string>
+    <string name="wd_is_logining">登录中&#8230;&#8230;&#8230;</string>
+    <string name="wd_is_checking">检测账号&#8230;&#8230;&#8230;</string>
+
+    <!-- 注册 -->
+    <string name="wd_register_account">用 户 名:</string>
+    <string name="wd_register_password">密&#160;&#160;&#160;&#160;&#160;码:</string>
+    <string name="wd_register_text">快速注册</string>
+    <string name="wd_register_success">注册成功</string>
+    <string name="wd_is_registering">注册中&#8230;&#8230;&#8230;</string>
+    <string name="wd_register_already_exist">账号已存在</string>
+    <string name="wd_input_form_error">用户名或密码格式错误</string>
+    <string name="wd_unknown_error">未知错误</string>
+    <string name="wd_register_agreement_title">91wan用户服务协议</string>
+    <string name="wd_register_account_prompt">你可以输入下划线,字母/数字作为用户账号,也可以使用系统为您默认分配的账号。</string>
+
+    <!-- 充值 -->
+    <string name="wd_pay_more_way_prompt">1.请使用电脑登录官网http://pay.915.com进行在线充值。\n\n2.如果有问题请拨打915客服热线020-66675631\n\n3.为了确保您顺利充值，请您牢记您的账号。</string>
+
+    <string-array name="wd_alipay_choice">
+        <item>10</item>
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+    </string-array>
+    <string-array name="wd_mobile_choice">
+        <item>10</item>
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>300</item>
+        <item>500</item>
+    </string-array>
+    <string-array name="wd_unicom_choice">
+        <item>20</item>
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>300</item>
+        <item>500</item>
+    </string-array>
+    <string-array name="wd_telecom_choice">
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+    <string-array name="wd_jcard_choice">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>500</item>
+    </string-array>
+
+    <string name="wd_pay_label_buy_success">%1$s，请注意查收商品！</string>
+    <string name="wd_pay_label_buy_ok">付款成功</string>
+    <string name="wd_pay_label_buy_order_submit">订单已提交</string>
+    <string name="wd_account_register_hint_account">限字母、数字、下划线</string>
+    <string name="wd_account_register_hint_password">限至少为6个字符哦</string>
+    <string name="wd_account_login_button_left">快速注册</string>
+    <string name="wd_activity_relogin">请重新登录</string>
+    <string name="wd_account_login_title">登录</string>
+    <string name="wd_91acount_check">账号应为4–20个数字，字母或下划线</string>
+    <string name="wd_pay_button_view_consumes">继续充值</string>
+    <string name="wd_password_null">密码应至少为6个字符，区分大小写</string>
+    <string name="wd_pay_pass_exit">退出支付中心</string>
+    <string name="wd_set_password_password">新密码：　</string>
+    <string name="wd_set_password_password_hint">限至少为6个字符</string>
+    <string name="wd_set_password_password_again">确认密码：</string>
+    <string name="wd_set_password_submit">提交</string>
+    <string name="wd_account_login_tip_forget_password">忘记密码？</string>
+      <string name="wd_account_login_yijian">点击一键登录</string>
+    <string name="wd_topbar_ret">返回</string>
+    <string name="wd_confirm_install_hint">"安装提示"</string>
+    <string name="wd_confirm_install">"为保证您的交易安全，需要您安装支付宝安全支付服务，才能进行付款。\n\n点击确定，立即安装。"</string>
+    <string name="wd_check_sign_failed">您的订单信息已被非法篡改。</string>
+    <string name="wd_remote_call_failed">Failure calling remote service</string>
+    <string name="wd_show_ensure">确定</string>
+    <string name="wd_show_cancel">取消</string>
+    <string name="wd_check_update_network_error">网络故障，不能更新。</string>
+    <string name="wd_error_sdcard_overflow">外部存储空间不足，请清理后再尝试更新！</string>
+    <string name="wd_error_no_sdcard">未检测到外部存储</string>
+    <string name="wd_is_updated">当前版本已经是最新</string>
+    <string name="wd_check_update_fail">检查更新失败!</string>
+    <string name="wd_update_is_loading">正在下载更新!</string>
+    <string name="wd_update_cancel">已取消更新!</string>
+    <string name="wd_checking_update">正在检查更新....</string>
+    <string name="wd_update_prompt">更新提示</string>
+    <string name="wd_find_new_version">发现新版本</string>
+    <string name="wd_upgrade_now">立即升级</string>
+    <string name="wd_update_downloading">程序下载中…%1$s</string>
+    <string name="wd_service_telphone">客服热线 : 020-66675631</string>
+    <string name="wd_network_error">网络故障，请检查.</string>
+    <!-- bbs -->
+    <string name="wd_bbs">论坛</string>
+    <string name="wd_bbs_game_area">游戏专区</string>
+    <!-- alipayview -->
+    <string name="wd_sure_pay">确认支付</string>
+    <string name="wd_pay_center">支付中心</string>
+    <string name="wd_pay_title_format">支付中心 - %1$s</string>
+    <string name="wd_pay_money_yuan">元</string>
+    <string name="wd_pay_you_will">你将充值：</string>
+    <string name="wd_alipay_fail">充值失败,请重试......</string>
+
+    <!-- pay -->
+    <string name="wd_pay_alipay">支付宝</string>
+    <string name="wd_pay_mobile">移动充值卡</string>
+    <string name="wd_pay_unicom">联通充值卡</string>
+    <string name="wd_pay_telcom">电信一卡付</string>
+    <string name="wd_pay_jcard">骏网一卡通</string>
+    <string name="wd_pay_upmp">银联支付</string>
+    <string name="wd_pay_tencentpay">财付通</string>
+    <string name="wd_pay_jdpay">京东支付</string>
+    <string name="wd_pay_wechatpay">微信支付</string>
+    <string name="wd_pay_help">支付帮助</string>
+    <string name="wd_pay_more">更多方式</string>
+    <string name="wd_pay_result">支付结果</string>
+    <string name="wd_error_parameters">用户名或密码有误，请检查!</string>
+    <string name="wd_error_input">请输入用户名或密码！</string>
+    <string name="wd_error_pay_input">卡号或密码错误，请检查</string>
+    <string name="wd_is_paying">支付中&#8230;&#8230;&#8230;</string>
+
+    <!-- forget password -->
+    <string name="wd_forget_password">忘记密码</string>
+    <string name="wd_find_password_1">方式一: 点击020-66608191拨打客服热线</string>
+    <string name="wd_find_password_2">方式二: 你也可以登录www.91wan.com找回密码</string>
+    
+    <!-- 用户中心 -->
+    <string name="wd_personal_center_title">账号管理</string>
+    <string name="wd_personal_center_account">账号:</string>
+    <string name="wd_personal_center_changepwd">修改密码</string>
+    <string name="wd_personal_center_bindphone">绑定手机</string>
+    <string name="wd_personal_center_bindphone_no">未绑定</string>
+    <string name="wd_changepwd_title">修改密码</string>
+    <string name="wd_resetpwd_title">重置密码</string>
+    <string name="wd_bindingphone_tips">你好，%S,绑定手机号码保障账号安全</string>
+
+</resources>

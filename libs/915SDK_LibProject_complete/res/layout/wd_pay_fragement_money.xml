@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         android:background="@color/wd_white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/wd_show_exchange_rate_text"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:text="@string/wd_pay_alipay"
+              android:background="#ebf9ff"
+             android:textSize="15sp"
+             android:gravity="center_vertical"
+             android:paddingLeft="15dp"
+             android:drawableLeft="@drawable/icon_alipay_big"
+             android:drawablePadding="5dp"
+            android:textColor="#f2640a" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/wd_white"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#a5a5a5"
+                android:textSize="14sp"
+                android:text="订单金额:  " />
+
+            <TextView
+                android:id="@+id/wd_pay_fragment_pay_money"
+                style="@style/wd_pay_text_clause"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:textColor="#f2640a"
+                android:textSize="14sp"
+                android:text="md123456" />
+        </LinearLayout>
+
+        
+         <LinearLayout
+            android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+           android:background="@color/wd_white"
+            android:layout_marginTop="10dp"
+             android:id="@+id/wd_pay_account_layout"
+            android:gravity="center_vertical" >
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                      android:textColor="#a5a5a5"
+                android:textSize="14sp"
+                android:text="账号:  " />
+
+            <TextView
+                android:id="@+id/wd_pay_fragment_pay_account"
+                style="@style/wd_pay_text_clause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:textColor="#f2640a"
+                android:textSize="14sp"
+                android:text="md123456" />
+        </LinearLayout>
+       
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+              android:background="@color/wd_white"
+            android:id="@+id/wd_pay_game_layout"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                    android:layout_marginLeft="20dp"
+                      android:textColor="#a5a5a5"
+                       android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="游戏:  " />
+
+            <TextView
+                android:id="@+id/wd_pay_fragment_pay_game"
+                style="@style/wd_pay_text_clause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                   android:textColor="#f2640a"
+                android:textSize="14sp"
+                android:text="md123456" />
+        </LinearLayout>
+
+       
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:background="@color/wd_white"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <com.weedong.gamesdkplatform.widget.view.WdChoiceMoneyGridView
+                android:id="@+id/wd_show_choice_gridview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:columnWidth="80dp"
+                android:gravity="left"
+                android:horizontalSpacing="10dp"
+                android:numColumns="auto_fit"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp" >
+            </com.weedong.gamesdkplatform.widget.view.WdChoiceMoneyGridView>
+
+             <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/wd_pay_fragment_pay_card_layout" >
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/wd_pay_fragment_pay_cardnum"
+                android:layout_marginBottom="10dp" >
+
+                <TextView
+                    android:id="@+id/wd_cardIDText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="卡号  :" />
+
+                <EditText
+                    android:id="@+id/wd_cardId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/wd_input_bg"
+                    android:hint="请输入卡号"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/wd_pay_fragment_pay_cardpwd"
+                android:layout_marginBottom="10dp" >
+
+                <TextView
+                    android:id="@+id/wd_passWordText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="密码  :" />
+
+                <EditText
+                    android:id="@+id/wd_cardPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/wd_input_bg"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword|number"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/wd_choice_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:text="你将充值："
+                android:visibility="gone"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/wd_sure_button"
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/wd_pay_ensure_btn_bg"
+                android:textColor="@color/wd_white"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:text="确认支付" />
+
+            <TextView
+                android:id="@+id/wd_sure_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:textColor="#04a2f1"
+                android:textSize="10sp"
+                android:text="温馨提示：您将转入支付宝官方页面进行充值"
+                android:layout_marginBottom="20dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+    <!--
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_weight="1"
+        android:paddingTop="10dp"
+        android:text="客服热线：020-66675631"
+        android:textColor="#000000" />
+    -->
+
+</LinearLayout>

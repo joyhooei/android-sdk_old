@@ -1,0 +1,14 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Non focused states -->
+    <item android:state_pressed="true"   android:drawable="@drawable/wd_pay_telecom_press" />
+
+    <!-- Focused states -->
+    <!-- item android:state_focused="true" android:drawable="@drawable/a_sms_item2" /-->
+<!--Focused states-->
+    <item android:state_checked="true" android:drawable="@drawable/wd_pay_telecom_press" />
+    <item android:state_selected="true" android:drawable="@drawable/wd_pay_telecom_press" />
+
+    <!-- Pressed -->
+    
+    <item android:drawable="@drawable/wd_pay_telecom" />
+</selector>
