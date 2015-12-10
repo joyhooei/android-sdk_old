@@ -54,6 +54,8 @@
 
         ${BASE_ACTIVITY}
 
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+
     <!-- ========================================================== -->
         <activity
             android:name="com.unionpay.uppay.PayActivity"

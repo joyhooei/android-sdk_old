@@ -31,6 +31,8 @@
 
         ${BASE_ACTIVITY}
 
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+
         <!-- For 4399 recharging SDK. -->
         <activity
             android:name="cn.m4399.recharge.ui.activity.RechargeActivity"
