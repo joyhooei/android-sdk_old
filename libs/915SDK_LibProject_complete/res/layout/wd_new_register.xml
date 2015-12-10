@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/wd_new_login_title"
+        layout="@layout/wd_new_title" />
+
+    <LinearLayout
+        android:id="@+id/wd_new_register_phone"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/wd_new_login_title"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wd_new_icon_account" />
+
+        <EditText
+            android:id="@+id/wd_new_register_phone_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="10"
+            android:background="@drawable/wd_new_textbackground"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:paddingLeft="5dp"
+            android:textColorHint="#a5a5a5"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wd_new_register_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/wd_new_register_phone"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wd_new_icon_password" />
+
+        <EditText
+            android:id="@+id/wd_new_register_pwd_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="10"
+            android:background="@drawable/wd_new_textbackground"
+            android:hint="6-12为字母或数字"
+            android:inputType="textPassword"
+            android:paddingLeft="5dp"
+            android:textColorHint="#a5a5a5"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/wd_new_register_pwd_check"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="5"
+            android:button="@drawable/wd_new_checkboxselecter"
+            android:paddingLeft="5dp"
+            android:text="显示密码"
+            android:textColor="#a5a5a5"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wd_new_register_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wd_new_register_pwd"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:id="@+id/wd_new_register_agree_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:button="@drawable/wd_new_checkboxselecter"
+            android:paddingLeft="5dp"
+            android:text="我已阅读并同意"
+            android:textColor="#c0c0c0"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/wd_new_register_deal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:text="91wan用户注册协议"
+            android:textColor="#8fbce3"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wd_new_register_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wd_new_register_text"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/wd_new_login_register"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/wd_new_loginregisterselector"
+            android:text="申请默认账号"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/wd_new_login_login"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/wd_new_loginselector"
+            android:text="马上注册"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wd_new_login_fastlogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wd_new_register_button"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/wd_new_oneclickselector"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/wd_new_icon_signup" >
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="登录"
+            android:textColor="#07aef3"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>

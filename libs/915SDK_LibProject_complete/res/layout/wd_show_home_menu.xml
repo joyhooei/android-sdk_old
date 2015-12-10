@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/wd_img_desc"
+                android:src="@drawable/wd_bbs_logo" />
+
+            <TextView
+                android:id="@+id/wd_bbs_game_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="英雄远征游戏专区"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/wd_pay_outer_area"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/wd_home_game_guide"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/wd_bbs_menu_top_selector" >
+
+                <ImageView
+                    android:id="@+id/wd_bbs_game_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/wd_img_desc"
+                    android:src="@drawable/wd_bbs_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="活动公告"
+                    android:textColor="@color/wd_black" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/wd_home_game_exchange"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/wd_bbs_menu_mid_selector" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="玩家交流"
+                    android:textColor="@color/wd_black" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:contentDescription="@string/wd_img_desc"
+                    android:src="@drawable/wd_bbs_logo" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/wd_home_feedback"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/wd_bbs_menu_bottom_selector" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/wd_img_desc"
+                    android:src="@drawable/wd_bbs_logo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="意见反馈"
+                    android:textColor="@color/wd_black" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

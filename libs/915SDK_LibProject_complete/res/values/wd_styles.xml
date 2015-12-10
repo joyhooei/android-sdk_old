@@ -1,0 +1,154 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="wd_AppTheme" parent="android:Theme.Light" />
+
+    <style name="wd_LoginDialog" parent="@android:style/Theme.Dialog">
+
+        <!-- name是我们在使用时要用到的资源的标志，parent是指当前的样式所继承的父类样式 -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- <item name="android:background">@drawable/login_bg</item> -->
+        <item name="android:windowBackground">@drawable/wd_login_bg</item>
+        <!-- 最底 边框图 <item name="android:windowBackground">@android:color/transparent</item> -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 屏幕背景是否变暗 -->
+        <item name="android:backgroundDimAmount">0</item>
+    </style>
+
+    <style name="wd_login_input_area">
+        <item name="android:layout_marginTop">5dip</item>
+        <item name="android:layout_marginBottom">5dip</item>
+    </style>
+
+    <style name="wd_help_1_level_style">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="wd_help_2_level_style">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="wd_help_3_level_style">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#00ff00</item>
+    </style>
+
+    <style name="wd_pay_outer_area">
+        <item name="android:layout_margin">10dip</item>
+        <item name="android:background">@drawable/wd_pay_content_bg</item>
+    </style>
+
+    <style name="wd_pay_inner_area">
+        <item name="android:layout_marginTop">10dip</item>
+        <item name="android:layout_marginLeft">15dip</item>
+        <item name="android:layout_marginRight">15dip</item>
+    </style>
+
+    <style name="wd_pay_choice_view_style">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">#00ff00</item>
+    </style>
+    <!-- 支付帮助 -->
+    <style name="wd_pay_help_level_1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="wd_pay_help_level_2">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="wd_pay_help_level_3">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#00ff00</item>
+    </style>
+
+    <!-- all -->
+    <style name="wd_title_text_style">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="wd_title_btn_text_style">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="wd_content_text_style">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <!-- 支付中心 -->
+    <style name="wd_pay_text_clause">
+        <item name="android:textSize">15sp</item>
+        <item name="android:minWidth">80dp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="wd_pay_text_yellow">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#fe781d</item>
+    </style>
+
+    <style name="wd_pay_text_yellow_more">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#cb310b</item>
+    </style>
+    <!-- 编辑框 -->
+    <style name="wd_option_edittext_style">
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColor">#FF000000</item>
+    </style>
+    <!-- 文本框 -->
+    <style name="wd_option_textview_style">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FF000000</item>
+    </style>
+
+    <!-- 外框 -->
+    <style name="wd_option_margin_style">
+        <item name="android:layout_marginTop">0dip</item>
+        <item name="android:layout_marginBottom">15dip</item>
+        <item name="android:layout_marginLeft">10dip</item>
+        <item name="android:layout_marginRight">10dip</item>
+    </style>
+
+    <style name="wd_option_item_margin_style">
+        <item name="android:layout_marginTop">10dip</item>
+        <item name="android:layout_marginBottom">10dip</item>
+        <item name="android:layout_marginLeft">10dip</item>
+        <item name="android:layout_marginRight">10dip</item>
+    </style>
+    <!-- 定义文本等样式，不包含边距等 -->
+    <!-- 顶部条标题 -->
+    <style name="wd_textview_0" parent="@android:style/TextAppearance">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/wd_white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- dimen -->
+    <dimen name="wd_margin_size">5dip</dimen>
+    <dimen name="wd_option_item_marginLeft">10dip</dimen>
+    <dimen name="wd_register_agreement_text_size">16sp</dimen>
+    <dimen name="wd_portrait_add_text_size">14sp</dimen>
+    <dimen name="wd_option_margin_top">15dip</dimen>
+    <dimen name="wd_pay_tip_text_size">16sp</dimen>
+    <dimen name="wd_platform_image_size">30dip</dimen>
+    <dimen name="wd_20">20dip</dimen>
+
+</resources>

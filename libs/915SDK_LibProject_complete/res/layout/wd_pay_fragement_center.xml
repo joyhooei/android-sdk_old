@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:orientation="vertical" >
+
+      <include layout="@layout/wd_title_bar" />
+       <!-- 内容 -->
+
+   <!--  <ScrollView
+        android:id="@+id/wd_frame_scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" > -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+        android:minHeight="50dp" >
+
+            <FrameLayout
+                android:id="@+id/wd_pay_kinds"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" />
+        
+                   <FrameLayout
+                android:id="@+id/wd_pay_money"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+    </LinearLayout>
+   <!--  </ScrollView> -->
+</LinearLayout>

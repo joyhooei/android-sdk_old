@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!-- 
+    <TextView     
+         android:id="@+id/wd_text_item"   
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="0000"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:background="@drawable/wd_choice_item_bg">
+    </TextView>
+ -->
+
+
+    <CheckBox
+        android:id="@+id/wd_text_item"
+        android:textSize="12dp"
+        android:focusable="false"
+        android:clickable="false"
+        android:textColor="@color/wd_paykind_text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RadioButton" />
+
+</RelativeLayout>

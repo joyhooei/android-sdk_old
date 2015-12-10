@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            style="@style/wd_option_item_margin_style"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/wd_option_margin_top"
+            android:background="@drawable/wd_pay_content_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/wd_option_margin_style"
+                android:id="@+id/wd_pay_pass_show_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/wd_platform_image_size"
+                android:drawableLeft="@drawable/wd_true"
+                android:gravity="center"
+                android:text="@string/wd_pay_label_buy_success"
+                android:textColor="@color/wd_black"
+                android:textSize="@dimen/wd_pay_tip_text_size" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/wd_20"
+                android:layout_marginTop="@dimen/wd_20"
+                android:contentDescription="@string/wd_img_desc"
+                android:src="@drawable/wd_xline" />
+<!--  
+            <TextView
+                android:id="@+id/wd_pay_pass_goto_consumes"
+                style="@style/wd_option_margin_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/wd_20"
+                android:background="@drawable/wd_selector_green"
+                android:gravity="center"
+                android:text="@string/wd_pay_button_view_consumes"
+                android:textColor="@color/wd_white"
+                android:textSize="@dimen/wd_pay_tip_text_size" />
+-->
+            <TextView
+                android:id="@+id/wd_pay_pass_exit"
+                style="@style/wd_option_margin_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/wd_selector_blue"
+                android:gravity="center"
+                android:text="@string/wd_pay_pass_exit"
+                android:textColor="@color/wd_white"
+                android:textSize="@dimen/wd_pay_tip_text_size" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/wd_pay_success_tips"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/wd_option_margin_top"
+            android:gravity="center"
+            android:textColor="@color/wd_white" >
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

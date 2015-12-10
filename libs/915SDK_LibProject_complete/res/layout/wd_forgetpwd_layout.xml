@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="35dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/text"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/name" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:background="@drawable/icon_x" />
+
+            <EditText
+                android:id="@+id/wd_forgetpwd_account_edit"
+                style="@style/wd_option_edittext_style"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+                android:hint="请输入您的账号"
+                android:nextFocusDown="@+id/wd_account_login_password"
+                android:singleLine="true"
+                android:textColor="@color/wd_black"
+                android:textColorHint="#cccccc" >
+            </EditText>
+        </LinearLayout>
+
+        <!--
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:gravity="center_vertical"
+         android:layout_height="40dp" >
+
+         <ImageView
+             android:layout_width="25dp"
+             android:layout_height="25dp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:src="@drawable/name" />
+
+       <EditText
+                    android:id="@+id/wd_forgetpwd_account_edit"
+                    android:layout_width="0dp"
+                      android:layout_height="35dp"
+                    android:paddingLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/wd_choice_card_input"
+                    android:hint="请输入91wan平台账号"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+
+       <Button
+            android:layout_width="100dp"
+           android:layout_marginLeft="5dp"
+           android:layout_height="wrap_content"
+           android:background="@drawable/wd_login_to_register_selector"
+           android:textSize="15sp"
+           android:visibility="invisible"
+           android:textColor="@color/wd_white"
+           android:text="获取验证码" />
+
+     </LinearLayout>
+        -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/text"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/icon_iphone" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:background="@drawable/icon_x" />
+
+            <EditText
+                android:id="@+id/wd_forgetpwd_phone_edit"
+                style="@style/wd_option_edittext_style"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:hint="请输入您绑定的手机号码"
+                android:inputType="number"
+                android:nextFocusDown="@+id/wd_account_login_password"
+                android:singleLine="true"
+                android:textColor="@color/wd_black"
+                android:textColorHint="#cccccc" >
+            </EditText>
+
+            <!--
+       <ImageView
+             android:layout_width="25dp"
+             android:layout_height="25dp"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:src="@drawable/phone_binding" />
+
+       <EditText
+                    android:id="@+id/wd_forgetpwd_phone_edit"
+                    android:layout_width="0dp"
+                      android:layout_height="35dp"
+                    android:paddingLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/wd_choice_card_input"
+                    android:hint="请输入手机号码"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            -->
+
+
+            <!--
+           <Button
+           android:id="@+id/wd_forgetpwd_phone_btn"
+            android:layout_width="100dp"
+           android:layout_marginLeft="5dp"
+           android:layout_height="wrap_content"
+           android:background="@drawable/wd_login_to_register_selector"
+           android:textSize="15sp"
+           android:textColor="@color/wd_white"
+           android:text="获取验证码" />
+            -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/text"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/icon_news" />
+
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="7dp"
+                    android:background="@drawable/icon_x" />
+
+                <EditText
+                    android:id="@+id/wd_forgetpwd_code_edit"
+                    style="@style/wd_option_edittext_style"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:hint="请输入短信验证码"
+                    android:inputType="number"
+                    android:nextFocusDown="@+id/wd_account_login_password"
+                    android:singleLine="true"
+                    android:textColor="@color/wd_black"
+                    android:textColorHint="#cccccc" >
+                </EditText>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/wd_forgetpwd_phone_btn"
+                android:layout_width="90dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/btn_verification"
+                android:text="获取验证码"
+                android:textColor="#52ade6"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/text"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/password" />
+
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:background="@drawable/icon_x" />
+
+            <EditText
+                android:id="@+id/wd_forgetpwd_newpsd_edit"
+                style="@style/wd_option_edittext_style"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+                android:hint="请重新设置密码，6-12个字符"
+                android:nextFocusDown="@+id/wd_account_login_password"
+                android:singleLine="true"
+                android:textColor="@color/wd_black"
+                android:textColorHint="#cccccc" >
+            </EditText>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/wd_forgetpwd_code_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/wd_pay_ensure_btn_bg"
+            android:gravity="center"
+            android:text="重置密码"
+            android:textColor="@color/wd_white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="如果您遇到任何账号问题请及时拨打客服电话进行咨询处理，以免造成损失\n客服电话：020-66608191转91\n客服邮箱：kf@91wan.com"
+            android:textColor="#9e9e9e"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

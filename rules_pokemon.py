@@ -696,3 +696,25 @@ class RuleWeilan2(RuleBase):
             ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
         ]
 
+@register
+class RuleHaoMeng(RuleBase):
+    APPNAME = '萌宠小精灵'
+    LABEL = 'haomeng'
+    DIRECTORY = 'haomeng'
+    CH_NAME = '萌宠微蓝小包'
+    SDKTYPE = '60'
+    PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
+
+    APP_ID     = ''
+    APP_KEY    = 'attgos3er5dk2ekrifa7'
+    APP_SECRET = 'rv29y983xdmkzywi3op8'
+    SERVER_ID  = 'M1029A'
+    PROJECT_ID = 'P10117A'
+    PRODUCT_ID = 'D10054A'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleWeilan2, cls).rules() + [
+            ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
+        ]

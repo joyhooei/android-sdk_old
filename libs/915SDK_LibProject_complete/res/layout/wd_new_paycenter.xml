@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/wd_new_login_title"
+        layout="@layout/wd_new_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/wd_new_login_title"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="#ebf9ff" >
+
+            <TextView
+                android:id="@+id/wd_new_paycenter_type"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#52bff2"
+                android:gravity="center"
+                android:text="选择支付方式"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
+            <!-- 支付宝 -->
+
+            <LinearLayout
+                android:id="@+id/wd_new_paycenter_ailipay"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@id/wd_new_paycenter_type"
+                android:background="@drawable/wd_new_payselector"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/wd_new_paycenter_alipay_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wd_new_icon_alipay_small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="支付宝"
+                    android:textColor="#0695d0"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/wd_new_paycenter_line"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/wd_new_paycenter_ailipay"
+                android:layout_gravity="center"
+                android:background="#e0edf3" />
+            <!-- 银联 -->
+
+            <LinearLayout
+                android:id="@+id/wd_new_paycenter_unionpay"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@id/wd_new_paycenter_line"
+                android:background="@drawable/wd_new_payselector"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/wd_new_paycenter_unionpay_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wd_new_icon_unionpay_small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="银联支付"
+                    android:textColor="#0695d0"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/wd_new_paycenter_line2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/wd_new_paycenter_unionpay"
+                android:layout_gravity="center"
+                android:background="#e0edf3" />
+
+            <!-- 财付通 -->
+
+            <LinearLayout
+                android:id="@+id/wd_new_paycenter_tenpay"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@id/wd_new_paycenter_line2"
+                android:background="@drawable/wd_new_payselector"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/wd_new_paycenter_tenpay_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/wd_new_icon_tenpay_small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="财付通"
+                    android:textColor="#0695d0"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/wd_new_paycenter_tenpay"
+                android:layout_gravity="center"
+                android:background="#e0edf3" />
+        </RelativeLayout>
+
+        <!-- 上面是左边布局 -->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2" >
+
+            <!-- 支付宝页面 -->
+
+            <RelativeLayout
+                android:id="@+id/wd_new_paycenter_aliview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible" >
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_aliview_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#ebf9ff"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/wd_new_icon_alipay_big" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_ordername"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_aliview_title"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="订单金额："
+                        android:textColor="#a5a5a5"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wd_new_paycenter_order_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_gamename"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_ordername"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="游戏："
+                        android:textColor="#a5a5a5"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wd_new_paycenter_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_accountname"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_gamename"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="账号："
+                        android:textColor="#a5a5a5"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wd_new_paycenter_account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/wd_new_paycenter_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_accountname"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/wd_new_loginregisterselector"
+                    android:text="马上充值"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/wd_new_paycenter_pay"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="温馨提示：您将转入支付宝官方页面进行充值。"
+                    android:textColor="#04a2f1"
+                    android:textSize="10sp" />
+            </RelativeLayout>
+
+            <!-- 银联页面 -->
+
+            <RelativeLayout
+                android:id="@+id/wd_new_paycenter_unionview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_unionview_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#ebf9ff"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/wd_new_icon_unionpay_big" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="银联支付"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_unionview_ordername"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_unionview_title"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="订单金额："
+                        android:textColor="#a5a5a5"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wd_new_paycenter_unionview_order_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_unionview_gamename"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_unionview_ordername"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="游戏："
+                        android:textColor="#a5a5a5"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wd_new_paycenter_unionview_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_unionview_accountname"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_unionview_gamename"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="账号："
+                        android:textColor="#a5a5a5"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wd_new_paycenter_unionview_account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/wd_new_paycenter_unionview_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_unionview_accountname"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/wd_new_loginregisterselector"
+                    android:text="马上充值"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/wd_new_paycenter_unionview_pay"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="温馨提示：您将转入银联官方页面进行充值。"
+                    android:textColor="#04a2f1"
+                    android:textSize="10sp" />
+            </RelativeLayout>
+
+            <!-- 财富通页面 -->
+
+            <RelativeLayout
+                android:id="@+id/wd_new_paycenter_tenpayview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_tanpayview_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#ebf9ff"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/wd_new_icon_tenpay_big" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="财付通支付"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_tenview_ordername"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_tanpayview_title"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="订单金额："
+                        android:textColor="#a5a5a5"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wd_new_paycenter_tenview_order_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_tenview_gamename"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_tenview_ordername"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="游戏："
+                        android:textColor="#a5a5a5"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wd_new_paycenter_tenview_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wd_new_paycenter_tenview_accountname"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_tenview_gamename"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="账号："
+                        android:textColor="#a5a5a5"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/wd_new_paycenter_tenview_account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="支付宝"
+                        android:textColor="#f2640a"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/wd_new_paycenter_tenview_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/wd_new_paycenter_tenview_accountname"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/wd_new_loginregisterselector"
+                    android:text="马上充值"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/wd_new_paycenter_tenview_pay"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="温馨提示：您将转入财付通官方页面进行充值。"
+                    android:textColor="#04a2f1"
+                    android:textSize="10sp" />
+            </RelativeLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

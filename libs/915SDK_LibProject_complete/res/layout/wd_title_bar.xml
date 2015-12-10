@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="45dp" 
+	android:orientation ="vertical"
+	android:background="@drawable/wd_title_bg"
+	>
+	<!-- 左按钮 -->
+	<ImageButton
+	    style="@style/wd_title_btn_text_style"
+		android:id="@+id/wd_title_bar_button_left"
+		android:layout_width="53dp"
+		android:layout_height="30dp"
+		android:layout_alignParentLeft="true"
+		android:layout_centerVertical="true"
+		android:layout_marginLeft="10dip"
+		android:gravity="center"
+		android:src="@drawable/wd_title_back_bg" 
+		android:background="@drawable/transparent"
+		>
+		
+	</ImageButton>
+		
+	<!-- 标题 -->
+	<TextView
+		android:id="@+id/wd_title_bar_title"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:text="支付中心"
+		android:maxWidth="200.0dip"
+		android:singleLine="true"
+        style="@style/wd_title_text_style"
+		>
+	
+	</TextView>	
+	
+	<!-- 进度条 -->			
+	<ProgressBar
+		android:id="@+id/wd_title_bar_progressbar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:indeterminate="true"
+		android:visibility="invisible"
+		android:layout_centerVertical="true"
+		android:layout_toRightOf="@id/wd_title_bar_title"
+		style="?android:attr/progressBarStyleSmall"
+		>
+	</ProgressBar>
+	
+	<!-- 右按钮 -->
+	<Button
+	    style="@style/wd_title_btn_text_style"
+		android:id="@+id/wd_title_bar_button_right"
+	android:layout_width="53dp"
+		android:layout_height="30dp"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="10dip"
+		android:gravity="center"
+		android:background="@drawable/transparent" 	
+		android:text="@string/wd_title_help"
+		>
+	</Button>
+
+</RelativeLayout>
