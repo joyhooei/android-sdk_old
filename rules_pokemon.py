@@ -665,7 +665,7 @@ class RuleCpad(RuleBase):
 class RuleBaidu2(RuleBase):
     APPNAME = '萌宠小精灵'
     LABEL = 'baidu2'
-    DIRECTORY = 'baidu2'
+    DIRECTORY = 'baidu'
     CH_NAME = '萌宠百度小包'
     SDKTYPE = '58'
     PACKAGE_NAME = 'com.winnergame.sprite.baidu'
@@ -679,7 +679,7 @@ class RuleBaidu2(RuleBase):
 class RuleWeilan2(RuleBase):
     APPNAME = '萌宠小精灵'
     LABEL = 'weilan2'
-    DIRECTORY = 'weilan2'
+    DIRECTORY = 'weilan'
     CH_NAME = '萌宠微蓝小包'
     SDKTYPE = '59'
     PACKAGE_NAME = 'com.winnergame.sprite.weilan'
