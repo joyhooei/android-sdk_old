@@ -19,8 +19,12 @@ import com.weedong.gamesdkplatform.base.WdAppInfo;
 import com.weedong.gamesdkplatform.base.WdReturnCode;
 import com.weedong.gamesdkplatform.dialog.FloatingService;
 import com.weedong.gamesdkplatform.utils.ImageUtils;
+import com.weedong.gamesdkplatform.WeeDongCallBackListener;
 
 public class GameProxyImpl extends GameProxy{
+    private PayCallBack payCallBack;
+    private Activity currentActivity;
+    private Object loginCustomParams;
 
     public boolean supportLogin() {
         return true;
@@ -34,6 +38,11 @@ public class GameProxyImpl extends GameProxy{
         return true;
     }
 
+    public void openCommunity(Activity activity) {
+        // 打开社区
+        WdCommplatform.getInstance().wdEnterPersonalCenter( activity );
+    }
+
     @Override
     public void applicationInit(Activity activity) {
         Log.v("sdk", "applicationInit");
@@ -41,40 +50,102 @@ public class GameProxyImpl extends GameProxy{
         WdCommplatform SDK = WdCommplatform.getInstance();
         WdAppInfo appInfo = new WdAppInfo();
         appInfo.setCtx( activity );
-        try {
-            String packagename = getPackageName();
-            ApplicationInfo Info = mContext.getPackageManager()
-                .getApplicationInfo(packagename,
-                        PackageManager.GET_META_DATA);
-            int msg = Info.metaData.getInt("WeeDong_APP_ID");
-            Log.i("setAppId", "setAppId" + msg);
-            appInfo.setAppId(String.valueOf(msg));
-        } catch (NameNotFoundException e) {
-            e.printStackTrace();
-            appInfo.setAppId("1");
-        }
-
-        appInfo.setAppKey("PTcFqVY4jAEmPyKtpFtA4bp8b3rpvDUf");
+        appInfo.setAppId( "${APP_ID}" );
+        appInfo.setAppKey( "${APP_KEY}" );
         int i = SDK.wdInital(appInfo);
         Log.e("setAppId", "inital=======" + i);
+
+        SDK.wdSetScreenOrientation( WdCommplatform.SCREEN_ORIENTATION_LANDSCAPE );
     }
 
     @Override
-    public void login(Activity activity,Object customParams) {
+    public void login( final Activity activity,Object customParams ) {
         Log.v("sdk", "login");
         loginCustomParams = customParams;
 
-        // 调用SDK执行登陆操作
-        currentActivity = activity;
-        MiCommplatform.getInstance().miLogin( activity, this );
+        ImageUtils.setSharePreferences( activity, "weedong_is_auto_login", false );
+
+        WdCommplatform.getInstance().wdLogin( activity, activity, new OnLoginProcessListener() {
+            @Override
+            public void finishLoginProcess(int code) {
+                Log.v( "sdk", "login finish code : " + code );
+                Log.v( "sdk", "login finish sessionId : " + WdCommplatform.getInstance().wdGetSessionId( activity ) );
+                switch( code ) {
+                    case WdReturnCode.WD_COM_PLATFORM_SUCCESS:
+                        // 登录成功
+                        User u = new User();
+                        u.token = WdCommplatform.getInstance().wdGetSessionId( activity );
+                        userListerner.onLoginSuccess(u, loginCustomParams);
+                        break;
+                    case WdReturnCode.WD_COM_PLATFORM_ERROR_LOGIN_FAIL:
+                        // 登录失败
+                        Toast.makeText( activity, "登录失败", Toast.LENGTH_SHORT ).show();
+                        break;
+                    case WdReturnCode.WD_COM_PLATFORM_ERROR_CANCELL:
+                        // 取消登录
+                        Toast.makeText( activity, "取消登录", Toast.LENGTH_SHORT ).show();
+                        break;
+                    default:
+                        // 登录失败
+                        Toast.makeText( activity, "登录失败", Toast.LENGTH_SHORT ).show();
+                        break;
+                }
+            }
+        });
     }
 
     @Override
-    public void logout(Activity activity,Object customParams) {
+    public void logout( final Activity activity, final Object customParams ) {
         Log.v("sdk", "logout");
         currentActivity = activity;
-        userListerner.onLogout(customParams);
+
+        WdCommplatform.getInstance().wdLogout( activity, new WeeDongCallBackListener.OnCallbackListener() {
+            @Override
+            public void callback( int code ) {
+                if( code == WdReturnCode.WD_COM_PLATFORM_SUCCESS ) {
+                    // 注销成功
+                    userListerner.onLogout( customParams );
+                } else if (code == WdReturnCode.WD_LOGOUT_ACCOUNT_FAIL) {
+                    // 注销失败
+                    Toast.makeText( activity, "注销失败", Toast.LENGTH_SHORT ).show();
+                } else {
+                    // 注销失败
+                    Toast.makeText( activity, "注销失败", Toast.LENGTH_SHORT ).show();
+                }
+            }
+        });
     }
+
+	private Handler payHandler = new Handler() {
+        public void handleMessage( Message msg ) {
+            switch( msg.what ) {
+                case WdReturnCode.WD_COM_PLATFORM_SUCCESS:
+                    payCallBack.onSuccess(null);
+                    Toast.makeText( currentActivity, "支付成功", Toast.LENGTH_SHORT ).show();
+                    break;
+                case WdReturnCode.WD_COM_PLATFORM_ERROR_PAY_CANCEL:
+                    // 取消充值
+                    payCallBack.onFail(null);
+                    Toast.makeText( currentActivity, "支付被取消", Toast.LENGTH_SHORT ).show();
+                    break;
+                case WdReturnCode.WD_COM_PLATFORM_ERROR_PAY_FAIL:
+                    // 充值失败
+                    payCallBack.onFail(null);
+                    Toast.makeText( currentActivity, "支付失败", Toast.LENGTH_SHORT ).show();
+                    break;
+                case WdReturnCode.WD_COM_PLATFORM_PAY_ORDER_SUBMITTED:
+                    // 订单已提交
+                    payCallBack.onSuccess(null);
+                    Toast.makeText( currentActivity, "本次支付订单已提交，请查收到账情况!", Toast.LENGTH_SHORT ).show();
+                default:
+                    // 充值失败
+                    payCallBack.onFail(null);
+                    Toast.makeText( currentActivity, "情况不明！", Toast.LENGTH_SHORT ).show();
+                    break;
+            }
+        };
+    };
+
 
     @Override
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
@@ -82,27 +153,13 @@ public class GameProxyImpl extends GameProxy{
         currentActivity = activity;
         this.payCallBack = payCallBack;
 
-        MiBuyInfo miBuyInfo = new MiBuyInfo();
-        miBuyInfo.setCpOrderId(orderID);
-        miBuyInfo.setCpUserInfo(callBackInfo);
-        miBuyInfo.setAmount((int)price);
-
-        //用户信息，网游必须设置、单机游戏或应用可选
-        try {
-            Bundle mBundle = new Bundle();
-            mBundle.putString( GameInfoField.GAME_USER_BALANCE, "0" );   //用户余额
-            mBundle.putString( GameInfoField.GAME_USER_GAMER_VIP, roleInfo.getString("vip") );  //vip等级
-            mBundle.putString( GameInfoField.GAME_USER_LV, roleInfo.getString("level") );           //角色等级
-            mBundle.putString( GameInfoField.GAME_USER_PARTY_NAME, roleInfo.getString("faction") );  //工会，帮派
-            mBundle.putString( GameInfoField.GAME_USER_ROLE_NAME, roleInfo.getString("name") ); //角色名称
-            mBundle.putString( GameInfoField.GAME_USER_ROLEID, roleInfo.getString("id") );    //角色id
-            mBundle.putString( GameInfoField.GAME_USER_SERVER_NAME, roleInfo.getString("serverID") );  //所在服务器
-            miBuyInfo.setExtraInfo( mBundle ); //设置用户信息
-        } catch (JSONException e) {
-            Log.e("sdk", "roleInfo parse failed, ignore");
-        }
-
-        MiCommplatform.getInstance().miUniPay( activity, miBuyInfo, this );
+        WdCommplatform.getInstance().wdPayForCoin( orderID, (int)( price * 10 ), name, "1", activity, new WeeDongCallBackListener.OnPayProcessListener() {
+            @Override
+            public void finishPayProcess( int code ) {
+                Log.v( "sdk", "pay status : " + code );
+                payHandler.sendEmptyMessage( code );
+            }
+        });
     }
 
     @Override

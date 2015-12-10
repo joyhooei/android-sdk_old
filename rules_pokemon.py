@@ -707,15 +707,11 @@ class RuleHaoMeng(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
 
-    APP_ID     = ''
-    APP_KEY    = 'attgos3er5dk2ekrifa7'
-    APP_SECRET = 'rv29y983xdmkzywi3op8'
-    SERVER_ID  = 'M1029A'
-    PROJECT_ID = 'P10117A'
-    PRODUCT_ID = 'D10054A'
+    APP_ID     = '516'
+    APP_KEY    = 'yWpx3hWQHFhSnTCj#516#6KuRKuaAjLJ5sYRy'
 
     @classmethod
     def rules(cls):
-        return super(RuleWeilan2, cls).rules() + [
-            ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
+        return super(RuleHaoMeng, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
