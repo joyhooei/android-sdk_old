@@ -43,6 +43,8 @@ class RuleBase(Rule):
 
         <activity android:name="org.weilan.VideoActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection">
             >
             <intent-filter>
                 <action android:name="org.weilan.VideoActivity" />
@@ -559,6 +561,17 @@ class RuleLenovo(RuleBase):
                     <intent-filter>
                         <action android:name="lenovoid.MAIN" />
                         <category android:name="android.intent.category.DEFAULT" />
+                    </intent-filter>
+                </activity>
+
+                <activity android:name="org.weilan.VideoActivity"
+                    android:label="@string/app_name"
+                    android:screenOrientation="portrait"
+                    android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection">
+                    >
+                    <intent-filter>
+                        <action android:name="org.weilan.VideoActivity" />
+                        <category android:name="android.intent.category.DEFAULT"/>
                     </intent-filter>
                 </activity>
 
