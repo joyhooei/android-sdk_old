@@ -61,12 +61,6 @@
         android:layout_marginTop="10px"
         android:text="@string/pptvvas_pay_btn" />
     
-    <com.ant.liao.GifView
-        android:id="@+id/pptvvas_progressImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:visibility="gone" />
+
 </RelativeLayout>
 </com.pptv.vassdk.ui.widget.BackRelativeLayout>

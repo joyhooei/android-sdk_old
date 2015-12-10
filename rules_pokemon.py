@@ -292,11 +292,12 @@ class RulePPTV(RuleBase):
     CH_NAME = 'PPTV小包'
     SDKTYPE = '40'
     PACKAGE_NAME = 'com.winnergame.pokemon.pptv'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.pptv'
 
-    APPID = 'pokemonxxr_m'
+    APPID = 'sqxjl_m'
     PPTV_CID = '269'
     PPTV_CCID = ''
-    UMENG_APPKEY = '5596584e67e58edf5f001607'
+    UMENG_APPKEY = '73d3493fa8ffea3701e47e6c9657549c'
     UMENG_CHANNEL = '269'
 
 

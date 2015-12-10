@@ -43,6 +43,7 @@
                     android:layout_width="150px"
                     android:layout_height="@dimen/pptvvas_bar_text_height"
                     android:layout_marginLeft="10px"
+               
                     android:gravity="center_vertical"
                     android:textColor="@color/pptvvas4_white"
                     android:textSize="@dimen/pptvvas_bar_textsize"

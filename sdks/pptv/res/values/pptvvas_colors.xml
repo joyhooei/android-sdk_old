@@ -124,4 +124,7 @@
     <!-- 4.1支付选择颜色 -->
     <color name="pptvvas_pay_choice_gray">#CACDCD</color>
     <color name="pptvvas_pay_choice_black">#5c6064</color>
+    <!-- 4.3 -->
+    <color name="pptvvas4_pay_msg_title_yellow">#f7b924</color>
+    <color name="pptvas4_pay_msg_btn_orange">#eb5323</color>
 </resources>

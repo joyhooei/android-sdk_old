@@ -19,7 +19,7 @@ import com.pptv.vassdk.agent.listener.LoginListener;
 import com.pptv.vassdk.agent.listener.PayListener;
 import com.pptv.vassdk.agent.model.LoginResult;
 import com.pptv.vassdk.agent.model.PayResult;
-import com.pptv.vassdk.agent.utils.CfgUtil;
+import com.pptv.vassdk.cfg.Debug;
 import com.pptv.vassdk.utils.PayUtil;
 
 public class GameProxyImpl extends GameProxy{
@@ -44,7 +44,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void applicationInit(Activity activity) {
-        PptvVasAgent.init(activity, "${APPID}", true, "", "", false);
+        PptvVasAgent.init(activity, "${APPID}", false, "", "", false);
         PptvVasAgent.showFloatingView(activity);
     }
 
