@@ -699,10 +699,9 @@ class RuleWeilan2(RuleBase):
 
 @register
 class RuleHaoMeng(RuleBase):
-    APPNAME = '萌宠小精灵'
     LABEL = 'haomeng'
     DIRECTORY = 'haomeng'
-    CH_NAME = '萌宠微蓝小包'
+    CH_NAME = '好盟小包'
     SDKTYPE = '60'
     PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
