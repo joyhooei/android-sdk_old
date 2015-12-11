@@ -120,7 +120,7 @@ public class GameProxyImpl extends GameProxy {
 
         // launchActivity的onCreat()和onNewIntent()中必须调用
         // WGPlatform.handleCallback()。否则会造成微信登录无回调
-        if (WGPlatform.wakeUpFromHall(activity.getIntent())) {
+        if (false && WGPlatform.wakeUpFromHall(activity.getIntent())) {
             // 拉起平台为大厅
             Logger.d("LoginPlatform is Hall");
             Logger.d(activity.getIntent());
@@ -220,7 +220,7 @@ public class GameProxyImpl extends GameProxy {
         // TODO GAME 处理游戏被拉起的情况
         // launchActivity的onCreat()和onNewIntent()中必须调用
         // WGPlatform.handleCallback()。否则会造成微信登录无回调
-        if (WGPlatform.wakeUpFromHall(intent)) {
+        if (false && WGPlatform.wakeUpFromHall(intent)) {
             Logger.d("LoginPlatform is Hall");
             Logger.d(intent);
             //WGPlatform.handleCallback(intent);
