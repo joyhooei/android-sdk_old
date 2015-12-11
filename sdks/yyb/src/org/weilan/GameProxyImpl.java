@@ -122,12 +122,12 @@ public class GameProxyImpl extends GameProxy {
         // WGPlatform.handleCallback()。否则会造成微信登录无回调
         if (WGPlatform.wakeUpFromHall(activity.getIntent())) {
             // 拉起平台为大厅
-            Logger.d("LoginPlatform is Hall");
+            Logger.d("cocos ================ LoginPlatform is Hall");
             Logger.d(activity.getIntent());
             //WGPlatform.handleCallback(activity.getIntent());
         } else {
             // 拉起平台不是大厅
-            Logger.d("LoginPlatform is not Hall");
+            Logger.d("cocos ================ LoginPlatform is not Hall");
             Logger.d(activity.getIntent());
             WGPlatform.handleCallback(activity.getIntent());
         }

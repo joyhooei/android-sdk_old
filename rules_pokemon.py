@@ -768,6 +768,11 @@ class RuleYYB(RuleBase):
     MSDK_KEY = '73d3493fa8ffea3701e47e6c9657549c'
 
 
-    CREATE_ORDER_URL = ''
-    QUERY_BALANCE_URL = ''
+    CREATE_ORDER_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/create_order'
+    QUERY_BALANCE_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
 
+    @classmethod
+    def rules(cls):
+        return super(RuleYYB, cls).rules() + [
+            ('src/com/tencent/tmgp/com/winnergame/pokemon/weilan/wxapi/WXEntryActivity.java', 'replace', cls.common_replaces()),
+        ]
