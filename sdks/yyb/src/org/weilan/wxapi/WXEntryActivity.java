@@ -1,4 +1,4 @@
-package com.example.wegame.wxapi;
+package org.weilan.wxapi;
 
 
 /**
