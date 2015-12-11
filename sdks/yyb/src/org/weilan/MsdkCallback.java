@@ -48,7 +48,8 @@ public class MsdkCallback implements WGPlatformObserver {
     */
 
     public void OnLoginNotify(LoginRet ret) {
-        Log.d("cocos","OnLoginNotify" +  ret.flag);
+        Logger.d("cocos >>>>>>>>>>>> OnLoginNotify");
+        Logger.d("cocos =========" + ret.flag);
         switch (ret.flag) {
             case CallbackFlag.eFlag_Succ:
                 // 登陆成功, 读取各种票据
