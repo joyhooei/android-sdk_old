@@ -155,10 +155,13 @@ public class MsdkCallback implements WGPlatformObserver {
     @Override
     public String OnCrashExtMessageNotify() {
         // 此处游戏补充crash时上报的额外信息
+        /*
         Logger.d(String.format(Locale.CHINA, "OnCrashExtMessageNotify called"));
         Date nowTime = new Date();
         SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         return "new Upload extra crashing message for bugly on " + time.format(nowTime);
+        */
+        return "";
     }
 
 }
