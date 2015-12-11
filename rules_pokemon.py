@@ -709,7 +709,7 @@ class RuleBaidu2(RuleBase):
     SDKTYPE = '58'
     PACKAGE_NAME = 'com.winnergame.sprite.baidu'
 
-    ICON_PATH = '../../../pokemon_icons/baidu'
+    ICON_PATH = '../../../pokemon_icons/baidu/baidu2'
 
     APPID = '7398765'
     APPKEY = 'mMdG57EWUYFMEb19cQSVoCFx'
