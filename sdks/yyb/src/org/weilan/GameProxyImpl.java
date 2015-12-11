@@ -398,7 +398,9 @@ public class GameProxyImpl extends GameProxy {
         }
 
         String zoneId = callBackInfo.split("_")[0];
-        request.zoneId = Integer.toString(Integer.parseInt(zoneId) - 299);
+        //request.zoneId = Integer.toString(Integer.parseInt(zoneId) - 299);
+        //for test
+        request.zoneId = Integer.toString(Integer.parseInt(zoneId));
         Log.v("sdk", "zoneId:"+request.zoneId+","+zoneId);
         request.pf = ret.pf;
         request.pfKey = ret.pf_key;
@@ -408,7 +410,7 @@ public class GameProxyImpl extends GameProxy {
         request.saveValue = Integer.toString((int)(price*10));
         //request.mpInfo.discountType = discounttype;
         //request.mpInfo.discountUrl  = discountUrl;
-        request.extendInfo.unit="元宝";
+        request.extendInfo.unit="钻石";
         //Log.i("TencentPay", "userId, userKey, sessionId, sessionType, zoneId, pf, pfKey, acctType" + "====" + userId + "," + userKey + "," + sessionId + "," + sessionType + "," + zoneId + "," + pf + "," + pfKey + "," + acctType);
         // void com.tencent.unipay.plugsdk.UnipayPlugAPI.SaveGameCoinsWithoutNum(String userId, String userKey, String sessionId, String sessionType, String zoneId, String pf, String pfKey, String acctType, byte[] gameCoinResData, String drmInfo, String discountId) throws RemoteException
         //充值游戏币
