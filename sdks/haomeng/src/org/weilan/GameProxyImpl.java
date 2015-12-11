@@ -20,6 +20,7 @@ import com.weedong.gamesdkplatform.base.WdReturnCode;
 import com.weedong.gamesdkplatform.dialog.FloatingService;
 import com.weedong.gamesdkplatform.utils.ImageUtils;
 import com.weedong.gamesdkplatform.WeeDongCallBackListener;
+import com.weedong.gamesdkplatform.status.WdBaseInfo;
 
 public class GameProxyImpl extends GameProxy{
     private PayCallBack payCallBack;
@@ -74,7 +75,7 @@ public class GameProxyImpl extends GameProxy{
                     case WdReturnCode.WD_COM_PLATFORM_SUCCESS:
                         // 登录成功
                         User u = new User();
-                        u.userID = WdCommplatform.getInstance().wdGetAccount( activity );
+                        u.userID = WdBaseInfo.gSessionObj.getUid();
                         u.token = WdCommplatform.getInstance().wdGetSessionId( activity );
                         userListerner.onLoginSuccess(u, loginCustomParams);
                         break;
