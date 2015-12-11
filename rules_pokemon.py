@@ -759,7 +759,8 @@ class RuleYYB(RuleBase):
     DIRECTORY = 'yyb'
     CH_NAME = '应用宝小包'
     SDKTYPE = '24'
-    PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
+    #PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
+    PACKAGE_NAME = 'com.winnergame.pokemon.yyb'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.yyb'
 
     QQ_APPID = '1104928607'
