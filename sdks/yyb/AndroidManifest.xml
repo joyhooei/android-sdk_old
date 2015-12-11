@@ -72,7 +72,7 @@
 
         <!-- TODO SDK接入 微信接入配置 START -->
         <activity
-            android:name=".wxapi.WXEntryActivity"
+            android:name="org.weilan.wxapi.WXEntryActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:label="WXEntryActivity"
