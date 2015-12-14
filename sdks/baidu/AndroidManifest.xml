@@ -355,7 +355,7 @@
 				<action android:name="android.intent.action.VIEW" />
 				<category android:name="android.intent.category.BROWSABLE" />
 				<category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="{PACKAGE_NAME}" />
+                <data android:scheme="qwallet${PACKAGE_NAME}" />
 			</intent-filter>
 		</activity>
 		<!-- ↑↑↑ QQ插件 ↑↑↑ -->
