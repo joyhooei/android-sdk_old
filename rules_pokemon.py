@@ -295,6 +295,7 @@ class RulePPTV(RuleBase):
     SDKTYPE = '40'
     PACKAGE_NAME = 'com.winnergame.pokemon.pptv'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.pptv'
+    ICON_PATH = '../../../pokemon_icons/android/pptv'
 
     APPID = 'sqxjl_m'
     PPTV_CID = '269'
