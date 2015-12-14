@@ -501,7 +501,6 @@ class RuleHuawei(RuleBase):
     DIRECTORY = 'huawei'
     CH_NAME = '华为小包'
     SDKTYPE = '48'
-    APPNAME = '宠物小精灵加强版'
     PACKAGE_NAME = 'com.winnergame.pokemon.huawei'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.huawei'
 
