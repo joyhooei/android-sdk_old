@@ -33,6 +33,20 @@ public class GameProxyImpl extends GameProxy {
     private ActivityAdPage mActivityAdPage;
     private ActivityAnalytics mActivityAnalytics;
 
+    private static final int MSG_SDK_INIT_SUCCESS  = 1;
+
+    private Handler myHandler = new Handler() {
+        public void handleMessage(android.os.Message msg) {
+            switch (msg.what) {
+            case MSG_SDK_INIT_SUCCESS:
+                BDGameSDK.getAnnouncementInfo(currentActivity);
+                break;
+            default:
+                break;
+            }
+        };
+    };
+
     @Override
     public void applicationInit(final Activity activity) {
         Log.v("sdk", "applicationInit");
@@ -49,6 +63,9 @@ public class GameProxyImpl extends GameProxy {
                     Void extraData) {
                 switch(resultCode){
                 case ResultCode.INIT_SUCCESS:
+                    final Message msg = new Message();
+                    msg.what = MSG_SDK_INIT_SUCCESS;
+                    myHandler.sendMessage(msg);
                     break;
                 case ResultCode.INIT_FAIL:
                 default:
@@ -57,21 +74,21 @@ public class GameProxyImpl extends GameProxy {
                     //初始化失败
                 }
             }
-        }); 
+        });
         init(activity);
     }
 
     private void init(Activity activity){
         mActivityAnalytics = new ActivityAnalytics(activity);
-        
+
         mActivityAdPage = new ActivityAdPage(activity, new Listener(){
             @Override
             public void onClose() {
                 // TODO 关闭暂停页, CP可以让玩家继续游戏
                 //Toast.makeText(getApplicationContext(), "继续游戏", Toast.LENGTH_LONG).show();
             }
-            
-        }); 
+
+        });
     }
 
     @Override
@@ -86,7 +103,7 @@ public class GameProxyImpl extends GameProxy {
         Log.v("sdk", "login");
         BDGameSDK.login(new IResponse<Void>() {
             @Override
-            public void onResponse(int resultCode, String resultDesc, Void extraData) { 
+            public void onResponse(int resultCode, String resultDesc, Void extraData) {
                 Log.d("sdk", "login resultCode is " + resultCode);
                 String hint = "";
                 switch(resultCode){
@@ -99,17 +116,17 @@ public class GameProxyImpl extends GameProxy {
                     userListerner.onLoginSuccess(u, customParams);
 
                     BDGameSDK.showFloatView(currentActivity);
-                    break; 
+                    break;
                 case ResultCode.LOGIN_CANCEL:
                     hint = "取消登录";
                     userListerner.onLoginFailed("取消登录", customParams);
                     break;
                 case ResultCode.LOGIN_FAIL:
-                default:    
-                    hint = "登录失败";     
+                default:
+                    hint = "登录失败";
                     userListerner.onLoginFailed("登录失败", customParams);
-                } 
-                Toast.makeText(activity.getApplicationContext(), hint, Toast.LENGTH_LONG).show(); 
+                }
+                Toast.makeText(activity.getApplicationContext(), hint, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -127,12 +144,12 @@ public class GameProxyImpl extends GameProxy {
 
         PayOrderInfo payOrderInfo = new PayOrderInfo();
         payOrderInfo.setCooperatorOrderSerial(orderID);
-        payOrderInfo.setProductName(name); 
+        payOrderInfo.setProductName(name);
         payOrderInfo.setTotalPriceCent((int)(price*100));//以分为单位
         payOrderInfo.setRatio(1);
         payOrderInfo.setExtInfo(callBackInfo);//该字段将会在支付成功后原样返回给CP(不超过500个字符)
 
-        BDGameSDK.pay(payOrderInfo, null, 
+        BDGameSDK.pay(payOrderInfo, null,
                 new IResponse<PayOrderInfo>(){
 
                     @Override
@@ -147,14 +164,14 @@ public class GameProxyImpl extends GameProxy {
                         case ResultCode.PAY_CANCEL://订单支付取消
                             resultStr = "取消支付";
                             payCallBack.onFail(null);
-                            break;    
+                            break;
                         case ResultCode.PAY_FAIL://订单支付失败
                             resultStr = "支付失败：" + resultDesc;
                             payCallBack.onFail(null);
-                            break;    
+                            break;
                         case ResultCode.PAY_SUBMIT_ORDER://订单已经提交，支付结果未知（比如：已经请求了，但是查询超时）
                             resultStr = "订单已经提交，支付结果未知";
-                            break;    
+                            break;
                         }
                         Toast.makeText(activity.getApplicationContext(), resultStr, Toast.LENGTH_LONG).show();
                     }
@@ -198,11 +215,11 @@ public class GameProxyImpl extends GameProxy {
                      Toast.makeText(currentActivity.getApplicationContext(), "登录失败", Toast.LENGTH_LONG).show();
                      userListerner.onLogout(null);
                      break;
-                 case ResultCode.LOGIN_CANCEL:                     
-                     break; 
-                 } 
+                 case ResultCode.LOGIN_CANCEL:
+                     break;
+                 }
             }
-            
+
         });
     }
 
