@@ -373,7 +373,7 @@ public class GameProxyImpl extends GameProxy {
 
         //充值游戏币接口，充值默认值由支付SDK设置;
         unipayAPI.setEnv("test");
-        //unipayAPI.setLogEnable(true);
+        unipayAPI.setLogEnable(true);
         UnipayPlugTools unipayPlugTools = new UnipayPlugTools(activity.getBaseContext());
         unipayPlugTools.setUrlForTest();
 
