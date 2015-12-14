@@ -155,7 +155,15 @@ public class GameProxyImpl extends GameProxy{
         currentActivity = activity;
         this.payCallBack = payCallBack;
 
-        WdCommplatform.getInstance().wdPayForCoin( orderID, (int)( price * 10 ), name, "1", activity, new WeeDongCallBackListener.OnPayProcessListener() {
+        String ext = "";
+        String server_id = 1;
+        try {
+            server_id = roleInfo.getString("serverID");
+            ext = server_id + "_" + roleInfo.getString("id") + "_" + orderID;
+        } catch (JSONException e) {
+            Log.e("sdk", "roleInfo parse failed, ignore");
+        }
+        WdCommplatform.getInstance().wdPayForCoin( orderID, (int)( price * 10 ), ext, server_id, activity, new WeeDongCallBackListener.OnPayProcessListener() {
             @Override
             public void finishPayProcess( int code ) {
                 Log.v( "sdk", "pay status : " + code );
