@@ -653,6 +653,7 @@ class RuleM4399(RuleBase):
     CH_NAME = 'm4399小包'
     SDKTYPE = '30'
     PACKAGE_NAME = 'com.winnergame.pokemon.m4399'
+    ICON_PATH = '../../../pokemon_icons/android/4399'
 
     APPKEY     = '109598'
 
