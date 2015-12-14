@@ -156,7 +156,7 @@ public class GameProxyImpl extends GameProxy{
         this.payCallBack = payCallBack;
 
         String ext = "";
-        String server_id = 1;
+        String server_id = "1";
         try {
             server_id = roleInfo.getString("serverID");
             ext = server_id + "_" + roleInfo.getString("id") + "_" + orderID;
