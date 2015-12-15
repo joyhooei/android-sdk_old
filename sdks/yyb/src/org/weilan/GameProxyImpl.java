@@ -372,7 +372,7 @@ public class GameProxyImpl extends GameProxy {
         //String discountUrl = "http://imgcache.qq.com/bossweb/midas/unipay/test/act/actTip.html?_t=1&mpwidth=420&mpheight=250";
 
         //充值游戏币接口，充值默认值由支付SDK设置;
-        unipayAPI.setEnv("test");
+        //unipayAPI.setEnv("test");
         unipayAPI.setLogEnable(true);
         UnipayPlugTools unipayPlugTools = new UnipayPlugTools(activity.getBaseContext());
         unipayPlugTools.setUrlForTest();
