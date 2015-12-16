@@ -530,7 +530,7 @@ public class GameProxyImpl extends GameProxy {
         LoginRet ret = new LoginRet();
         WGPlatform.WGGetLoginRecord(ret);
 
-        String sUrl = ((poem)currentActivity).getMetaData("create_order_url");
+        String sUrl = ((poem)currentActivity).getMetaData("zone_info_url");
         try
         {
             URL url = new URL(sUrl);
@@ -543,7 +543,7 @@ public class GameProxyImpl extends GameProxy {
             StringBuffer params = new StringBuffer();
             params.append("zoneid=");
             params.append(enCode(callBackInfo.split("_")[0]));
-            Log.i("sdk", "requestZoneId zoneId = " + params.toString());
+            Log.i("sdk", "requestZoneId param : " + params.toString());
             byte[] bytes = params.toString().getBytes();
             connection.connect();
             connection.getOutputStream().write(bytes);
@@ -555,11 +555,15 @@ public class GameProxyImpl extends GameProxy {
             {
                 readbuff.append(lstr);
             }
-            Log.i("sdk", "requestZoneId: " + readbuff.toString());
+            Log.i("sdk", "requestZoneId ret : " + readbuff.toString());
             connection.disconnect();
             reader.close();
             String zoneId = readbuff.toString();
-            this.doSdkPay(zoneId, price);
+            if( "0".equals(zoneId) == true ) {
+                Toast.makeText(currentActivity, "本区暂无法完成充值", Toast.LENGTH_SHORT).show();
+            } else {
+                this.doSdkPay(zoneId, price);
+            }
         } catch (MalformedURLException e)
         {
             e.printStackTrace();
