@@ -349,15 +349,29 @@ public class GameProxyImpl extends GameProxy {
 	}
 
     @Override
-    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    public void pay(Activity activity, String ID, String name, String orderID, final float price, final String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         this.payCallBack = payCallBack;
         this.callBackInfo = callBackInfo + "_" + orderID;
+        this.currentActivity = activity;
+
+        new Thread(new Runnable()
+                {
+                    @Override
+                    public void run( )
+                    {
+                        requestZoneId(callBackInfo, price);
+                    }
+                }).start();
+
+    }
+
+    private void doSdkPay(String zoneId, float price) {
 
         LoginRet ret = new LoginRet();
         WGPlatform.WGGetLoginRecord(ret);
         if(ret.flag == CallbackFlag.eFlag_WX_AccessTokenExpired) {
             Log.v("sdk", "wx login expired, refresh");
-			Toast.makeText(activity, "登录已过期，正在重新登录，请稍候再试。", Toast.LENGTH_SHORT).show();
+			Toast.makeText(currentActivity, "登录已过期，正在重新登录，请稍候再试。", Toast.LENGTH_SHORT).show();
             WGPlatform.WGRefreshWXToken();
             return ;
         }
@@ -374,10 +388,10 @@ public class GameProxyImpl extends GameProxy {
         //充值游戏币接口，充值默认值由支付SDK设置;
         unipayAPI.setEnv("test");
         unipayAPI.setLogEnable(true);
-        UnipayPlugTools unipayPlugTools = new UnipayPlugTools(activity.getBaseContext());
+        UnipayPlugTools unipayPlugTools = new UnipayPlugTools(currentActivity.getBaseContext());
         unipayPlugTools.setUrlForTest();
 
-        Bitmap bmp = BitmapFactory.decodeResource(activity.getResources(), R.drawable.sample_yuanbao);
+        Bitmap bmp = BitmapFactory.decodeResource(currentActivity.getResources(), R.drawable.sample_yuanbao);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] appResData = baos.toByteArray();
@@ -397,9 +411,7 @@ public class GameProxyImpl extends GameProxy {
             request.sessionType = "wc_actoken";
         }
 
-        String zoneId = callBackInfo.split("_")[0];
-        request.zoneId = Integer.toString(Integer.parseInt(zoneId) - 198);
-        Log.v("sdk", "zoneId:"+request.zoneId+","+zoneId);
+        request.zoneId = zoneId;
         request.pf = ret.pf;
         request.pfKey = ret.pf_key;
         request.acctType = UnipayPlugAPI.ACCOUNT_TYPE_COMMON;
@@ -510,6 +522,51 @@ public class GameProxyImpl extends GameProxy {
 
     public boolean supportCommunity() {
         return false;
+    }
+
+    /** 支付前请求区号 */
+    private void requestZoneId(final String callBackInfo, final float price)
+    {
+        LoginRet ret = new LoginRet();
+        WGPlatform.WGGetLoginRecord(ret);
+
+        String sUrl = ((poem)currentActivity).getMetaData("create_order_url");
+        try
+        {
+            URL url = new URL(sUrl);
+            HttpURLConnection connection = (HttpURLConnection) url
+                .openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-type",
+                    "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);// 是否输入参数
+            StringBuffer params = new StringBuffer();
+            params.append("zoneid=");
+            params.append(enCode(callBackInfo.split("_")[0]));
+            Log.i("sdk", "requestZoneId zoneId = " + params.toString());
+            byte[] bytes = params.toString().getBytes();
+            connection.connect();
+            connection.getOutputStream().write(bytes);
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
+            StringBuffer readbuff = new StringBuffer();
+            String lstr = null;
+            while ((lstr = reader.readLine()) != null)
+            {
+                readbuff.append(lstr);
+            }
+            Log.i("sdk", "requestZoneId: " + readbuff.toString());
+            connection.disconnect();
+            reader.close();
+            String zoneId = readbuff.toString();
+            this.doSdkPay(zoneId, price);
+        } catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /** 支付成功后前去服务端查询余额，并发货 */
