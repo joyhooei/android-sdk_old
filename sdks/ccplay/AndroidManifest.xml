@@ -38,6 +38,10 @@
                 <data android:scheme="qqPay102067" />
             </intent-filter>
         </activity>
+
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+        <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
+
         <activity
             android:name="com.lion.ccpay.pay.app.CBPayActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -92,10 +96,9 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
 
-        <receiver android:name="com.lion.ccpaydemo.LoginOutBroadcastReceiver" >
+        <receiver android:name="org.weilan.LoginOutBroadcastReceiver" >
             <intent-filter>
                 <action android:name="CCPAY_LOGINOUT_ACTION" />
-
                 <data android:scheme="102067" />
             </intent-filter>
         </receiver>
@@ -105,20 +108,9 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
 
-        <!--
-        <meta-data
-            android:name="developer_key"
-            android:value="ec8b9def66444f1c86bff1f1329a2048" />
-        <meta-data
-            android:name="app_id"
-            android:value="102067" />
-        -->
-        <meta-data
-            android:name="developer_key"
-            android:value="ec8b9def66444f1c86bff1f1329a2048" />
-        <meta-data
-            android:name="app_id"
-            android:value="102067" />
+        <meta-data android:name="developer_key" android:value="${APP_KEY}" />
+        <meta-data android:name="app_id" android:value="${APP_ID}" />
+
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"

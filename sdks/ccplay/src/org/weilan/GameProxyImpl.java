@@ -50,11 +50,11 @@ public class GameProxyImpl extends GameProxy{
                     u.userID = Long.toString(result.userId);
                     u.token = result.token;
                     userListerner.onLoginSuccess(u, loginCustomParams);
-                    Toast.makeText(activity, "结果：" + result.toString(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(activity, "结果：" + result.toString(), Toast.LENGTH_SHORT).show();
                     // DCAccount.login(result.userId + "");
                 } else {
                     userListerner.onLoginFailed("登录失败", loginCustomParams);
-                    Toast.makeText(activity, "结果：" + result.toString(), Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(activity, "结果：" + result.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -74,8 +74,6 @@ public class GameProxyImpl extends GameProxy{
          *}
          */
         CCPaySdk.getInstance().pay(activity, "100045", "123456789", new PayListener() {
-
-            @Override
             public void onComplete(PayResult result) {
                 // 0000    支付成功
                 // 0001    支付正在处理中

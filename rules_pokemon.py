@@ -762,6 +762,7 @@ class RuleCCPlay(RuleBase):
     SDKTYPE = '61'
     PACKAGE_NAME = 'com.winnergame.pokemon.ccplay'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.ccplay'
+    ICON_PATH = '../../../pokemon_icons/android/congcong'
 
     APP_ID     = '516'
     APP_KEY    = 'yWpx3hWQHFhSnTCj#516#6KuRKuaAjLJ5sYRy'

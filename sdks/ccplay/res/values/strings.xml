@@ -4,7 +4,6 @@
     <string name="crash_toast_text">啊哦，一不小心崩溃啦 = =||| </string>
     <string name="channel_id">dummy</string>
 
-    <string name="app_name">虫虫支付</string>
     <string name="user_deal"><u>《虫虫用户协议》</u></string>
     <string name="edite_code">验证码</string>
     <string name="nicke_name">昵称</string>
