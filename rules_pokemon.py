@@ -537,6 +537,20 @@ class RuleWeilan(RuleBase):
             ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
         ]
 
+#       label           name             project_id
+WL_CHANNELS = [
+    ( 'weilan',         '微蓝',         'P10118A', ),
+    ( 'yiyonghui',      '易用汇',       'P10119A', ),
+    ( 'qianchi',        '千尺游戏',     'P10120A', ),
+    ( 'anfeng',         '安锋',         'P10121A', ),
+]
+for label, name, project_id in WL_CHANNELS:
+    register(type('RuleWeilan%s' % label, (RuleWeilan,), dict(
+        LABEL='weilan_%s' % label,
+        CH_NAME='微蓝-%s(CPS)小包' % name,
+        PROJECT_ID = project_id,
+    )))
+
 @register
 class RuleLenovo(RuleBase):
     LABEL = 'lenovo'
@@ -753,3 +767,4 @@ class RuleHaoMeng(RuleBase):
         return super(RuleHaoMeng, cls).rules() + [
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
+
