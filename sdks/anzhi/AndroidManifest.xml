@@ -82,7 +82,7 @@
             android:theme="@style/mydialog" >
             <meta-data
                 android:name="ANZHIUSERCENTE_VERSIONS"
-                android:value="3.5.1" >
+                android:value="3.5.2" >
             </meta-data>
         </activity>
 
