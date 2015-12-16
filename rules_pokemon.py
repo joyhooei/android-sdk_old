@@ -763,7 +763,8 @@ class RuleYYB(RuleBase):
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.yyb'
 
     QQ_APPID = '1104928607'
-    QQ_APPKEY = 'moGFruUJK4I6Re5C'
+    #QQ_APPKEY = 'moGFruUJK4I6Re5C'
+    QQ_APPKEY = 'ihNyP0xCjLGuLx0kog3SnU72H4Ccjtx1'
     WX_APPID = 'wx84325ed5efe57c0d'
     MSDK_KEY = '73d3493fa8ffea3701e47e6c9657549c'
 
