@@ -559,6 +559,7 @@ public class GameProxyImpl extends GameProxy {
             params.append("&appmode=1");
             params.append("&callBackInfo=");
             params.append(enCode(callBackInfo));
+            Log.i("sdk", "queryBalance pos param: " + params.toString());
             byte[] bytes = params.toString().getBytes();
             connection.connect();
             connection.getOutputStream().write(bytes);
