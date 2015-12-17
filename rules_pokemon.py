@@ -768,3 +768,20 @@ class RuleHaoMeng(RuleBase):
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
 
+@register
+class RuleCCPlay(RuleBase):
+    LABEL = 'ccplay'
+    DIRECTORY = 'ccplay'
+    CH_NAME = '虫虫小包'
+    SDKTYPE = '61'
+    PACKAGE_NAME = 'com.winnergame.pokemon.ccplay'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.ccplay'
+
+    APP_ID     = '516'
+    APP_KEY    = 'yWpx3hWQHFhSnTCj#516#6KuRKuaAjLJ5sYRy'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleCCPlay, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
