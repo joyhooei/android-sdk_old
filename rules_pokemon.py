@@ -75,6 +75,13 @@ class RuleEmpty(RuleBase):
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.winnergame.pokemon.empty'
 
+@register
+class RuleEmptyB(RuleBase):
+    LABEL = 'emptyB'
+    DIRECTORY = 'empty'
+    CH_NAME = '神奇小精灵-商务版'
+    SDKTYPE = '0'
+    PACKAGE_NAME = 'com.winnergame.pokemon.empty'
 
 @register
 class RuleUC(RuleBase):
