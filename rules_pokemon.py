@@ -794,6 +794,7 @@ class RuleYYB(RuleBase):
     SDKTYPE = '24'
     PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.yyb'
+    ICON_PATH = '../../../pokemon_icons/android/yunliang'
 
     QQ_APPID = '1104928607'
     #QQ_APPKEY = 'moGFruUJK4I6Re5C'
