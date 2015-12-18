@@ -786,6 +786,7 @@ class RuleCCPlay(RuleBase):
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
 
+@register
 class RuleYYB(RuleBase):
     LABEL = 'yyb'
     DIRECTORY = 'yyb'
