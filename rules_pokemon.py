@@ -785,3 +785,30 @@ class RuleCCPlay(RuleBase):
         return super(RuleCCPlay, cls).rules() + [
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
+
+class RuleYYB(RuleBase):
+    LABEL = 'yyb'
+    DIRECTORY = 'yyb'
+    CH_NAME = '应用宝小包'
+    SDKTYPE = '24'
+    PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.yyb'
+
+    QQ_APPID = '1104928607'
+    #QQ_APPKEY = 'moGFruUJK4I6Re5C'
+    QQ_APPKEY = 'ihNyP0xCjLGuLx0kog3SnU72H4Ccjtx1'
+    WX_APPID = 'wx84325ed5efe57c0d'
+    MSDK_KEY = '73d3493fa8ffea3701e47e6c9657549c'
+
+
+    #CREATE_ORDER_URL  = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/create_order'
+    ZONE_INFO_URL     = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/info'
+    QUERY_BALANCE_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
+    #ZONE_INFO_URL     = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/info'
+    #QUERY_BALANCE_URL = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleYYB, cls).rules() + [
+            ('src/com/tencent/tmgp/com/winnergame/pokemon/weilan/wxapi/WXEntryActivity.java', 'replace', cls.common_replaces()),
+        ]

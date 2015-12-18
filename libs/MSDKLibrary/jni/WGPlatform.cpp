@@ -109,6 +109,29 @@ bool WGPlatform::WGLogout() {
 	return env->CallStaticBooleanMethod(s_WGPlatformClass, WGLogout);
 }
 
+bool WGPlatform::WGQueryQQMyInfo() {
+	JNIEnv *env;
+	m_pVM->AttachCurrentThread(&env, NULL);
+
+	jmethodID WGQueryQQMyInfo = env->GetStaticMethodID(s_WGPlatformClass,
+			"WGQueryQQMyInfo", "()Z");
+	bool ret = env->CallStaticBooleanMethod(s_WGPlatformClass,
+			WGQueryQQMyInfo);
+	return ret;
+}
+
+bool WGPlatform::WGQueryWXMyInfo() {
+	JNIEnv *env;
+	m_pVM->AttachCurrentThread(&env, NULL);
+
+	jmethodID WGQueryWXMyInfo = env->GetStaticMethodID(s_WGPlatformClass,
+			"WGQueryWXMyInfo", "()Z");
+	bool ret = env->CallStaticBooleanMethod(s_WGPlatformClass,
+			WGQueryWXMyInfo);
+
+	return ret;
+}
+
 int WGPlatform::WGGetLoginRecord(LoginRet& lr) {
 	JNIEnv* env;
 	m_pVM->AttachCurrentThread(&env, NULL);

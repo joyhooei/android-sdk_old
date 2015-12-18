@@ -1,4 +1,4 @@
-package com.tencent.tmgp.NZGLDH.wxapi;
+package org.weilan.wxapi;
 
 
 /**

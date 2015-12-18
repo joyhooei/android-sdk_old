@@ -1,4 +1,4 @@
-package com.example.wegame.wxapi;
+package ${PACKAGE_NAME}.wxapi;
 
 
 /**

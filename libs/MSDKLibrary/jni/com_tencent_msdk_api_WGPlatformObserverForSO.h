@@ -23,6 +23,14 @@ JNIEXPORT void JNICALL Java_com_tencent_msdk_api_WGPlatformObserverForSO_OnLogin
 JNIEXPORT void JNICALL Java_com_tencent_msdk_api_WGPlatformObserverForSO_OnWakeupNotify
   (JNIEnv *, jclass, jobject);
 
+/*
+ * Class:     com_tencent_msdk_api_WGPlatformObserverForSO
+ * Method:    OnRelationNotify
+ * Signature: (Lcom/tencent/msdk/remote/api/RelationRet;)V
+ */
+JNIEXPORT void JNICALL Java_com_tencent_msdk_api_WGPlatformObserverForSO_OnRelationNotify
+  (JNIEnv *, jclass, jobject);
+
 #ifdef __cplusplus
 }
 #endif

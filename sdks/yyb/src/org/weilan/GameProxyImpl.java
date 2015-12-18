@@ -46,7 +46,6 @@ import com.tencent.msdk.api.TokenRet;
 import com.tencent.msdk.api.WGPlatformObserver;
 import com.tencent.msdk.api.WakeupRet;
 
-import com.tencent.unipay.plugsdk.IUnipayServiceCallBack;
 import com.tencent.unipay.plugsdk.IUnipayServiceCallBackPro;
 import com.tencent.unipay.plugsdk.UnipayPlugAPI;
 import com.tencent.unipay.plugsdk.UnipayPlugTools;
@@ -75,6 +74,12 @@ public class GameProxyImpl extends GameProxy {
     private UnipayPlugAPI unipayAPI = null;
     private String callBackInfo = null;
 
+    /*
+    static {
+        System.loadLibrary("NativeRQD"); // 游戏需要加载此动态库, 数据上报用
+    }
+    */
+
     @Override
     public void onCreate(Activity activity) {
         currentActivity = activity;
@@ -96,12 +101,12 @@ public class GameProxyImpl extends GameProxy {
          ***********************************************************/
         MsdkBaseInfo baseInfo = new MsdkBaseInfo();
 
-        baseInfo.qqAppId = "${QQ_APPID}";
+        baseInfo.qqAppId  = "${QQ_APPID}";
         baseInfo.qqAppKey = "${QQ_APPKEY}";
-        baseInfo.wxAppId = "${WX_APPID}";
-        baseInfo.wxAppKey = "${WX_APPKEY}";
+        baseInfo.wxAppId  = "${WX_APPID}";
+        baseInfo.msdkKey  = "${MSDK_KEY}";
         //订阅型测试用offerId
-        baseInfo.offerId = "${QQ_APPID}";
+        baseInfo.offerId  = "${QQ_APPID}";
 
         // 注意：传入Initialized的activity即this，在游戏运行期间不能被销毁，否则会产生Crash
         WGPlatform.Initialized(activity, baseInfo);
@@ -117,12 +122,12 @@ public class GameProxyImpl extends GameProxy {
         // WGPlatform.handleCallback()。否则会造成微信登录无回调
         if (WGPlatform.wakeUpFromHall(activity.getIntent())) {
             // 拉起平台为大厅
-            Logger.d("LoginPlatform is Hall");
+            Logger.d("cocos ================ LoginPlatform is Hall");
             Logger.d(activity.getIntent());
             //WGPlatform.handleCallback(activity.getIntent());
         } else {
             // 拉起平台不是大厅
-            Logger.d("LoginPlatform is not Hall");
+            Logger.d("cocos ================ LoginPlatform is not Hall");
             Logger.d(activity.getIntent());
             WGPlatform.handleCallback(activity.getIntent());
         }
@@ -179,7 +184,7 @@ public class GameProxyImpl extends GameProxy {
 
         unipayAPI = new UnipayPlugAPI(currentActivity);
     	//unipayAPI.setCallBack(unipayStubCallBack);
-    	unipayAPI.bindUnipayService();
+    	//unipayAPI.bindUnipayService();
         //unipayAPI.setLogEnable(false);
     }
 
@@ -189,7 +194,7 @@ public class GameProxyImpl extends GameProxy {
         super.onStop(activity);
         WGPlatform.onStop();
 
-        unipayAPI.unbindUnipayService();
+        //unipayAPI.unbindUnipayService();
     }
 
     @Override
@@ -344,15 +349,29 @@ public class GameProxyImpl extends GameProxy {
 	}
 
     @Override
-    public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
+    public void pay(Activity activity, String ID, String name, String orderID, final float price, final String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         this.payCallBack = payCallBack;
         this.callBackInfo = callBackInfo + "_" + orderID;
+        this.currentActivity = activity;
+
+        new Thread(new Runnable()
+                {
+                    @Override
+                    public void run( )
+                    {
+                        requestZoneId(callBackInfo, price);
+                    }
+                }).start();
+
+    }
+
+    private void doSdkPay(String zoneId, float price) {
 
         LoginRet ret = new LoginRet();
         WGPlatform.WGGetLoginRecord(ret);
         if(ret.flag == CallbackFlag.eFlag_WX_AccessTokenExpired) {
             Log.v("sdk", "wx login expired, refresh");
-			Toast.makeText(activity, "登录已过期，正在重新登录，请稍候再试。", Toast.LENGTH_SHORT).show();
+			Toast.makeText(currentActivity, "登录已过期，正在重新登录，请稍候再试。", Toast.LENGTH_SHORT).show();
             WGPlatform.WGRefreshWXToken();
             return ;
         }
@@ -369,10 +388,10 @@ public class GameProxyImpl extends GameProxy {
         //充值游戏币接口，充值默认值由支付SDK设置;
         //unipayAPI.setEnv("test");
         //unipayAPI.setLogEnable(true);
-        UnipayPlugTools unipayPlugTools = new UnipayPlugTools(activity.getBaseContext());
+        UnipayPlugTools unipayPlugTools = new UnipayPlugTools(currentActivity.getBaseContext());
         unipayPlugTools.setUrlForTest();
 
-        Bitmap bmp = BitmapFactory.decodeResource(activity.getResources(), R.drawable.sample_yuanbao);
+        Bitmap bmp = BitmapFactory.decodeResource(currentActivity.getResources(), R.drawable.sample_yuanbao);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] appResData = baos.toByteArray();
@@ -392,9 +411,7 @@ public class GameProxyImpl extends GameProxy {
             request.sessionType = "wc_actoken";
         }
 
-        String zoneId = callBackInfo.split("_")[0];
-        request.zoneId = Integer.toString(Integer.parseInt(zoneId) - 299);
-        Log.v("sdk", "zoneId:"+request.zoneId+","+zoneId);
+        request.zoneId = zoneId;
         request.pf = ret.pf;
         request.pfKey = ret.pf_key;
         request.acctType = UnipayPlugAPI.ACCOUNT_TYPE_COMMON;
@@ -403,7 +420,7 @@ public class GameProxyImpl extends GameProxy {
         request.saveValue = Integer.toString((int)(price*10));
         //request.mpInfo.discountType = discounttype;
         //request.mpInfo.discountUrl  = discountUrl;
-        request.extendInfo.unit="元宝";
+        request.extendInfo.unit="钻石";
         //Log.i("TencentPay", "userId, userKey, sessionId, sessionType, zoneId, pf, pfKey, acctType" + "====" + userId + "," + userKey + "," + sessionId + "," + sessionType + "," + zoneId + "," + pf + "," + pfKey + "," + acctType);
         // void com.tencent.unipay.plugsdk.UnipayPlugAPI.SaveGameCoinsWithoutNum(String userId, String userKey, String sessionId, String sessionType, String zoneId, String pf, String pfKey, String acctType, byte[] gameCoinResData, String drmInfo, String discountId) throws RemoteException
         //充值游戏币
@@ -413,7 +430,7 @@ public class GameProxyImpl extends GameProxy {
 
     //回调接口
 	IUnipayServiceCallBackPro.Stub unipayStubCallBackPro = new IUnipayServiceCallBackPro.Stub() {
-		
+
 		@Override
 		public void UnipayNeedLogin() throws RemoteException
 		{
@@ -423,10 +440,10 @@ public class GameProxyImpl extends GameProxy {
 		@Override
 		public void UnipayCallBack(UnipayResponse response) throws RemoteException
 		{
-			Log.i("sdk", "UnipayCallBack \n" + 
-					"\nresultCode = " + response.resultCode + 
-					"\npayChannel = "+ response.payChannel + 
-					"\npayState = "+ response.payState + 
+			Log.i("sdk", "UnipayCallBack \n" +
+					"\nresultCode = " + response.resultCode +
+					"\npayChannel = "+ response.payChannel +
+					"\npayState = "+ response.payState +
 					"\nproviderState = " + response.provideState+
 					"\nsavetype = "+ response.extendInfo);
 
@@ -434,12 +451,12 @@ public class GameProxyImpl extends GameProxy {
                 case UnipayResponse.PAYRESULT_SUCC:
                     new Thread(new Runnable()
                             {
-                                @ Override
-                        public void run( )
-                        {
-                            queryBalance();
-                        }
-                    }).start();
+                                @Override
+                                public void run( )
+                                {
+                                    queryBalance();
+                                }
+                            }).start();
                     break;
                 default:
                     payCallBack.onFail("支付失败");
@@ -459,7 +476,7 @@ public class GameProxyImpl extends GameProxy {
 		public void UnipayNeedLogin() throws RemoteException
 		{
 			Log.i("sdk", "UnipayNeedLogin");
-			
+
 		}
 
 		@Override
@@ -467,30 +484,30 @@ public class GameProxyImpl extends GameProxy {
 				int payState, int providerState, int saveNum, String resultMsg,
 				String extendInfo) throws RemoteException
 		{
-			Log.i("sdk", "UnipayCallBack \n" + 
-					"\nresultCode = " + resultCode + 
-					"\npayChannel = "+ payChannel + 
-					"\npayState = "+ payState + 
+			Log.i("sdk", "UnipayCallBack \n" +
+					"\nresultCode = " + resultCode +
+					"\npayChannel = "+ payChannel +
+					"\npayState = "+ payState +
 					"\nproviderState = " + providerState+
 					"\nsavetype = "+ extendInfo);
-			
+
 			retCode = resultCode;
 			retMessage = resultMsg;
 
 			handler.sendEmptyMessage(0);
-			
+
 		}
 	};
     */
-	
+
     /*
 	Handler handler = new Handler()
 	{
 		public void handleMessage(Message msg)
 		{
 			Toast.makeText(currentActivity, "call back retCode=" + String.valueOf(retCode) + " retMessage=" + retMessage, Toast.LENGTH_SHORT).show();
-		
-			
+
+
 			if(retCode == -2)
 			{//service绑定不成功
 				unipayAPI.bindUnipayService();
@@ -505,6 +522,55 @@ public class GameProxyImpl extends GameProxy {
 
     public boolean supportCommunity() {
         return false;
+    }
+
+    /** 支付前请求区号 */
+    private void requestZoneId(final String callBackInfo, final float price)
+    {
+        LoginRet ret = new LoginRet();
+        WGPlatform.WGGetLoginRecord(ret);
+
+        String sUrl = ((poem)currentActivity).getMetaData("zone_info_url");
+        try
+        {
+            URL url = new URL(sUrl);
+            HttpURLConnection connection = (HttpURLConnection) url
+                .openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-type",
+                    "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);// 是否输入参数
+            StringBuffer params = new StringBuffer();
+            params.append("zoneid=");
+            params.append(enCode(callBackInfo.split("_")[0]));
+            Log.i("sdk", "requestZoneId param : " + params.toString());
+            byte[] bytes = params.toString().getBytes();
+            connection.connect();
+            connection.getOutputStream().write(bytes);
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(connection.getInputStream()));
+            StringBuffer readbuff = new StringBuffer();
+            String lstr = null;
+            while ((lstr = reader.readLine()) != null)
+            {
+                readbuff.append(lstr);
+            }
+            Log.i("sdk", "requestZoneId ret : " + readbuff.toString());
+            connection.disconnect();
+            reader.close();
+            String zoneId = readbuff.toString();
+            if( "0".equals(zoneId) == true ) {
+                Toast.makeText(currentActivity, "本区暂无法完成充值", Toast.LENGTH_SHORT).show();
+            } else {
+                this.doSdkPay(zoneId, price);
+            }
+        } catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /** 支付成功后前去服务端查询余额，并发货 */
@@ -554,6 +620,7 @@ public class GameProxyImpl extends GameProxy {
             params.append("&appmode=1");
             params.append("&callBackInfo=");
             params.append(enCode(callBackInfo));
+            Log.i("sdk", "queryBalance pos param: " + params.toString());
             byte[] bytes = params.toString().getBytes();
             connection.connect();
             connection.getOutputStream().write(bytes);
