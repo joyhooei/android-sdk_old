@@ -61,6 +61,7 @@ public class GameProxyImpl extends GameProxy {
     public Object loginCustomParams;
     public Activity currentActivity;
     private static final int STARY_PAY = 1;
+    private static final int DO_SDK_PAY = 2;
     private JSONObject mOrderInfo;
 
 	//public LocalBroadcastManager lbm;
@@ -73,6 +74,24 @@ public class GameProxyImpl extends GameProxy {
 
     private UnipayPlugAPI unipayAPI = null;
     private String callBackInfo = null;
+    private String mZoneId      = null;
+    private float  mPayPrice    = 0;
+
+
+
+    private Handler payHandler = new Handler()
+    {
+        public void handleMessage( Message msg )
+        {
+            switch( msg.what )
+            {
+                case DO_SDK_PAY:
+                    doSdkPay();
+                    break;
+
+            }
+        };
+    };
 
     /*
     static {
@@ -353,6 +372,7 @@ public class GameProxyImpl extends GameProxy {
         this.payCallBack = payCallBack;
         this.callBackInfo = callBackInfo + "_" + orderID;
         this.currentActivity = activity;
+        this.mPayPrice       = price;
 
         new Thread(new Runnable()
                 {
@@ -365,7 +385,9 @@ public class GameProxyImpl extends GameProxy {
 
     }
 
-    private void doSdkPay(String zoneId, float price) {
+    private void doSdkPay() {
+        String zoneId = mZoneId;
+        float  price  = mPayPrice;
 
         LoginRet ret = new LoginRet();
         WGPlatform.WGGetLoginRecord(ret);
@@ -558,11 +580,11 @@ public class GameProxyImpl extends GameProxy {
             Log.i("sdk", "requestZoneId ret : " + readbuff.toString());
             connection.disconnect();
             reader.close();
-            String zoneId = readbuff.toString();
-            if( "0".equals(zoneId) == true ) {
+            mZoneId = readbuff.toString();
+            if( "0".equals(mZoneId) == true ) {
                 Toast.makeText(currentActivity, "本区暂无法完成充值", Toast.LENGTH_SHORT).show();
             } else {
-                this.doSdkPay(zoneId, price);
+                payHandler.sendEmptyMessage(DO_SDK_PAY);
             }
         } catch (MalformedURLException e)
         {
