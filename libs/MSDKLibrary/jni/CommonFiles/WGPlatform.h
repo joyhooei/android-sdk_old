@@ -116,6 +116,26 @@ public:
 	bool WGLogout();
 
 	/**
+	 * 获取自己的QQ资料
+	 * @return void
+	 *   此接口的调用结果通过OnRelationNotify(RelationRet& relationRet) 回调返回数据给游戏,
+	 *   RelationRet对象的persons属性是一个Vector<PersonInfo>, 取第0个即是用户的个人信息.
+	 *   手Q授权的用户可以获取到的个人信息包含:
+	 *   nickname, openId, gender, pictureSmall, pictureMiddle, pictureLarge, gpsCity, 其他字段为空.
+	 *   其中gpsCity字段为玩家所在城市信息，只有游戏调用过 WGGetNearbyPersonInfo 或者 WGGetLocationInfo
+	 *   接口后，这个字段才有相应信息。
+	 */
+	bool WGQueryQQMyInfo();
+
+	/**
+	 *   回调在OnRelationNotify中,其中RelationRet.persons为一个Vector, Vector的第一项即为自己的资料
+	 *   个人信息包括nickname, openId, gender, pictureSmall, pictureMiddle, pictureLarge, provice, city, gpsCity
+	 *   其中gpsCity字段为玩家所在城市信息，只有游戏调用过 WGGetNearbyPersonInfo 或者 WGGetLocationInfo
+	 *   接口后，这个字段才有相应信息。
+	 */
+	bool WGQueryWXMyInfo();
+
+	/**
 	 * @param permissions ePermission枚举值 或 运算的结果, 表示需要的授权项目
 	 * @return void
 	 */
