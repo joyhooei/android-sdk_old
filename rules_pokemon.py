@@ -770,10 +770,10 @@ class RuleYYB(RuleBase):
 
 
     #CREATE_ORDER_URL  = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/create_order'
-    #ZONE_INFO_URL     = 'http://pokemon.sdkt.dnastdio.com:8888/sdk/android/sdk/yyb/info'
-    #QUERY_BALANCE_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
-    ZONE_INFO_URL     = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/info'
-    QUERY_BALANCE_URL = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
+    ZONE_INFO_URL     = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/info'
+    QUERY_BALANCE_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
+    #ZONE_INFO_URL     = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/info'
+    #QUERY_BALANCE_URL = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
 
     @classmethod
     def rules(cls):
