@@ -75,6 +75,13 @@ class RuleEmpty(RuleBase):
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.winnergame.pokemon.empty'
 
+@register
+class RuleEmptyB(RuleBase):
+    LABEL = 'emptyB'
+    DIRECTORY = 'empty'
+    CH_NAME = '神奇小精灵-商务版'
+    SDKTYPE = '0'
+    PACKAGE_NAME = 'com.winnergame.pokemon.empty'
 
 @register
 class RuleUC(RuleBase):
@@ -537,6 +544,20 @@ class RuleWeilan(RuleBase):
             ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
         ]
 
+#       label           name             project_id
+WL_CHANNELS = [
+    ( 'weilan',         '微蓝',         'P10118A', ),
+    ( 'yiyonghui',      '易用汇',       'P10119A', ),
+    ( 'qianchi',        '千尺游戏',     'P10120A', ),
+    ( 'anfeng',         '安锋',         'P10121A', ),
+]
+for label, name, project_id in WL_CHANNELS:
+    register(type('RuleWeilan%s' % label, (RuleWeilan,), dict(
+        LABEL='weilan_%s' % label,
+        CH_NAME='微蓝-%s(CPS)小包' % name,
+        PROJECT_ID = project_id,
+    )))
+
 @register
 class RuleLenovo(RuleBase):
     LABEL = 'lenovo'
@@ -764,11 +785,40 @@ class RuleCCPlay(RuleBase):
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.ccplay'
     ICON_PATH = '../../../pokemon_icons/android/congcong'
 
-    APP_ID     = '516'
-    APP_KEY    = 'yWpx3hWQHFhSnTCj#516#6KuRKuaAjLJ5sYRy'
+    APP_ID     = '103733'
+    APP_KEY    = '6ca9f06072da43b98f013a7829a15d4d'
 
     @classmethod
     def rules(cls):
         return super(RuleCCPlay, cls).rules() + [
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
+
+@register
+class RuleYYB(RuleBase):
+    LABEL = 'yyb'
+    DIRECTORY = 'yyb'
+    CH_NAME = '应用宝小包'
+    SDKTYPE = '24'
+    PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.yyb'
+    ICON_PATH = '../../../pokemon_icons/android/yunliang'
+
+    QQ_APPID = '1104928607'
+    #QQ_APPKEY = 'moGFruUJK4I6Re5C'
+    QQ_APPKEY = 'ihNyP0xCjLGuLx0kog3SnU72H4Ccjtx1'
+    WX_APPID = 'wx84325ed5efe57c0d'
+    MSDK_KEY = '73d3493fa8ffea3701e47e6c9657549c'
+
+
+    #CREATE_ORDER_URL  = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/create_order'
+    ZONE_INFO_URL     = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/info'
+    QUERY_BALANCE_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
+    #ZONE_INFO_URL     = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/info'
+    #QUERY_BALANCE_URL = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleYYB, cls).rules() + [
+            ('src/com/tencent/tmgp/com/winnergame/pokemon/weilan/wxapi/WXEntryActivity.java', 'replace', cls.common_replaces()),
         ]

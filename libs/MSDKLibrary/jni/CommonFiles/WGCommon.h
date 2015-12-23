@@ -101,4 +101,27 @@ typedef struct
     std::vector<KVPair> extInfo;  //游戏－平台携带的自定义参数手Q专用
 }WakeupRet;
 
+typedef struct {
+    std::string nickName;         //昵称
+    std::string openId;           //帐号唯一标示
+    std::string gender;           //性别
+    std::string pictureSmall;     //小头像
+    std::string pictureMiddle;    //中头像
+    std::string pictureLarge;     //datouxiang
+    std::string provice;          //省份(老版本属性，为了不让外部app改代码，没有放在AddressInfo)
+    std::string city;             //城市(老版本属性，为了不让外部app改代码，没有放在AddressInfo)
+    bool        isFriend;         //是否好友
+    int         distance;         //离此次定位地点的距离
+    std::string lang;             //语言
+    std::string country;          //国家
+    std::string gpsCity;          //根据GPS信息获取到的城市
+}PersonInfo;
+
+typedef struct {
+    int flag;     //查询结果flag，0为成功
+    std::string desc;    // 描述
+    std::vector<PersonInfo> persons;//保存好友或个人信息
+    std::string extInfo; //游戏查询是传入的自定义字段，用来标示一次查询
+}RelationRet;
+
 #endif

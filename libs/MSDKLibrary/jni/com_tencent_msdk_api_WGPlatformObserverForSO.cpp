@@ -118,5 +118,58 @@ JNIEXPORT void JNICALL Java_com_tencent_msdk_api_WGPlatformObserverForSO_OnWakeu
     LOGD("OnWakeupNotify end%s", "");
 }
 
+/*
+ * Class:     com_tencent_msdk_api_WGPlatformObserverForSO
+ * Method:    OnRelationCallBack
+ * Signature: (Lcom/tencent/msdk/remote/api/RelationRet;)V
+ */JNIEXPORT void JNICALL Java_com_tencent_msdk_api_WGPlatformObserverForSO_OnRelationNotify(JNIEnv * env, jclass,
+		jobject jRelationRet) {
+	jclass jRelationRetClz = env->GetObjectClass(jRelationRet);
+	RelationRet cRelactionRet;
+	jboolean iscopy;
+
+	JniGetAndSetIntField(flag,"flag", jRelationRetClz, jRelationRet, cRelactionRet);
+	JniGetAndSetStringField(desc, "desc", jRelationRetClz, jRelationRet, cRelactionRet);
+	//
+	jfieldID jPersonsField = env->GetFieldID(jRelationRetClz, "persons", "Ljava/util/Vector;");
+	jobject jPersonList = env->GetObjectField(jRelationRet, jPersonsField);
+	jclass jArrayListClz = env->GetObjectClass(jPersonList);
+
+	jmethodID jArrayListSizeMethod = env->GetMethodID(jArrayListClz, "size", "()I");
+	jmethodID jArrayListGetMethod = env->GetMethodID(jArrayListClz, "get", "(I)Ljava/lang/Object;");
+	jint jLength = env->CallIntMethod(jPersonList, jArrayListSizeMethod);
+
+	LOGD("Java_com_tencent_msdk_api_WGPlatformObserverForSO_OnRelationCallBack: tokenListSize: %d", jLength);
+	for (int i = 0; i < (int) jLength; i++) {
+		PersonInfo person;
+		jobject jPerson = env->CallObjectMethod(jPersonList, jArrayListGetMethod, i);
+		jclass jPersonInfoClass = env->GetObjectClass(jPerson);
+		LOGD("push_back: tokenListSize: %d", jLength);
+		JniGetAndSetStringField(nickName, "nickName", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(openId, "openId", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(gender, "gender", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(pictureSmall, "pictureSmall", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(pictureMiddle, "pictureMiddle", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(pictureLarge, "pictureLarge", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(provice, "province", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(city, "city", jPersonInfoClass, jPerson, person);
+		JniGetAndSetBooleanField(isFriend, "isFriend", jPersonInfoClass, jPerson, person);
+		JniGetAndSetFloatField(distance, "distance", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(lang, "lang", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(country, "country", jPersonInfoClass, jPerson, person);
+		JniGetAndSetStringField(gpsCity, "gpsCity", jPersonInfoClass, jPerson, person);
+		cRelactionRet.persons.push_back(person);
+		env->DeleteLocalRef(jPerson);
+		env->DeleteLocalRef(jPersonInfoClass);
+	}
+
+    if (WGPlatform::GetInstance()->GetObserver() != NULL) {
+        WGPlatform::GetInstance()->GetObserver()->OnRelationNotify(cRelactionRet);
+    }
+
+    env->DeleteLocalRef(jRelationRetClz);
+    env->DeleteLocalRef(jPersonList);
+    env->DeleteLocalRef(jArrayListClz);
+}
 
 

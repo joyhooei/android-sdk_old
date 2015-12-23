@@ -24,7 +24,7 @@ public class GameProxyImpl extends GameProxy{
     private Object loginCustomParams;
 
     public boolean supportLogin() {
-        return false;
+        return true;
     }
 
     public boolean supportCommunity() {
@@ -32,7 +32,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public boolean supportPay() {
-        return false;
+        return true;
     }
 
     public void onCreate(Activity activity) {
@@ -73,7 +73,8 @@ public class GameProxyImpl extends GameProxy{
          *  raw_username = g_sdk_username,
          *}
          */
-        CCPaySdk.getInstance().pay(activity, "100045", "123456789", new PayListener() {
+        // Log.i("colin:", "ID:" + ID + ", orderID:" + callBackInfo + "_" + orderID);
+        CCPaySdk.getInstance().pay(activity, ID, callBackInfo + "_" + orderID, new PayListener() {
             public void onComplete(PayResult result) {
                 // 0000    支付成功
                 // 0001    支付正在处理中
@@ -82,17 +83,17 @@ public class GameProxyImpl extends GameProxy{
 
                 if( result.statusCode.equals("0000")==true ) {
                     // 如果成功，接下去需要到自己的服务器查询订单结果
-                    Toast.makeText(activity, result.statusCode + "-------" + result.trade_no + "-------" + result.msg, Toast.LENGTH_LONG).show();
+                    // Toast.makeText(activity, result.statusCode + "-------" + result.trade_no + "-------" + result.msg, Toast.LENGTH_LONG).show();
                 } else if ( result.statusCode.equals("0001")==true ) {
                     // 正在处理中
-                    Toast.makeText(activity, result.statusCode + "-------" + result.trade_no + "-------" + result.msg, Toast.LENGTH_LONG).show();
+                    // Toast.makeText(activity, result.statusCode + "-------" + result.trade_no + "-------" + result.msg, Toast.LENGTH_LONG).show();
                 } else if ( result.statusCode.equals("0002")==true ) {
                     // 支付失败
                     // 注意，错误消息需要由游戏展示给用户，错误码可以打印，供调试使用
-                    Toast.makeText(activity, result.statusCode + "-------" + result.trade_no + "-------" + result.msg, Toast.LENGTH_LONG).show();
+                    // Toast.makeText(activity, result.statusCode + "-------" + result.trade_no + "-------" + result.msg, Toast.LENGTH_LONG).show();
                 } else if ( result.statusCode.equals("0003")==true ) {
                     // 用户取消支付操作
-                    Toast.makeText(activity, result.statusCode + "-------" + result.trade_no + "-------" + result.msg, Toast.LENGTH_LONG).show();
+                    // Toast.makeText(activity, result.statusCode + "-------" + result.trade_no + "-------" + result.msg, Toast.LENGTH_LONG).show();
                 }
             }
         });
