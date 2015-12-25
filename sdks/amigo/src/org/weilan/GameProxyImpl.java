@@ -138,11 +138,11 @@ public class GameProxyImpl extends GameProxy{
         onSdkLogin(activity, true);
     }
 
-    public void logout(Activity activity,Object customParams) {
-        // 登出，customParams透传给回调
-        mCustomParams = customParams;
-        onSdkLogin(activity, false);
-    }
+    //public void logout(Activity activity,Object customParams) {
+    //    // 登出，customParams透传给回调
+    //    mCustomParams = customParams;
+    //    onSdkLogin(activity, false);
+    //}
 
     public void pay(Activity activity, String ID, String name, String orderID, float price, String callBackInfo, JSONObject roleInfo, PayCallBack payCallBack) {
         // 支付 ID：商品ID，name：商品名，orderID：CP订单号，price：金额（单位元），callBackInfo：需要透传给服务器回调，roleInfo：角色信息json，payCallBack：支付回调
