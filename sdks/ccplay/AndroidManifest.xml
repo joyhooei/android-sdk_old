@@ -35,7 +35,7 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:scheme="qqPay102067" />
+                <data android:scheme="qqPay${APP_ID}" />
             </intent-filter>
         </activity>
 
