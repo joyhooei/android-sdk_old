@@ -96,10 +96,10 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
 
-        <receiver android:name="org.weilan.LoginOutBroadcastReceiver" >
+        <receiver android:name="com.winnergame.pokemon.ccplay.LoginOutBroadcastReceiver" >
             <intent-filter>
                 <action android:name="CCPAY_LOGINOUT_ACTION" />
-                <data android:scheme="102067" />
+                <data android:scheme="${APP_ID}" />
             </intent-filter>
         </receiver>
 

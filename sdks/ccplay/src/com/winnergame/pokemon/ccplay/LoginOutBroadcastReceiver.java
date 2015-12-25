@@ -1,9 +1,12 @@
-package org.weilan;
+package com.winnergame.pokemon.ccplay;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
+import android.util.Log;
+
+import org.weilan.sdk;
 
 /**
  * 登出广播
