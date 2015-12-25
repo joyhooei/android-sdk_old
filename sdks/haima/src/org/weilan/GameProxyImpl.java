@@ -83,7 +83,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     public void logout(Activity activity,Object customParams) {
         // 登出，customParams透传给回调
         if(HMPay.isLogined() && HMPay.logOut()){
-            userListerner.onLogout(customParams);
+            //userListerner.onLogout(customParams);
         }
     }
 
