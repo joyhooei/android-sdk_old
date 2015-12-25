@@ -136,6 +136,7 @@ public class GameProxyImpl extends GameProxy {
         Log.v("sdk", "logout");
         BDGameSDK.closeFloatView(currentActivity);
         BDGameSDK.logout();
+        userListerner.onLogout(null);
     }
 
     @Override
