@@ -285,11 +285,11 @@ public class GameProxyImpl extends GameProxy {
         }
     }
 
-    public void logout(Activity activity,Object customParams) {
-        String KEY_SWITCH_ACCOUNT = "switchAccount";
-        Intent swithIntent = new Intent(activity, LoginActivity.class);
-        swithIntent.putExtra(KEY_SWITCH_ACCOUNT, true);
-        activity.startActivityForResult(swithIntent, REQUEST_CODE_LOGIN);
-        userListerner.onLogout(customParams);
-    }
+    //public void logout(Activity activity,Object customParams) {
+    //    String KEY_SWITCH_ACCOUNT = "switchAccount";
+    //    Intent swithIntent = new Intent(activity, LoginActivity.class);
+    //    swithIntent.putExtra(KEY_SWITCH_ACCOUNT, true);
+    //    activity.startActivityForResult(swithIntent, REQUEST_CODE_LOGIN);
+    //    userListerner.onLogout(customParams);
+    //}
 }
