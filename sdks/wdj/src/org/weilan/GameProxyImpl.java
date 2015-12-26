@@ -36,6 +36,7 @@ import com.wandoujia.mariosdk.plugin.api.model.callback.WandouAccountListener;
 public class GameProxyImpl extends GameProxy {
     private WandouGamesApi wandouGamesApi;
     private Object mCustomParams = null;
+    private boolean bLogoutFlag = false;
 
     @Override
     public void applicationInit(Activity activity) {
@@ -56,7 +57,6 @@ public class GameProxyImpl extends GameProxy {
         });
 
         wandouGamesApi.addWandouAccountListener( new WandouAccountListener() {
-
             @Override
             public void onLoginFailed(int arg0, String arg1) {
                 userListerner.onLoginFailed("用户失败", mCustomParams);
@@ -64,23 +64,15 @@ public class GameProxyImpl extends GameProxy {
 
             @Override
             public void onLoginSuccess() {
-                /*
-                if ( mCustomParams == null )
-                    return;
-
-                WandouPlayer info = wandouGamesApi.getCurrentPlayerInfo();
-                long duration = System.currentTimeMillis();
-
-                User u = new User();
-                u.userID = info.getId();
-                u.token = wandouGamesApi.getToken(duration);
-                userListerner.onLoginSuccess(u, mCustomParams);
-                */
             }
 
             @Override
             public void onLogoutSuccess() {
-                userListerner.onLogout(null);
+                if( bLogoutFlag ) {
+                    bLogoutFlag = false;
+                } else {
+                    userListerner.onLogout(null);
+                }
             }
 
         });
@@ -110,7 +102,8 @@ public class GameProxyImpl extends GameProxy {
     @Override
     public void logout(Activity activity, final Object customParams) {
         Log.v("sdk", "logout");
-        //mCustomParams = customParams;
+        mCustomParams = customParams;
+        bLogoutFlag = true;
         wandouGamesApi.logout(new OnLogoutFinishedListener() {
             @Override
             public void onLoginFinished(LogoutFinishType logoutFinishType) {
