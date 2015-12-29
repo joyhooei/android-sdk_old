@@ -9,6 +9,8 @@ class RuleBase(Rule):
     APPNAME = '神奇小精灵'
     APPLABEL = 'pokemon'
     ICON_PATH = '../../../pokemon_icons/android'
+    UMENG_APPKEY = '5682058be0f55a0ec8003010'
+    CHANNEL_ID = 'empty'
 
     BASE_SDK_VERSION = """
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="18"/>
@@ -74,6 +76,8 @@ class RuleEmpty(RuleBase):
     CH_NAME = '神奇小精灵'
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.winnergame.pokemon.empty'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.empty'
+    CHANNEL_ID = 'empty'
 
 @register
 class RuleEmptyB(RuleBase):
@@ -82,6 +86,8 @@ class RuleEmptyB(RuleBase):
     CH_NAME = '神奇小精灵-商务版'
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.winnergame.pokemon.empty'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.empty'
+    CHANNEL_ID = 'emptyB'
 
 @register
 class RuleUC(RuleBase):
@@ -90,6 +96,8 @@ class RuleUC(RuleBase):
     CH_NAME = 'UC小包'
     SDKTYPE = '7'
     PACKAGE_NAME = 'com.winnergame.pokemon.uc'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.uc'
+    CHANNEL_ID = 'uc'
 
     ICON_PATH = '../../../pokemon_icons/uc'
 
@@ -109,6 +117,8 @@ class RuleC360(RuleBase):
     CH_NAME = '360小包'
     SDKTYPE = '19'
     PACKAGE_NAME = 'com.winnergame.pokemon.qh360'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.qh360'
+    CHANNEL_ID = 'qh360'
 
     QHOPENSDK_APPKEY = '7861bd2c6c6af2840cc201d24f277b4c'
     QHOPENSDK_PRIVATEKEY = 'b9ce75b9c21477feb06ff8e61e581905'
@@ -124,6 +134,8 @@ class RuleBaidu(RuleBase):
     CH_NAME = '百度小包'
     SDKTYPE = '17'
     PACKAGE_NAME = 'com.winnergame.pokemon.baidu'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.baidu'
+    CHANNEL_ID = 'baidu'
 
     ICON_PATH = '../../../pokemon_icons/baidu'
 
@@ -139,6 +151,7 @@ class RuleXiaomi(RuleBase):
     SDKTYPE = '18'
     PACKAGE_NAME = 'com.winnergame.pokemon.mi'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.mi'
+    CHANNEL_ID = 'xiaomi'
 
     APPID = '2882303761517409326'
     APPKEY = '5391740911326'
@@ -157,6 +170,8 @@ class RuleWDJ(RuleBase):
     CH_NAME = '豌豆荚小包'
     SDKTYPE = '22'
     PACKAGE_NAME = 'com.winnergame.pokemon.wdj'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.wdj'
+    CHANNEL_ID = 'wdj'
 
     APPKEY = '100034487'
     SECURITY_KEY = 'e41c62ee82d9777bff71cabe0b1eb7a7'
@@ -175,6 +190,8 @@ class RuleAnzhi(RuleBase):
     CH_NAME = '安智小包'
     SDKTYPE = '21'
     PACKAGE_NAME = 'com.winnergame.pokemon.anzhi'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.anzhi'
+    CHANNEL_ID = 'anzhi'
 
     ICON_PATH = '../../../pokemon_icons/anzhi'
 
@@ -196,6 +213,7 @@ class RuleOppo(RuleBase):
     SDKTYPE = '20'
     PACKAGE_NAME = 'com.winnergame.pokemon.nearme.gamecenter'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.oppo'
+    CHANNEL_ID = 'oppo'
 
     APPID = '4671'
     APPKEY = 'bjiQLpsqyu8Gg4kgK8goCKko4'
@@ -211,6 +229,8 @@ class RuleYYH(RuleBase):
     CH_NAME = '应用汇小包'
     SDKTYPE = '34'
     PACKAGE_NAME = 'com.winnergame.pokemon.yyh'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.yyh'
+    CHANNEL_ID = 'yyh'
 
     APPID = '10932'
     APPKEY = 'xBtsAo9c4F1CNnW0'
@@ -225,6 +245,8 @@ class RuleGfan(RuleBase):
     CH_NAME = '机锋小包'
     SDKTYPE = '28'
     PACKAGE_NAME = 'com.winnergame.pokemon.gfan'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.gfan'
+    CHANNEL_ID = 'gfan'
 
     ICON_PATH = '../../../pokemon_icons/android/gfan'
 
@@ -245,6 +267,7 @@ class RuleWanka(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.wanka'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.wanka'
     CREATE_ORDER_URL = 'http://sdk.fengshen.winnergame.com/sdk/android/sdk/wanka/create_order'
+    CHANNEL_ID = 'wanka'
 
 
 @register
@@ -254,6 +277,8 @@ class RuleDownjoy(RuleBase):
     CH_NAME = '当乐小包'
     SDKTYPE = '38'
     PACKAGE_NAME = 'com.winnergame.pokemon.downjoy'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.downjoy'
+    CHANNEL_ID = 'downjoy'
 
     MERCHANT_ID = '1368'
     APPID = '3749'
@@ -273,6 +298,8 @@ class RuleMZW(RuleBase):
     CH_NAME = '拇指玩小包'
     SDKTYPE = '41'
     PACKAGE_NAME = 'com.winnergame.pokemon.mzw'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.mzw'
+    CHANNEL_ID = 'muzhiwan'
 
     APPKEY = 'f3244edd2c89a457b9708eb4e503b37d'
 
@@ -290,6 +317,8 @@ class RulePPS(RuleBase):
     CH_NAME = 'PPS小包'
     SDKTYPE = '39'
     PACKAGE_NAME = 'com.winnergame.pokemon.pps'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.pps'
+    CHANNEL_ID = 'pps'
 
     GAMEID = '3639'
 
@@ -303,11 +332,11 @@ class RulePPTV(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.pptv'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.pptv'
     ICON_PATH = '../../../pokemon_icons/android/pptv'
+    CHANNEL_ID = 'pptv'
 
     APPID = 'sqxjl_m'
     PPTV_CID = '269'
     PPTV_CCID = ''
-    UMENG_APPKEY = '73d3493fa8ffea3701e47e6c9657549c'
     UMENG_CHANNEL = '269'
 
 
@@ -319,6 +348,7 @@ class RulePipaw(RuleBase):
     SDKTYPE = '32'
     PACKAGE_NAME = 'com.winnergame.pokemon.ppw'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.pipaw'
+    CHANNEL_ID = 'pipawang'
 
     APPID = '12381435890541'
     MERCHANT_ID = "1238"
@@ -339,6 +369,8 @@ class RuleEGame(RuleBase):
     CH_NAME = '电信爱游戏小包'
     SDKTYPE = '37'
     PACKAGE_NAME = 'com.winnergame.pokemon.egame'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.egame'
+    CHANNEL_ID = 'egame'
 
     APPID = '5053651'
     APPKEY = 'ac1dd0b898e076b2ed49624c16253924'
@@ -361,6 +393,8 @@ class RuleVivo(RuleBase):
     CH_NAME = 'VIVO小包'
     SDKTYPE = '42'
     PACKAGE_NAME = 'com.winnergame.pokemon.vivo'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.vivo'
+    CHANNEL_ID = 'vivo'
 
     APPID = "829b98597d987dd831b7f36d92d8fd04"
     CREATE_ORDER_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/vivo/create_order'
@@ -380,6 +414,8 @@ class RulePaojiao(RuleBase):
     CH_NAME = '泡椒小包'
     SDKTYPE = '31'
     PACKAGE_NAME = 'com.winnergame.pokemon.paojiao'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.paojiao'
+    CHANNEL_ID = 'paojiao'
 
     APPID = '1274'
     APPKEY = 'LJICymT8uw5gvZBOTw2IPN6V4Ii8QXUe'
@@ -393,7 +429,9 @@ class RuleZC(RuleBase):
     CH_NAME = '筑巢小包'
     SDKTYPE = '9'
     PACKAGE_NAME = 'com.winnergame.pokemon.zc'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.zc'
     CHANNEL = ''
+    CHANNEL_ID = 'zc'
 
     TD_APPID = '33e15d27544f42d9b5f4f953a44e92e2'
     TD_CHANNEL = ''
@@ -443,6 +481,7 @@ for label, name in ZC_CHANNELS:
         LABEL='zc_%s' % label,
         CH_NAME='筑巢%s小包' % name,
         CHANNEL=label,
+        CHANNEL_ID = label,
     )))
 
 
@@ -453,6 +492,8 @@ class RuleHaima(RuleBase):
     CH_NAME = '海马小包'
     SDKTYPE = '44'
     PACKAGE_NAME = 'com.winnergame.pokemon.ad.hm'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.hm'
+    CHANNEL_ID = 'hm'
 
     ICON_PATH = '../../../pokemon_icons/android/haima'
 
@@ -474,6 +515,8 @@ class RuleXY(RuleBase):
     CH_NAME = 'XY小包'
     SDKTYPE = '45'
     PACKAGE_NAME = 'com.winnergame.pokemon.xyandroid'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.xyandroid'
+    CHANNEL_ID = 'xy'
 
     APPID = '10000304'
     APPKEY = 'OJjkDM9ZAjYNDzdDgQCKaXDWilt0nJnM'
@@ -486,6 +529,8 @@ class RuleWO17(RuleBase):
     CH_NAME = '17WO小包'
     SDKTYPE = '46'
     PACKAGE_NAME = 'com.winnergame.pokemon.wo17'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.wo17'
+    CHANNEL_ID = 'wo17'
 
     APPID = '400556'
     APPKEY = '88cf91a1aef212f3c2cd12406983427d'
@@ -498,6 +543,8 @@ class RuleMoLi(RuleBase):
     CH_NAME = '墨狸小包'
     SDKTYPE = '47'
     PACKAGE_NAME = 'com.winnergame.pokemon.moli'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.moli'
+    CHANNEL_ID = 'moli'
 
     APPID = '3002650777'
     CPPKEY = 'MIICXgIBAAKBgQDSQEvPkbjVJ5JPpcY6DJrq2A07QdFkXnkjBXEzgmO669uGRwNkK8XUqFfzpwn49V0gEUINbmiWjyECBoK9zg0dVm6OUyNCIE5MtGx7V9cEpTsFMoPidIn/4sbsQqv/Eef9lGCSToxIlbpQNO0xpm8eBCz+6ZyQIuLgsRNeLhN5EwIDAQABAoGBALdpdXjuw1HXQnCOyd0L7/zcWraN1S98pqohbj4kCgIfDJMX0eKJuPupm4gm+LEgwotd4sQ6w6xL0dyld1pCrPaLM3gjA04qxGKgMpsGPtMfCuwu0lb/x3JVIljqigBXFtRIppN+s0mJFPYv4TCOqpebFo92f5KLs/OCL0xIfathAkEA/1giJxfN6oIuDy10AEIo938N2fEmCXll1Czo7e5h/k3dccXj7+HL9/yoG3ekNmVkosVYikeHwI0OwK1cDdO6kQJBANLKhJd/FCk/gr51qm20+cdrLmkbes335//ZRUWDFt9HPEM1KhXl9tqVOJAR3s8MEuJTBvVJ8zPykZ1r29Loo2MCQQC4mer3AEqqQ7sw1deLaEldxMkqyyCIsO9hWaZ8fV7zDzANVNfZURC5FDwkv3ZErUD4PFwqfFQ0bMZBnhNzG6NBAkA/oSBrNtIYLXLDGXPL0BCCMQl+cuwcFpRyt9xgQlT6K1+2jerZV2Sv0NGVM7/FUki1BwkXrC385WEtWuytesovAkEA6QxUmkrLpItVHNrdg9FPBbydUlXsYO5AN0XdF6vzo4Y6Mz5+lTRO64M40gn6OpNodmI+4fU3M3G/ju0lgIWJtw=='
@@ -511,6 +558,7 @@ class RuleHuawei(RuleBase):
     SDKTYPE = '48'
     PACKAGE_NAME = 'com.winnergame.pokemon.huawei'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.huawei'
+    CHANNEL_ID = 'huawei'
 
     APPID = '10383675'
     PAYID = '900086000022190346'
@@ -531,6 +579,8 @@ class RuleWeilan(RuleBase):
     CH_NAME = '微蓝小包'
     SDKTYPE = '49'
     PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
+    CHANNEL_ID = 'weilan'
 
     APP_KEY    = '5i29qfd23a4bghaswx9w'
     APP_SECRET = 'psyvmyra6f7of4sacvpu'
@@ -556,6 +606,7 @@ for label, name, project_id in WL_CHANNELS:
         LABEL='weilan_%s' % label,
         CH_NAME='微蓝-%s(CPS)小包' % name,
         PROJECT_ID = project_id,
+        CHANNEL_ID = label,
     )))
 
 @register
@@ -565,6 +616,8 @@ class RuleLenovo(RuleBase):
     CH_NAME = '联想小包'
     SDKTYPE = '50'
     PACKAGE_NAME = 'com.winnergame.pokemon.lenovo'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.lenovo'
+    CHANNEL_ID = 'lenovo'
 
     ICON_PATH = '../../../pokemon_icons/lianxiang'
 
@@ -620,6 +673,8 @@ class RuleAmigo(RuleBase):
     CH_NAME = '金立小包'
     SDKTYPE = '51'
     PACKAGE_NAME = 'com.winnergame.pokemon.am'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.am'
+    CHANNEL_ID = 'amigo'
 
     ICON_PATH = '../../../pokemon_icons/jinli'
 
@@ -639,6 +694,8 @@ class RuleYouku(RuleBase):
     CH_NAME = '优酷小包'
     SDKTYPE = '33'
     PACKAGE_NAME = 'com.winnergame.pokemon.youku'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.youku'
+    CHANNEL_ID = 'youku'
 
     APPID      = '2285'
     APPKEY     = '7f293b5b56e3f737'
@@ -663,6 +720,8 @@ class RuleGuopan(RuleBase):
     CH_NAME = 'XX果盘小包'
     SDKTYPE = '55'
     PACKAGE_NAME = 'com.winnergame.pokemon.ad.guopan'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.guopan'
+    CHANNEL_ID = 'guopan'
 
     APPID      = '102121'
     APPKEY     = 'CJOVUCOA7728E002'
@@ -674,7 +733,9 @@ class RuleM4399(RuleBase):
     CH_NAME = 'm4399小包'
     SDKTYPE = '30'
     PACKAGE_NAME = 'com.winnergame.pokemon.m4399'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.m4399'
     ICON_PATH = '../../../pokemon_icons/android/4399'
+    CHANNEL_ID = 'm4399'
 
     APPKEY     = '109598'
 
@@ -685,6 +746,8 @@ class RuleMz(RuleBase):
     CH_NAME = '魅族小包'
     SDKTYPE = '57'
     PACKAGE_NAME = 'com.winnergame.pokemon.mz'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.mz'
+    CHANNEL_ID = 'meizu'
 
     APPID     = '2820741'
     APPKEY    = 'e158c5bd9d2c49a29c890e5a588d9952'
@@ -697,6 +760,8 @@ class RuleKaopu(RuleBase):
     CH_NAME = '靠谱小包'
     SDKTYPE = '56'
     PACKAGE_NAME = 'com.winnergame.pokemon.kaopu'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.kaopu'
+    CHANNEL_ID = 'kaopu'
 
     APPID      = '10216001'
     APPKEY     = '10216'
@@ -715,6 +780,8 @@ class RuleCpad(RuleBase):
     CH_NAME = '酷派小包'
     SDKTYPE = '52'
     PACKAGE_NAME = 'com.winnergame.pokemon.cpad'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.cpad'
+    CHANNEL_ID = 'cpad'
 
     APPID      = '5000002454'
     APPKEY     = '4bcd7fccf85b4adeb438a3e9f97e9f82'
@@ -730,6 +797,8 @@ class RuleBaidu2(RuleBase):
     CH_NAME = '萌宠百度小包'
     SDKTYPE = '58'
     PACKAGE_NAME = 'com.winnergame.sprite.baidu'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.baidu'
+    CHANNEL_ID = 'baidu'
 
     ICON_PATH = '../../../pokemon_icons/baidu/baidu2'
 
@@ -744,6 +813,8 @@ class RuleWeilan2(RuleBase):
     CH_NAME = '萌宠微蓝小包'
     SDKTYPE = '59'
     PACKAGE_NAME = 'com.winnergame.sprite.weilan'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
+    CHANNEL_ID = 'weilan'
 
     APP_KEY    = 'attgos3er5dk2ekrifa7'
     APP_SECRET = 'rv29y983xdmkzywi3op8'
@@ -765,6 +836,7 @@ class RuleHaoMeng(RuleBase):
     SDKTYPE = '60'
     PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.haomeng'
+    CHANNEL_ID = 'haomeng'
 
     APP_ID     = '516'
     APP_KEY    = 'yWpx3hWQHFhSnTCj#516#6KuRKuaAjLJ5sYRy'
@@ -784,6 +856,7 @@ class RuleCCPlay(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.ccplay'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.ccplay'
     ICON_PATH = '../../../pokemon_icons/android/congcong'
+    CHANNEL_ID = 'ccplay'
 
     APP_ID     = '103733'
     APP_KEY    = '6ca9f06072da43b98f013a7829a15d4d'
@@ -803,6 +876,7 @@ class RuleYYB(RuleBase):
     PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.yyb'
     ICON_PATH = '../../../pokemon_icons/android/yunliang'
+    CHANNEL_ID = 'yyb'
 
     QQ_APPID = '1104928607'
     #QQ_APPKEY = 'moGFruUJK4I6Re5C'

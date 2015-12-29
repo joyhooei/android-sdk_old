@@ -45,6 +45,13 @@
         </activity>
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+        <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
+        <meta-data android:name="UMENG_APPKEY" android:value="${UMENG_APPKEY}" />
+        <meta-data android:name="UMENG_CHANNEL" android:value="${CHANNEL_ID}"/>
+
+        <meta-data android:name="zone_info_url" android:value="${ZONE_INFO_URL}"/>
+        <meta-data android:name="query_balance_url" android:value="${QUERY_BALANCE_URL}"/>
+
         <activity
             android:name="com.yyh.sdk.ConnectionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

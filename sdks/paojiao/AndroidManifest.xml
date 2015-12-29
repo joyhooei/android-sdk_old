@@ -54,6 +54,9 @@
         </activity>
 
         <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+        <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
+        <meta-data android:name="UMENG_APPKEY" android:value="${UMENG_APPKEY}" />
+        <meta-data android:name="UMENG_CHANNEL" android:value="${CHANNEL_ID}"/>
 
         <!-- Required：推送相关的内容 start：注意，在对接过程中，务必将com.paojiao.sdk.demo替换成实际的包名！！！ -->
         <!--  SDK核心功能 必须 -->
