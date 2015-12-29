@@ -86,7 +86,11 @@ public class GameProxyImpl extends GameProxy {
             switch( msg.what )
             {
                 case DO_SDK_PAY:
-                    doSdkPay();
+                    if( "0".equals(mZoneId) == true ) {
+                        Toast.makeText(currentActivity, "本区暂无法完成充值", Toast.LENGTH_SHORT).show();
+                    } else {
+                        doSdkPay();
+                    }
                     break;
 
             }
@@ -581,11 +585,7 @@ public class GameProxyImpl extends GameProxy {
             connection.disconnect();
             reader.close();
             mZoneId = readbuff.toString();
-            if( "0".equals(mZoneId) == true ) {
-                Toast.makeText(currentActivity, "本区暂无法完成充值", Toast.LENGTH_SHORT).show();
-            } else {
-                payHandler.sendEmptyMessage(DO_SDK_PAY);
-            }
+            payHandler.sendEmptyMessage(DO_SDK_PAY);
         } catch (MalformedURLException e)
         {
             e.printStackTrace();
