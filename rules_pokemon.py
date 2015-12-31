@@ -581,6 +581,7 @@ class RuleWeilan(RuleBase):
     PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
     CHANNEL_ID = 'weilan'
+    CHANNEL = ''
 
     APP_KEY    = '5i29qfd23a4bghaswx9w'
     APP_SECRET = 'psyvmyra6f7of4sacvpu'
@@ -607,6 +608,7 @@ for label, name, project_id in WL_CHANNELS:
         CH_NAME='微蓝-%s(CPS)小包' % name,
         PROJECT_ID = project_id,
         CHANNEL_ID = label,
+        CHANNEL = label,
     )))
 
 @register
