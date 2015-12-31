@@ -685,21 +685,21 @@ public class GameProxyImpl extends GameProxy {
     }
 
     public void setExtData(Context context, String ext) {
-        Log.v("sdk", "set ext:" + ext);
-        try {
-            JSONObject src = new JSONObject(ext);
-            callBackInfo = src.getString("serverID") + "_" + src.getString("id") + "_";
-        } catch (JSONException e) {
-            Log.v("sdk", "invalid json");
-            return;
-        }
-        new Thread(new Runnable()
-                {
-                    @ Override
-            public void run( )
-        {
-            queryBalance();
-        }
-        }).start();
+        //Log.v("sdk", "set ext:" + ext);
+        //try {
+        //    JSONObject src = new JSONObject(ext);
+        //    callBackInfo = src.getString("serverID") + "_" + src.getString("id") + "_";
+        //} catch (JSONException e) {
+        //    Log.v("sdk", "invalid json");
+        //    return;
+        //}
+        //new Thread(new Runnable()
+        //        {
+        //            @ Override
+        //    public void run( )
+        //{
+        //    queryBalance();
+        //}
+        //}).start();
     }
 }
