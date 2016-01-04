@@ -68,9 +68,7 @@ public class GameProxyImpl extends GameProxy {
 
             @Override
             public void onLogoutSuccess() {
-                if( bLogoutFlag ) {
-                    bLogoutFlag = false;
-                } else {
+                if( !bLogoutFlag ) {
                     userListerner.onLogout(null);
                 }
             }
@@ -107,7 +105,8 @@ public class GameProxyImpl extends GameProxy {
         wandouGamesApi.logout(new OnLogoutFinishedListener() {
             @Override
             public void onLoginFinished(LogoutFinishType logoutFinishType) {
-                //userListerner.onLogout(customParams);
+                userListerner.onLogout(customParams);
+                bLogoutFlag = false;
             }
         });
     }
