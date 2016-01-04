@@ -578,7 +578,7 @@ class RuleWeilan(RuleBase):
     DIRECTORY = 'weilan'
     CH_NAME = '微蓝小包'
     SDKTYPE = '49'
-    PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
+    PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
     CHANNEL_ID = 'weilan'
     CHANNEL = ''
@@ -597,7 +597,7 @@ class RuleWeilan(RuleBase):
 
 #       label           name             project_id
 WL_CHANNELS = [
-    ( 'weilan',         '微蓝',         'P10118A', ),
+    ( 'weilan',         '微蓝官网2',    'P10123A', ),
     ( 'yiyonghui',      '易用汇',       'P10119A', ),
     ( 'qianchi',        '千尺游戏',     'P10120A', ),
     ( 'anfeng',         '安锋',         'P10121A', ),
@@ -605,7 +605,7 @@ WL_CHANNELS = [
 for label, name, project_id in WL_CHANNELS:
     register(type('RuleWeilan%s' % label, (RuleWeilan,), dict(
         LABEL='weilan_%s' % label,
-        CH_NAME='微蓝-%s(CPS)小包' % name,
+        CH_NAME='微蓝CPS-%s小包' % name,
         PROJECT_ID = project_id,
         CHANNEL_ID = label,
         CHANNEL = label,
