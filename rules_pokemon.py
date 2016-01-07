@@ -898,3 +898,24 @@ class RuleYYB(RuleBase):
         return super(RuleYYB, cls).rules() + [
             ('src/com/tencent/tmgp/com/winnergame/pokemon/weilan/wxapi/WXEntryActivity.java', 'replace', cls.common_replaces()),
         ]
+
+@register
+class RuleYiJie(RuleBase):
+    LABEL = 'yijie'
+    DIRECTORY = 'yijie'
+    CH_NAME = '易接母包'
+    SDKTYPE = '62'
+    PACKAGE_NAME = 'com.winnergame.pokemon.yijie'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.yijie'
+    CHANNEL_ID = 'yijie'
+
+    APP_ID     = '103733'
+    PAY_URL = ''
+
+    @classmethod
+    def rules(cls):
+        return super(RuleYiJie, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
+
+
