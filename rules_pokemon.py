@@ -6,7 +6,7 @@ from processor import register, Rule
 class RuleBase(Rule):
     VERSION_CODE = '100000'
     VERSION_NAME = '1.00000'
-    APPNAME = '神奇小精灵'
+    APPNAME = '神奇小精灵加强版'
     APPLABEL = 'pokemon'
     ICON_PATH = '../../../pokemon_icons/android'
     UMENG_APPKEY = '5682058be0f55a0ec8003010'
@@ -73,7 +73,7 @@ class RuleBase(Rule):
 class RuleEmpty(RuleBase):
     LABEL = 'empty'
     DIRECTORY = 'empty'
-    CH_NAME = '神奇小精灵'
+    CH_NAME = '神奇小精灵加强版'
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.winnergame.pokemon.empty'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.empty'
@@ -83,7 +83,7 @@ class RuleEmpty(RuleBase):
 class RuleEmptyB(RuleBase):
     LABEL = 'emptyB'
     DIRECTORY = 'empty'
-    CH_NAME = '神奇小精灵-商务版'
+    CH_NAME = '神奇小精灵加强版-商务版'
     SDKTYPE = '0'
     PACKAGE_NAME = 'com.winnergame.pokemon.empty'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.empty'
