@@ -909,8 +909,8 @@ class RuleYiJie(RuleBase):
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.yijie'
     CHANNEL_ID = 'yijie'
 
-    APP_ID     = '103733'
-    PAY_URL = ''
+    APP_ID     = '{D848E772-DB4FAEFE}'
+    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/yijie/pay_callback'
 
     @classmethod
     def rules(cls):

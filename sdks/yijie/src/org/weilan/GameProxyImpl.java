@@ -54,6 +54,7 @@ public class GameProxyImpl extends GameProxy{
             public void onLoginSuccess(SFOnlineUser user, Object customParams) {
                 //登陆成功回调
                 User u = new User();
+                u.channelID = user.getChannelId();
                 u.userID = user.getChannelUserId();
                 u.token = user.getToken();
                 userListerner.onLoginSuccess(u, loginCustomParams);
