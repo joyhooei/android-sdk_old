@@ -116,15 +116,15 @@ class RuleC360(RuleBase):
     DIRECTORY = 'c360'
     CH_NAME = '360小包'
     SDKTYPE = '19'
-    PACKAGE_NAME = 'com.winnergame.pokemon.qh360'
-    YY_PACKAGE_NAME = 'com.winnergame.pokemon.qh360'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.qh360'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.qh360'
     CHANNEL_ID = 'qh360'
 
-    QHOPENSDK_APPKEY = '7861bd2c6c6af2840cc201d24f277b4c'
-    QHOPENSDK_PRIVATEKEY = 'b9ce75b9c21477feb06ff8e61e581905'
-    QHOPENSDK_APPID = '202820771'
+    QHOPENSDK_APPKEY = '5bb2fd12276a01229263f167f7f3dd59'
+    QHOPENSDK_PRIVATEKEY = '7136b2a534558eab686b0e37e1d6cb43'
+    QHOPENSDK_APPID = '202887981'
 
-    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/c360/pay_callback'
+    PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/c360/pay_callback'
 
 
 @register
@@ -149,12 +149,12 @@ class RuleXiaomi(RuleBase):
     DIRECTORY = 'xiaomi'
     CH_NAME = '小米小包'
     SDKTYPE = '18'
-    PACKAGE_NAME = 'com.winnergame.pokemon.mi'
-    YY_PACKAGE_NAME = 'com.winnergame.pokemon.mi'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.mi'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.mi'
     CHANNEL_ID = 'xiaomi'
 
-    APPID = '2882303761517409326'
-    APPKEY = '5391740911326'
+    APPID = '2882303761517427343'
+    APPKEY = '5881742752343'
 
     @classmethod
     def rules(cls):
@@ -219,7 +219,7 @@ class RuleOppo(RuleBase):
     APPKEY = 'bjiQLpsqyu8Gg4kgK8goCKko4'
     APPSECRET = '8d68A258e9D93812b86B532567635352'
 
-    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/oppo/pay_callback'
+    PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/oppo/pay_callback'
 
 
 @register
@@ -397,7 +397,7 @@ class RuleVivo(RuleBase):
     CHANNEL_ID = 'vivo'
 
     APPID = "829b98597d987dd831b7f36d92d8fd04"
-    CREATE_ORDER_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/vivo/create_order'
+    CREATE_ORDER_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/vivo/create_order'
 
     @classmethod
     def rules(cls):
@@ -556,15 +556,15 @@ class RuleHuawei(RuleBase):
     DIRECTORY = 'huawei'
     CH_NAME = '华为小包'
     SDKTYPE = '48'
-    PACKAGE_NAME = 'com.winnergame.pokemon.huawei'
-    YY_PACKAGE_NAME = 'com.winnergame.pokemon.huawei'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.huawei'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.huawei'
     CHANNEL_ID = 'huawei'
 
-    APPID = '10383675'
+    APPID = '10430315'
     PAYID = '900086000022190346'
     PUBLIC_KEY = 'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKQM73iEYW/f6JtRgOuwsyvvk1hfKNUnC3F0arwr8+YqrIOrPZMA+5fzV6hMH4Pqeinp7QtRrWwKycH96dWPt08CAwEAAQ=='
-    GET_BUOY_PRIVATE_KEY = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/huawei/buoy'
-    GET_PAY_PRIVATE_KEY = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/huawei/pay'
+    GET_BUOY_PRIVATE_KEY = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/huawei/buoy'
+    GET_PAY_PRIVATE_KEY = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/huawei/pay'
 
     @classmethod
     def rules(cls):
@@ -681,7 +681,7 @@ class RuleAmigo(RuleBase):
     ICON_PATH = '../../../pokemon_icons/jinli'
 
     APP_KEY    = '11B5BA6537274E798CEED85864AC63CF'
-    ORDER_URL  = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/gionee/create_order'
+    ORDER_URL  = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/gionee/create_order'
 
     @classmethod
     def rules(cls):
@@ -704,7 +704,7 @@ class RuleYouku(RuleBase):
     APPSECRET  = '42de96b7b26686decac50e75409c6d31'
     YOUKU_VERSION_CODE = ''
 
-    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/youku/pay_callback'
+    PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/youku/pay_callback'
 
     @classmethod
     def rules(cls):
@@ -753,7 +753,7 @@ class RuleMz(RuleBase):
 
     APPID     = '2820741'
     APPKEY    = 'e158c5bd9d2c49a29c890e5a588d9952'
-    ORDER_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/meizu/create_order'
+    ORDER_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/meizu/create_order'
 
 @register
 class RuleKaopu(RuleBase):
@@ -788,7 +788,7 @@ class RuleCpad(RuleBase):
     APPID      = '5000002454'
     APPKEY     = '4bcd7fccf85b4adeb438a3e9f97e9f82'
     PRIVATEKEY = 'MIICXAIBAAKBgQCMsXOwu4D6Osxv/CRuafTTBZBhqCiDewMjqb71EMQsj290Wu3rXFlWhtxfQ6d/st5CBlgkIc0TYYrJSer2u8DQcQvZNqqGeRrVuQlSmIy31KeKK5wZH5TWAGXz7Des4oqo1jZIAlXbrIC2d2k+WLIB+0PGv8KCvyBGW5r9zxOa7QIDAQABAoGAHo4XWwWNwEpuxc9TtisKwZ2OurbDfbKEfwVJdH2crTTFdtacnyXiPRly2LmfsesNu/cWw1oX6KKheo+0GLuz5vuAYTNnk1VobOWqPdDzdmsxca9pdZMOLLu2ueToY66obipfWwzitiC6Fv4pUp6m1W1clZ3aDIEfG42gWgpD4wECQQD4peydEJK4WRS3ph76JlipEve9Jm9U/hZYKMS0jWpsMwMxKV3ZN8RF9ftQGPpp+sJwliwmeswnSCFhYV72vTRBAkEAkNpkLWGkPEqkiAfuHa81vF+Dr2x9jbo9VHfc77bpUit1LM1ceka9iGNq+9pQjzM1d0CtyEjXCZjbM79If9iLrQJBAJMrcj8MvirK3w5MDu20oKmCBow4IZFGyubnSnYrdaARGYSRnXCiJ1PZYiRohF8SAuAsonksGYXulYNT5KdaGYECQCEn7BA7LlWinECK2CUxSrKAhmrsAV0kiQ9BlG/GRWfKjLqhkw5mDNIgN4fIc/IjPZS7WEvk6FvJAju5CAZDcc0CQFU7EeMriSO6ArT6XNSIfq9GhVm+BLQ08YVzhPCmUGyC339BUb+nRMmfnUnJsqYMhsJplaZdyLCAF6Zbhequ0Ug='
-    PAY_URL    = 'http://pokemon.sdk.dnastdio.com:8888/sdk/coolpad/pay_callback'
+    PAY_URL    = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/coolpad/pay_callback'
     #PAY_URL    = ''
 
 @register
@@ -887,11 +887,11 @@ class RuleYYB(RuleBase):
     MSDK_KEY = '73d3493fa8ffea3701e47e6c9657549c'
 
 
-    #CREATE_ORDER_URL  = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/create_order'
-    ZONE_INFO_URL     = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/info'
-    QUERY_BALANCE_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
-    #ZONE_INFO_URL     = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/info'
-    #QUERY_BALANCE_URL = 'http://pokemon.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
+    #CREATE_ORDER_URL  = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/create_order'
+    ZONE_INFO_URL     = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/info'
+    QUERY_BALANCE_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
+    #ZONE_INFO_URL     = 'http://pokemonpro.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/info'
+    #QUERY_BALANCE_URL = 'http://pokemonpro.sdktest.dnastdio.com:8888/sdk/android/sdk/yyb/query_balance'
 
     @classmethod
     def rules(cls):
@@ -910,7 +910,7 @@ class RuleYiJie(RuleBase):
     CHANNEL_ID = 'yijie'
 
     APP_ID     = '{D848E772-DB4FAEFE}'
-    PAY_URL = 'http://pokemon.sdk.dnastdio.com:8888/sdk/yijie/pay_callback'
+    PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/yijie/pay_callback'
 
     @classmethod
     def rules(cls):
