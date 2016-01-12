@@ -50,7 +50,7 @@
         
         <meta-data
             android:name="com.snowfish.appid"
-            android:value="{$APP_ID}" >
+            android:value="${APP_ID}" >
         </meta-data>
         
         <meta-data
