@@ -905,8 +905,8 @@ class RuleYiJie(RuleBase):
     DIRECTORY = 'yijie'
     CH_NAME = '易接母包'
     SDKTYPE = '62'
-    PACKAGE_NAME = 'com.winnergame.pokemon.yijie'
-    YY_PACKAGE_NAME = 'com.winnergame.pokemon.yijie'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.yj'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.yijie'
     CHANNEL_ID = 'yijie'
 
     APP_ID     = '{D848E772-DB4FAEFE}'
