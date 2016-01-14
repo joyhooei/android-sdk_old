@@ -120,8 +120,10 @@ class RuleC360(RuleBase):
     YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.qh360'
     CHANNEL_ID = 'qh360'
 
+    # 多次搞错这个值了 ！！！！！！ QHOPENSDK_PRIVATEKEY = md5( appSecret + "#" + appKey )
+
     QHOPENSDK_APPKEY = '5bb2fd12276a01229263f167f7f3dd59'
-    QHOPENSDK_PRIVATEKEY = '7136b2a534558eab686b0e37e1d6cb43'
+    QHOPENSDK_PRIVATEKEY = 'e2773cf5dbdb829276ea0404d18b58a2'
     QHOPENSDK_APPID = '202887981'
 
     PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/c360/pay_callback'
