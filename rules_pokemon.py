@@ -701,9 +701,9 @@ class RuleYouku(RuleBase):
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.youku'
     CHANNEL_ID = 'youku'
 
-    APPID      = '2285'
-    APPKEY     = '7f293b5b56e3f737'
-    APPSECRET  = '42de96b7b26686decac50e75409c6d31'
+    APPID      = '2512'
+    APPKEY     = 'f8096fefaa88dbad'
+    APPSECRET  = '6512508a115233327d2c91ceb78ed77f'
     YOUKU_VERSION_CODE = ''
 
     PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/android/sdk/youku/pay_callback'
