@@ -736,8 +736,8 @@ class RuleM4399(RuleBase):
     DIRECTORY = 'm4399'
     CH_NAME = 'm4399小包'
     SDKTYPE = '30'
-    PACKAGE_NAME = 'com.winnergame.pokemon.m4399'
-    YY_PACKAGE_NAME = 'com.winnergame.pokemon.m4399'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.m4399'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.m4399'
     ICON_PATH = '../../../pokemon_icons/android/4399'
     CHANNEL_ID = 'm4399'
 
