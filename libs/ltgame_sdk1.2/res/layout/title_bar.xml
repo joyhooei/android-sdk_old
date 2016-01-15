@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#96aa39"
+    android:orientation="vertical" >
+
+    <ImageButton
+        android:id="@+id/ib_go_back"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/sdk_button_background_selector"
+        android:paddingBottom="14.66dp"
+        android:paddingTop="14.66dp"
+        android:src="@drawable/sdk_btn_back" 
+        android:scaleType="fitCenter"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#ffffff"
+        android:textSize="18sp" 
+        android:text="编辑资料"
+        android:layout_toRightOf="@+id/ib_go_back"
+        android:layout_centerInParent="true"/>
+
+    
+    <Button
+        android:id="@+id/bt_go_back_game"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+       	android:layout_marginRight="10dp"
+        android:text="返回游戏"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/sdk_btn_black_selector"
+        />
+</RelativeLayout>

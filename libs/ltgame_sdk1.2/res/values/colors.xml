@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 基本色 -->
+    <color name="transparent">#00000000</color>
+    <color name="transparent_75">#bf000000</color>
+    <color name="sdk_color_4">#727272</color>
+    <color name="sdk_green_light">#86bf13</color>
+    <color name="sdk_green_press">#6fa305</color>
+    <color name="sdk_gray">#888888</color>
+    <color name="sdk_while">#ffffff</color>
+    <color name="sdk_gray_line">#eeeeee</color>
+    <color name="sdk_gray_text">#bbbbbb</color>
+    <color name="sdk_black_text">#333333</color>
+    <color name="sdk_yellow_text">#ff8800</color>
+</resources>

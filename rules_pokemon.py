@@ -920,4 +920,43 @@ class RuleYiJie(RuleBase):
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
 
+@register
+class RuleHTC(RuleBase):
+    LABEL = 'htc'
+    DIRECTORY = 'htc'
+    CH_NAME = 'HTC小包'
+    SDKTYPE = '63'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.htc'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.htc'
+    CHANNEL_ID = 'htc'
+
+    CP_GAME_CODE = '2904148438271'
+    PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/htc/pay_callback'
+    CP_PRIVATE_KEY_PKCS8 = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKMGKvMyo8LkwiDobtp5KDR4KcdK39CBMPdYYUrmfX9WLKjCQJmmjmi9WlTn/YywD2gyISEDNuG1Qpw09nqeECoueCo7mpXZMhqPPCF6DsODeW3Q1vKYasrfH+RSYJJVWVJIhc+JdupRf9d8rdl1Sfs4PQpWhkjyU5rEyF+yQgIlAgMBAAECgYAvQLZqT59P+maai0S2Zq/UpY/WiElfclLzHtb0kuKFakD/mW6IGtLkYR4xxhykDtQoa39Wxku+GH/6Lw/ScsZUPTRqAGY+WDQp0Ss9JlB5FRcotliL0ZbTfgKLSY6Oj5IaWKV9ypzwrklEWI14u0vgokpIFC7Ee5Io+vJa4ldOcQJBANGFdEehXY/Tw+xMUQtKFg3qNVcr3wQ2UZoGvcAOCYiVI2luYRXaumtj9H4QC/LMDz7tQUw3Gz6HkeKG4nfERG8CQQDHMCykrKLhPfewnVxMTOgIuEXS3apFhTXgRDRDKdVs9143xOwa86Hd45LCAGEzuhT3me2b+qUSotfQecveOnSrAkEAzdNZWKjX3dv9o1uRXhLIuaC0B8+MRXoLDdHDhDEGAovn/sG1VB/MdIT8AP9IjZsS+xFdzT5xYCsUEEHLpjZDtwJBALl0FvyzZ2tDYMvllzvLFvaXaxsrGw9jOYg2uFoYJwgvQF+4TwPA9mI7MjbCV73rcP4fKOVi9jJlv33xCGk+D8UCQCf79vgHU7Zm8tXEQWwsWmwHPY9k0I4o6VyOAPxyIBEVsDDyPLoZWs2yVR/KCX0PT3MDwKWh" 
+
+    @classmethod
+    def rules(cls):
+        return super(RuleHTC, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
+
+@register
+class RuleTiantian(RuleBase):
+    LABEL = 'tiantian'
+    DIRECTORY = 'tiantian'
+    CH_NAME = '天天小包'
+    SDKTYPE = '64'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.ltbl'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.ltbl'
+    CHANNEL_ID = 'tiantian'
+
+    APPID   = 'LT20160107-118'
+    PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/htc/pay_callback'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleTiantian, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
+
 
