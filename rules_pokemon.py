@@ -951,7 +951,7 @@ class RuleTiantian(RuleBase):
     CHANNEL_ID = 'tiantian'
 
     APPID   = 'LT20160107-118'
-    PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/htc/pay_callback'
+    PAY_URL = 'http://pokemonpro.sdk.dnastdio.com:8888/sdk/tiantian/pay_callback'
 
     @classmethod
     def rules(cls):
