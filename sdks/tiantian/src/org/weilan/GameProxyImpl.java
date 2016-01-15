@@ -45,10 +45,13 @@ public class GameProxyImpl extends GameProxy{
     }
     */
 
-    public void applicationInit(Activity activity) {
+    public void applicationInit(final Activity activity) {
 		SDKManager.iniSDK(activity, TEST_MODE,new LTCallback() {
 			@Override
 			public void callback(int code, String msg) {
+                if( SDKState.Success != code ) {
+                    Toast.makeText( activity, "SDK初始化失败", Toast.LENGTH_SHORT ).show();
+                }
 			}
 		});
     }
