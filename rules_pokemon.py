@@ -741,7 +741,7 @@ class RuleM4399(RuleBase):
     ICON_PATH = '../../../pokemon_icons/android/4399'
     CHANNEL_ID = 'm4399'
 
-    APPKEY     = '109598'
+    APPKEY     = '110522'
 
 @register
 class RuleMz(RuleBase):
