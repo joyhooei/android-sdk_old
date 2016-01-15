@@ -37,17 +37,17 @@ public class GameProxyImpl extends GameProxy {
     @Override
     public void applicationInit(Activity activity) {
 		// 因为sdk插件中service activity跑在独立进程，这里只需要在主进程做一次初始化操作。
-		if("${PACKAGE_NAME}".equals(AppUtil.getCurrentProcessName(activity))){
-			String appKey = "${APPID}";
-			String appSecret = "${APPKEY}";
+		//if("${PACKAGE_NAME}".equals(AppUtil.getCurrentProcessName(activity))){
+			String appKey = "${APPKEY}";
+			String appSecret = "${APPSECRET}";
 			GameCenterSettings gameCenterSettings = new GameCenterSettings(
 					false,    // 网游固定为false
 					appKey,
 					appSecret, 
-					true,     // 调试开关 true 打印log，false 关闭log，正式上线请设置为false
-					false);   // 将游戏横竖屏状态传递给sdk， true为竖屏  false为横屏
+					false,     // 调试开关 true 打印log，false 关闭log，正式上线请设置为false
+					true);   // 将游戏横竖屏状态传递给sdk， true为竖屏  false为横屏
 			GameCenterSDK.init(gameCenterSettings, activity);
-		}
+		//}
     }
 
     @Override
