@@ -122,13 +122,12 @@ public class GameProxyImpl extends GameProxy {
     }
 
     @Override
-    public void exit(Activity activity,final ExitCallback callback) {
+    public void exit(final Activity activity,final ExitCallback callback) {
         GameCenterSDK.getInstance().onExit(activity, new GameExitCallback(){
             @Override
             public void exitGame() {
                 // CP 实现游戏退出操作，也可以直接调用 AppUtil工具类里面的实现直接强杀进程~
-                //AppUtil.exitGameProcess(DemoActivity.this);  
-                callback.onNo3rdExiterProvide();
+                AppUtil.exitGameProcess(activity);  
             }
         });
     }
