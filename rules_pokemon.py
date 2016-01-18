@@ -588,7 +588,7 @@ class RuleWeilan(RuleBase):
     APP_KEY    = '5i29qfd23a4bghaswx9w'
     APP_SECRET = 'psyvmyra6f7of4sacvpu'
     SERVER_ID  = 'M1028A'
-    PROJECT_ID = 'P10116A'
+    #PROJECT_ID = 'P10116A'
     PRODUCT_ID = 'D10053A'
 
     @classmethod
@@ -599,15 +599,31 @@ class RuleWeilan(RuleBase):
 
 #       label           name             project_id
 WL_CHANNELS = [
-    ( 'weilan',         '微蓝官网2',    'P10123A', ),
-    ( 'yiyonghui',      '易用汇',       'P10119A', ),
-    ( 'qianchi',        '千尺游戏',     'P10120A', ),
-    ( 'anfeng',         '安锋',         'P10121A', ),
+    ( '1',         '1',    'P10124A', ),
+    ( '2',         '2',    'P10125A', ),
+    ( '3',         '3',    'P10126A', ),
+    ( '4',         '4',    'P10127A', ),
+    ( '5',         '5',    'P10128A', ),
+    ( '6',         '6',    'P10129A', ),
+    ( '7',         '7',    'P10130A', ),
+    ( '8',         '8',    'P10131A', ),
+    ( '9',         '9',    'P10132A', ),
+    ( '10',        '10',   'P10133A', ),
+    ( '11',        '11',   'P10134A', ),
+    ( '12',        '12',   'P10135A', ),
+    ( '13',        '13',   'P10136A', ),
+    ( '14',        '14',   'P10137A', ),
+    ( '15',        '15',   'P10138A', ),
+    ( '16',        '16',   'P10139A', ),
+    ( '17',        '17',   'P10140A', ),
+    ( '18',        '18',   'P10141A', ),
+    ( '19',        '19',   'P10142A', ),
+    ( '20',        '20',   'P10143A', ),
 ]
 for label, name, project_id in WL_CHANNELS:
     register(type('RuleWeilan%s' % label, (RuleWeilan,), dict(
         LABEL='weilan_%s' % label,
-        CH_NAME='微蓝CPS-%s小包' % name,
+        CH_NAME='微蓝CPS_%s小包' % name,
         PROJECT_ID = project_id,
         CHANNEL_ID = label,
         CHANNEL = label,
