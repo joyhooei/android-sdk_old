@@ -67,7 +67,7 @@
   	 <string name="yk_text_btn_yk_user_login">使用优酷帐号登录</string>
   	  <string name="yk_text_hint_user_name">请输入4—20位字母+数字组合</string>
   	 <string name="yk_text_hint_yfpzh_modify">本账户是系统预分配，可进行修改</string>
-  	 <string name="yk_text_hint_csmm_reg">请输入6—16位字母或数字</string>
+  	 <string name="yk_text_hint_csmm_reg">请输入6—16位字母+数字组合</string>
   	 <string name="yk_text_a_zcxy">用户注册协议</string>
   	 <string name="yk_text_btn_ljzc">立即注册</string>
   	 <string name="yk_text_btn_login_in">登录并进入游戏</string>
@@ -224,13 +224,16 @@
     <string name="yk_load_full">已加载全部</string>
     <string name="yk_no_data">暂无数据</string>
     <string name="yk_no_msg">当前暂无消息哦。</string>
+    <string name="yk_no_task">当前暂无积分任务信息哦。</string>
     <string name="yk_more">加载中</string>
     <string name="yk_pay_vip_title">您已获得领取会员特权礼包资格</string>
     <string name="yk_pay_vip_prompt">*礼包激活码将在1-2分钟内发放</string>
     <string name="dialog_yt_title_tv_content">您已经获得七天优酷会员体验时间，请复制激活码。</string>
     <string name="yk_precenter_cash">优豆余额 :</string>
-    <string name="yk_precenter_cash_value">" 0"</string>
+    <string name="yk_precenter_task">优酷积分 :</string>
+    <string name="yk_precenter_cash_value">" "</string>
     <string name="yk_precenter_title_username">未知用户名</string>
     <string name="yk_precenter_super_title_name">个人中心</string>
     <string name="yk_precenter_title_default">...</string>
+    <string name="yk_text_tasklist_title">积分任务</string>
 </resources>
