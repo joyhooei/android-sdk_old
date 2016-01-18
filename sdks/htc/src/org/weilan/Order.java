@@ -1,4 +1,4 @@
-package com.jolosdk.demo.activity;
+package org.weilan;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,9 +9,9 @@ import org.json.JSONObject;
  * :"game10001","product_name":"元宝30个","user_code":"100000009","notify_url"
  * :"http://www.g.cn/pay_notify"
  * ,"product_desc":"","game_order_id":"order1234567890"}
- * 
+ *
  * @author Administrator
- * 
+ *
  */
 public class Order {
 
@@ -77,44 +77,44 @@ public class Order {
 		m_user_code = user_code;
 		m_session_id = session_id;
 	}
-	
+
 	public void setGameName(String game_name){
 		m_game_name = game_name;
 	}
-	
+
 	public void setGameCode(String game_code){
 		m_game_code = game_code;
 	}
-	
+
 	public void setGameOrderid(String game_order_id){
 		m_game_order_id = game_order_id;
 	}
-	
-	
+
+
 	public void setProductID(String product_id){
 		m_product_id = product_id;
 	}
-	
+
 	public void setProductName(String product_name){
 		m_product_name = product_name;
 	}
-	
+
 	public void setProductDes(String product_des){
 		m_product_des = product_des;
 	}
-	
+
 	public void setAmount(String amount){
 		m_amount = amount;
 	}
-	
+
 	public void setNotifyUrl(String notify_url){
 		m_notify_url = notify_url;
 	}
-	
+
 	public void setUsercode(String user_code){
 		m_user_code = user_code;
 	}
-	
+
 	public void setSession(String session_id){
 		m_session_id = session_id;
 	}
