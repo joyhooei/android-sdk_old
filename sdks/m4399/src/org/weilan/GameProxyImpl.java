@@ -71,17 +71,19 @@ public class GameProxyImpl extends GameProxy{
         // 注销帐号的回调， 包括个人中心里的注销和logout()注销方式
         @Override
         public void onUserAccountLogout(boolean fromUserCenter, int resultCode) {
+            Log.v( "sdk", "onUserAccountLogout 22222222222222222222222222222222222222222222222222222222222222222222222222222222" );
             userListerner.onLogout(null);
         }
 
         // 个人中心里切换帐号的回调
         @Override
         public void onSwitchUserAccountFinished(User userInfo) {
+            Log.v( "sdk", "onSwitchUserAccountFinished 11111111111111111111111111111111111111111111111111111111111111111111111111111111" );
             userListerner.onLogout(null);
-            org.weilan.User u = new org.weilan.User();
-            u.userID = userInfo.getUid();
-            u.token = userInfo.getState();
-            userListerner.onLoginSuccess(u, null);
+            //org.weilan.User u = new org.weilan.User();
+            //u.userID = userInfo.getUid();
+            //u.token = userInfo.getState();
+            //userListerner.onLoginSuccess(u, null);
         }
         });
     }
