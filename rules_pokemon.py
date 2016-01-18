@@ -742,6 +742,7 @@ class RuleGuopan(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemon.ad.guopan'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.guopan'
     CHANNEL_ID = 'guopan'
+    ICON_PATH = '../../../pokemon_icons/android/xx'
 
     APPID      = '102121'
     APPKEY     = 'CJOVUCOA7728E002'
