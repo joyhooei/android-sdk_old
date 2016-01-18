@@ -7,7 +7,7 @@
     android:orientation="vertical" >
 
     <RelativeLayout
-        android:layout_width="@dimen/YK_GameSDK_580PX"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/YK_GameSDK_88PX" >
 
         <ImageView
@@ -45,7 +45,7 @@
         android:layout_marginLeft="@dimen/YK_GameSDK_20PX"
         android:orientation="vertical"
         android:visibility="visible" >
- 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/YK_GameSDK_150PX"
@@ -90,7 +90,7 @@
                         android:id="@+id/dialog_yk_precenter_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxLength="8"
+                        android:maxLength="13"
                         android:singleLine="true"
                         android:text="@string/yk_precenter_title_username"
                         android:textColor="@color/yk_btn_text_white"
@@ -105,72 +105,111 @@
                         android:textSize="@dimen/YK_GameSDK_24PX" />
                 </LinearLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/YK_GameSDK_34PX"
-                    android:orientation="horizontal" >
+                    android:layout_marginTop="@dimen/YK_GameSDK_34PX" >
 
-                    <TextView
-                        android:id="@+id/dialog_yk_precenter_cash"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/yk_precenter_cash"
-                        android:textColor="@color/yk_btn_text_white"
-                        android:textSize="@dimen/YK_GameSDK_24PX" />
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:orientation="horizontal" >
 
-                    <TextView
-                        android:id="@+id/dialog_yk_precenter_balance"
+                        <TextView
+                            android:id="@+id/dialog_yk_precenter_cash"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yk_precenter_cash"
+                            android:textColor="@color/yk_btn_text_white"
+                            android:textSize="@dimen/YK_GameSDK_24PX" />
+
+                        <TextView
+                            android:id="@+id/dialog_yk_precenter_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yk_precenter_cash_value"
+                            android:textColor="@color/yk_btn_text_white"
+                            android:textSize="@dimen/YK_GameSDK_24PX" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/yk_precenter_cash_value"
-                        android:textColor="@color/yk_btn_text_white"
-                        android:textSize="@dimen/YK_GameSDK_24PX" />
-                </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/YK_GameSDK_45PX"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/dialog_yk_precenter_task"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yk_precenter_task"
+                            android:textColor="@color/yk_btn_text_white"
+                            android:textSize="@dimen/YK_GameSDK_24PX" />
+
+                        <TextView
+                            android:id="@+id/dialog_yk_precenter_task_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yk_precenter_cash_value"
+                            android:textColor="@color/yk_btn_text_white"
+                            android:textSize="@dimen/YK_GameSDK_24PX" />
+                    </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/YK_GameSDK_138PX"
-            android:layout_marginBottom="@dimen/YK_GameSDK_8PX"
+            android:layout_height="@dimen/YK_GameSDK_94PX"
             android:layout_marginTop="@dimen/YK_GameSDK_40PX"
             android:orientation="horizontal" >
 
             <ImageView
-                android:id="@+id/yk_float_change_account_img"
+                android:id="@+id/yk_float_pre_img_01"
                 android:layout_width="@dimen/YK_GameSDK_94PX"
                 android:layout_height="@dimen/YK_GameSDK_80PX"
-                android:layout_marginRight="@dimen/YK_GameSDK_16PX"
-                android:src="@drawable/yk_float_change_account" />
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
 
             <ImageView
-                android:id="@+id/yk_float_bind_img"
+                android:id="@+id/yk_float_pre_img_02"
                 android:layout_width="@dimen/YK_GameSDK_94PX"
                 android:layout_height="@dimen/YK_GameSDK_80PX"
-                android:layout_marginRight="@dimen/YK_GameSDK_16PX"
-                android:src="@drawable/yk_float_bind" />
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
 
             <ImageView
-                android:id="@+id/yk_float_vip_img"
+                android:id="@+id/yk_float_pre_img_03"
                 android:layout_width="@dimen/YK_GameSDK_94PX"
                 android:layout_height="@dimen/YK_GameSDK_80PX"
-                android:layout_marginRight="@dimen/YK_GameSDK_16PX"
-                android:src="@drawable/yk_float_vip" />
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
 
             <ImageView
-                android:id="@+id/yk_float_vip_code_img"
+                android:id="@+id/yk_float_pre_img_04"
                 android:layout_width="@dimen/YK_GameSDK_94PX"
                 android:layout_height="@dimen/YK_GameSDK_80PX"
-                android:layout_marginRight="@dimen/YK_GameSDK_16PX"
-                android:src="@drawable/yk_float_vip_code" />
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
 
             <ImageView
-                android:id="@+id/yk_float_account_img"
+                android:id="@+id/yk_float_pre_img_05"
                 android:layout_width="@dimen/YK_GameSDK_94PX"
                 android:layout_height="@dimen/YK_GameSDK_80PX"
-                android:layout_marginRight="@dimen/YK_GameSDK_16PX"
-                android:src="@drawable/yk_float_account" />
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/yk_float_pre_ll_02"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/YK_GameSDK_94PX"
+            android:layout_marginBottom="@dimen/YK_GameSDK_36PX"
+            android:layout_marginTop="@dimen/YK_GameSDK_20PX"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/yk_float_pre_img_06"
+                android:layout_width="@dimen/YK_GameSDK_94PX"
+                android:layout_height="@dimen/YK_GameSDK_80PX"
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
         </LinearLayout>
     </LinearLayout>
 

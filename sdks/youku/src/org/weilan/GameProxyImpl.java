@@ -123,6 +123,7 @@ public class GameProxyImpl extends GameProxy{
 
     public void logout(Activity activity,Object customParams) {
         YKPlatform.logout(activity);
+        YKPlatform.closeYKFloat(activity);
         userListerner.onLogout(customParams);
     }
 }

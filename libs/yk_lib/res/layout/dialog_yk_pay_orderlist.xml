@@ -5,7 +5,7 @@
 
     <LinearLayout
         android:id="@+id/yk_pay_orderlist_layout"
-        android:layout_width="@dimen/YK_GameSDK_600PX"
+        android:layout_width="@dimen/YK_GameSDK_664PX"
         android:layout_height="@dimen/YK_GameSDK_735PX"
         android:background="@color/yk_bg_pay_datail"
         android:orientation="vertical" >

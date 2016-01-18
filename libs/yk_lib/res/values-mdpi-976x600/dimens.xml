@@ -135,6 +135,8 @@
     <dimen name="YK_GameSDK_427PX">320px</dimen>
     <dimen name="YK_GameSDK_428PX">321px</dimen>
     
+    <dimen name="YK_GameSDK_451PX">338.25px</dimen>
+    
     <dimen name="YK_GameSDK_474PX">355.5px</dimen>
     
     <dimen name="YK_GameSDK_496PX">372px</dimen>
