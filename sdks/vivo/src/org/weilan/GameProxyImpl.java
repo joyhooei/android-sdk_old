@@ -113,6 +113,7 @@ public class GameProxyImpl extends GameProxy {
             userListerner.onLoginSuccess(u, null);
 
             new PaymentActionDetailsInit(currentActivity, appid);
+            VivoAccountManager.vivoAccountStartAssistView(currentActivity);
         }
 
         // 第三方游戏不需要使用此回调
