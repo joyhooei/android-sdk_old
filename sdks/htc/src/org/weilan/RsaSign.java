@@ -1,4 +1,4 @@
-package com.jolosdk.demo.activity;
+package org.weilan;
 
 import java.security.KeyFactory;
 import java.security.PrivateKey;
@@ -8,7 +8,7 @@ import java.security.spec.X509EncodedKeySpec;
 
 /**
  * RSA工具类
- * 
+ *
  */
 public class RsaSign {
 

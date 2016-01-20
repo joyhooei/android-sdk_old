@@ -13,16 +13,15 @@ import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
 
-import com.jolo.account.Jolo.onAccountResult;
-import com.jolo.jolopay.JoloPay.onPayResult;
 import com.jolo.sdk.JoloSDK;
-import com.joloplay.sdk.demo.R;
 
-public class GameProxyImpl extends GameProxy implements onAccountResult, onPayResult {
-	private string userid; // 用户id
-	private string session; // 用户登录session
+public class GameProxyImpl extends GameProxy {
+	private String userid; // 用户id
+	private String session; // 用户登录session
     private Object loginCustomParams;
     private PayCallBack mPayCallBack;
+
+    private static final int RESULT_OK = -1;
 
     public boolean supportLogin() {
         return true;
@@ -42,9 +41,6 @@ public class GameProxyImpl extends GameProxy implements onAccountResult, onPayRe
 		// 可以把游戏的gameCode先替换PartnerConfig.CP_GAME_CODE值来检测是否能获取UserId, username,
 		// session, accountSign, account
 		JoloSDK.initJoloSDK(activity, "${CP_GAME_CODE}");
-		//注册 onPay回调和onAccount回调，一般建议CP使用onActivityResult回调，两个回调返回的数据是相同的。
-		//两者选一个即可
-		JoloSDK.initCallBack(activity, this);
     }
 
     public void login(Activity activity,Object customParams) {
@@ -63,7 +59,7 @@ public class GameProxyImpl extends GameProxy implements onAccountResult, onPayRe
         mPayCallBack = payCallBack;
         Order or = new Order();
         //注意：参数里，不要出现类似“1元=10000个金币”的字段，因为“=”原因，会导致微信支付校验失败
-        or.setAmount("" + (int()(price*100))); // 设置支付金额，单位分
+        or.setAmount("" + ((int)(price*100))); // 设置支付金额，单位分
         or.setGameCode("${CP_GAME_CODE}"); // 设置游戏唯一ID,由Jolo提供
         or.setGameName("${APPNAME}"); // 设置游戏名称
         or.setGameOrderid("" + System.currentTimeMillis()); // 设置游戏订单号
@@ -73,53 +69,54 @@ public class GameProxyImpl extends GameProxy implements onAccountResult, onPayRe
         or.setProductName(name); // 设置产品名称
         or.setSession(session); // 设置用户session
         or.setUsercode(userid); // 设置用户ID
-        order = or.toJsonOrder(); // 生成Json字符串订单
+        String order = or.toJsonOrder(); // 生成Json字符串订单
         String sign = RsaSign.sign(order, "${CP_PRIVATE_KEY_PKCS8}"); // 签名
-        JoloSDK.startPay(MainActivity.this, order, sign); // 启动支付
+        JoloSDK.startPay(activity, order, sign); // 启动支付
     }
 
     public void onDestroy(Activity activity) {
-		// 销毁SDK所使用的资源
-		JoloSDK.releaseJoloSDK();
-		super.onDestroy(activity);
-	}
+        // 销毁SDK所使用的资源
+        JoloSDK.releaseJoloSDK();
+        super.onDestroy(activity);
+    }
+
 
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
-		if (resultCode != RESULT_OK || data == null){
-			if(requestCode == JoloSDK.PAY_REQUESTCODE){
+        if (resultCode != RESULT_OK || data == null){
+            if(requestCode == JoloSDK.PAY_REQUESTCODE){
                 mPayCallBack.onFail("支付取消");
-			}
-			return;
-		}
+            }
+            return;
+        }
 
-		switch (requestCode) {
-		case JoloSDK.ACCOUNT_REQUESTCODE: {
-			// 用户账号名
-			//userName = data.getStringExtra(JoloSDK.USER_NAME);
-			// 用户账号ID
-			userid = data.getStringExtra(JoloSDK.USER_ID);
-			// 账号的session，支付时使用
-			session = data.getStringExtra(JoloSDK.USER_SESSION);
-			// 用户帐号信息签名(聚乐公钥验签)，密文，CP对该密文用公钥进行校验
-			String accountSign = data.getStringExtra(JoloSDK.ACCOUNT_SIGN);
-			// 用户帐号信息，明文，用户加密的字符串
-			String account = data.getStringExtra(JoloSDK.ACCOUNT);
+        switch (requestCode) {
+            case JoloSDK.ACCOUNT_REQUESTCODE:
+                {
+                    // 用户账号名
+                    //userName = data.getStringExtra(JoloSDK.USER_NAME);
+                    // 用户账号ID
+                    userid = data.getStringExtra(JoloSDK.USER_ID);
+                    // 账号的session，支付时使用
+                    session = data.getStringExtra(JoloSDK.USER_SESSION);
+                    // 用户帐号信息签名(聚乐公钥验签)，密文，CP对该密文用公钥进行校验
+                    String accountSign = data.getStringExtra(JoloSDK.ACCOUNT_SIGN);
+                    // 用户帐号信息，明文，用户加密的字符串
+                    String account = data.getStringExtra(JoloSDK.ACCOUNT);
 
-            User usr   = new User();
-            usr.token  = accountSign;
-            usr.userId = account;
-            userListerner.onLoginSuccess(usr, loginCustomParams);
-		}
-			break;
-		case JoloSDK.PAY_REQUESTCODE: {
-            mPayCallBack.onSuccess("支付成功");
-		}
-			break;
-		default:
-			break;
-		}
-	};
-
-
+                    User usr   = new User();
+                    usr.token  = accountSign;
+                    usr.userID = account;
+                    userListerner.onLoginSuccess(usr, loginCustomParams);
+                }
+                break;
+            case JoloSDK.PAY_REQUESTCODE:
+                {
+                    mPayCallBack.onSuccess("支付成功");
+                }
+                break;
+            default:
+                break;
+        }
+    }
 }
 
