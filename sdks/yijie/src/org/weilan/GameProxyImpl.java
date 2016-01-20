@@ -168,7 +168,7 @@ public class GameProxyImpl extends GameProxy{
             }
 
             public void onOderNo(String orderNo) {
-                Toast.makeText( activity, "订单号 : " + orderNo, Toast.LENGTH_SHORT ).show();
+                //Toast.makeText( activity, "订单号 : " + orderNo, Toast.LENGTH_SHORT ).show();
             }
         });
     }
