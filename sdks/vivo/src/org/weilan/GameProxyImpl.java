@@ -261,6 +261,7 @@ public class GameProxyImpl extends GameProxy {
                     userListerner.onLoginSuccess(u, null);
 
                     new PaymentActionDetailsInit(activity, appid);
+                    VivoAccountManager.vivoAccountStartAssistView(activity);
                     Log.v("sdk", "vivo activity");
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
