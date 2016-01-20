@@ -295,8 +295,8 @@ public class GameProxyImpl extends GameProxy {
     //    userListerner.onLogout(customParams);
     //}
 
-    public void exit(Activity activity, ExitCallback callback) {
+    public void onDestroy(Activity activity) {
+        super.onDestroy( activity );
         VivoAccountManager.vivoAccountonDestroy(activity);
     }
-
 }
