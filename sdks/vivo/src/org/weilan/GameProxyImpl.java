@@ -294,4 +294,9 @@ public class GameProxyImpl extends GameProxy {
     //    activity.startActivityForResult(swithIntent, REQUEST_CODE_LOGIN);
     //    userListerner.onLogout(customParams);
     //}
+
+    public void exit(Activity activity, ExitCallback callback) {
+        VivoAccountManager.vivoAccountonDestroy(activity);
+    }
+
 }
