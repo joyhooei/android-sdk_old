@@ -983,8 +983,8 @@ class RulePyw(RuleBase):
     CH_NAME = '朋友玩小包'
     SDKTYPE = '68'
     PACKAGE_NAME = 'com.winnergame.pokemonpro.yq'
-    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.yq'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.pyw'
     CHANNEL_ID = 'pyw'
 
-    APPID = 'da150x41'
+    APPID = '2db467fa'
 
