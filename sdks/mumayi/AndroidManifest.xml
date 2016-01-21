@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="${PACKAGE_NAME}"
+      android:installLocation="auto"
+      android:versionCode="${VERSION_CODE}"
+      android:versionName="${VERSION_NAME}">
+
+    ${BASE_SDK_VERSION}
+
+    ${BASE_PERMISSION}
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+    <application android:name="org.weilan.MMYApp"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:debuggable="true">
+
+        ${BASE_ACTIVITY}
+
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+        <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
+        <meta-data android:name="UMENG_APPKEY" android:value="${UMENG_APPKEY}" />
+        <meta-data android:name="UMENG_CHANNEL" android:value="${CHANNEL_ID}"/>
+
+        <activity
+            android:name="com.mumayi.Proxy"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        <service android:name="com.mumayi.down.service.DownService" />
+        <service android:name="com.mumayi.paymentuserinfo.PaymentCenterDownLoadService" />
+        <service android:name="com.mumayi.paymentuserinfo.MMYService" />
+
+        <meta-data android:name="MMY-PID" android:value="KEY-8YCe1DwnvyQ" />
+        <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="DhNxS47YIr3CNdocGoAcy1ts" />
+        <meta-data android:name="MO9OPENSDK_MERCHANTID" android:value="bd@mumayi.com" />
+        <meta-data android:name="MO9OPENSDK_APPKEY" android:value="ZFJH" />
+    </application>
+
+    <supports-screens android:largeScreens="true"
+        android:smallScreens="true"
+        android:anyDensity="true"
+        android:normalScreens="true"/>
+
+</manifest>

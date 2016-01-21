@@ -976,4 +976,22 @@ class RuleTiantian(RuleBase):
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
 
+@register
+class RuleMumayi(RuleBase):
+    LABEL = 'mumayi'
+    DIRECTORY = 'mumayi'
+    CH_NAME = '木蚂蚁小包'
+    SDKTYPE = '66'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.mumayi'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.mmy'
+    CHANNEL_ID = 'mumayi'
+
+    APP_KEY = 'a192bfc26e8139fedUp2QhpSDo7KPdHZUXWQgKmFLNhaypH8PWwqzZdLfTAeYVLzuQZl'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleMumayi, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
+
 
