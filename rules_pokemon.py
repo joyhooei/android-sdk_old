@@ -33,6 +33,7 @@ class RuleBase(Rule):
         <activity android:name="org.weilan.poem"
                   android:label="@string/app_name"
                   android:screenOrientation="portrait"
+                  android:launcherMode="singleTask"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                   android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection">
         """ + ("" if not NATIVE_MAIN_BOOT else """
