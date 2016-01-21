@@ -19,7 +19,7 @@ import com.ltsdkgame.sdk.listener.LTCallback;
 import com.ltsdkgame.sdk.model.GameUserInfo;
 
 public class GameProxyImpl extends GameProxy{
-    private static boolean TEST_MODE = true;
+    private static boolean TEST_MODE = false;
 
     public boolean supportLogin() {
         return true;
@@ -62,6 +62,7 @@ public class GameProxyImpl extends GameProxy{
             public void callback(int code, String msg){
                 if( code == SDKState.Success ){
                     User usr = new User();
+                    usr.userID = "";
                     usr.token = msg;
                     userListerner.onLoginSuccess(usr, customParams);
                     SDKManager.initializeFloatWindow(activity);
