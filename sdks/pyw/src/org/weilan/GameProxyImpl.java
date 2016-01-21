@@ -72,7 +72,7 @@ public class GameProxyImpl extends GameProxy{
                 if (data != null) {
                     User user = (User) data.getSerializable(ISDKEventExtraKey.EXTRA_USER);
                     if (user != null) {
-                        userListerner.onLogout(null);
+                        //userListerner.onLogout(null);
                         org.weilan.User usr = new org.weilan.User();
                         usr.token  = user.getToken();
                         usr.userID = user.getUserId(); // 朋友玩为用户分配的唯一标识;
