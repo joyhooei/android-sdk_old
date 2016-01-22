@@ -997,6 +997,25 @@ class RuleMumayi(RuleBase):
         ]
 
 @register
+class RuleH07073(RuleBase):
+    LABEL = 'h07073'
+    DIRECTORY = 'h07073'
+    CH_NAME = '07073小包'
+    SDKTYPE = '67'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.shuyou'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.h07073'
+    CHANNEL_ID = 'h07073'
+
+    PID = '399'
+    APP_ID = '370'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleH07073, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
+
+@register
 class RulePyw(RuleBase):
     LABEL = 'pyw'
     DIRECTORY = 'pyw'

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="${PACKAGE_NAME}"
+      android:installLocation="auto"
+      android:versionCode="${VERSION_CODE}"
+      android:versionName="${VERSION_NAME}">
+
+    ${BASE_SDK_VERSION}
+
+    ${BASE_PERMISSION}
+
+    <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    
+    <application android:name="org.weilan.app"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:debuggable="true">
+
+        ${BASE_ACTIVITY}
+
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+        <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
+        <meta-data android:name="UMENG_APPKEY" android:value="${UMENG_APPKEY}" />
+        <meta-data android:name="UMENG_CHANNEL" android:value="${CHANNEL_ID}"/>
+
+        <activity
+            android:name="sy07073.mobile.game.sdk.activity.LoadPage" 
+            android:theme="@style/CY_DialogTheme"
+            android:screenOrientation ="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:configChanges="keyboardHidden|orientation|screenSize">
+        </activity>
+        
+        <activity
+		    android:name="com.alipay.sdk.app.H5PayActivity"
+			android:configChanges="orientation|keyboardHidden|navigation"
+			android:exported="false"
+			android:screenOrientation="behind" >
+		</activity>
+		<activity
+			android:name="com.alipay.sdk.auth.AuthActivity"
+			android:configChanges="orientation|keyboardHidden|navigation"
+			android:exported="false"
+			android:screenOrientation="behind" >
+		</activity>
+		
+		<activity        
+            android:name="sy07073.mobile.game.sdk.wxpay.paytendWXEntryActivity"
+            android:exported="true"
+            android:screenOrientation ="portrait"
+            android:launchMode="singleTop" />
+
+        <receiver android:name="sy07073.mobile.game.sdk.wxpay.AppReciver2" >
+            <intent-filter>
+                <action android:name="com.paytend.wxpay.plugin.recive" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+    <supports-screens android:largeScreens="true"
+                      android:smallScreens="true"
+                      android:anyDensity="true"
+                      android:normalScreens="true"/>
+</manifest>
