@@ -893,6 +893,7 @@ class RuleCCPlay(RuleBase):
 class RuleYYB(RuleBase):
     LABEL = 'yyb'
     DIRECTORY = 'yyb'
+    APPNAME = '神奇小精灵'
     CH_NAME = '应用宝小包'
     SDKTYPE = '24'
     PACKAGE_NAME = 'com.tencent.tmgp.com.winnergame.pokemon.weilan'
