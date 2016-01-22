@@ -140,11 +140,32 @@ public class GameProxyImpl extends GameProxy{
         try {
             JSONObject roleInfo = new JSONObject(ext);
 
+            String send_type = roleInfo.optString( "state" );
             String role_id = roleInfo.optString( "id" );
             String role_name = roleInfo.optString( "name" );
             String role_level = roleInfo.optString( "level" );
             String server_id = roleInfo.optString( "serverID" );
             String server_name = roleInfo.optString( "serverName" );
+
+            if( send_type.equals( "createRole" ) ) {
+                JSONObject gameInfo = new JSONObject();
+                gameInfo.put( "roleId", role_id );
+                gameInfo.put( "roleName", role_name );
+                gameInfo.put( "roleLevel", role_level );
+                gameInfo.put( "zoneId", server_id );
+                gameInfo.put( "zoneName", server_name );
+                SFOnlineHelper.setData( context, "createrole", gameInfo.toString() );
+            }
+
+            if( send_type.equals( "loginGameRole" ) ) {
+                JSONObject gameInfo = new JSONObject();
+                gameInfo.put( "roleId", role_id );
+                gameInfo.put( "roleName", role_name );
+                gameInfo.put( "roleLevel", role_level );
+                gameInfo.put( "zoneId", server_id );
+                gameInfo.put( "zoneName", server_name );
+                SFOnlineHelper.setData( context, "gamestart", gameInfo.toString() );
+            }
 
             SFOnlineHelper.setRoleData( context, role_id, role_name, role_level, server_id, server_name );
         } catch (JSONException e) {
