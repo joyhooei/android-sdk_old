@@ -92,7 +92,31 @@ public class GameProxyImpl extends GameProxy implements onLoginListener, onTrade
 
         // 获取当前用户信息
 		UserBean user = PaymentConstants.NOW_LOGIN_USER;
-		userCenter.loginOut( activity, user.getName(), null );
+        userCenter.loginOut( activity, user.getName(), new ResponseCallBack() {
+			@Override
+			public void onSuccess( Object obj ) {
+				try {
+					JSONObject loginoutJson = (JSONObject) obj;
+					String loginoutCode = loginoutJson.getString( "loginOutCode" );
+					if( loginoutCode.equals( "success" ) ) {
+                        userListerner.onLogout( null );
+                        if( floatInteface != null ) {
+                            floatInteface.close();
+                        }
+					} else {
+                        Toast.makeText( activity, "注销失败", Toast.LENGTH_SHORT ).show();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+                    Toast.makeText( activity, "注销失败", Toast.LENGTH_SHORT ).show();
+				}
+			}
+
+			@Override
+			public void onFail( Object obj ) {
+                Toast.makeText( activity, "注销失败", Toast.LENGTH_SHORT ).show();
+			}
+		});
     }
 
     /**
