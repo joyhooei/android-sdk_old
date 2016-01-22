@@ -151,7 +151,7 @@ public class GameProxyImpl extends GameProxy{
         // 厂商需要朋友玩回调时回传的参数，届时会原样返回
         String jsonParam = jobj.toString();
 
-        PYWPlatform.openChargeCenter(activity, price, (int) (price * 100), jsonParam, true);
+        PYWPlatform.openChargeCenter(activity, price, (int) (price * 10), jsonParam, true);
     }
 
     @Override
