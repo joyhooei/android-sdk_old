@@ -51,7 +51,7 @@
 
 		   <com.pptv.vassdk.ui.widget.PPTVDButton 
 	           android:id="@+id/pptvvas_reset_btn"
-	           style="@style/pptvvas4_button_arrow_blue"
+	           style="@style/pptvvas4_button_arrow_orange"
 	           android:layout_marginTop="15px"
 	           />
 	   </LinearLayout>

@@ -31,7 +31,7 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="60px"
-            android:background="@drawable/pptvvas4_gift_item_bg"
+            android:background="#121F27"
             android:id="@+id/pptvvas4_textview"
             android:gravity="center"
             android:paddingLeft="32px"
@@ -64,7 +64,7 @@
                 android:layout_height="fill_parent"
                 android:layout_alignParentRight="true"
                 android:gravity="center"
-                android:textColor="@color/pptvvas4_white"
+                android:textColor="@color/pptvvas4_listview_item_gray"
                 android:textSize="18px" />
         </RelativeLayout>
 
@@ -92,7 +92,7 @@
                 android:layout_height="fill_parent"
                 android:layout_toRightOf="@id/pptvvas4_orderamount_title"
                 android:gravity="center"
-                android:textColor="#ffae00"
+                android:textColor="#FEAE01"
                 android:textSize="30px" />
 
             
@@ -101,7 +101,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:gravity="center"
+                android:layout_toRightOf="@+id/pptvvas4_order_amount"
+                android:gravity="right|center_vertical"
                 android:textColor="@color/pptvvas4_white"
                 android:textSize="30px" />
         </RelativeLayout>

@@ -71,8 +71,9 @@
                     android:singleLine="true"
                     android:text="67"
                     android:paddingRight="20px"
-                    android:textColor="@color/pptvvas4_orange"
-                    android:textSize="30px" />
+                    android:textStyle="bold"
+                    android:textColor="#FEAC00"
+                    android:textSize="32px" />
 
                 <com.pptv.vassdk.ui.widget.PPTVDTextView
                     android:layout_width="wrap_content"
@@ -104,12 +105,12 @@
                     android:layout_width="210px"
                     android:layout_height="100px"
                     android:layout_marginLeft="62px"
-                    android:background="@drawable/pptvvas4_button_orange_bg_selector"
+                    android:background="@drawable/pptvvas4_gift_copy_btn_selector"
                     android:gravity="center"
                     android:text="领  取"
                     android:textColor="@color/pptvvas4_white"
-                    android:textSize="40px"
-                    android:textStyle="bold" />
+                    android:textSize="38px"
+                     />
             </LinearLayout>
 
             <View
@@ -125,7 +126,7 @@
                 android:paddingLeft="30px"
                 android:singleLine="true"
                 android:text="添加pp游戏微信公众账号PPTVGAME获得更多礼包信息~"
-                android:textColor="@color/pptvvas4_white"
+                android:textColor="#91949B"
                 android:textSize="30px" />
         </LinearLayout>
     </LinearLayout>
@@ -133,6 +134,6 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="1px"
-        android:background="@color/pptvvas4_white" />
+        android:background="#434B62" />
 
 </LinearLayout>

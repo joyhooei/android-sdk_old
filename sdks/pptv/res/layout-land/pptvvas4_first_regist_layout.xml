@@ -117,7 +117,7 @@
             </LinearLayout>
 
             <Button
-                style="@style/pptvvas4_button_arrow_blue"
+                style="@style/pptvvas4_button_arrow_orange"
                 android:layout_marginTop="10dp"
                 android:textSize="18sp"
                 android:id="@+id/regist_btn"

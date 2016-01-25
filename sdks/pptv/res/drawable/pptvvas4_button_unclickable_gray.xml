@@ -8,8 +8,8 @@
         android:color="@color/pptvvas4_gray_light" />
 	<gradient 
 	    
-	    android:startColor="#d3d5d6"
-	    android:endColor="#b5b7ba"
+	    android:startColor="#C1C2C4"
+	    android:endColor="#C0C2C1"
 	    android:angle="270"
 	    />
 

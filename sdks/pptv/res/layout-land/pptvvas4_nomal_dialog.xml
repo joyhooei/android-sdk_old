@@ -30,7 +30,7 @@
             android:layout_marginBottom="10px"
             android:layout_marginTop="20px"
             android:gravity="center"
-            android:textColor="@color/B_black"
+            android:textColor="#FF000000"
             android:textSize="40px" />
         
         <com.pptv.vassdk.ui.widget.PPTVDTextView 

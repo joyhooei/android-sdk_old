@@ -35,7 +35,7 @@
 
             <com.pptv.vassdk.ui.widget.PPTVDButton
                 android:id="@+id/regist_btn"
-                style="@style/pptvvas4_button_arrow_blue"
+                style="@style/pptvvas4_button_arrow_orange"
                 android:layout_marginTop="24px"
                 android:text="@string/pptvvas_regest_button_info" />
         </LinearLayout>

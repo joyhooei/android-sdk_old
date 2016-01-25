@@ -62,7 +62,7 @@
             android:layout_width="170px"
 			android:layout_height="fill_parent"
 			android:layout_margin="10px"
-			android:background="@drawable/pptvvas4_button_blue"
+			android:background="@drawable/pptvvas4_button_orange"
 			android:layout_alignParentRight="true"
 			android:layout_centerVertical="true"
 			android:visibility="gone"
