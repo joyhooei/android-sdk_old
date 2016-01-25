@@ -6,6 +6,6 @@
     android:bottomLeftRadius="@dimen/pptvvas_textview_radius"
     />
 
-    <solid android:color="@color/pptvvas4_blue_deep" />
+    <solid android:color="#D3D8DC" />
 
 </shape>

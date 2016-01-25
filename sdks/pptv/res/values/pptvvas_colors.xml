@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+    <color name="B_black">#FF000000</color>
+    <color name="C_white">#FFFFFFFF</color>
     <!-- 4.1 -->
     <color name="pptvvas4_coupon_gray">#CCCCCC</color>
     <color name="pptvvas4_coupon_yellow">#ffffff</color>
-    <color name="pptvvas4_pay_first_choice_gray_cash">#b1b6ba</color>
+    <color name="pptvvas4_pay_first_choice_gray_cash">#B1B5B8</color>
     <color name="pptvvas4_pay_cash_source_black">#2d2f32</color>
     <color name="pptvvas4_pay_cash_source_blue">#0982DF</color>
     <color name="pptvvas4_pay_cash_no_choice">#949494</color>
@@ -45,8 +46,9 @@
     <color name="normal_dialog_left_btn_text_color">#C1CFDB</color>
     
     <!-- 4.0 listview item color -->
-    <color name="pptvvas4_listview_item_gray">#bfc5cd</color>
-       <color name="pptvvas4_gift_list_line_gray">#293941</color>
+    <!-- <color name="pptvvas4_listview_item_gray">#bfc5cd</color> -->
+    <color name="pptvvas4_listview_item_gray">#BFC3CC</color>
+       <color name="pptvvas4_gift_list_line_gray">#37383C</color>
     <!-- button  -->
     <color name="pptvvas4_button_light_gray">#BDC2C3</color>
     <color name="pptvvas4_button_dark_gray">#534C4A</color>
@@ -122,9 +124,11 @@
     <color name="pptvvas_jun_amount_select_color">#DCDCDC</color>
     
     <!-- 4.1支付选择颜色 -->
-    <color name="pptvvas_pay_choice_gray">#CACDCD</color>
+    <color name="pptvvas_pay_choice_gray">#CCCDCF</color>
     <color name="pptvvas_pay_choice_black">#5c6064</color>
     <!-- 4.3 -->
     <color name="pptvvas4_pay_msg_title_yellow">#f7b924</color>
     <color name="pptvas4_pay_msg_btn_orange">#eb5323</color>
+    <!-- 4.5 -->
+    <color name="pptvvas4_accountsetting_deep_gray">#32373B</color>
 </resources>

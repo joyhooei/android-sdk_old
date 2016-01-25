@@ -24,7 +24,7 @@
        android:id="@+id/pptvvas4_giftitem_grade"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:textColor="@color/pptvvas4_orange_deep"
+       android:textColor="#FF9501"
        android:textSize="24px"
        android:text="19"
        />

@@ -3,6 +3,28 @@
 
     <!-- 4.0 -->
     
+    <!-- 橙色按钮-->
+    <style name="pptvvas4_button_arrow_orange">
+        <item name="android:layout_width">@dimen/pptvvas_button_width</item>
+        <item name="android:layout_height">@dimen/pptvvas_button_height</item>
+        <item name="android:textColor">@color/pptvvas4_white</item>
+        <item name="android:textSize">@dimen/pptvvas_button_textsize</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingRight">20px</item>
+        <item name="android:paddingLeft">20px</item>
+        <item name="android:background">@drawable/pptvvas4_button_orange</item>
+        <item name="android:drawableRight">@drawable/pptvvas4_go_white</item>
+        <item name="android:drawableLeft">@drawable/pptvvas4_go_transparent</item>
+    </style>
+    <style name="pptvvas4_button_orange_small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/pptvvas4_white</item>
+        <item name="android:textSize">15px</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/pptvvas4_button_orange</item>
+    </style>
     <!-- 蓝色按钮-->
     <style name="pptvvas4_button_arrow_blue">
         <item name="android:layout_width">@dimen/pptvvas_button_width</item>

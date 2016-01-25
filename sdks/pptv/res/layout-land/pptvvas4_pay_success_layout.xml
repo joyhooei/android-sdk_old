@@ -8,7 +8,7 @@
     <com.pptv.vassdk.ui.widget.PPTVDTextView 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/C_white"
+        android:textColor="@color/pptvvas4_white"
         android:id="@+id/show_pay_success_tx"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
@@ -18,7 +18,7 @@
     
     <com.pptv.vassdk.ui.widget.PPTVDButton
         android:id="@+id/pptvvas_confirm_btn"
-        style="@style/pptvvas4_button_arrow_blue"
+        style="@style/pptvvas4_button_arrow_orange"
         android:layout_marginBottom="35px"
         android:layout_below="@+id/show_pay_success_tx"
         android:layout_centerHorizontal="true"

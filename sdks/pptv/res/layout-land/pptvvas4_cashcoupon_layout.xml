@@ -49,5 +49,14 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:visibility="gone" />
+    
+    <com.pptv.vassdk.ui.widget.PPTVDTextView 
+        android:id="@+id/pptvvas_empty_text"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:visibility="gone"
+		android:textSize="14sp"
+        />
 
 </com.pptv.vassdk.ui.widget.BackRelativeLayout>

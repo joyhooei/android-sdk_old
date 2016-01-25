@@ -10,7 +10,7 @@
         android:layout_height="80px"
         android:background="@color/pptvvas4_transparent_black"
          android:layout_marginTop="@dimen/pptvvas_topbar_two_height_portrait"
-        android:textColor="@color/C_white"
+        android:textColor="@color/pptvvas4_white"
         android:gravity="center"
         android:textSize="32px" />
 

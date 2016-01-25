@@ -91,7 +91,7 @@
                 android:layout_height="fill_parent"
                 android:layout_toRightOf="@id/pptvvas4_orderamount_title"
                 android:gravity="center"
-                android:textColor="#ffae00"
+                android:textColor="#FEAE01"
                 android:textSize="30px" />
 
             
@@ -100,7 +100,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:gravity="center"
+                android:layout_toRightOf="@+id/pptvvas4_order_amount"
+                android:gravity="right|center_vertical"
                 android:textColor="@color/pptvvas4_white"
                 android:textSize="30px" />
         </RelativeLayout>
