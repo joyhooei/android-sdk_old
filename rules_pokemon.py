@@ -619,7 +619,7 @@ WL_CHANNELS = [
     ( '17',        '17',   'P10140A', ),
     ( '18',        '18',   'P10141A', ),
     ( '19',        '19',   'P10142A', ),
-    ( '20',        '20',   'P10143A', ),
+    #( '20',        '20',   'P10143A', ),
 ]
 for label, name, project_id in WL_CHANNELS:
     register(type('RuleWeilan%s' % label, (RuleWeilan,), dict(
@@ -629,6 +629,29 @@ for label, name, project_id in WL_CHANNELS:
         CHANNEL_ID = label,
         CHANNEL = label,
     )))
+
+@register
+class RuleWeilanYyb(RuleBase):
+    LABEL = 'weilanyyb'
+    DIRECTORY = 'weilan'
+    CH_NAME = '微蓝_应用宝_小包'
+    SDKTYPE = '49'
+    PACKAGE_NAME = 'com.tencent.tmgp.klsqxjl'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
+    CHANNEL_ID = 'weilan_yyb'
+    CHANNEL = ''
+
+    APP_KEY    = '5i29qfd23a4bghaswx9w'
+    APP_SECRET = 'psyvmyra6f7of4sacvpu'
+    SERVER_ID  = 'M1028A'
+    PROJECT_ID = 'P10143A'
+    PRODUCT_ID = 'D10053A'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleWeilanYyb, cls).rules() + [
+            ('src/org/weilan/WLSdkConfig.java', 'replace', cls.common_replaces()),
+        ]
 
 @register
 class RuleLenovo(RuleBase):
