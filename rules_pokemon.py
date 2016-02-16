@@ -639,7 +639,7 @@ class RuleWeilanYyb(RuleBase):
     PACKAGE_NAME = 'com.tencent.tmgp.klsqxjl'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.weilan'
     CHANNEL_ID = 'weilan_yyb'
-    CHANNEL = ''
+    CHANNEL = 'weilan_yyb'
 
     APP_KEY    = '5i29qfd23a4bghaswx9w'
     APP_SECRET = 'psyvmyra6f7of4sacvpu'
