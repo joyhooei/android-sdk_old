@@ -46,6 +46,8 @@ public class GameProxyImpl extends GameProxy{
                 if (data != null) {
                     User user = (User) data.getSerializable(ISDKEventExtraKey.EXTRA_USER);
                     if (user != null) {
+                        // show float view
+                        FloatViewTool.instance(activity).showFloatView();
                         org.weilan.User usr = new org.weilan.User();
                         usr.token  = user.getToken();
                         usr.userID = user.getUserId(); // 朋友玩为用户分配的唯一标识;
@@ -73,6 +75,8 @@ public class GameProxyImpl extends GameProxy{
                     User user = (User) data.getSerializable(ISDKEventExtraKey.EXTRA_USER);
                     if (user != null) {
                         //userListerner.onLogout(null);
+                        // show float view
+                        FloatViewTool.instance(activity).showFloatView();
                         org.weilan.User usr = new org.weilan.User();
                         usr.token  = user.getToken();
                         usr.userID = user.getUserId(); // 朋友玩为用户分配的唯一标识;
