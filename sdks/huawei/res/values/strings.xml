@@ -1,5 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">${APPNAME}</string>
     <string name="crash_toast_text">啊哦，一不小心崩溃啦 = =||| </string>
     <string name="channel_id">dummy</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="page1tips">点击按钮进行登录</string>
+    <string name="login">登录华为账号</string>
+    <string name="start">初始化-登录</string>
+    <string name="async_login">异步登录</string>
+    <string name="rank_test">测试排行功能</string>
+    <string name="add_rank">提交排行数据</string>
+    <string name="rank_list">获取排行列表</string>
+    <string name="player_rank">获取玩家排行信息</string>
+    <string name="logout">退出华为账号</string>
+    <string name="pay">进行华为支付</string>
+    <string name="title_activity_game">支付、浮标界面</string>
+    <string name="title_activity_login">登录界面</string>
+    <string name="buy_prop">购买道具</string>
+    <string name="prop_tip">请填写道具信息</string>
+    <string name="rank_tip">请填写排行信息</string>
+    <string name="prop_name">道具名称：</string>
+    <string name="price">价格（元）：</string>
+    <string name="prop_desc">道具描述：</string>
+    <string name="login_fail">登录失败！</string>
+    <string name="begin_pay">付款</string>
+    <string name="request_id">requestId：</string>
+    <string name="gamepage">登录成功，欢迎进入游戏</string>
+    <string name="item_tips">注：\n1、道具名称和描述不能存在字符： &#035;&#036;&#094;&#038;&#042;&#041;&#061;&#124;&#034;&#044;&#047;&#060;&#062;\\&#063;&#058;\n2、价格精确到小数点后两位，单位是元</string>
+	<string name="rank_id">排行榜列表Id:</string>
+	<string name="rank_name">排行榜名称:</string>
+	<string name="rank_minNum">最小值:</string>
+	<string name="rank_maxNum">最大值:</string>
+	<string name="rank_value">排行分数:</string>
+	<string name="rank_desc">排行单位描述:</string>
+	<string name="rank_order_type">排序方式:0 降序,1 升序</string>
+	<string name="add_rank_btn">点击提交排行数据</string>
+	<string name="rank_req_page_num">请求的页数:</string>
+	<string name="rank_max_num">单页最大条数:</string>
+	<string name="rank_rule">排行规则 0：当日排行 1：7天排行 2：总排行:</string>
+	<string name="rank_list_btn">点击获取排行列表数据</string>
+	<string name="rank_player_btn">点击获取玩家排行数据</string>
+	<string name="recharge">充值</string>
+
 </resources>

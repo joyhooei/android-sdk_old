@@ -1,0 +1,134 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/game_background"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".GameActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/beginbuy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/buy_prop" />
+
+        <TextView
+            android:id="@+id/buytips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/prop_tip"
+            android:textSize="25sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/namelinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/prop_name" />
+
+            <EditText
+                android:id="@+id/productName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pricelinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/price" />
+
+            <EditText
+                android:id="@+id/productPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/desclinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/prop_desc" />
+
+            <EditText
+                android:id="@+id/productDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/requestLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/request_id" />
+
+            <TextView
+                android:id="@+id/requestId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/paymoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:gravity="center"
+            android:text="@string/begin_pay"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/itemTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip"
+            android:layout_weight="3"
+            android:gravity="left"
+            android:text="@string/item_tips"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</ScrollView>
