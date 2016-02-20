@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ll_login_background"
+    android:orientation="vertical"
+    android:padding="14dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:text="亲，为了您的账号安全请绑定手机号码"
+            android:textColor="@color/ll_yellow"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_band_fl_group_01"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/ll_edit_verify_btn_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="立即绑定"
+            android:textColor="#525252"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_band_fl_group_03"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/ll_edit_verify_btn_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="绑定完成"
+            android:textColor="#525252"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_band_fl_group_02"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/ll_edit_verify_btn_selector"
+        android:clickable="true"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:id="@+id/ll_band_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="5秒后自动取消"
+                android:textColor="#525252"
+                android:textSize="16sp" />
+
+            <ProgressBar
+                android:id="@+id/ll_cancel_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/ll_progressbar_color" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

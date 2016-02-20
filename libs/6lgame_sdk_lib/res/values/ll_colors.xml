@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ll_black">#000000</color>
+    <color name="ll_black_lintext">#626262</color>
+    <color name="ll_transparent">#00000000</color>
+    <color name="ll_error_msg_color">#e52e1b</color>
+    <color name="ll_login_edit_hint">#ababab</color>
+    <color name="ll_light_black">#333333</color>
+    <color name="ll_white">#FFFFFF</color>
+    <color name="ll_yellow">#FF8C00</color>
+    <color name="ll_ucenter_bg">#f5f5f5</color>
+    <color name="ll_ucenter_title_bg">#fdfdfd</color>
+    <color name="ll_ucenter_navi_text_color_pressed">#ff7800</color>
+    <color name="ll_ucenter_info_text">#969696</color>
+    <color name="ll_ucenter_btn_text">#686868</color>
+    <color name="ll_ucenter_msg_unread">#f73333</color>
+    <color name="ll_color_login_box_gb">#d5d5d5</color>
+    <color name="ll_retrieve_font_blue">#00c1ee</color>
+    <color name="ll_retrieve_font_grey">#ababab</color>
+    <color name="ll_grey">#e5e5e5</color>
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/ll_title_height"
+    android:background="@drawable/ll_action_bar_bg"
+    android:paddingBottom="0dp" >
+
+    <LinearLayout
+        android:id="@+id/ll_head_back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/ll_back_btn_selector"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ll_back_ic" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ll_head_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/ll_ucenter_navi_text_color_pressed"
+        android:textSize="22sp" />
+
+    <RelativeLayout
+        android:id="@+id/ll_error_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ll_login_box_tips_bg"
+        android:clickable="true"
+        android:paddingBottom="0dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="0dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/ll_error_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/ll_login_tips_warning_icon"
+            android:textColor="@color/ll_error_msg_color"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_error_exit"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ll_back_btn_selector"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ll_tips_closed_selector" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

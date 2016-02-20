@@ -1050,3 +1050,17 @@ class RulePyw(RuleBase):
 
     APPID = '2db467fa'
 
+@register
+class RuleLiulian(RuleBase):
+    LABEL = 'liulian'
+    DIRECTORY = 'liulian'
+    CH_NAME = '榴莲小包'
+    SDKTYPE = '69'
+    PACKAGE_NAME = 'com.tencent.tmgp.mcxjl.ll'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.ll'
+    CHANNEL_ID = 'liulian'
+
+    APPID = '69f0456c269a8dff6cfae986679b55ae'
+    APPKEY = 'acab48e810a53c0182e49762d39c9efc'
+    PRIVATEKEY = '545908c7a34c01112cbd36cb78dd9e01'
+

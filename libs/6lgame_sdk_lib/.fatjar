@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon Aug 03 20:13:33 CST 2015
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=6lgame_sdk_lib_fat.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=
