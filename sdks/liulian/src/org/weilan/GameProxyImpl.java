@@ -13,11 +13,11 @@ import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
 
-import com.cd.ll.game.sdk.SDKCallBackListener;
-import com.cd.ll.game.sdk.SDKCallbackListenerNullException;
+import com.liulian.game.sdk.SdkManager;
 import com.liulian.game.sdk.LiulianSdkSetting;
 import com.liulian.game.sdk.SDKStatusCode;
-import com.liulian.game.sdk.SdkManager;
+import com.cd.ll.game.sdk.SDKCallBackListener;
+import com.cd.ll.game.sdk.SDKCallbackListenerNullException;
 
 public class GameProxyImpl extends GameProxy{
     private Activity curActivity;
