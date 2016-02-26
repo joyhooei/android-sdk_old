@@ -244,17 +244,22 @@ public class GameProxyImpl extends GameProxy {
     }
 
     @Override
-    public void onStop(Activity activity) {
-        super.onStop(activity);
-        BDGameSDK.closeFloatView(currentActivity);
-        mActivityAdPage.onStop();
-    }
-
-    @Override
     public void onPause(Activity activity) {
         super.onPause(activity);
         mActivityAdPage.onPause();
         mActivityAnalytics.onPause();
+    }
+
+    @Override
+    public void onStop(Activity activity) {
+        super.onStop(activity);
+        mActivityAdPage.onStop();
+    }
+
+    @Override
+    public void finish(Activity activity) {
+        BDGameSDK.closeFloatView(activity);
+        super.finish(activity);
     }
 
 }

@@ -297,6 +297,7 @@ public class GameProxyImpl extends GameProxy {
 
     public void onDestroy(Activity activity) {
         super.onDestroy( activity );
+        VivoAccountManager.getInstance(activity).unRegistListener(mOnVivoAccountChangedListener);
         VivoAccountManager.vivoAccountonDestroy(activity);
     }
 }
