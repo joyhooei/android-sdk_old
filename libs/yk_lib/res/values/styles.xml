@@ -28,6 +28,11 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
     
+         <style name="videomanger_dialog" >
+          <item name="android:windowFullscreen">true</item> 
+         <item name="android:windowNoTitle">true</item>
+    </style>
+    
      <style name="pay_dialog" parent="@android:style/Theme.Dialog">
          <item name="android:windowFrame">@null</item>
          <item name="android:windowNoTitle">true</item>
@@ -92,7 +97,17 @@
 	  <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>
 	 </style>
 	 
+	 <style name="YKDelCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">  
+    <item name="android:button">@drawable/yk_video_del_check_selector</item>  
+	</style>  
 	 
+	 <style name="YKCheckboxFirs" parent="@android:style/Widget.CompoundButton.CheckBox">  
+     <item name="android:button">@drawable/yk_video_setting_style</item>  
+	 </style>
+	 <style name="YKCheckboxSec" parent="@android:style/Widget.CompoundButton.CheckBox">  
+     <item name="android:button">@drawable/yk_video_setting_definition</item>  
+	 </style>
+
 	 <!--微信 -->
 	     <style name="WXNavPage">
         <item name="android:layout_width">fill_parent</item>

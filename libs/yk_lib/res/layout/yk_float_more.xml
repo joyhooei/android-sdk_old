@@ -210,6 +210,26 @@
                 android:layout_width="@dimen/YK_GameSDK_94PX"
                 android:layout_height="@dimen/YK_GameSDK_80PX"
                 android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
+            <ImageView
+                android:id="@+id/yk_float_pre_img_07"
+                android:layout_width="@dimen/YK_GameSDK_94PX"
+                android:layout_height="@dimen/YK_GameSDK_80PX"
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
+            <ImageView
+                android:id="@+id/yk_float_pre_img_08"
+                android:layout_width="@dimen/YK_GameSDK_94PX"
+                android:layout_height="@dimen/YK_GameSDK_80PX"
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
+            <ImageView
+                android:id="@+id/yk_float_pre_img_09"
+                android:layout_width="@dimen/YK_GameSDK_94PX"
+                android:layout_height="@dimen/YK_GameSDK_80PX"
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
+            <ImageView
+                android:id="@+id/yk_float_pre_img_10"
+                android:layout_width="@dimen/YK_GameSDK_94PX"
+                android:layout_height="@dimen/YK_GameSDK_80PX"
+                android:layout_marginRight="@dimen/YK_GameSDK_16PX" />
         </LinearLayout>
     </LinearLayout>
 

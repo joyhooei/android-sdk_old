@@ -51,7 +51,7 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="@dimen/YK_GameSDK_552PX"
         android:layout_height="1dp"
         android:background="@color/yk_title_line" >
     </LinearLayout>

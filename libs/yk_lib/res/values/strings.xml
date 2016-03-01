@@ -46,7 +46,16 @@
   	 <string name="yk_text_fwtgs_yk">服务提供商：优酷土豆。客服电话：4007766368</string>
   	 <string name="yk_text_prompt_buy_msg">将通过手机话费支付方式购买，可能会收到计费通知短信。</string>
   	 <string name="yk_text_ykgame_pay">优酷游戏支付</string>
+  	 <string name="yk_text_video_setting_upload">是否自动上传录制视频：</string>
+  	 <string name="yk_text_video_setting_record">是否录制声音：</string>
+  	 <string name="yk_text_video_setting_network">是否在2G/3G/4G网络下上传视频：</string>
+  	 <string name="yk_text_video_setting_definition">清晰度选择：</string>
+  	 <string name="yk_text_video_setting_superclear">超清</string>
+  	 <string name="yk_text_video_setting_highdefinition">高清</string>
+  	 <string name="yk_text_video_setting_standardfinition">标清</string>
+  	 <string name="yk_button_video_setting_text">保 存</string>
   	 <string name="yk_text_ykgame_paydetails">交易明细</string>
+  	 <string name="yk_text_ykgame_videoSetting">录屏设置</string>
   	 <string name="yk_text_viplist_title">会员特权礼包</string>
   	 <string name="yk_text_msg_title">消息中心</string>
   	 <string name="yk_text_ykgame_announcement_title">公告</string>
