@@ -1063,3 +1063,23 @@ class RuleLiulian(RuleBase):
     APPKEY = 'acab48e810a53c0182e49762d39c9efc'
     PRIVATEKEY = '545908c7a34c01112cbd36cb78dd9e01'
 
+
+@register
+class RuleMoge(RuleBase):
+    LABEL = 'moge'
+    DIRECTORY = 'moge'
+    CH_NAME = '魔格小包'
+    SDKTYPE = '70'
+    PACKAGE_NAME = 'com.winnergame.pokemonpro.mg'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.mg'
+    CHANNEL_ID = 'moge'
+
+    APP_ID = '30'
+    GAME_ID = '37'
+    AGENT = 'default'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleMoge, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
