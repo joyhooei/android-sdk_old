@@ -55,8 +55,7 @@ public class GameProxyImpl extends GameProxy{
                 // 登录成功
                 User u = new User();
                 u.userID = logincallback.username;
-                u.token = logincallback.sign;
-                u.loginTime = Long.toString( logincallback.logintime );
+                u.token = logincallback.sign + "_" + Long.toString( logincallback.logintime );
                 userListerner.onLoginSuccess(u, customParams);
 
                 // 显示浮点
