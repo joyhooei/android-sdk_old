@@ -52,7 +52,7 @@
         <activity
             android:name="com.liulian.game.sdk.activity.SDKActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@style/ll_Activity_Transparent"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
