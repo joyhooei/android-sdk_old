@@ -12,6 +12,7 @@
         android:id="@+id/serial"
 		style="@style/m4399RecSerPwdAreaStyle"
 		android:textCursorDrawable="@null"
+		android:imeOptions="actionNext"
         android:hint="@string/m4399_rec_input_card_serial">
     </EditText>
 
@@ -20,6 +21,7 @@
      	style="@style/m4399RecSerPwdAreaStyle"
      	android:layout_marginBottom="0dp"
      	android:textCursorDrawable="@null"
+     	android:imeOptions="actionDone"
         android:hint="@string/m4399_rec_input_card_psword"/>
 
 </LinearLayout>

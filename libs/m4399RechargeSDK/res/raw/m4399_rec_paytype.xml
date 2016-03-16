@@ -36,17 +36,43 @@
         <instructiron insLink="m4399_rec_ins_link_sms_dianxin" insTitle="m4399_rec_ins_sms_dianxin_title" />
         <telephone>m4399_rec_hotline_dianxin</telephone>
     </paytype>
+    <paytype id="117">
+        <shortname>m4399_rec_duanxincz</shortname>
+        <page title="m4399_rec_duanxincz" />
+        <instructiron insLink="m4399_rec_ins_link_sms_dianxin" insTitle="m4399_rec_ins_sms_dianxin_title" />
+    </paytype>
     <paytype id="80">
         <shortname>m4399_rec_duanxincz</shortname>
         <page title="m4399_rec_duanxincz" />
         <instructiron insLink="m4399_rec_ins_link_sms_liantong" insTitle="m4399_rec_ins_sms_liantong_title" />
         <telephone>m4399_rec_hotline_liantong</telephone>
     </paytype>
-    <paytype id="84">
+    <paytype id="118">
+        <shortname>m4399_rec_duanxincz</shortname>
+        <page title="m4399_rec_duanxincz" />
+        <instructiron insLink="m4399_rec_ins_link_sms_liantong" insTitle="m4399_rec_ins_sms_liantong_title" />
+    </paytype>
+    <paytype id="86">
         <shortname>m4399_rec_duanxincz</shortname>
         <page title="m4399_rec_duanxincz" />
         <instructiron insLink="m4399_rec_ins_link_sms_yidong" insTitle="m4399_rec_ins_sms_yidong_title" />
         <telephone>m4399_rec_hotline_yidong</telephone>
+    </paytype>
+    <paytype id="116">
+        <shortname>m4399_rec_duanxincz</shortname>
+        <page title="m4399_rec_duanxincz" />
+        <instructiron insLink="m4399_rec_ins_link_sms_yidong" insTitle="m4399_rec_ins_sms_yidong_title" />
+    </paytype>
+    <!-- paytype id="84">
+        <shortname>m4399_rec_duanxincz</shortname>
+        <page title="m4399_rec_duanxincz" />
+        <instructiron insLink="m4399_rec_ins_link_sms_yidong" insTitle="m4399_rec_ins_sms_yidong_title" />
+        <telephone>m4399_rec_hotline_yidong</telephone>
+    </paytype-->
+    <paytype id="89">
+        <shortname>m4399_rec_wx</shortname>
+        <page title="m4399_rec_wx_paytype_short_name" />
+        <instructiron insLink="m4399_rec_ins_link_wx" insTitle="m4399_rec_ins_link_wx_title" />
     </paytype>
     <paytype id="-1">
         <description>This is an unregister pay type, which be consider sms-type.</description>

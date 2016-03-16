@@ -21,6 +21,7 @@
         android:paddingLeft="10dp"
         android:textColor="#111111"
         android:textCursorDrawable="@null"
+        android:imeOptions="actionNext"
         android:textSize="13sp" >
     </EditText>
 
@@ -36,6 +37,7 @@
         android:paddingLeft="10dp"
         android:textColor="#111111"
         android:textCursorDrawable="@null"
+        android:imeOptions="actionDone"
         android:textSize="13sp" />
 
 </LinearLayout>

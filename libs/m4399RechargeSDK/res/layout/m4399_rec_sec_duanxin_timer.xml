@@ -27,7 +27,8 @@
             android:gravity="center"
             android:text="@string/m4399_rec_duanxin_timer"
             android:textColor="#333333"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 

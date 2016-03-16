@@ -47,7 +47,8 @@
 
         <Button
             android:id="@+id/base_dialog_left_btn"
-           	style="@style/m4399BaseDialogBtnStyle"/>
+           	style="@style/m4399BaseDialogBtnStyle"
+           	android:background="@drawable/m4399_com_base_dialog_white_btn_bg"/>
 
         <Button
             android:id="@+id/base_dialog_right_btn"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <dimen name="m4399_rec_page_height">285dp</dimen>
+    <dimen name="m4399_rec_page_height">275dp</dimen>
     <dimen name="m4399_rec_page_width">420dp</dimen>
     <dimen name="m4399_rec_title_height">38dp</dimen>
     <dimen name="m4399_rec_title_iv_txt_spacing">4dp</dimen>
@@ -31,5 +31,11 @@
     <dimen name="m4399_rec_record_item_height">40dp</dimen>
     <dimen name="m4399_rec_record_header_text_size">17sp</dimen>
     <dimen name="m4399_rec_record_item_text_size">15sp</dimen>
+    <dimen name="m4399_rec_liantong_cfm_captcha_padding">8sp</dimen>
+    
+    <dimen name="spacing_xlarge">20dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_normal">12dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
 
 </resources>

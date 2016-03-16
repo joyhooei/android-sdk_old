@@ -4,8 +4,10 @@
     <!--  -->
     <string name="m4399_ope_prompt_debug_mode">请注意： 这是Debug状态 SDK，游戏发布时请务必关闭Debug开关！</string>
     <string name="m4399_ope_prompt_sdk_version">4399运营SDK-</string>
+    <string name="m4399_opre_prompt_permision_miss">检查到您缺少权限：%s，请到AndroidManifext.xml中设置</string>
     <string name="m4399_ope_prompt_know_and_close">我知道了</string>
     <string name="m4399_ope_load_webview_error">打开网页出错</string>
+    <string name="m4399_ope_download_gamecenter_tips">您还没有下载安装游戏盒，不能进入活动页面。正在为您下载，请稍候</string>
     <!-- For user center -->
     <string name="m4399_ope_usercenter_youbi_pre_label">游币余额</string>
     <string name="m4399_ope_usercenter_youbi_unit">枚</string>
@@ -77,6 +79,7 @@
     <string name="m4399_ope_dialog_update_title">游戏更新（%s版)</string>
     <string name="m4399_ope_dialog_install_title">安装新版本（%s版)</string>
     <string name="m4399_ope_dialog_downloding_msg">游戏升级中，请耐心等待&#8230;</string>
+    <string name="m4399_ope_dialog_prepare_apk">下载已完成，安装准备中</string>
     <string name="m4399_ope_dialog_size_label">大小：</string>
     <string name="m4399_ope_dialog_update_time">时间：%s</string>
     <string name="m4399_ope_action_cancel">取消</string>
@@ -93,9 +96,12 @@
     <string name="m4399_ope_update_force_hint">再次点击，退出游戏</string>
     <string name="m4399_ope_update_invlid_check">已经打开自动更新开关，手动更新无效，通知运营关闭此开关才可生效</string>
     <string name="m4399_ope_update_quit_game">退出游戏</string>
+    <string name="m4399_ope_update_retry_check">重新检查</string>
     <string name="m4399_ope_update_quit_game_title">你要退出游戏吗？</string>
     <string name="m4399_ope_stay_at_game">留在游戏</string>
     <string name="m4399_ope_stay_msg">享受更多精彩游戏内容</string>
+    <string name="m4399_ope_network_error_when_downloading">网络不太对劲，换个试试吧或等下再更新</string>
+    <string name="m4399_ope_install_abnormal_apk">糟糕，检查到安装包有错，请您重新尝试</string>
     
 
     <!-- For pre-pay -->
@@ -122,7 +128,8 @@
     <string name="m4399_ope_pop_close_warning">弹窗已关闭，下次启动游戏时将重启弹窗</string>
 
     <!-- 弹窗内容 的第一手资料、最及时的礼包攻略？快来下载4399游戏盒，这一切唾手可得！ -->
-    <string name="m4399_ope_pop_title">下载游戏盒</string>
+    <string name="m4399_ope_pop_title_download_gbox">下载游戏盒</string>
+    <string name="m4399_ope_pop_title">前往游戏盒</string>
     <string name="m4399_ope_pop_game_circle_msg">游戏圈是%1$s玩家的聚集地，在这里你能遇到游戏高手，解答各种问题！快来下载游戏盒加入吧～</string>
     <string name="m4399_ope_pop_gift_bag_msg">%1$s的最新礼包一网打尽，各种好礼送不停。快来下载游戏盒，加入礼包土豪行列吧～</string>
     <string name="m4399_ope_pop_user_raiders_msg">%1$s的最新攻略一网打尽，各种游戏视频助你过关斩将！快下载游戏盒，加入成为游戏高手吧~</string>

@@ -24,13 +24,6 @@
         android:text="@string/m4399_rec_record_porder" />
 
     <TextView
-        android:id="@+id/tv_record_pmoney"
-		style="@style/m4399HistoryRecordHeaderStyle"
-		android:layout_weight="@integer/m4399_rec_record_row_pmoney_weight"
-		android:layout_marginRight="1dp"
-        android:text="@string/m4399_rec_record_pmoney" />
-
-    <TextView
         android:id="@+id/tv_record_pstate"
 		style="@style/m4399HistoryRecordHeaderStyle"
 		android:layout_weight="@integer/m4399_rec_record_row_pstate_weight"

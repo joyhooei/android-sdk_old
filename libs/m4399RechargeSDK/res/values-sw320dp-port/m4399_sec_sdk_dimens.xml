@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <dimen name="m4399_rec_page_height">450dp</dimen>
-    <dimen name="m4399_rec_page_width">280dp</dimen>
+    <dimen name="m4399_rec_page_height">454dp</dimen>
+    <dimen name="m4399_rec_page_width">275dp</dimen>
     <dimen name="m4399_rec_title_height">42dp</dimen>
     <dimen name="m4399_rec_separator_height">1dp</dimen>
     <dimen name="m4399_rec_paddingTop">4dp</dimen>

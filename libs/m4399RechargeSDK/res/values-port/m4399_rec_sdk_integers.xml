@@ -7,7 +7,6 @@
     <integer name="m4399_rec_result_frag_result_weight">2</integer>
     <integer name="m4399_rec_record_row_ptime_weight">7</integer>
     <integer name="m4399_rec_record_row_porder_weight">10</integer>
-    <integer name="m4399_rec_record_row_pmoney_weight">5</integer>
     <integer name="m4399_rec_record_row_pstate_weight">6</integer>
 
 </resources>

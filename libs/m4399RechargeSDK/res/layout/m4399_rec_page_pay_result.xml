@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/m4399RecPageStyle"
-    android:layout_width="@dimen/m4399_rec_page_width"
-    android:layout_height="@dimen/m4399_rec_page_height" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
     <include
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
         android:layout_marginLeft="@dimen/m4399_rec_paddingLeft"
         android:layout_marginRight="@dimen/m4399_rec_paddingLeft"
         android:layout_marginTop="12dp"
-        android:layout_weight="3"
+        android:layout_weight="3.5"
         android:gravity="center_horizontal|top"
         android:orientation="horizontal" >
 
@@ -58,21 +58,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             layout="@layout/m4399_rec_result_order_area" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/m4399_rec_single_btn_marginBottom"
-        android:layout_marginLeft="@dimen/m4399_rec_paddingLeft"
-        android:layout_marginRight="@dimen/m4399_rec_paddingLeft"
-        android:gravity="center"
-        android:orientation="vertical" >
-
-        <include
-            android:layout_width="fill_parent"
-            android:layout_height="@dimen/m4399_rec_sum_btns_eara_height"
-            layout="@layout/m4399_rec_sec_single_btn_area" />
     </LinearLayout>
 
     <LinearLayout
