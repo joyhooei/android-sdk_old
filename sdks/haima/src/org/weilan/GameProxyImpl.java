@@ -110,7 +110,7 @@ public class GameProxyImpl extends GameProxy implements OnLoginListener,
     @Override
     public void onLoginSuccess(ZHPayUserInfo arg0) {
         User u = new User();
-        u.userID = arg0.getUid();
+        u.userID = arg0.userId;
         u.token = arg0.getLoginToken();
         userListerner.onLoginSuccess(u, mCustomParam);
     }

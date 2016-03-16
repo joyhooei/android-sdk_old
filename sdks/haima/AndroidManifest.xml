@@ -47,65 +47,76 @@
         android:name="HM_GAME_CHANNEL"
         android:value="${HM_GAME_CHANNEL}" />
 
-        <!--	  SDK 中用到的 Activity(包括第三方)	  BEGIN	  -->	  
-        <!--	  SDK	  Activity	  BEGIN	  -->
-        <activity	  
-            android:name="com.haima.loginplugin.activities.ZHLoginActivity"	  
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"	  
-            android:windowSoftInputMode="adjustResize|stateHidden"	  />	  
-        <activity	  
-            android:name="com.haima.loginplugin.activities.ZHWebControlActivity"	  
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"	  
-            android:windowSoftInputMode="adjustResize|stateHidden"	  />	  
-        <activity	  
-            android:name="com.haima.payPlugin.activities.ZHReChargeActivity"	  
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"	  
-            android:windowSoftInputMode="adjustResize|stateHidden"	  />	  
-        <activity	  
-            android:name="com.haima.payPlugin.activities.ZHPayActivity"	  
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"	  
-            android:windowSoftInputMode="adjustResize|stateHidden"	  />	  
-        <activity	  
-            android:name="com.haima.loginplugin.activities.ZHMyPropsActivity"	  
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"	  
-            android:windowSoftInputMode="adjustResize|stateHidden"	  />	  
-        <activity	  
-            android:name="com.haima.loginplugin.activities.ZHVipPrivilegeActivity"	  
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"	  
-            android:windowSoftInputMode="adjustResize|stateHidden"	  />	  
-        <activity	  
-            android:name="com.haima.loginplugin.activities.ZHVoucherActivity"	  
-            android:configChanges="keyboardHidden|orientation|screenSize"	  
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"	  
-            android:windowSoftInputMode="adjustResize|stateHidden"	  />	  
+        <!--	新增  SDK 中用到的 Activity(包括第三方)	  BEGIN	  -->
+        <activity
+            android:name="com.haima.loginplugin.activities.ZHMessageCenterActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.haima.loginplugin.views.ImageAndTextDialog"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden" />
 
-        <activity	  
-            android:name="com.haima.payPlugin.activities.PayWebControlActivity"	  
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"	  
-            android:windowSoftInputMode="adjustResize|stateHidden"	  />	  
+        <!--	  SDK 中用到的 Activity(包括第三方)	  BEGIN	  -->
+        <!--	  SDK	  Activity	  BEGIN	  -->
+        <activity
+            android:name="com.haima.loginplugin.activities.ZHLoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustResize|stateHidden"	  />
+        <activity
+            android:name="com.haima.loginplugin.activities.ZHWebControlActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustResize|stateHidden"	  />
+        <activity
+            android:name="com.haima.payPlugin.activities.ZHReChargeActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.haima.payPlugin.activities.ZHPayActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustResize|stateHidden"	  />
+        <activity
+            android:name="com.haima.loginplugin.activities.ZHMyPropsActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustResize|stateHidden"	  />
+        <activity
+            android:name="com.haima.loginplugin.activities.ZHVipPrivilegeActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustResize|stateHidden"	  />
+        <activity
+            android:name="com.haima.loginplugin.activities.ZHVoucherActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustResize|stateHidden"	  />
+
+        <activity
+            android:name="com.haima.payPlugin.activities.PayWebControlActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustResize|stateHidden"	  />
         <!--	  SDK	  Activity	  END	  -->
 
         <!--	  Union	  Pay	  Activity	  BEGIN	  -->
-        <activity	  
-            android:name="com.unionpay.uppay.PayActivity"	  
-            android:configChanges="orientation|keyboardHidden"	  
-            android:excludeFromRecents="true"	  
-            android:label="@string/app_name"	  
-            android:screenOrientation="portrait"	  
-            android:windowSoftInputMode="adjustResize"	  />	  
-        <!--	  Union	  Pay	  Activity	  END	  -->	  
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"	  />
+        <!--	  Union	  Pay	  Activity	  END	  -->
 
-        <!--	  Ali	  Pay	  Activity	  START	  -->	  
-        <activity	  
-            android:name="com.alipay.sdk.app.H5PayActivity"	  
-            android:configChanges="orientation|keyboardHidden|navigation"	  
-            android:exported="false"	  
-            android:screenOrientation="behind"	  />	  
-        <activity	  
-            android:name="com.alipay.sdk.auth.AuthActivity"	  
-            android:configChanges="orientation|keyboardHidden|navigation"	  
-            android:exported="false"	  
-            android:screenOrientation="behind"	  />	  
+        <!--	  Ali	  Pay	  Activity	  START	  -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"	  />
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"	  />
         <!--	  Ali	  Pay	  Activity	  END	  -->
         <!--	  SDK 中用到的 Activity(包括第三方)	  END	  -->
 
