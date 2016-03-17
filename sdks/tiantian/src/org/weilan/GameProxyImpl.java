@@ -92,7 +92,15 @@ public class GameProxyImpl extends GameProxy{
         gameUserInfo.setCpId("${APPID}");
 		gameUserInfo.setZoneName(roleInfo.optString("serverID"));
 		gameUserInfo.setRoleName(roleInfo.optString("name"));
-		SDKManager.startPay(activity, gameUserInfo, Double.parseDouble(price + ""),name, "${PAY_URL}", callBackInfo, new LTCallback() {
+
+        String ext = "";
+        try {
+            ext = roleInfo.getString("serverID") + "_" + roleInfo.getString("id") + "_" + orderID;
+        } catch (JSONException e) {
+            Log.e("sdk", "roleInfo parse failed, ignore");
+        }
+
+		SDKManager.startPay(activity, gameUserInfo, Double.parseDouble(price + ""),name, "${PAY_URL}", ext, new LTCallback() {
 			@Override
 			public void callback(int code, String msg) {
 				if(code==SDKState.Success){
