@@ -83,15 +83,19 @@ public class GameProxyImpl extends GameProxy {
         mCustomParams = customParams;
         wandouGamesApi.login(new OnLoginFinishedListener() {
             @Override
-            public void onLoginFinished(LoginFinishType loginFinishType, UnverifiedPlayer unverifiedPlayer) {
+            public void onLoginFinished(LoginFinishType loginFinishType, final UnverifiedPlayer unverifiedPlayer) {
                 if (loginFinishType == LoginFinishType.CANCEL) {
                     userListerner.onLoginFailed("用户取消", customParams);
                 }
                 else {
-                    User u = new User();
-                    u.userID = unverifiedPlayer.getId();
-                    u.token = unverifiedPlayer.getToken();
-                    userListerner.onLoginSuccess(u, customParams);
+                    userListerner.onLogout(null, new UserListener.onUserLogoutListener() {
+                        public void onLogoutCompleted() {
+                            User u = new User();
+                            u.userID = unverifiedPlayer.getId();
+                            u.token = unverifiedPlayer.getToken();
+                            userListerner.onLoginSuccess(u, customParams);
+                        }
+                    });
                 }
             }
         });
