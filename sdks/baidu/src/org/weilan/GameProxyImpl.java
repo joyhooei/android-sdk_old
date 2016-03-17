@@ -208,8 +208,13 @@ public class GameProxyImpl extends GameProxy {
                      User u = new User();
                      u.userID = BDGameSDK.getLoginUid();
                      u.token = BDGameSDK.getLoginAccessToken();
-                     userListerner.onLogout(null);
-                     userListerner.onLoginSuccess(u, null);
+
+                     final User uu = u;
+                     userListerner.onLogout(null, new UserListener.onUserLogoutListener() {
+                         public void onLogoutCompleted() {
+                             userListerner.onLoginSuccess(uu, null);
+                         }
+                     });
                      break;
                  case ResultCode.LOGIN_FAIL:
                      //TODO 登录失败，游戏内部之前如果是已经登录的，要清楚自己记录的登录状态，设置成未登录。如果之前未登录，不用处理。
