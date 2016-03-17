@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/list_tv"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/edit_able_amount"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="@drawable/sjrecharge_edit_bg_style"
+        android:gravity="center"
+        android:imeOptions="actionDone"
+        android:textSize="15sp"
+        android:singleLine="true"
+        android:hint="@string/sjother_money"
+        android:textColor="@color/sjblack"
+        android:visibility="gone"
+        />
+
+</LinearLayout>

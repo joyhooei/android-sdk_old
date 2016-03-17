@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sjwhite"
+         >
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- header -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/sjblue_s" >
+
+        <ImageView
+            android:id="@+id/icon_game_back"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/sjback_background"
+            android:clickable="true" />
+
+        <LinearLayout
+            android:id="@+id/recharge_back_btn"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:visibility="gone" >
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="25dp"
+                android:background="@drawable/sjrecharge_back_btn"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/sjmore_game"
+            android:textColor="@color/sjwhite"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/game_back_but"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:visibility="gone"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/sjback_background"
+            android:gravity="center" />
+    </RelativeLayout>
+
+   <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/sjmyprogressbar" />
+
+    <GridView
+        android:id="@+id/grid_grme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="auto_fit"
+        android:listSelector="@color/sjwhite"
+        android:stretchMode="columnWidth" 
+       
+       >
+    </GridView>
+ 
+</LinearLayout>
+<RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:background="@drawable/sjuser_huabian" >
+      </RelativeLayout>
+</RelativeLayout>

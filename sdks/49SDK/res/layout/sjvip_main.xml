@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sjwhite"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/sjblue_d" >
+
+        <TextView
+            android:id="@+id/tv_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="VIP资料录入"
+            android:textColor="@color/sjwhite"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            >
+
+            <Button
+                android:id="@+id/vip_back_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sjback_background"
+             
+                android:textColor="@color/sjwhite" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true" >
+
+            <TextView
+                android:id="@+id/qq1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="*"
+                android:textColor="@color/sjred"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/qq2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/qq1"
+                android:text="QQ号码:"
+                android:textColor="@color/sjblack"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/qq_Edit"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/qq2"
+                android:background="@drawable/sjlogin_m_edit_bg"
+                android:hint="请输入您的QQ号"
+                android:numeric="integer"
+                android:singleLine="true"
+                android:textColor="@color/sjblack" />
+
+            <TextView
+                android:id="@+id/phone0"
+                android:layout_width="10dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/qq_Edit" />
+
+            <TextView
+                android:id="@+id/phone1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/phone0"
+                android:text="*"
+                android:textColor="@color/sjred"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/phone2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/phone1"
+                android:text="手机号码:"
+                android:textColor="@color/sjblack"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/mobilbe_Edit"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/phone2"
+                android:background="@drawable/sjlogin_m_edit_bg"
+                android:hint="请输入您的手机号码"
+                android:padding="5dp"
+                android:phoneNumber="true"
+                android:singleLine="true"
+                android:textColor="@color/sjblack" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true" >
+
+            <TextView
+                android:id="@+id/name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="*"
+                android:textColor="@color/sjred"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/name1"
+                android:text="姓      名:"
+                android:textColor="@color/sjblack"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/name_Edit"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/name2"
+                android:background="@drawable/sjlogin_m_edit_bg"
+                android:hint="请输入您的姓名"
+                android:singleLine="true"
+                android:textColor="@color/sjblack" />
+
+            <TextView
+                android:id="@+id/sex0"
+                android:layout_width="10dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/name_Edit" />
+
+            <TextView
+                android:id="@+id/sex1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/sex0"
+                android:text="*"
+                android:textColor="@color/sjwhite"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/sex2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/sex1"
+                android:text="性        别:"
+                android:textColor="@color/sjblack"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/sex2"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:checked="true"
+                    android:text="男"
+                    android:textColor="@color/sjblack"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:text="女"
+                    android:textColor="@color/sjblack"
+                    android:textSize="20sp" />
+            </RadioGroup>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true" >
+
+            <TextView
+                android:id="@+id/card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="*"
+                android:textColor="@color/sjred"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/card2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/card1"
+                android:text="身 份 证:"
+                android:textColor="@color/sjblack"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/card_Edit"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/card2"
+                android:background="@drawable/sjlogin_m_edit_bg"
+                android:hint="请输入您的身份证号码"
+                android:singleLine="true"
+                android:textColor="@color/sjblack" />
+
+            <TextView
+                android:id="@+id/maill0"
+                android:layout_width="10dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/card_Edit" />
+
+            <TextView
+                android:id="@+id/maill1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/maill0"
+                android:text="*"
+                android:textColor="@color/sjwhite"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/maill2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/maill1"
+                android:text="个人邮箱:"
+                android:textColor="@color/sjblack"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/maill_Edit"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/maill2"
+                android:background="@drawable/sjlogin_m_edit_bg"
+                android:hint="请输入您的个人邮箱"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:textColor="@color/sjblack" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true" >
+
+            <TextView
+                android:id="@+id/game1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="*"
+                android:textColor="@color/sjred"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/game2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/game2"
+                android:text="游 戏 名:"
+                android:textColor="@color/sjblack"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_game"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/game2"
+                android:background="@drawable/sjrecharge_edit_bg_style" >
+
+                <EditText
+                    android:id="@+id/game_Edit"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                   
+                    android:maxLength="5"
+                    android:padding="5dp"
+                   
+                    android:textColor="#ff0000"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_ima"
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true" >
+
+                    <ImageView
+                        android:id="@+id/game_bt"
+                        android:layout_width="25dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/sjlogin_up_style"
+                        android:clickable="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tip_t"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tip_tex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kk"
+            android:textColor="@color/sjblack"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="提示："
+                android:textColor="@color/sjred" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/text_tipa"
+                android:text="充值500元可加入VIP会员"
+                android:textColor="@color/sjblack" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="#e2e6e9" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="提示："
+            android:textColor="@color/sjred" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/text_tipb"
+            android:text="充值500元可加入VIP会员"
+            android:textColor="@color/sjblack" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit_vip"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/sjcustomer_contact_btn_style"
+        android:text="立即提交"
+        android:textColor="@color/sjwhite" />
+
+</LinearLayout>

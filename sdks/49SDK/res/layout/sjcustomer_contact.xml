@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/img_concatleft"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="3dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sjapplogo" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="#e2e6e9"
+            android:padding="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:id="@+id/web_rl"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/web1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="官方网址:"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/web2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/web1"
+                android:textStyle="bold"
+                android:text="www.49app.com"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/user_web_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                  android:layout_alignParentRight="true"
+                android:background="@drawable/sjblues_btn_style"
+                android:text="点击登录"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:id="@+id/bbs_rl"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/bbs1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="游戏论坛:"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/bbs2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/bbs1"
+                android:text="bbs.49app.com"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/user_bbs_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:layout_alignParentRight="true"
+                android:background="@drawable/sjblue_btn_style"
+                android:text="点击登录"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:id="@+id/kefu_rl"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/kefu1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="客服中心:"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/kefu2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/kefu1"
+                android:text="gm.49app.com"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/user_kefu_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:layout_alignParentRight="true"
+                android:background="@drawable/sjorange_btn_style"
+                android:text="点击登录"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+             android:gravity="center"
+             android:id="@+id/keqq_rl"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/kefuqq1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="客服 Q Q:"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/kefuqq2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+               
+                android:layout_toRightOf="@+id/kefuqq1"
+                android:textStyle="bold"
+                android:text="800036049"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/user_kefuqq_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                  android:layout_alignParentRight="true"
+                android:background="@drawable/sjgreen_btn_style"
+                android:text="点击联系"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+             android:gravity="center"
+             android:id="@+id/moblie_rl"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:id="@+id/kefumoblie1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="客服热线:"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/kefumoblie2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+              
+                android:layout_toRightOf="@+id/kefumoblie1"
+                android:textStyle="bold"
+                android:text="40006560056"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/user_kefumoblie_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/sjgreens_btn_style"
+                android:text="点击拨打"
+                android:textSize="10sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/img_concatright"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+    </LinearLayout>
+
+</LinearLayout>

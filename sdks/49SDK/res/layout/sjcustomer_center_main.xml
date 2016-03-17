@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/sjblue_d" >
+
+        <TextView
+            android:id="@+id/tv_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="客服中心"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/sjreturn_to_up"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/recharge_bill_back_btn_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sjrecharge_back_btn_style" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/sjback_background" >
+
+            <Button
+                android:id="@+id/recharge_bill_back_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sjrecharge_back_btn_style" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/sjwhite"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tv_userinfo"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/sjgray"
+            android:gravity="center"
+            android:text="常见问题"
+            android:textColor="#999999" />
+
+        <TextView
+            android:id="@+id/tv_account_bangding"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/sjgray_white_title"
+            android:gravity="center"
+            android:text="联系客服"
+            android:textColor="#999999" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/user_center_container"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/sjwhite" />
+
+</LinearLayout>

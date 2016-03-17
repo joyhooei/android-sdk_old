@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sjgray_white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/sjblue_d" >
+
+        <TextView
+            android:id="@+id/tv_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="新闻 活动"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/sjreturn_to_up"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/recharge_bill_back_btn_left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sjrecharge_back_btn_style" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/sjback_background" >
+
+            <Button
+                android:id="@+id/icon_back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sjrecharge_back_btn_style" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/sjmyprogressbar" />
+  
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+         <!--    <TextView
+                android:id="@+id/gift_link_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_white"
+                 android:textColor="@color/black"
+                android:padding="10dp" /> -->
+
+            <WebView 
+                  android:id="@+id/gift_link_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/sjgray_white"
+                 android:textColor="@color/sjblack"
+                android:padding="10dp"
+                />
+            
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

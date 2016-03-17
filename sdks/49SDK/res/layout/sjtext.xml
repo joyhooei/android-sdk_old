@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="55dp"
+    
+    android:layout_gravity="center"
+    android:orientation="horizontal" >
+    <ImageView android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:background="@drawable/sjfloat_left"/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="55dp"
+    android:background="@drawable/sjround"
+    android:layout_gravity="center"
+    android:orientation="horizontal" >
+   
+    <!-- 账户 -->
+    <Button 
+        android:id="@+id/button1"
+        style="@style/Sj_MyButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/sjicon_account"/>
+    <!-- 礼包 -->
+    <Button 
+        android:id="@+id/button2"
+        style="@style/Sj_MyButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/sjicon_gift"/>
+    <!-- 客服-->
+    <Button 
+        android:id="@+id/button3"
+        style="@style/Sj_MyButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/sjicon_kefu"/>
+    <!-- 分享point_share_style -->
+    <Button 
+        android:id="@+id/button4"
+        style="@style/Sj_MyButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/sjicon_share"/>
+        
+        <RelativeLayout
+            android:id="@+id/sj_left_box"
+            android:layout_width="45dp"
+            android:layout_height="45dp" >
+
+            <ImageView
+                android:id="@+id/sj_icon_box"
+                android:layout_width="23dp"
+                android:layout_height="19dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sjicon_box" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sj_icon_box"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="1dp"
+                android:text="礼盒"
+                android:textColor="#f1f1f1"
+                android:textSize="8sp" />
+        </RelativeLayout>
+
+    <!-- 更多 -->
+    <Button
+        android:id="@+id/button5"
+        style="@style/Sj_MyButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/sjicon_more" />
+    
+</LinearLayout>
+</LinearLayout>

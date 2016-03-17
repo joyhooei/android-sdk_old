@@ -1,0 +1,31 @@
+ <selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true"><shape>
+            <gradient android:angle="270" android:endColor="#DBDFEB" android:startColor="#cad0e0" />
+
+            <stroke android:width="2dp" android:color="#dcdcdc" />
+
+            <corners android:radius="6dp" />
+
+            <padding android:bottom="6dp" android:left="6dp" android:right="6dp" android:top="6dp" />
+        </shape></item>
+    <item android:state_focused="true"><shape>
+            <gradient android:angle="270" android:endColor="#DBDFEB" android:startColor="#cad0e0" />
+
+            <stroke android:width="2dp" android:color="#dcdcdc" />
+
+            <corners android:radius="6dp" />
+
+            <padding android:bottom="6dp" android:left="6dp" android:right="6dp" android:top="6dp" />
+        </shape></item>
+    <item><shape>
+            <gradient android:angle="270" android:endColor="@color/sjgift_copy_button" android:startColor="@color/sjgift_copy_button_02" />
+
+            <stroke android:width="2dp" android:color="#fad3cf" />
+
+            <corners android:radius="6dp" />
+
+            <padding android:bottom="6dp" android:left="6dp" android:right="6dp" android:top="6dp" />
+        </shape></item>
+
+</selector>
