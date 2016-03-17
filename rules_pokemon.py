@@ -3,7 +3,7 @@
 '''
 # Filename      : ./android-sdk/rules_pokemon.py
 # Description   :
-# Last modified : 2016-03-17 19:12
+# Last modified : 2016-03-21 10:28
 '''
 # coding: utf-8
 import os
@@ -1093,17 +1093,16 @@ class RuleMoge(RuleBase):
 
 @register
 class Rule49you(RuleBase):
-    LABEL = '49you'
-    DIRECTORY = '49you'
+    LABEL = 'sjyx'
+    DIRECTORY = 'sjyx'
     CH_NAME = '49小包'
     SDKTYPE = '71'
-    PACKAGE_NAME = 'com.winnergame.pokemon.49you'
-    YY_PACKAGE_NAME = 'com.winnergame.pokemon.49you'
-    ICON_PATH = '../../../pokemon_icons/android/congcong'
-    CHANNEL_ID = '49you'
+    PACKAGE_NAME = 'com.winnergame.pokemon.sjyx'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.sjyx'
+    CHANNEL_ID = 'sjyx'
 
-    APP_ID    = '48'
-    APP_KEY   = '123456'
+    APP_ID    = '444'
+    APP_KEY   = '451f2b3ec53014314fa27227739010d2'
     APP_AGENT = ''
 
     @classmethod

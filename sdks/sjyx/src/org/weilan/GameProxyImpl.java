@@ -23,9 +23,14 @@ import com.sijiu7.user.LoginInfo;
 
 public class GameProxyImpl extends GameProxy{
 	public static final String APP_ID = "${APP_ID}";
-	public static final String APP_KEY = "${APPKEY}";
+	public static final String APP_KEY = "${APP_KEY}";
 	public static final String APP_AGENT = "${APP_AGENT}";
+    // TODO server_id
+	public static final String server_id = "";
 	private static final String oritation = "portrait";// 控制界面横竖屏
+
+    private Object loginCustomParams;
+    private String m_uid;
 
     public boolean supportLogin() {
         return true;
@@ -40,7 +45,7 @@ public class GameProxyImpl extends GameProxy{
     }
 
     // public void onCreate(Activity activity) {
-    public void applicationInit(Activity activity) {
+    public void applicationInit(final Activity activity) {
         // 以下为activity生命周期，有些sdk会要求在里面加入调用。
 
         // 闪屏接口
@@ -49,72 +54,31 @@ public class GameProxyImpl extends GameProxy{
         Sjyx.applicationInit(activity);
         // ...
         // init
-        // TODO
         Sjyx.initInterface(activity, Integer.parseInt(APP_ID), APP_KEY, APP_AGENT, true,
             new InitListener() {
                 @Override
                 public void fail(String msg) {
-                    // TODO Auto-generated method stub
                     System.out.println("-----msg:" + msg);
-                    Toast.makeText(getApplicationContext(), msg,
-                        Toast.LENGTH_LONG).show();
+                    // Toast.makeText(activity, msg,
+                        // Toast.LENGTH_LONG).show();
                 }
 
                 @Override
                 public void Success(String msg) {
-                    // TODO Auto-generated method stub
                     // Success/update
                     System.out.println("-----msg:" + msg);
-                    Toast.makeText(getApplicationContext(), msg,
-                        Toast.LENGTH_LONG).show();
+                    // Toast.makeText(activity, msg,
+                        // Toast.LENGTH_LONG).show();
                 }
             });
 
         Sjyx.setUserListener(new UserApiListenerInfo() {
             @Override
             public void onLogout(Object obj) {
-                // TODO Auto-generated method stub
                 super.onLogout(obj);
-                LoginInfo loginInfo = new LoginInfo();
-
-                // TODO server_id
-                loginInfo.setAppid(Integer.parseInt(APP_ID));// 游戏appid
-                loginInfo.setAppkey(APP_KEY);// 游戏appkey
-                loginInfo.setAgent(APP_AGENT);// 渠道号
-                loginInfo.setServer_id(server_id);// 服务器id(游戏区服)
-                loginInfo.setOritation(oritation);// 横竖屏控制
-                Sjyx.login(activity, loginInfo, new ApiListenerInfo() {
-                    @Override
-                    public void onSuccess(Object obj) {
-                        // TODO Auto-generated method stub
-                        super.onSuccess(obj);
-                        if (obj != null) {
-                            LoginMessageInfo data = (LoginMessageInfo) obj;
-                            String result = data.getResult();
-                            String msg = data.getMessage();
-                            String userName = data.getUserName();
-                            String uid = data.getUid();
-                            String timeStamp = data.getTimestamp();
-                            String sign = data.getSign();
-                            String token = data.getToken();
-
-                            // TODO logout
-                            // listener
-                            // if (result.equals("success")) {
-                            //     User u = new User();
-                            //     u.userID = uid;
-                            //     u.token = token;
-
-                            //     userListerner.onLoginSuccess(u, loginCustomParams);
-                            // } else {
-                            //     userListerner.onLoginFailed("get access_token failed!", loginCustomParams);
-                            // }
-
-                            Log.i("kk", "登陆结果" + "result:" + result + "|msg:"
-                                + msg + "|username:" + userName + "|uid:"
-                                + uid + "|timeStamp:" + timeStamp
-                                + "|sign:" + sign + "|token" + token);
-                        }
+                userListerner.onLogout(null, new UserListener.onUserLogoutListener() {
+                    public void onLogoutCompleted() {
+                        login(activity, null);
                     }
                 });
             }
@@ -125,7 +89,6 @@ public class GameProxyImpl extends GameProxy{
         loginCustomParams = customParams;
         // 登录，customParams透传给回调
 
-        // TODO server_id
         LoginInfo loginInfo = new LoginInfo();
         loginInfo.setAppid(Integer.parseInt(APP_ID));// 游戏appid
         loginInfo.setAppkey(APP_KEY);// 游戏appkey
@@ -135,7 +98,6 @@ public class GameProxyImpl extends GameProxy{
         Sjyx.login(activity, loginInfo, new ApiListenerInfo() {
             @Override
             public void onSuccess(Object obj) {
-                // TODO Auto-generated method stub
                 super.onSuccess(obj);
                 if (obj != null) {
                     LoginMessageInfo data = (LoginMessageInfo) obj;
@@ -147,11 +109,13 @@ public class GameProxyImpl extends GameProxy{
                     String sign = data.getSign();
                     String token = data.getToken();
 
+                    m_uid = uid;
+
                     // listener
                     if (result.equals("success")) {
                         User u = new User();
                         u.userID = uid;
-                        u.token = token;
+                        u.token = token + "_" + timeStamp;
 
                         userListerner.onLoginSuccess(u, loginCustomParams);
                     } else {
@@ -181,58 +145,85 @@ public class GameProxyImpl extends GameProxy{
          *}
          */
 
-        // TODO
+        String ext = "";
+        try {
+            ext = roleInfo.getString("serverID") + "_" + roleInfo.getString("id") + "_" + orderID;
+        } catch (JSONException e) {
+            Log.e("sdk", "roleInfo parse failed, ignore");
+        }
+
         SjyxPaymentInfo payInfo = new SjyxPaymentInfo();
-        payInfo.setAppId(Integer.parseInt(APP_ID));
-        payInfo.setAppKey(APP_KEY);
-        payInfo.setAgent(APP_AGENT);// 渠道号
-        payInfo.setServerId(roleInfo.getJSONObject("serverID"));// 服务器id
-        payInfo.setRolename(roleInfo.getJSONObject("name"));// 玩家角色名
-        payInfo.setLevel(roleInfo.getJSONObject("level"));// 玩家等级
-        payInfo.setRoleid(roleInfo.getJSONObject("id"));// 角色id
-        payInfo.setGameuid(roleInfo.getJSONObject("id"));// 游戏用户id
-        payInfo.setProductname(name);// 支付商品名称
-        payInfo.setAmount(price); // 金额
-        payInfo.setBillNo(orderID);// 游戏订单号
-        payInfo.setExtraInfo("");// 额外信息
-        payInfo.setUid(""); // 如果为""，说明是接入了我们的登陆sdk，如果要只接入充值sdk，则需要传入对方平台的username
-        payInfo.setMultiple(100);// 游戏币与人民币兌换比例
-        payInfo.setGameMoney("钻石");// 游戏币名称
-        Sjyx.payment(this, payInfo, new ApiListenerInfo() {
-            @Override
-            public void onSuccess(Object obj) {
-                // TODO Auto-generated method stub
-                super.onSuccess(obj);
-                if (obj != null) {
-                    Log.i("kk", "支付界面关闭" + obj.toString());
+        try {
+            String server_id  = roleInfo.getString("serverID");
+            String role_name  = roleInfo.getString("name");
+            String role_level = roleInfo.getString("level");
+            String role_id    = roleInfo.getString("id");
+
+            payInfo.setAppId(Integer.parseInt(APP_ID));
+            payInfo.setAppKey(APP_KEY);
+            payInfo.setAgent(APP_AGENT);                   // 渠道号
+            payInfo.setServerId(server_id);                // 服务器id
+            payInfo.setRolename(role_name);                // 玩家角色名
+            payInfo.setLevel(role_level);                  // 玩家等级
+            payInfo.setRoleid(role_id);                    // 角色id
+            payInfo.setGameuid(m_uid);                     // 游戏用户id
+            payInfo.setProductname(name);                  // 支付商品名称
+            payInfo.setAmount(String.valueOf((int)price)); // 金额
+            payInfo.setBillNo(orderID);                    // 游戏订单号
+            payInfo.setExtraInfo(ext);                     // 额外信息
+            payInfo.setUid("");                            // 如果为""，说明是接入了我们的登陆sdk，如果要只接入充值sdk，则需要传入对方平台的username
+            payInfo.setMultiple(10);                       // 游戏币与人民币兌换比例
+            payInfo.setGameMoney("钻石");                  // 游戏币名称
+            Sjyx.payment(activity, payInfo, new ApiListenerInfo() {
+                @Override
+                public void onSuccess(Object obj) {
+                    super.onSuccess(obj);
+                    if (obj != null) {
+                        Log.i("kk", "支付界面关闭" + obj.toString());
+                    }
                 }
-            }
-        });
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void setExtData(Context context, String ext) {
-        //try {
-        //    JSONObject json_obj = new JSONObject(ext);
-        //    JSONObject xxx = joRes.getJSONObject("xxx");
-        //} catch (Exception e) {
-        //    e.printStackTrace();
-        //}
-        // TODO
         // 上报角色数据给sdk，ext:json数据，格式如下
-        /* local info = {
-         *     state = send_type,                   -- type
-         *     id = roleId,                      -- roleId
-         *     name = roleName,                    -- roleName
-         *     level = roleLevel,                   -- roleLevel
-         *     serverID = zoneId,                      -- zoneId
-         *     serverName = zoneName,                    -- zoneName
-         *     gold = balance,                     -- balance
-         *     vip = vip,                         -- vip
-         *     factionName = partyName                    -- partyName
+        /* local info      = {
+         *     state       = send_type, -- type
+         *     id          = roleId,    -- roleId
+         *     name        = roleName,  -- roleName
+         *     level       = roleLevel, -- roleLevel
+         *     serverID    = zoneId,    -- zoneId
+         *     serverName  = zoneName,  -- zoneName
+         *     gold        = balance,   -- balance
+         *     vip         = vip,       -- vip
+         *     factionName = partyName  -- partyName
          * }
          */
-        // Sjyx.setExtData(MainActivity.this, "", "enterServer", "123", "七仔",
-                // "80", "1", "55区", "25", "vip9", "49工会");
+        try {
+           JSONObject json_obj = new JSONObject(ext);
+           String scene_Id     = json_obj.optString("state");
+           String roleId       = json_obj.optString("id");
+           String roleName     = json_obj.optString("name");
+           String roleLevel    = json_obj.optString("level");
+           String zoneId       = json_obj.optString("serverID");
+           String zoneName     = json_obj.optString("serverName");
+           String balance      = json_obj.optString("gold");
+           String vip          = json_obj.optString("vip");
+           String partyName    = json_obj.optString("factionName");
+
+           if( scene_Id.equals("loginGameRole")==true || scene_Id.equals("createRole")==true || scene_Id.equals("levelUp")==true ) {
+               if (scene_Id.equals("loginGameRole")==true) {
+                   scene_Id = "enterServer";
+               }
+
+               Sjyx.setExtData(context, "", scene_Id, roleId, roleName, roleLevel, zoneId, zoneName, balance, vip, partyName);
+           }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void onStop(Activity activity) {
