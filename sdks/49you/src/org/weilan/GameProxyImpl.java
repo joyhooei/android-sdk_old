@@ -24,6 +24,7 @@ import com.sijiu7.user.LoginInfo;
 public class GameProxyImpl extends GameProxy{
 	public static final String APP_ID = "${APP_ID}";
 	public static final String APP_KEY = "${APPKEY}";
+	public static final String APP_AGENT = "${APP_AGENT}";
 	private static final String oritation = "portrait";// 控制界面横竖屏
 
     public boolean supportLogin() {
@@ -48,8 +49,8 @@ public class GameProxyImpl extends GameProxy{
         Sjyx.applicationInit(activity);
         // ...
         // init
-        // TODO agent
-        Sjyx.initInterface(activity, Integer.parseInt(APP_ID), APP_KEY, agent, true,
+        // TODO
+        Sjyx.initInterface(activity, Integer.parseInt(APP_ID), APP_KEY, APP_AGENT, true,
             new InitListener() {
                 @Override
                 public void fail(String msg) {
@@ -76,10 +77,10 @@ public class GameProxyImpl extends GameProxy{
                 super.onLogout(obj);
                 LoginInfo loginInfo = new LoginInfo();
 
-                // TODO agent server_id
+                // TODO server_id
                 loginInfo.setAppid(Integer.parseInt(APP_ID));// 游戏appid
                 loginInfo.setAppkey(APP_KEY);// 游戏appkey
-                loginInfo.setAgent(agent);// 渠道号
+                loginInfo.setAgent(APP_AGENT);// 渠道号
                 loginInfo.setServer_id(server_id);// 服务器id(游戏区服)
                 loginInfo.setOritation(oritation);// 横竖屏控制
                 Sjyx.login(activity, loginInfo, new ApiListenerInfo() {
@@ -124,11 +125,11 @@ public class GameProxyImpl extends GameProxy{
         loginCustomParams = customParams;
         // 登录，customParams透传给回调
 
-        // TODO agent server_id
+        // TODO server_id
         LoginInfo loginInfo = new LoginInfo();
         loginInfo.setAppid(Integer.parseInt(APP_ID));// 游戏appid
         loginInfo.setAppkey(APP_KEY);// 游戏appkey
-        loginInfo.setAgent(agent);// 渠道号
+        loginInfo.setAgent(APP_AGENT);// 渠道号
         loginInfo.setServer_id(server_id);// 服务器id(游戏区服)
         loginInfo.setOritation(oritation);// 横竖屏控制
         Sjyx.login(activity, loginInfo, new ApiListenerInfo() {
@@ -180,23 +181,23 @@ public class GameProxyImpl extends GameProxy{
          *}
          */
 
-        // TODO agent
+        // TODO
         SjyxPaymentInfo payInfo = new SjyxPaymentInfo();
         payInfo.setAppId(Integer.parseInt(APP_ID));
         payInfo.setAppKey(APP_KEY);
-        payInfo.setAgent(agent);// 渠道号
-        payInfo.setServerId("79");// 服务器id
-        payInfo.setRolename("四九游");// 玩家角色名
-        payInfo.setLevel("26");// 玩家等级
-        payInfo.setRoleid("123");// 角色id
-        payInfo.setGameuid("456");// 游戏用户id
-        payInfo.setProductname("元宝");// 支付商品名称
-        payInfo.setAmount(""); // 金额
-        payInfo.setBillNo("");// 游戏订单号
+        payInfo.setAgent(APP_AGENT);// 渠道号
+        payInfo.setServerId(roleInfo.getJSONObject("serverID"));// 服务器id
+        payInfo.setRolename(roleInfo.getJSONObject("name"));// 玩家角色名
+        payInfo.setLevel(roleInfo.getJSONObject("level"));// 玩家等级
+        payInfo.setRoleid(roleInfo.getJSONObject("id"));// 角色id
+        payInfo.setGameuid(roleInfo.getJSONObject("id"));// 游戏用户id
+        payInfo.setProductname(name);// 支付商品名称
+        payInfo.setAmount(price); // 金额
+        payInfo.setBillNo(orderID);// 游戏订单号
         payInfo.setExtraInfo("");// 额外信息
         payInfo.setUid(""); // 如果为""，说明是接入了我们的登陆sdk，如果要只接入充值sdk，则需要传入对方平台的username
         payInfo.setMultiple(100);// 游戏币与人民币兌换比例
-        payInfo.setGameMoney("元宝");// 游戏币名称
+        payInfo.setGameMoney("钻石");// 游戏币名称
         Sjyx.payment(this, payInfo, new ApiListenerInfo() {
             @Override
             public void onSuccess(Object obj) {
@@ -210,12 +211,12 @@ public class GameProxyImpl extends GameProxy{
     }
 
     public void setExtData(Context context, String ext) {
-        try {
-            JSONObject json_obj = new JSONObject(ext);
-            JSONObject xxx = joRes.getJSONObject("xxx");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        //try {
+        //    JSONObject json_obj = new JSONObject(ext);
+        //    JSONObject xxx = joRes.getJSONObject("xxx");
+        //} catch (Exception e) {
+        //    e.printStackTrace();
+        //}
         // TODO
         // 上报角色数据给sdk，ext:json数据，格式如下
         /* local info = {
