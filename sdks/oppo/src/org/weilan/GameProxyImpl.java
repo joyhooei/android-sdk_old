@@ -36,18 +36,18 @@ public class GameProxyImpl extends GameProxy {
 
     @Override
     public void applicationInit(Activity activity) {
-		// 因为sdk插件中service activity跑在独立进程，这里只需要在主进程做一次初始化操作。
-		//if("${PACKAGE_NAME}".equals(AppUtil.getCurrentProcessName(activity))){
-			String appKey = "${APPKEY}";
-			String appSecret = "${APPSECRET}";
-			GameCenterSettings gameCenterSettings = new GameCenterSettings(
-					false,    // 网游固定为false
-					appKey,
-					appSecret, 
-					false,     // 调试开关 true 打印log，false 关闭log，正式上线请设置为false
-					true);   // 将游戏横竖屏状态传递给sdk， true为竖屏  false为横屏
-			GameCenterSDK.init(gameCenterSettings, activity);
-		//}
+        // 因为sdk插件中service activity跑在独立进程，这里只需要在主进程做一次初始化操作。
+        //if("${PACKAGE_NAME}".equals(AppUtil.getCurrentProcessName(activity))){
+        String appKey = "${APPKEY}";
+        String appSecret = "${APPSECRET}";
+        GameCenterSettings gameCenterSettings = new GameCenterSettings(
+                false,    // 网游固定为false
+                appKey,
+                appSecret,
+                false,     // 调试开关 true 打印log，false 关闭log，正式上线请设置为false
+                true);   // 将游戏横竖屏状态传递给sdk， true为竖屏  false为横屏
+        GameCenterSDK.init(gameCenterSettings, activity);
+        //}
     }
 
     @Override
@@ -68,7 +68,7 @@ public class GameProxyImpl extends GameProxy {
         GameCenterSDK.getInstance().doLogin(activity, new ApiCallback() {
             @Override
             public void onSuccess(String content) {
-                GameCenterSDK.getInstance().doGetTokenAndSsoid(activity, new ApiCallback() {
+                GameCenterSDK.getInstance().doGetTokenAndSsoid(new ApiCallback() {
                     @Override
                     public void onSuccess(String resultMsg) {
                         try {
@@ -127,7 +127,7 @@ public class GameProxyImpl extends GameProxy {
             @Override
             public void exitGame() {
                 // CP 实现游戏退出操作，也可以直接调用 AppUtil工具类里面的实现直接强杀进程~
-                AppUtil.exitGameProcess(activity);  
+                AppUtil.exitGameProcess(activity);
             }
         });
     }
@@ -137,7 +137,7 @@ public class GameProxyImpl extends GameProxy {
         try {
             JSONObject src = new JSONObject(ext);
 
-            GameCenterSDK.getInstance().doReportUserGameInfoData(context,
+            GameCenterSDK.getInstance().doReportUserGameInfoData(
                     new ReportUserGameInfoParam("${APPID}"
                         , src.getString("serverID")
                         , src.getString("name")
