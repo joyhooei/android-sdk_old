@@ -1073,7 +1073,7 @@ class RuleMoge(RuleBase):
     PACKAGE_NAME = 'com.winnergame.pokemonpro.mg'
     YY_PACKAGE_NAME = 'com.winnergame.pokemonpro.mg'
     CHANNEL_ID = 'moge'
-    ICON_PATH = '../../../pokemon_icons/android/apk'
+    ICON_PATH = '../../../pokemon_icons/android/moge'
 
     APP_ID = '30'
     GAME_ID = '37'

@@ -117,6 +117,7 @@ public class GameProxyImpl extends GameProxy{
     public void logout( final Activity activity, final Object customParams ) {
         Log.v("sdk", "logout");
         sdkmanager.logout();
+        userListerner.onLogout( customParams );
     }
 
 	@Override
