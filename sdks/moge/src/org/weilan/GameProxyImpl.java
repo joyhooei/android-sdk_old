@@ -20,6 +20,7 @@ import com.game.sdk.domain.OnLoginListener;
 import com.game.sdk.domain.OnPaymentListener;
 import com.game.sdk.domain.PaymentCallbackInfo;
 import com.game.sdk.domain.PaymentErrorMsg;
+import com.game.sdk.domain.OnUserOutListener;
 import com.game.sdk.util.Constants;
 import com.game.sdk.util.Logger;
 import com.game.sdk.util.MResource;
@@ -41,9 +42,20 @@ public class GameProxyImpl extends GameProxy{
     }
 
     @Override
-    public void applicationInit(Activity activity) {
+    public void applicationInit(final Activity activity) {
         Log.v("sdk", "applicationInit");
 		sdkmanager = YTSDKManager.getInstance(activity);
+        sdkmanager.setUserOutListener( new OnUserOutListener() {
+            @Override
+            public void useroutSuccess( int code, String msg ) {
+                userListerner.onLogout( null );
+            }
+
+            @Override
+            public void useroutFail(int code, String msg) {
+                Toast.makeText( activity, "注销失败", Toast.LENGTH_SHORT ).show();
+            }
+        });
     }
 
     @Override
@@ -99,6 +111,12 @@ public class GameProxyImpl extends GameProxy{
                 Toast.makeText( activity, "支付失败", Toast.LENGTH_SHORT ).show();
             }
         });
+    }
+
+    @Override
+    public void logout( final Activity activity, final Object customParams ) {
+        Log.v("sdk", "logout");
+        sdkmanager.logout();
     }
 
 	@Override
