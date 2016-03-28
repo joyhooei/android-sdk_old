@@ -48,8 +48,8 @@ public class GameProxyImpl extends GameProxy{
     public void applicationInit(final Activity activity) {
         // 以下为activity生命周期，有些sdk会要求在里面加入调用。
 
-        // 闪屏接口
-        Sjyx.startWelcomanie(activity);
+        //// 闪屏接口
+        //Sjyx.startWelcomanie(activity);
         // onCreate
         Sjyx.applicationInit(activity);
         // ...
