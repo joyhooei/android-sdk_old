@@ -88,14 +88,14 @@ public class GameProxyImpl extends GameProxy {
                     userListerner.onLoginFailed("用户取消", customParams);
                 }
                 else {
-                    userListerner.onLogout(null, new UserListener.onUserLogoutListener() {
-                        public void onLogoutCompleted() {
+                    //userListerner.onLogout(null, new UserListener.onUserLogoutListener() {
+                    //    public void onLogoutCompleted() {
                             User u = new User();
                             u.userID = unverifiedPlayer.getId();
                             u.token = unverifiedPlayer.getToken();
                             userListerner.onLoginSuccess(u, customParams);
-                        }
-                    });
+                    //    }
+                    //});
                 }
             }
         });
