@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sjapp_name">${APPNAME}</string>
+    <string name="app_name">${APPNAME}</string>
+    <string name="crash_toast_text">啊哦，一不小心崩溃啦 = =||| </string>
+    <string name="channel_id">dummy</string>
+
+    <string name="sjaction_settings">Settings</string>
+    <string name="sjxianzhi">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_</string>
+    <string name="sjxianxie">0123456789abcdefghijklmnopqrstuvwxyz_</string>
+    <!--MainActivity.java-->
+    <string name="sjinit">初始化</string>
+    <string name="sjassitive">浮标</string>
+    <string name="sjlogin_demo">登陆</string>
+    <string name="sjrecharge">充值</string>
+    <string name="sjexit">退出</string>
+    <!-- login_main.xml -->
+    <string name="sjedit_pwd">修改密码</string>
+    <string name="sjfind_pwd">忘记密码</string>
+    <string name="sjlogin">直接登陆</string>
+    <string name="sjregister">快速注册</string>
+    <!-- register.xml -->
+    <string name="sjregister_user">请输入6-16位数字或字母账号</string>
+    <string name="sjregister_pwd">请输入6-16位数字或字母密码</string>
+    <string name="sjregister_phone_number">请输入手机号</string>
+    <string name="sjregister_phone_code">请输入密码</string>
+    <string name="sjregister_phone">手机一键注册</string>
+    <string name="sjregister_name">用户名注册</string>
+    <string name="sjregister_checkbox">显示密码</string>
+    <string name="sjregister_agree">同意49you服务器条款</string>
+    <!-- modify_pwd.xml -->
+    <string name="sjmodify_user">用户名</string>
+    <string name="sjmodify_old_pwd">请输入旧密码</string>
+    <string name="sjmodify_new_pwd">请输入新密码</string>
+    <string name="sjmodify_button">修改密码</string>
+    <!-- find_pwd.xml -->
+    <string name="sjfind_tips">提示:你可以通过以下方式找回密码</string>
+    <!-- myprogressbar.xml -->
+    <string name="sjprogress_tips">正在加载中</string>
+    <!-- mytoast.xml -->
+    <string name="sjwelcome_back">欢迎回来</string>
+
+    <!-- usercenter -->
+    <string name="sjusercenter">账户中心</string>
+    <string name="sjuserinfo">账户信息</string>
+    <string name="sjuser_account_bangding">账户安全绑定</string>
+    <string name="sjuser_rechager_record">充值记录</string>
+    <string name="sjuser_message">消息</string>
+    <string name="sjuser_add">我的赠宝</string>
+    <string name="sjuser_account_security">您的账户安全级别比较低</string>
+    <!-- recharge_land.xml -->
+    <string name="sjrecharge_name">支付中心</string>
+    <string name="sjsijiu_recharge_detail">充值记录</string>
+    <string name="sijiu_return_up">返回上级</string>
+    <string name="sjbackgame_recharge_detail">返回游戏</string>
+    <string name="sjrecharge_user">尊敬的会员：</string>
+    <string name="sjrecharge_way">请点击选择适合您的充值方式</string>
+    <string name="sjorder_amount">订单金额:</string>
+    <string name="sjcard_type">点卡类型：</string>
+    <string name="sjnetcard">网易充值卡</string>
+    <string name="sjqqcard">Q币充值卡</string>
+    <string name="sjsdcard">盛大充值卡</string>
+    <string name="sjwmcard">完美充值卡</string>
+    <string name="sjreal_price">请选择充值金额</string>
+    <string name="sjten_rmb">10元</string>
+    <string name="sjtwo_rmb">20元</string>
+    <string name="sjthree_rmb">30元</string>
+    <string name="sjfive_rmb">50元</string>
+    <string name="sjhundred_rmb">100元</string>
+    <string name="sjth_hundred_rmb">300元</string>
+    <string name="sjfive_hundred_rmb">500元</string>
+    <string name="sjrecharge_price">充值金额：</string>
+    <string name="sjcard_num">卡序列号：</string>
+    <string name="sjcard_pwd">卡类密码：</string>
+    <string name="sjmyAdd">我的赠宝：</string>
+    <string name="sjrmb">￥</string>
+    <string name="sjsijiu_yeebing_now">立即支付</string>
+    <string name="sjrecharge_now">立即支付</string>
+    <string name="sjrecharge_now_to_pingtaibi">充值到平台币</string>
+    <string name="sjrecharge_now_pingtaibi">充值平台币</string>
+    <string name="sjrecharge_pingtaibi_info">您正在充值到平台币</string>
+    <string name="sjrecharge_pingtaibi_info_desc">平台币说明</string>
+    <string name="sjedit_price">修改金额</string>
+    <string name="sjback_recharge">其他充值方式</string>
+    <string name="sjrecharge_help">充值帮助:</string>
+    <string name="sjrecharge_help_one">1、银联卡充值支持大部分信用卡和部分借记卡。</string>
+    <string name="sjrecharge_help_two">2、充值卡充值于游戏点卡充值请选择正确的面额，并仔细核对卡号和密码。</string>
+    <string name="djrecharge_telephone">客服电话：</string>
+    <string name="sjrecharge_qq">客服QQ：</string>
+    <string name="sjchoose_tips">充值金额与"卡面金额"一致，否则可能导致支付失败及财产损失。</string>
+    <string name="sijiu_yeebinglist">已使用银行卡列表</string>
+    <!-- pulltorefress -->
+    <string name="sjhello">往下滑动更新，向上加载更多</string>
+    <string name="sjdrop_down">向下拉更新</string>
+    <string name="sjupdate_time">最新更新</string>
+    <string name="sijiu_more">更多</string>
+    <string name="sjloading_more">正在加载...</string>
+    <string name="sjrefreshing">更新中…</string>
+    <string name="sjrelease_refresh">松开后更新</string>
+
+    <string name="sjclose">关闭</string>
+    <string name="sjyeepaylist_tips">其他方式:</string>
+    <string name="sjyeepaylist_web">网上支付</string>
+    <string name="sjrecords_success">成功</string>
+    <string name="sjrecords_wait">等待</string>
+    <string name="sjrecords_fail">失败</string>
+    <string name="sjrecords_recharge_fail">到账失败</string>
+    <string name="sjother_money">其它金额</string>
+
+    <!-- records_item.xml -->
+    <string name="sjyuanbao_item">60元宝</string>
+    <string name="sjpay_item">支付宝支付</string>
+    <string name="sjamount_item">6</string>
+    <string name="sjyuan">元</string>
+    <string name="sjstate_item">成功</string>
+    <string name="sjtime_item">2013-05-06 16:26:16</string>
+    <string name="sjorder_item">订单号：1254545454545454</string>
+    <string name="sjpay_item_state">支付情况：</string>
+    <string name="sjpay_item_state_result">成功支付</string>
+
+    <!-- phone.xml -->
+    <string name="sjphone_tips">请在第一填写账号,第二填写该账号绑定的手机号!</string>
+    <string name="sjok">确定</string>
+    <string name="sj_cancel">取消</string>
+
+    <!-- http tips -->
+    <string name="sjhttp_error">请求错误!</string>
+
+    <string name="sjaccount">账号</string>
+    <string name="sjphoneNum">手机号</string>
+
+    <!-- share_main.xml -->
+    <string name="sjshare_tips">分享给好友</string>
+    <string name="sjshare_exit">取消分享</string>
+    <!-- game_main.xml -->
+    <string name="sjmore_game">更多游戏推荐</string>
+    <string name="sjgo_back">重新下单</string>
+    <string name="sjcontinue_charge">继续充值</string>
+    <!-- 短信 -->
+    <string name="app_name_vpaysmszf">大额短信支付</string>
+    <string name="vpay_title">手机大额短信支付</string>
+    <string name="vpay_bill_info">订单信息</string>
+    <string name="vpay_good_name">商户名称: </string>
+    <string name="vpay_recharge">支付金额: </string>
+    <string name="vpay_client_service">客服电话:400-684-0755</string>
+    <string name="vpay_payfor">去支付</string>
+    <string name="sj_gift_box">49游戏盒子</string>
+</resources>

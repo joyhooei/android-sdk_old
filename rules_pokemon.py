@@ -1,3 +1,10 @@
+#! /usr/bin/python
+# -*- coding:utf-8 -*-
+'''
+# Filename      : ./android-sdk/rules_pokemon.py
+# Description   :
+# Last modified : 2016-03-21 10:28
+'''
 # coding: utf-8
 import os
 from processor import register, Rule
@@ -1082,5 +1089,25 @@ class RuleMoge(RuleBase):
     @classmethod
     def rules(cls):
         return super(RuleMoge, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
+
+@register
+class Rule49you(RuleBase):
+    LABEL = 'sjyx'
+    DIRECTORY = 'sjyx'
+    CH_NAME = '49小包'
+    SDKTYPE = '71'
+    PACKAGE_NAME = 'com.winnergame.pokemon.sjyx'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.sjyx'
+    CHANNEL_ID = 'sjyx'
+
+    APP_ID    = '444'
+    APP_KEY   = '451f2b3ec53014314fa27227739010d2'
+    APP_AGENT = ''
+
+    @classmethod
+    def rules(cls):
+        return super(Rule49you, cls).rules() + [
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]

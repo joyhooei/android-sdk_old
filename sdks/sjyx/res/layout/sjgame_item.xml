@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="90dp"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/sjgame_hot">
+    
+    <ImageView 
+        android:id="@+id/icon_game_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/sjicon_default"/>
+    
+    <TextView 
+        android:id="@+id/icon_game_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="风云天下"
+        android:textColor="@color/sjblack"
+        android:textSize="16sp"
+        android:layout_alignTop="@+id/icon_game_image"
+        android:layout_toRightOf="@+id/icon_game_image"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="5dp"/>
+    
+    <TextView 
+        android:id="@+id/icon_game_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:layout_alignLeft="@+id/icon_game_name"
+        android:layout_below="@+id/icon_game_name"
+        android:layout_marginTop="3dp"
+        android:text="动作ARPG"
+        android:textColor="@color/sjblack"
+        android:textSize="13sp"/>
+    
+    <TextView 
+        android:id="@+id/icon_game_sub_ca"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:text="下载235648"
+        android:textColor="@color/sjblack"
+        android:layout_toRightOf="@+id/icon_game_sub"
+        android:layout_alignTop="@+id/icon_game_sub"
+        android:textSize="13sp"
+        android:layout_marginLeft="5dp"/>
+    
+    
+    <Button 
+        android:id="@+id/icon_game_button"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:focusable="false"
+        android:text="免费下载"
+        android:textStyle="bold"
+        android:layout_alignLeft="@+id/icon_game_name"
+        android:layout_below="@+id/icon_game_sub"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/sjmoregame_btn_style"
+        
+       />
+    
+    
+
+</RelativeLayout>

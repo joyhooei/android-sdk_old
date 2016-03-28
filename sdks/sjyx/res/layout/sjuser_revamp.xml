@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="500dp"
+    android:layout_height="300dp"
+    android:layout_gravity="center"
+    android:background="@drawable/sjuser_bg"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginTop="10dp"
+        android:background="#39b902" >
+
+        <ImageButton
+            android:id="@+id/icon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/sjuser_icon" />
+
+        <TextView
+            android:id="@+id/user_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/icon"
+             android:textColor="@android:color/white"
+            android:text="你的游客账号："
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/user_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/user_text"
+             android:textColor="@android:color/white"
+            android:text="49you_888888"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pwd_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/pwd"
+            android:layout_alignLeft="@+id/user_temp"
+             android:textColor="@android:color/white"
+            android:text="888888"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_text"
+            android:layout_toLeftOf="@+id/pwd_temp"
+             android:textColor="@android:color/white"
+            android:text="初始密码为："
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/sjuser_edt"
+            android:gravity="center_vertical"
+            android:hint="输入新账号"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="@color/sjblack"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/user_paw"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/sjuser_edt"
+            android:gravity="center_vertical"
+            android:hint="输入新密码"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="@color/sjblack"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/user_again_paw"
+           android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/sjuser_edt"
+            android:gravity="center_vertical"
+            android:hint="再次输入新密码"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="@color/sjblack"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:background="@drawable/sjblue_btn_style"
+                android:gravity="center"
+                android:text="取消" />
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/sjorange_btn_style"
+                android:gravity="center"
+                android:text="确定" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

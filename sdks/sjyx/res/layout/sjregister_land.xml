@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#22000000"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="74dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/sjbackbtn_style"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="380dp"
+        android:layout_height="280dp"
+        android:layout_centerInParent="true"
+        android:background="#ffffff"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00a8ff"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/sjapplogo" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/sjborder" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/register_type_phone"
+                android:layout_width="120dp"
+                android:layout_height="29dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/sjblue_btn_style"
+                android:gravity="center"
+                android:text="@string/sjregister_phone"
+                android:textColor="@color/sjwhite"
+                android:textSize="@dimen/sjeighteen"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/register_type_name"
+                android:layout_width="120dp"
+                android:layout_height="29dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/sjwhite"
+                android:gravity="center"
+                android:text="@string/sjregister_name"
+                android:textColor="@color/sjblack"
+                android:textSize="@dimen/sjeighteen" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/input"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/sjlogin_m_edit_bg"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#e2e6e9"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/input_phone"
+                android:layout_width="match_parent"
+                android:layout_height="71dp"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp" >
+
+                    <EditText
+                        android:id="@+id/register_edit_user"
+                        android:layout_width="210dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:background="@null"
+                        android:digits="@string/sjxianzhi"
+                        android:gravity="center_vertical"
+                        android:hint="@string/sjregister_user"
+                        android:maxLength="16"
+                        android:singleLine="true"
+                        android:textColor="@color/sjblack"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/bt_register_user"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/sjre_but_style" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e2e6e9" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp" >
+
+                    <Button
+                        android:id="@+id/register_yanzhenma"
+                        android:layout_width="50dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/sjblue_btn_style"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="发送验证码"
+                        android:textColor="@color/sjblack"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <EditText
+                        android:id="@+id/register_edit_pwd"
+                        android:layout_width="210dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:background="@null"
+                        android:digits="@string/sjxianzhi"
+                        android:gravity="center_vertical"
+                        android:hint="@string/sjregister_pwd"
+                        android:maxLength="16"
+                        android:password="true"
+                        android:singleLine="true"
+                        android:textColor="@color/sjblack"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/bt_register_pwd"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/sjre_but_style" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible" >
+
+            <CheckBox
+                android:id="@+id/register_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/sjcheckbox_style"
+                android:checked="false"
+                android:paddingLeft="25dp"
+                android:text="@string/sjregister_checkbox"
+                android:textColor="#B0B0B0" />
+
+            <RadioButton
+                android:id="@+id/register_agree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:button="@drawable/sjcheckbox_style"
+                android:checked="true"
+                android:paddingLeft="25dp"
+                android:text="@string/sjregister_agree"
+                android:textColor="#B0B0B0" />
+        </RelativeLayout>
+
+        <!-- 按钮 -->
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:background="@drawable/sjorange_btn_style"
+                android:gravity="center"
+                android:text="确认"
+                android:textColor="@color/sjwhite"
+                android:textSize="@dimen/sjeighteen" />
+
+            <Button
+                android:id="@+id/register_back"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/sjblue_btn_style"
+                android:gravity="center"
+                android:text="返回"
+                android:textColor="@color/sjwhite"
+                android:textSize="@dimen/sjeighteen" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sjim_hb_style" />
+    </LinearLayout>
+
+</RelativeLayout>

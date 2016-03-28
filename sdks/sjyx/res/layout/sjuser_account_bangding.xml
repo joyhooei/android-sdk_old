@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/user_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/sjlockbg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sjlockicon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="发现您的账号安全级别：较低"
+                    android:textColor="@color/sjblack"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="（建议绑定手机）"
+                    android:textColor="@color/sjwhite"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="绑定手机后可以在忘记密码或账号被盗时通过手机找回密码"
+                android:textColor="@color/sjblack"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:background="@drawable/sjlogin_m_edit_bg"
+                android:digits="@string/sjxianzhi"
+                android:hint="输入您要绑定的手机号码"
+                android:imeOptions="actionDone"
+                android:padding="5dp"
+                android:textColor="#ff0000" />
+
+            <Button
+                android:id="@+id/button_ma"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/sjorange_btn_style"
+                android:gravity="center"
+                android:text="获取手机验证码"
+                android:textColor="@color/sjwhite"
+                android:textSize="@dimen/sjeighteen" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/et_yzma"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:background="@drawable/sjlogin_m_edit_bg"
+                android:digits="@string/sjxianzhi"
+                android:hint="输入验证码"
+                android:imeOptions="actionDone"
+                android:padding="5dp"
+                android:textColor="#ff0000" />
+
+            <Button
+                android:id="@+id/button_tu"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/sjorange_btn_style"
+                android:gravity="center"
+                android:text="确认"
+                android:textColor="@color/sjwhite"
+                android:textSize="@dimen/sjeighteen" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bangdint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sjuser_ok" />
+
+            <TextView
+                android:id="@+id/tv_zhresult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="此账号已绑定手机"
+                android:textColor="@color/sjblack"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="绑定手机或密保后可以在忘记密码或账号被盗时通过手机或密保找回密码"
+            android:textColor="@color/sjblack"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_user_mibao"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="还可以：通过" />
+
+            <TextView
+                android:id="@+id/tv_user_mibao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密保问题"
+                android:textColor="@color/sjorange" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提升账户安全" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_mibao"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="设置密保问题后，忘记密码可通过此方式找回密码" />
+
+        <RelativeLayout
+            android:id="@+id/pop"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/sjlogin_m_edit_bg" >
+
+            <EditText
+                android:id="@+id/edit_question"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:background="@null"
+                android:digits="@string/sjxianzhi"
+                android:gravity="center_vertical"
+                android:hint="密保问题"
+                android:maxLength="16"
+                android:singleLine="true"
+                android:textColor="@color/sjblack"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/user_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/sjlogin_up_style"
+                android:clickable="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sjlogin_m_edit_bg" >
+
+            <EditText
+                android:id="@+id/edit_answer"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="密保问题答案"
+                android:maxLength="16"
+                android:singleLine="true"
+                android:textColor="@color/sjblack"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sjlogin_m_edit_bg" >
+
+            <EditText
+                android:id="@+id/edit_password"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:background="@null"
+                android:digits="@string/sjxianzhi"
+                android:gravity="center_vertical"
+                android:hint="请输入密码"
+                android:maxLength="16"
+                android:singleLine="true"
+                android:textColor="@color/sjblack"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical" >
+
+            <Button
+                android:id="@+id/but_subexit"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/sjblue_btn_style"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/sjwhite"
+                android:textSize="@dimen/sjeighteen" />
+
+            <Button
+                android:id="@+id/but_submit"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/sjorange_btn_style"
+                android:gravity="center"
+                android:text="提交"
+                android:textColor="@color/sjwhite"
+                  android:textSize="@dimen/sjeighteen" />
+                
+        </RelativeLayout>
+
+   </LinearLayout>
+
+      
+</LinearLayout>

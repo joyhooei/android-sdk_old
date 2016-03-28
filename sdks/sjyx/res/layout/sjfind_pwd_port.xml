@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="74dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/sjbackbtn_style"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="280dp"
+        android:layout_centerInParent="true"
+        android:background="#ffffff"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#00a8ff"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/sjapplogo" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/sjborder" />
+
+            <RelativeLayout
+                android:layout_width="40dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/sjreturn_to_up" >
+
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/sjrecharge_back_btn_style" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="您可以通过以下方式找回密码"
+            android:textColor="#656565" />
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/sjfindphone" >
+
+                <Button
+                    android:id="@+id/telephone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/sjrecharge_back_btn_style" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="110dp"
+                android:background="@drawable/sjfindsecret" >
+
+                <Button
+                    android:id="@+id/but_mibao"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/sjrecharge_back_btn_style" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginLeft="220dp"
+                android:background="@drawable/sjfindkefu" >
+
+                <Button
+                    android:id="@+id/home_phone"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/sjrecharge_back_btn_style" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="25dp"
+                android:text="温馨提示：为了您的账号安全，请勿共享账号，如因共享账号出现被盗等情况我方不予处理。"
+                android:textColor="@color/sjblack"
+                android:textSize="10sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/sjim_hb_style" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

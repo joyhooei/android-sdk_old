@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="500dp"
+    android:layout_height="300dp"
+    android:layout_gravity="center"
+    android:background="@drawable/sjuser_bg"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginTop="10dp"
+        android:background="#39b902" >
+
+        <ImageButton
+            android:id="@+id/icon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/sjuser_icon" />
+
+        <TextView
+            android:id="@+id/user_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"  
+            android:layout_toRightOf="@+id/icon"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical|center_vertical"
+             android:textColor="@android:color/white"
+            android:text="您的游客账号、密码修改成功"
+            android:textSize="20sp"
+             />
+     <Button 
+         android:layout_width="64dp"
+         android:layout_height="64dp" 
+         android:background="@drawable/sjuser_success"
+          android:layout_alignParentRight="true"
+          android:layout_marginRight="30dp"
+         android:layout_centerVertical="true"
+         android:id="@+id/determine_bt"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+     <TextView android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:background="@drawable/sjuser_safety_ba"
+         android:gravity="center_vertical"
+         android:paddingLeft="20dp"
+         android:textSize="20dp"
+          android:textColor="@android:color/white"
+         android:text="账号：49you_888888"/>
+     <TextView 
+         android:layout_marginTop="10dp"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:gravity="center_vertical"
+         android:background="@drawable/sjuser_safety_ba"
+         android:text="密码：55555"
+         android:textSize="20dp"
+         android:paddingLeft="20dp"
+         android:textColor="@android:color/white"
+         />
+</LinearLayout>
+</LinearLayout>

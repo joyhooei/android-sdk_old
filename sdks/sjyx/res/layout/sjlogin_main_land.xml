@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="280dp"
+        android:background="#ffffff"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00a8ff"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/sjapplogo" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/sjborder" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/input"
+            android:layout_width="320dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/sjlogin_m_edit_bg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/pop"
+                android:layout_width="match_parent"
+                android:layout_height="35dp" >
+
+                <ImageView
+                    android:id="@+id/user_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/sjlogin_user"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/edit_user"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/user_icon"
+                    android:background="@null"
+                    android:digits="@string/sjxianzhi"
+                    android:gravity="center_vertical"
+                    android:hint="我这里是用来输入账号的哦！"
+                    android:maxLength="16"
+                    android:singleLine="true"
+                    android:textColor="@color/sjblack"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/user_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/sjlogin_up_style"
+                    android:clickable="true" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e2e6e9" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/pwd_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/sjlogin_pwd"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/edit_pwd"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/pwd_icon"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="我这边是输入密码的啦。"
+                    android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:singleLine="true"
+                    android:textColor="@color/sjblack"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- 修改密码与密码找回 -->
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="30dp" >
+
+            <TextView
+                android:id="@+id/modify_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="@string/sjedit_pwd"
+                android:textColor="@drawable/sjorange_text_style"
+                android:textSize="@dimen/sjeighteen"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="10dp"
+                android:background="#e2e6e9"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/find_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:clickable="true"
+                android:text="@string/sjfind_pwd"
+                android:textColor="@drawable/sjgray_text_style"
+                android:textSize="@dimen/sjeighteen" />
+        </RelativeLayout>
+
+        <!-- 按钮 -->
+
+        <RelativeLayout
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:gravity="center_vertical" >
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/sjorange_btn_style"
+                android:gravity="center"
+                android:text="快速登陆"
+                android:textColor="@color/sjwhite"
+                android:textSize="@dimen/sjeighteen" />
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="140dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/sjblue_btn_style"
+                android:gravity="center"
+                android:text="一键注册"
+                android:textColor="@color/sjwhite"
+                android:textSize="@dimen/sjeighteen" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sjim_hb_style" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="欢迎来到49You手游，49You手游欢迎您" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
