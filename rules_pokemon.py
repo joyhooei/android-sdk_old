@@ -1096,11 +1096,13 @@ class RuleMoge(RuleBase):
 class Rule49you(RuleBase):
     LABEL = 'sjyx'
     DIRECTORY = 'sjyx'
+    APPNAME = '宠物精灵OL'
     CH_NAME = '49小包'
     SDKTYPE = '71'
     PACKAGE_NAME = 'com.winnergame.pokemon.sjyx'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.sjyx'
     CHANNEL_ID = 'sjyx'
+    ICON_PATH = '../../../pokemon_icons/android/49you'
 
     APP_ID    = '444'
     APP_KEY   = '451f2b3ec53014314fa27227739010d2'
