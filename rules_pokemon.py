@@ -41,7 +41,7 @@ class RuleBase(Rule):
                   android:label="@string/app_name"
                   android:screenOrientation="portrait"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-                  android:configChanges="keyboardHidden|orientation|screenSize|layoutDirection">
+                  android:configChanges="keyboard|fontScale|keyboardHidden|orientation|screenSize|layoutDirection">
         """ + ("" if not NATIVE_MAIN_BOOT else """
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
