@@ -1099,7 +1099,7 @@ class Rule49you(RuleBase):
     APPNAME = '宠物精灵OL'
     CH_NAME = '49小包'
     SDKTYPE = '71'
-    PACKAGE_NAME = 'com.winnergame.cwxjlol.sjyou'
+    PACKAGE_NAME = 'com.winnergame.cwjlol.sjyou'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.sjyx'
     CHANNEL_ID = 'sjyx'
     ICON_PATH = '../../../pokemon_icons/android/49you'
