@@ -65,12 +65,12 @@
         <activity
             android:name="com.sijiu7.pay.PingtaiPaymentActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@style/Sj_Transparent" />
         <activity
             android:name="com.sijiu7.user.RechargerecordActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@style/Sj_Transparent" />
         <activity
             android:name="com.sijiu7.floatPoat.GiftBoxActivity"
@@ -88,7 +88,7 @@
         <activity
             android:name="com.sijiu7.pay.PaymentActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@style/Sj_Transparent" />
         <activity
             android:name="com.sijiu7.floatPoat.ShareActivity"
