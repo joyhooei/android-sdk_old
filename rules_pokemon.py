@@ -1102,6 +1102,7 @@ class Rule49you(RuleBase):
     PACKAGE_NAME = 'com.winnergame.cwjlol.sjyou'
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.sjyx'
     CHANNEL_ID = 'sjyx'
+    CHANNEL = 'sjyx'
     ICON_PATH = '../../../pokemon_icons/android/49you'
 
     APP_ID    = '444'
