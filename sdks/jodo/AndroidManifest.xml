@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="${PACKAGE_NAME}"
+      android:installLocation="auto"
+      android:versionCode="${VERSION_CODE}"
+      android:versionName="${VERSION_NAME}">
+
+    ${BASE_SDK_VERSION}
+
+    ${BASE_PERMISSION}
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.ACCESS_ALL_DOWNLOADS" />
+    <uses-permission android:name="android.permission.ACCESS_DRM" />
+    <uses-permission android:name="android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS" />
+    <uses-permission android:name="android.permission.INSTALL_DRM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+	<uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+
+    <application android:name="org.weilan.jodoApp"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:debuggable="true">
+
+        ${BASE_ACTIVITY}
+
+        <meta-data android:name="sdktype" android:value="${SDKTYPE}"/>
+        <meta-data android:name="YYPackageName" android:value="${YY_PACKAGE_NAME}" />
+        <meta-data android:name="UMENG_APPKEY" android:value="${UMENG_APPKEY}" />
+        <meta-data android:name="UMENG_CHANNEL" android:value="${CHANNEL_ID}"/>
+
+        <!-- jodoplaysdk normal components BEGIN -->
+        <activity android:name="com.jodo.jpoint.JPoint_Splash" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+            android:taskAffinity="com.jpoint.task"
+            android:icon="@drawable/jodoplay_icon_jpoint"
+            android:label="@string/jodoplay_free_jpoint">
+            <intent-filter>
+                <action android:name="android.intent.action.Launch" />
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.jodo.paysdk.receiver.JPointIUReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.jodo.paysdk.service.JPointSM_Service"></service>
+        <service android:name="com.jodo.paysdk.service.JPointAPR_Service"></service>
+        
+        <activity android:name="com.jodo.paysdk.JodoLoginActivity" 
+            android:theme="@style/jd_transparent" 
+            android:configChanges="screenSize|orientation"/>
+        <activity android:name="com.jodo.paysdk.JodoAutoLoginActivity" 
+            android:theme="@style/jd_transparent"
+            android:configChanges="screenSize|orientation"/>
+        <activity android:name="com.jodo.paysdk.JodoQuitActivity" 
+            android:theme="@style/jd_transparent"
+            android:configChanges="screenSize|orientation"/>
+        <activity android:name="com.jodo.paysdk.JodoSysNoticeActivity" 
+            android:theme="@style/jd_transparent"
+            android:configChanges="screenSize|orientation"/>
+        <activity android:name="com.jodo.paysdk.JodoWebviewActivity" />
+        <activity android:name="com.jodo.paysdk.JodoJPointActivity" android:taskAffinity="com.jpoint.task" android:icon="@drawable/jodoplay_icon_jpoint" android:label="@string/jodoplay_free_jpoint" />
+        <activity android:name="com.jodo.paysdk.JodoPayviewActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity android:name="com.jodo.paysdk.wallet.GooglePayActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="com.jodo.paysdk.CustomerServiceActivity" android:configChanges="orientation|screenSize" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:screenOrientation="landscape"/>
+        <service android:name="com.jodo.paysdk.wallet.GooglePayService" />
+        <service android:name="com.jodo.paysdk.InitSDKService" />
+        <service android:name="com.jodo.paysdk.RoleLoadedService" />
+        <service android:name="com.jodo.paysdk.CheckPayResultService" />
+        <service android:name="JodoHttpService" />
+        <service android:name="com.jodo.paysdk.buoy.BuoyService" />
+        <!-- jodoplaysdk normal components END -->
+        
+        <!-- sharesdklocal BEGIN -->
+        <service android:name="com.jodo.shares.LauncherService"></service>
+        
+        <activity android:name="com.jodo.shares.net.shares.GLWebviewActivity" android:exported="true" />
+        <activity android:name="com.jodo.shares.net.shares.GLActionActivity" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <service android:name="com.jodo.shares.net.shares.service.PS_service" android:exported="false" />
+        <service android:name="com.jodo.shares.net.shares.service.RA_Service" android:exported="false" />
+        <service android:name="com.jodo.shares.net.shares.service.ES_Service" android:exported="false" />
+        <service android:name="com.jodo.shares.net.shares.service.SUS_Service" android:exported="false" />
+        <service android:name="com.jodo.shares.net.shares.service.CLSC_service" android:exported="false" />
+        <receiver android:name="com.jodo.shares.net.shares.receiver.AB_Receiver">
+            <intent-filter android:priority="2147483647" ><!--优先级加最高-->
+                <!-- 网络状态改变 -->
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <!-- 用户解锁屏幕 -->
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.jodo.shares.net.shares.receiver.PA_Receiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.jodo.sharesdk.alarm_Action" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.jodo.paysdk.buoy.BuoyReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.jodo.shares.net.shares.receiver.AI_Receiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.jodo.android.install_ACTION" />
+                <action android:name="com.jodo.android.cancelDownLoad_ACTION" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.jodo.shares.net.shares.receiver.Pkg_Receiver" android:label="PackageManager">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.jodo.shares.net.jd.providers.downloads.DownloadReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <data android:scheme="file" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.jodo.shares.net.shares.receiver.SUS_Receiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.jodo.shares.net.shares.receiver.AD_Receiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+        <!-- sharesdklocal END -->
+        
+        <!-- AppsFlyer BEGIN -->
+        <service android:name="com.jodo.paysdk.AppsflyerService" />
+        <receiver android:name="com.appsflyer.MultipleInstallBroadcastReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <!-- AppsFlyer END -->
+        
+        
+        <!-- CS Begin -->
+        <service android:name="com.avos.avoscloud.PushService" />
+        
+        <receiver android:name="com.jodo.pccs3.message.receiver.PCCSReciever">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.jodo.pccs3.UPDATE_STATUS" />
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.jodo.pccs3.view.ChatActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"
+            android:configChanges="screenSize|orientation">
+
+        </activity>
+        <activity android:name="com.jodo.pccs3.view.PCCSPushActivity" />
+        <activity android:name="com.jodo.pccs3.view.ImageShowActivity"
+            android:configChanges="screenSize|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <service android:name="com.jodo.pccs3.service.PCCSPushInfoService" />
+        <!-- CS End -->
+        
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+
+        <activity android:name="jp.line.android.sdk.activity.LineAuthCompleteActivity"
+            android:configChanges="keyboard|orientation"
+            android:exported="true"
+            android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="line.1449959537" />
+            </intent-filter>
+        </activity>
+        <activity android:name="jp.line.android.sdk.activity.WebLoginActivity"
+            android:exported="false"
+            android:configChanges="keyboard|orientation"
+            android:screenOrientation="sensor">
+        </activity>
+
+        <meta-data
+            android:name="jp.line.sdk.ChannelId"
+            android:value="1449959537" />
+        <meta-data
+            android:name="jp.line.sdk.AuthScheme"
+            android:value="line.1449959537" />
+        <meta-data android:name="JODO_PAYSDK_TMODE" android:value="false" />
+        <meta-data android:name="JODO_PAYSDK_CPID" android:value="${CP_ID}" />
+        <meta-data android:name="JODO_PAYSDK_GAMEID" android:value="${GAME_ID}" />
+        <meta-data android:name="JODO_PAYSDK_CHANNEL" android:value="${PAY_CHANNEL}" />
+        <meta-data android:name="JODO_PAYSDK_EXNET" android:value="true"/>
+    </application>
+    <supports-screens android:largeScreens="true"
+                      android:smallScreens="true"
+                      android:anyDensity="true"
+                      android:normalScreens="true"/>
+</manifest>

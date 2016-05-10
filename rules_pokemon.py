@@ -1114,3 +1114,28 @@ class Rule49you(RuleBase):
         return super(Rule49you, cls).rules() + [
             ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
         ]
+
+
+@register
+class RuleJodo(RuleBase):
+    LABEL = 'jodo'
+    DIRECTORY = 'jodo'
+    APPNAME = '宠物精灵OL'
+    CH_NAME = 'jodo小包'
+    SDKTYPE = '2'
+    PACKAGE_NAME = 'com.cuteb.fairy.xh'
+    YY_PACKAGE_NAME = 'com.winnergame.pokemon.jodoA'
+    CHANNEL_ID = 'jodoAndroid'
+    CHANNEL = 'jodoAndroid'
+    # ICON_PATH = '../../../pokemon_icons/android/49you'
+
+    CP_ID     = 'szweilan'
+    GAME_ID   = 'mengchongxunlianshi'
+    PAY_CHANNEL = 'jd001'
+    FB_APP_ID = '975164579265554'
+
+    @classmethod
+    def rules(cls):
+        return super(RuleJodo, cls).rules() + [
+            ('src/org/weilan/GameProxyImpl.java', 'replace', cls.common_replaces()),
+        ]
