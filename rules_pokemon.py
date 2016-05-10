@@ -1127,7 +1127,7 @@ class RuleJodo(RuleBase):
     YY_PACKAGE_NAME = 'com.winnergame.pokemon.jodoA'
     CHANNEL_ID = 'jodoAndroid'
     CHANNEL = 'jodoAndroid'
-    # ICON_PATH = '../../../pokemon_icons/android/49you'
+    ICON_PATH = '../../../pokemon_icons/android/zhuodong'
 
     CP_ID     = 'szweilan'
     GAME_ID   = 'mengchongxunlianshi'
