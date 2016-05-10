@@ -280,16 +280,20 @@ public class GameProxyImpl extends GameProxy {
 
     public void onResume( Activity activity ) {
         super.onResume( activity );
+    }
 
+    public void onPause( Activity activity ) {
+        super.onPause( activity );
+    }
+
+    public void showFloatWindow(Activity activity) {
         // 在界面恢复的时候又显示浮标，和onPause配合使用
         if( RetCode.SUCCESS == nInitRetCode ) {
             BuoyOpenSDK.getIntance().showSmallWindow( activity );
         }
     }
 
-    public void onPause( Activity activity ) {
-        super.onPause( activity );
-
+    public void hideFloatWindow(Activity activity) {
         // 在界面暂停的时候，隐藏浮标，和onResume配合使用
         if( RetCode.SUCCESS == nInitRetCode ) {
             BuoyOpenSDK.getIntance().hideSmallWindow( activity );
