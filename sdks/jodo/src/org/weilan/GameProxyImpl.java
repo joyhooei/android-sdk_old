@@ -95,7 +95,7 @@ public class GameProxyImpl extends GameProxy{
             role_name = roleInfo.getString("name");
             role_level = roleInfo.getString("level");
             server_name = roleInfo.getString("serverName");
-            ext = server_id + "_" + roleInfo.getString("id") + "_" + orderID;
+            ext = server_id + "_" + roleInfo.getString("id");
         } catch (JSONException e) {
             Log.e("sdk", "roleInfo parse failed, ignore");
         }
