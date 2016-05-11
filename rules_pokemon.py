@@ -1120,7 +1120,7 @@ class Rule49you(RuleBase):
 class RuleJodo(RuleBase):
     LABEL = 'jodo'
     DIRECTORY = 'jodo'
-    APPNAME = '宠物精灵OL'
+    APPNAME = '萌寵訓練師'
     CH_NAME = 'jodo小包'
     SDKTYPE = '2'
     PACKAGE_NAME = 'com.cuteb.fairy.xh'
