@@ -115,11 +115,13 @@ public class GameProxyImpl extends GameProxy{
         jodoPayInfo.setExt(ext);
         // 游戏厂商的订单号，要求必须由开发者的业务服务器生成，因订单支付成功后游戏平台服务器会直接将支付结果通知给开发者的业务服务器，通知参数的cporderid是重要信息。
         jodoPayInfo.setCporderid(orderID); // *该函数由CP实现
+        jodoPayInfo.setPriceFixed(true);
+        jodoPayInfo.setProductName(name);
 
         /*
          * 填好参数，跳转到支付页面
          */
-        JodoPlaySDKManager.showPayView(activity, jodoPayInfo, new OrderCallbackListener() {
+        JodoPlaySDKManager.showPayView(activity, jodoPayInfo, ID, new OrderCallbackListener() {
             @Override
             public void onOrderCallback(String cpOrderId, int statusCode, String msg) {
                 switch (statusCode) {
